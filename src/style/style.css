@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.head {
+  background-color: #001128;
+}
+.head .img-logo {
+  width: 40px;
+}
+.head .moon {
+  border: none;
+  background-color: #001128;
+  color: white;
+  font-size: 17px;
+}
+.head .dropdown-toggle {
+  border: none;
+  background-color: #001128;
+  color: white;
+}
+.head .custom-dropdown-menu {
+  min-width: 70px !important;
+}
+.head .user {
+  color: white;
+  background-color: #505c6b;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 15px;
+}
+.head .img-lang {
+  width: 20px;
+  height: 25px;
+}
+
+.navbar {
+  font-family: "Barlow", serif;
+  background-color: #000d1f;
+}
+.navbar .page {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.4s ease;
+}
+.navbar .page:hover {
+  color: #ff4701;
+}
+.navbar .icon {
+  border: none;
+  background-color: #000d1f;
+  color: white;
+}
+.navbar .badge {
+  background-color: #ff4701;
+  font-size: 10px;
+}
+.navbar .custom-search {
+  border-radius: 15px !important;
+  border: none !important;
+  background-color: #7D7D7D;
+}
+.navbar input::-moz-placeholder {
+  padding: 10px;
+}
+.navbar input::placeholder {
+  padding: 10px;
+}/*# sourceMappingURL=style.css.map */
