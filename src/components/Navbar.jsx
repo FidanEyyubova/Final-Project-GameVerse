@@ -84,7 +84,7 @@ const Navbar = () => {
                     />
                   </div>
                   <div className="modal-body">
-                    <form action="" className="text-center">
+                    <form action="" className="text-center py-3">
                     <input type="text" className="search w-100  form-control rounded-3 border-1 shadow-sm"
                     placeholder="Search" />
 
