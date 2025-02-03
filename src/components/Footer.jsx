@@ -65,7 +65,7 @@ const Footer = () => {
             <div>
               <h5>Follow us</h5>
               <div className="d-flex gap-3">
-                <a href="https://www.spacex.com/" className="icon">
+                <a href="https://x.com/?lang=en" className="icon">
                   <RiTwitterXFill />
                 </a>
                 <a href="https://www.instagram.com/" className="icon">
