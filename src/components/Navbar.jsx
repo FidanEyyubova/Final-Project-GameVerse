@@ -74,18 +74,19 @@ const Navbar = () => {
                 <div className="modal-content">
                   <div className="modal-header">
                     <h1 className="modal-title fs-5" id="exampleModalLabel">
-                      Search for products
+                      <span style={{color : "white"}}>Search for products</span>
                     </h1>
                     <button
                       type="button"
                       className="btn-close"
                       data-bs-dismiss="modal"
                       aria-label="Close"
+                      id="close"
                     />
                   </div>
                   <div className="modal-body">
                     <form action="" className="text-center py-3">
-                    <input type="text" className="search w-100  form-control rounded-3 border-1 shadow-sm"
+                    <input type="text" className="search w-100  form-control  shadow-sm"
                     placeholder="Search" />
 
                     </form>
