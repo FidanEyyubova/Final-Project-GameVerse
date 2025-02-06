@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, []);
   return (
     <div className="about">
       <div className="container-fluid">
         <div className="row">
           <img src="../src/images/aboutpic.jpg" alt="" />
         </div>
-        <div className="row descript py-3">
+        <div className="row descript py-3 mx-2" data-aos="fade-right">
           <div className="col-12 py-4">
             <h2>
               Welcome to <span>GameVerse</span> your ultimate <br /> destination
@@ -27,7 +32,7 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="row middle py-4 mx-3">
+        <div className="row middle py-4 mx-3" data-aos="fade-down">
           <div className="col-lg-6 col-md-6 col-12">
             <div>
               <div className="text-center">
@@ -45,7 +50,7 @@ const About = () => {
                   community section where gamers can discuss their favorite
                   titles, share experiences, and exchange tips. Forums and
                   comment sections allow for engaging discussions and debates on
-                  trending gaming topics. 
+                  trending gaming topics.
                 </p>
               </div>
             </div>
@@ -75,9 +80,9 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="row  text-center team py-3 pb-5 ">
+        <div className="row  text-center team py-3 pb-5 " data-aos="fade-down">
           <h2 className="team text-center my-2 py-4">Our Team</h2>
-          <div className="col-lg-4 col-12 my-2"   data-aos="fade-down">
+          <div className="col-lg-4 col-12 my-2" data-aos="fade-down">
             <div>
               <img
                 src="https://img.freepik.com/premium-photo/well-dressed-young-businessman-portrait_1024356-1568.jpg"
@@ -91,7 +96,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className="col-lg-4 col-12 my-2"   data-aos="fade-down">
+          <div className="col-lg-4 col-12 my-2" data-aos="fade-down">
             <div>
               <img
                 src="https://img.freepik.com/premium-photo/woman-business-suit-gray-background_1106493-225464.jpg"
@@ -105,7 +110,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className="col-lg-4 col-12 my-2"   data-aos="fade-down">
+          <div className="col-lg-4 col-12 my-2" data-aos="fade-down">
             <div>
               <img
                 src="https://img.freepik.com/premium-photo/well-dressed-businessman-with-cross-arm-portrait_1024356-1497.jpg"

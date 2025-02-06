@@ -23,6 +23,7 @@
 }
 .head .custom-dropdown-menu {
   min-width: 70px !important;
+  z-index: 1050 !important;
 }
 .head .user {
   color: white;
@@ -49,10 +50,19 @@
 .navbar .page:hover {
   color: #ff4701;
 }
+.navbar .active {
+  color: #ff4701;
+  text-decoration: none;
+  font-weight: 500;
+}
 .navbar .icon {
   border: none;
   background-color: #000d1f;
   color: white;
+  transition: color 0.4s ease;
+}
+.navbar .icon:hover {
+  color: #ff4701;
 }
 .navbar .badge {
   background-color: #ff4701;
@@ -68,4 +78,87 @@
 }
 .navbar input::placeholder {
   padding: 10px;
+}
+.navbar #exampleModalLabel {
+  color: white !important;
+}
+.navbar .search {
+  background-color: rgba(125, 125, 125, 0.6352941176) !important;
+}
+
+.footer {
+  font-family: "Barlow", serif;
+  background-color: #001128;
+}
+.footer img {
+  width: 80px;
+}
+.footer p {
+  color: white;
+}
+.footer .game {
+  font-size: 17px;
+}
+.footer .game span {
+  font-weight: bold;
+}
+.footer h5 {
+  color: white;
+}
+.footer .menu {
+  color: white;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+.footer .menu:hover {
+  color: #ff4701;
+}
+.footer .active {
+  color: #ff4701;
+  text-decoration: none;
+}
+.footer .icon {
+  font-size: 19px;
+  color: white;
+  padding: 8px;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
+.footer .icon:hover {
+  color: #ff4701;
+}
+
+.about {
+  background-color: #000d1f;
+}
+.about .container-fluid .descript {
+  color: white;
+}
+.about .container-fluid .descript span {
+  color: #ff4701;
+}
+.about .container-fluid .middle img {
+  width: 82%;
+  border-radius: 10px;
+}
+.about .container-fluid .middle p {
+  color: rgba(255, 255, 255, 0.603);
+}
+.about .container-fluid .team {
+  color: white;
+}
+.about .container-fluid .team p {
+  color: rgba(255, 255, 255, 0.603);
+}
+.about .container-fluid .team img {
+  width: 340px;
+  border-radius: 10px;
+}
+
+.modal-content {
+  background-color: #000d1f !important;
+}
+
+#close {
+  background-color: white !important;
 }/*# sourceMappingURL=style.css.map */
