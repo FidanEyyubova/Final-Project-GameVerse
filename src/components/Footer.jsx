@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -30,7 +30,10 @@ const Footer = () => {
                   <Link className="menu">Games</Link>
                 </li>
                 <li className="nav-item mb-1 my-3">
-                  <Link className="menu">About</Link>
+                  <NavLink className={({isActive}) => 
+                  isActive ? "active" : "menu"} to={"/about"}>
+                    About
+                  </NavLink>
                 </li>
               </ul>
             </div>

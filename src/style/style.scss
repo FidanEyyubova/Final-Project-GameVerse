@@ -47,6 +47,12 @@
   }
   .page:hover {
     color: #ff4701;
+    
+  }
+  .active{
+    color: #ff4701;
+    text-decoration: none;
+    font-weight: 500;
   }
   .icon {
     border: none;
@@ -105,6 +111,10 @@
   .menu:hover{
     color: #ff4701;
   }
+  .active{
+    color: #ff4701;
+    text-decoration: none;
+  }
   .icon{
     font-size: 19px;
     color: white;
@@ -114,6 +124,7 @@
   }
   .icon:hover{
     color: #ff4701;
+    
   }
   
 }

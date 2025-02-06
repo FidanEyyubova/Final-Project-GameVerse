@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [openModal, setOpenModal] = useState();
@@ -16,7 +16,7 @@ const Navbar = () => {
       className="navbar navbar-expand-lg navbar-dark py-4"
       aria-label="Fifth navbar example"
     >
-      <div className="container-fluid">
+      <div className="container-fluid py-3">
         <button
           className="navbar-toggler"
           type="button"
@@ -32,13 +32,19 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-4 mx-3 px-3">
             <Link className="page mx-2">Discover</Link>
             <Link className="page mx-2">Games</Link>
-            <Link className="page mx-2">About</Link>
+            <NavLink
+              to={"/about"}
+              className={({ isActive }) => (isActive ? "active" : "page")}
+            >
+              About
+            </NavLink>
             <Link className="page mx-2">Blog</Link>
             <Link className="page mx-2">Contact us</Link>
           </ul>
           <div className="icons d-flex gap-4 mx-4">
             <div className="icon">
-              <Link className="icon"
+              <Link
+                className="icon"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
@@ -74,7 +80,9 @@ const Navbar = () => {
                 <div className="modal-content">
                   <div className="modal-header">
                     <h1 className="modal-title fs-5" id="exampleModalLabel">
-                      <span style={{color : "white"}}>Search for products</span>
+                      <span style={{ color: "white" }}>
+                        Search for products
+                      </span>
                     </h1>
                     <button
                       type="button"
@@ -86,12 +94,13 @@ const Navbar = () => {
                   </div>
                   <div className="modal-body">
                     <form action="" className="text-center py-3">
-                    <input type="text" className="search w-100  form-control  shadow-sm"
-                    placeholder="Search" />
-
+                      <input
+                        type="text"
+                        className="search w-100  form-control  shadow-sm"
+                        placeholder="Search"
+                      />
                     </form>
                   </div>
-                  
                 </div>
               </div>
             </div>
