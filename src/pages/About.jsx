@@ -7,7 +7,7 @@ const About = () => {
         <div className="row">
           <img src="../src/images/aboutpic.jpg" alt="" />
         </div>
-        <div className="row descript">
+        <div className="row descript py-3">
           <div className="col-12 py-4">
             <h2>
               Welcome to <span>GameVerse</span> your ultimate <br /> destination
@@ -72,6 +72,51 @@ const About = () => {
                   className="mx-4"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="row  text-center team py-3 pb-5 ">
+          <h2 className="team text-center my-2 py-4">Our Team</h2>
+          <div className="col-lg-4 col-12 my-2"   data-aos="fade-down">
+            <div>
+              <img
+                src="https://img.freepik.com/premium-photo/well-dressed-young-businessman-portrait_1024356-1568.jpg"
+                alt=""
+              />
+            </div>
+            <div className="my-3">
+              <h4>James Holloway</h4>
+              <p>
+                <i>CEO</i>
+              </p>
+            </div>
+          </div>
+          <div className="col-lg-4 col-12 my-2"   data-aos="fade-down">
+            <div>
+              <img
+                src="https://img.freepik.com/premium-photo/woman-business-suit-gray-background_1106493-225464.jpg"
+                alt=""
+              />
+            </div>
+            <div className="my-3">
+              <h4>Isabella Thornton</h4>
+              <p>
+                <i>Marketing</i>
+              </p>
+            </div>
+          </div>
+          <div className="col-lg-4 col-12 my-2"   data-aos="fade-down">
+            <div>
+              <img
+                src="https://img.freepik.com/premium-photo/well-dressed-businessman-with-cross-arm-portrait_1024356-1497.jpg"
+                alt=""
+              />
+            </div>
+            <div className="my-3">
+              <h4>Lucas Montgomery</h4>
+              <p>
+                <i>Customer Support</i>
+              </p>
             </div>
           </div>
         </div>
