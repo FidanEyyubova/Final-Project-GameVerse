@@ -3,6 +3,7 @@ import { MyContext } from "../context/MyProvider";
 import axios from "axios";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Productslider from "../components/Productslider";
+import { Link } from "react-router-dom";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/products";
 const apikey =
@@ -26,7 +27,7 @@ const Discover = () => {
   return (
     <div className="discover">
       <div className="container-fluid p-0">
-        <div className="row first  g-0">
+        <div className="row first g-0">
           {game.length > 0 ? (
             <div
               id="carouselExampleAutoplaying"
@@ -91,16 +92,45 @@ const Discover = () => {
             <p>Loading...</p>
           )}
         </div>
-        <div className="row g-0 popular">
+        <div className="row second g-0 popular">
           <div className="col-12">
-              <h2 className="py-4 mx-5">Popularity <MdKeyboardArrowRight /></h2>
-              <div className="mx-4 py-2">
-                <Productslider/>
+            <h2 className="py-4 mx-5">
+              Popularity <MdKeyboardArrowRight />
+            </h2>
+            <div className="mx-4 py-2">
+              <Productslider />
+            </div>
+          </div>
+        </div>
+        <div className="row g-0 third">
+          <div className="col-12">
+            <div className="d-flex justify-content-between align-items-center mx-5">
+              <h2 className="py-4">Now On The Gameverse Store</h2>
+            <Link className="view p-2">View More</Link>
+            </div>
+          </div>
+          <div className="row px-3 g-0">
+            {game.slice(12, 16).map((el, index) => (
+              <div key={index} className="col-lg-3 col-md-6 col-12 mb-4">
+                <div className="d-flex justify-content-center align-items-center">
+                  <img src={el.image} alt={el.title} className="img-fluid" />
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+        <div className="row fourth g-0">
+        <div className="col-12">
+            <h2 className="py-4 mx-5">
+            Featured Discounts <MdKeyboardArrowRight />
+            </h2>
+            <div className="mx-4 py-2">
+              <Productslider />
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
