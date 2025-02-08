@@ -48,9 +48,8 @@
   }
   .page:hover {
     color: #ff4701;
-    
   }
-  .active{
+  .active {
     color: #ff4701;
     text-decoration: none;
     font-weight: 500;
@@ -62,7 +61,6 @@
     transition: color 0.4s ease;
   }
   .icon:hover {
-  
     color: #ff4701;
   }
   .badge {
@@ -70,111 +68,137 @@
     font-size: 10px;
   }
 
-  .custom-search{
-    border-radius: 15px!important;
-    border: none!important;
-    background-color: #7D7D7D;
+  .custom-search {
+    border-radius: 15px !important;
+    border: none !important;
+    background-color: #7d7d7d;
   }
-  input::placeholder{
+  input::placeholder {
     padding: 10px;
   }
-  #exampleModalLabel{
-    color: white!important;
+  #exampleModalLabel {
+    color: white !important;
   }
-  .search{
-    background-color: #7d7d7da2!important;
+  .search {
+    background-color: #7d7d7da2 !important;
   }
 }
 // FOOTER.JSX
-.footer{
+.footer {
   font-family: "Barlow", serif;
-  background-color: #001128;
-  img{
+  background-color: #000d1f;
+  img {
     width: 80px;
   }
-  p{
+  p {
     color: white;
   }
-  .game{
+  .game {
     font-size: 17px;
-    span{
+    span {
       font-weight: bold;
     }
   }
-  h5{
+  h5 {
     color: white;
   }
-  .menu{
+  .menu {
     color: white;
     text-decoration: none;
     transition: color 0.4s ease;
   }
-  .menu:hover{
+  .menu:hover {
     color: #ff4701;
   }
-  .active{
+  .active {
     color: #ff4701;
     text-decoration: none;
   }
-  .icon{
+  .icon {
     font-size: 19px;
     color: white;
     padding: 8px;
     transition: color 0.4s ease;
     cursor: pointer;
   }
-  .icon:hover{
+  .icon:hover {
     color: #ff4701;
-    
   }
-  
 }
 //ABOUT.JSX
-.about{
-  background-color: #000d1f;
-  .container-fluid{
-    .descript{
+.about {
+  background-color: #001128;
+  .container-fluid {
+    .descript {
       color: white;
-      span{
+      span {
         color: #ff4701;
       }
     }
-    .middle{
-        img{
-          width: 82%;
-          border-radius: 10px;
-        }
-        p{
-          color: rgba(255, 255, 255, 0.603);
-        }
+    .middle {
+      img {
+        width: 82%;
+        border-radius: 10px;
       }
-      .team{
-        color: white;
-        p{
-          color: rgba(255, 255, 255, 0.603);
-        }
-        img{
-          width: 340px;
-          border-radius: 10px;
-        }
+      p {
+        color: rgba(255, 255, 255, 0.603);
+      }
+    }
+    .team {
+      color: white;
+      p {
+        color: rgba(255, 255, 255, 0.603);
+      }
+      img {
+        width: 340px;
+        border-radius: 10px;
       }
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-.modal-content{
-  background-color: #000d1f!important;
 }
-#close{
-  background-color: white!important;
+//DISCOVER.JSX
+.discover {
+  background-color: #001128;
+  .first {
+    .carousel-item {
+      position: relative;
+    }
+    .carousel-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.428);
+      border-radius: 7px;
+    }
+    p{
+      font-size: 20px;
+    }
+  }
+  .wish{
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 300px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 400;
+  }
+  .add{
+    border: none;
+    background-color:#ff4701;
+    width: 150px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 400;
+  }
+}
+
+.modal-content {
+  background-color: #000d1f !important;
+}
+#close {
+  background-color: white !important;
 }
