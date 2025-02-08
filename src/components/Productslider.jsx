@@ -51,7 +51,7 @@ const Productslider = () => {
   return (
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
-        game.slice(0, 11).map((el) => (
+        game.slice(0,12).map((el) => (
           <div className="popularity">
             <div
               key={el.id}
