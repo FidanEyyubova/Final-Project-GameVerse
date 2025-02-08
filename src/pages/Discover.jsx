@@ -31,7 +31,7 @@ const Discover = () => {
               className="carousel slide w-100"
               data-bs-ride="carousel"
             >
-              <div className="carousel-inner ">
+              <div className="carousel-inner">
                 {game.slice(24, 27).map((el, index) => (
                   <div
                     key={el.id}
