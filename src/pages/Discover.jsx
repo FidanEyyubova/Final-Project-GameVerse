@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { MyContext } from "../context/MyProvider";
 import axios from "axios";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import Productslider from "../components/Productslider";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/products";
 const apikey =
@@ -89,8 +91,16 @@ const Discover = () => {
             <p>Loading...</p>
           )}
         </div>
+        <div className="row g-0 popular">
+          <div className="col-12">
+              <h2 className="py-4 mx-5">Popularity <MdKeyboardArrowRight /></h2>
+              <div className="mx-4 py-2">
+                <Productslider/>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   );
 };
 
