@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="footer d-flex justify-content-center align-items-center">
       <div className="container-fluid">
         <div className="row mx-3 border-bottom py-3">
-          <img src="../src/images/logo.png" alt="" />
+          <img src="../src/images/logo2.png" alt="" />
         </div>
         <div className="row mx-3 border-bottom py-3">
           <div className="col-lg-3 col-md-12 col-12">
@@ -24,7 +24,9 @@ const Footer = () => {
             <div>
               <ul className="nav flex-column">
                 <li className="nav-item mb-1 my-3">
-                  <Link className="menu">Discover</Link>
+                  <NavLink to={"/"} className={({isActive}) => (
+                    isActive ? "active" : "menu"
+                  )}>Discover</NavLink>
                 </li>
                 <li className="nav-item mb-1 my-3">
                   <Link className="menu">Games</Link>

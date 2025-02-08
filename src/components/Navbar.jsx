@@ -18,20 +18,24 @@ const Navbar = () => {
         aria-label="Fifth navbar example"
       >
         <div className="container-fluid py-3">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarsExample05"
-            aria-controls="navbarsExample05"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
+        <button
+  className="navbar-toggler ms-auto"
+  type="button"
+  data-bs-toggle="collapse"
+  data-bs-target="#navbarsExample05"
+  aria-controls="navbarsExample05"
+  aria-expanded="false"
+  aria-label="Toggle navigation"
+>
+  <span className="navbar-toggler-icon" />
+</button>
           <div className="collapse navbar-collapse" id="navbarsExample05">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-4 mx-3 px-3">
-              <Link className="page mx-2">Discover</Link>
+              <NavLink to={"/"} className={({isActive})=>(
+                isActive ? "active" : "page"
+              )}>
+                Discover
+              </NavLink>
               <Link className="page mx-2">Games</Link>
               <NavLink
                 to={"/about"}
