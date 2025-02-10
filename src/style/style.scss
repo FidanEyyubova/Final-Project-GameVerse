@@ -158,12 +158,12 @@
 }
 //DISCOVER.JSX
 .discover {
-  .fourth{
+  .fourth {
     color: white;
   }
-  .third{
+  .third {
     color: white;
-    .view{
+    .view {
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(5px);
@@ -175,7 +175,7 @@
       border-radius: 20px;
     }
   }
-  img{
+  img {
     width: 270px;
     height: 330px;
     border-radius: 10px;
@@ -195,21 +195,21 @@
       border-radius: 7px;
     }
     .carousel-inner {
-      height: 650px; 
+      height: 650px;
     }
-   
+
     .carousel-item img {
-      height: 100%; 
+      height: 100%;
     }
-    
+
     .carousel-caption {
       height: 100%;
     }
-    
-    p{
+
+    p {
       font-size: 20px;
     }
-    .wish{
+    .wish {
       border: none;
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -219,50 +219,85 @@
       color: white;
       font-weight: 400;
     }
-    .add{
+    .add {
       border: none;
-      background-color:#ff4701;
+      background-color: #ff4701;
       width: 150px;
       border-radius: 15px;
       color: white;
       font-weight: 400;
     }
   }
-  .popular{
+  .popular {
     color: white;
   }
+  .five {
+    .accordion-item{
+      background-color: #09172b;
+      border: none;
+      border-radius: 10px;
+    }
+    .accordion-button{
+      background: transparent;
+      outline: none;
+      color: white;
+    }
+    .accordion-body{
+      color: white;
+    }
+    .accordion-button:focus{
+      box-shadow: none;
+    }
+    .accordion-button:not(.collapsed){
+      color: white;
+      border-bottom: 1px solid white;
+    }
+    .accordion-button::after{
+      background-image: none;
+      content: "\f107";
+      font-family: fontawesome;
+      width: auto;
+      height: auto;
+      background-color: #ff4701;
+      padding: 8px 10px;
+      border-radius: 50%;
+      
+    }
+    .faq{
+      
+    }
+  }
 }
-.popularity{
-.price{
-  font-weight: bold;
-}
-  .add{
+.popularity {
+  .price {
+    font-weight: bold;
+  }
+  .add {
     border: none;
-    background-color:#ff4701;
+    background-color: #ff4701;
     width: 90px;
     border-radius: 15px;
     color: white;
     font-weight: 500;
   }
-  .product-slide{
+  .product-slide {
     position: relative;
-    
   }
-  .body{
+  .body {
     position: absolute;
     top: 210px;
     color: white;
   }
- 
-  .product-slide::before{
+
+  .product-slide::before {
     content: "";
     position: absolute;
     top: 190px;
     width: 270px;
     height: 140px;
     background-color: rgba(0, 0, 0, 0.503);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 0px 0px 10px 10px;
   }
 }
@@ -274,29 +309,26 @@
   background-color: white !important;
 }
 
-
 @media (min-width: 0px) and (max-width: 576px) {
-  .carousel-control-prev{
+  .carousel-control-prev {
     height: 300px;
   }
-  .carousel-control-next{
+  .carousel-control-next {
     height: 300px;
   }
 }
 @media (min-width: 576px) and (max-width: 768px) {
-  .carousel-control-prev{
+  .carousel-control-prev {
     height: 370px;
   }
-  .carousel-control-next{
+  .carousel-control-next {
     height: 370px;
   }
 }
 
-
-
 .slick-prev {
   font-size: 24px;
-  background:#000d1f;
+  background: #000d1f;
   border-radius: 50%;
   width: 40px;
   height: 40px;
