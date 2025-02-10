@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 //HEADER.JSX
 .head {
@@ -232,6 +233,9 @@
     color: white;
   }
   .five {
+    h2{
+      color: white;
+    }
     .accordion-item{
       background-color: #09172b;
       border: none;

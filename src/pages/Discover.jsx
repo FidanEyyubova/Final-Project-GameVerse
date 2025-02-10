@@ -129,13 +129,13 @@ const Discover = () => {
             </div>
           </div>
         </div>
-        <div className="row five g-0">
-          <div className="col-12">
+        <div className="row five g-0 py-3" id="faq" >
+          <div className="col-12" >
             <div className="d-flex flex-column justify-content-center align-items-center">
               <div>
-                <NavLink className="faq" to={"/faq"}>Frequently Asked Questions</NavLink>
+                <h2 className="py-3">Frequently Asked Questions</h2>
               </div>
-              <div className="w-50 py-5">
+              <div className="w-50 py-3">
                 <div className="accordion" id="accordionExample">
                   <div className="accordion-item mb-4">
                     <h2 className="accordion-header">
@@ -254,7 +254,7 @@ const Discover = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="accordion-item">
+                  <div className="accordion-item mb-4">
                     <h2 className="accordion-header">
                       <button
                         className="accordion-button collapsed"
