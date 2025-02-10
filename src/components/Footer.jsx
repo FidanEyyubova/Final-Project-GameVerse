@@ -2,6 +2,7 @@ import React from "react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -50,7 +51,7 @@ const Footer = () => {
                   <Link className="menu">Contact</Link>
                 </li>
                 <li className="nav-item mb-1 my-3">
-                  <Link className="menu">FAQ</Link>
+                <HashLink className="menu" smooth to="/#faq">FAQ</HashLink>
                 </li>
               </ul>
             </div>
