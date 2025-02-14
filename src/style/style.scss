@@ -159,6 +159,16 @@
 }
 //DISCOVER.JSX
 .discover {
+  .name{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+  }
+  .title{
+    text-decoration: none;
+    font-size: 40px;
+    color: white;
+  }
   .fourth {
     color: white;
   }
@@ -350,4 +360,25 @@
   position: absolute;
   top: -57px;
   right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.gamedetail{
+  background-color: red;
 }

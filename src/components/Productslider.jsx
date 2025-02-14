@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
 import { MyContext } from "../context/MyProvider";
+import { Link } from "react-router-dom";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/products";
 const apikey = "YOUR_API_KEY_HERE";
@@ -62,7 +63,7 @@ const Productslider = () => {
             <div className="body px-4 mx-3">
 
             <div>
-              <h5>{el.title}</h5>
+            <Link to={`/${el.id}`} className="name">{el.title}</Link>
             </div>
             <div className="d-flex end py-4">
               <p className="my-2 mx-3 price">${el.price}</p>
