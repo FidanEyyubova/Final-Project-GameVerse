@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Discover from "./pages/Discover";
+import GameDetails from "./pages/GameDetails";
 
 function App() {
   return <>
@@ -12,6 +13,7 @@ function App() {
   <Routes>
     <Route path="/" element = {<Discover />} />
     <Route path="/about" element ={<About />} />
+    <Route path="/:id" element = {<GameDetails />} />
   </Routes>
   <Footer />
   </>;

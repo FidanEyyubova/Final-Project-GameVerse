@@ -4,6 +4,7 @@ import axios from "axios";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Productslider from "../components/Productslider";
 import { Link, NavLink } from "react-router-dom";
+import Discountslider from "../components/Discountslider";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/products";
 const apikey =
@@ -125,7 +126,7 @@ const Discover = () => {
               Featured Discounts <MdKeyboardArrowRight />
             </h2>
             <div className="mx-4 py-2">
-              <Productslider />
+              <Discountslider />
             </div>
           </div>
         </div>
