@@ -36,7 +36,7 @@ const Discover = () => {
               data-bs-ride="carousel"
             >
               <div className="carousel-inner">
-                {game.slice(24, 27).map((el, index) => (
+                {game.slice(24,27).map((el, index) => (
                   <div
                     key={el.id}
                     className={`carousel-item ${index === 0 ? "active" : ""}`}

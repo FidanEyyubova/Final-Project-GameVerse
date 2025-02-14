@@ -330,6 +330,12 @@
   .carousel-control-next {
     height: 300px;
   }
+  .gamedetail{
+    img{
+      width: 100%!important;
+      height: auto!important;
+    }
+  }
 }
 @media (min-width: 576px) and (max-width: 768px) {
   .carousel-control-prev {
@@ -337,6 +343,27 @@
   }
   .carousel-control-next {
     height: 370px;
+  }
+  .gamedetail{
+    img{
+      width: 100%!important;
+      height: auto!important;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  
+  .gamedetail{
+    img{
+      width: 100%!important;
+      height: auto!important;
+    }
+    .add{
+      width: 700px!important;
+    }
+    .wish{
+      width: 700px!important;
+    }
   }
 }
 
@@ -380,5 +407,62 @@
 
 
 .gamedetail{
-  background-color: red;
+ 
+  .price{
+    font-size: 23px;
+  }
+  background-color: #09172b;
+  color: white;
+  img {
+    width: 115%; /* Ensures responsiveness */
+    height: 450px; /* Maintains aspect ratio */
+    border-radius: 10px;
+}
+  .star{
+    color: yellow;
+    font-size: 20px;
+  }
+  .rate{
+    position: relative;
+    top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      height: 32px;
+      width: 70px;
+  }
+  .add{
+    border: none;
+    background-color: #ff4701;
+    width: 365px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 400;
+    height: 40px;
+  }
+  .wish{
+    border: none;
+      background-color: rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      width: 365px;
+      border-radius: 15px;
+      color: white;
+      font-weight: 400;
+      height: 40px;
+  }
+  .prop{
+    background-color: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 160px;
+    border-radius: 20px;
+  }
+  .dev{
+    border-bottom: 1px solid rgba(113, 110, 110, 0.466);
+  }
+  .b{
+    border-bottom: 1px solid rgba(139, 137, 137, 0.397);
+  }
 }
