@@ -18,9 +18,9 @@ const GameDetails = () => {
   const gameDetail = game?.find((item) => item.id == id);
 
   return (
-    <div className="gamedetail">
+    <div className="gamedetail py-5">
       <div className="container-fluid">
-      <div className="row g-0 d-flex justify-content-center align-items-center py-5">
+      <div className="row g-0 d-flex justify-content-center align-items-center">
   <div className="col-lg-6 col-md-12 col-12 d-flex justify-content-center align-items-center">
     <div className="">
       <div className="d-flex">
@@ -34,7 +34,7 @@ const GameDetails = () => {
       <img src={gameDetail?.detail} alt="" className="mt-3" />
     </div>
   </div>
-  <div className="col-lg-6 col-md-12 col-12 d-flex justify-content-center align-items-center py-5">
+  <div className="col-lg-6 col-md-12 col-12 d-flex justify-content-center align-items-center pt-4">
     <div className="">
       <div>
         <p className="price"><b>${gameDetail?.price}</b></p>
@@ -82,6 +82,10 @@ const GameDetails = () => {
         <div className="row mt-5">
             <div className="col-12">
                 <div>
+                  <h2>{gameDetail?.des[0]}</h2>
+                  <p className="des">{gameDetail?.des[1]}</p>
+                  <h2 className="mt-5">{gameDetail?.des[2]}</h2>
+                  <p className="des">{gameDetail?.des[3]}</p>
                 </div>
             </div>
         </div>
