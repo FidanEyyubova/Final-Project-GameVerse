@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Discover from "./pages/Discover";
 import GameDetails from "./pages/GameDetails";
+import Game from "./pages/Game";
 
 function App() {
   return <>
@@ -13,6 +14,7 @@ function App() {
   <Routes>
     <Route path="/" element = {<Discover />} />
     <Route path="/about" element ={<About />} />
+    <Route path="/game" element = {<Game />} />
     <Route path="/:id" element = {<GameDetails />} />
   </Routes>
   <Footer />

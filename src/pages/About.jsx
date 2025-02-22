@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 const About = () => {
   useEffect(() => {
     Aos.init({ duration: 1500, once : true});
+    window.scrollTo(0, 0);
   }, []);
   return (
     <div className="about">
