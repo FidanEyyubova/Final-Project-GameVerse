@@ -15,13 +15,17 @@ const GameDetails = () => {
   const { id } = useParams();
   const { game} = useContext(MyContext);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const gameDetail = game?.find((item) => item.id == id);
 
   return (
     <div className="gamedetail py-5">
       <div className="container-fluid">
       <div className="row g-0 d-flex justify-content-center align-items-center">
-  <div className="col-lg-6 col-md-12 col-12 d-flex justify-content-center align-items-center">
+  <div className="col-lg-8 col-md-12 col-12 d-flex justify-content-center align-items-center">
     <div className="">
       <div className="d-flex">
       <h1 className="mx-2">{gameDetail?.title}</h1>
@@ -34,7 +38,7 @@ const GameDetails = () => {
       <img src={gameDetail?.detail} alt="" className="mt-3" />
     </div>
   </div>
-  <div className="col-lg-6 col-md-12 col-12 d-flex justify-content-center align-items-center pt-4">
+  <div className="col-lg-4 col-md-12 col-12 d-flex justify-content-center align-items-center pt-4">
     <div className="">
       <div>
         <p className="price"><b>${gameDetail?.price}</b></p>
