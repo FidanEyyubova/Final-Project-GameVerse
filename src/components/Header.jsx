@@ -1,6 +1,6 @@
 import React from "react";
 import { FaRegUser } from "react-icons/fa";
-import { FiMoon } from "react-icons/fi";
+import { FiMoon, FiUser } from "react-icons/fi";
 import { MdLanguage } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -53,8 +53,8 @@ const Header = () => {
               </ul>
             </div>
             <div>
-              <Link  className="user">
-                <FaRegUser />
+              <Link  className="user" to={"/signin"}>
+                <FiUser/>
               </Link>
             </div>
           </div>
