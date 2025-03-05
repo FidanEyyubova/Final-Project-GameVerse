@@ -53,38 +53,34 @@ const Game = () => {
     setSortedGames(sorted);
   };
 
-  const features = [ ...new Set(game.flatMap((el) => el.features))];
+  const features = [...new Set(game.flatMap((el) => el.features))];
 
-  const genres = [ ...new Set(game.flatMap((el) => el.genres))];
+  const genres = [...new Set(game.flatMap((el) => el.genres))];
 
-  const modes = [ ...new Set(game.flatMap((el) => el.mode))];
+  const modes = [...new Set(game.flatMap((el) => el.mode))];
 
   const filteredGames = sortedGames.filter(
     (el) =>
-      (filteredFeature.length === 0 || el.features.some((f) => filteredFeature.includes(f))) &&
-      (filteredGenre.length === 0 || el.genres.some((g) => filteredGenre.includes(g))) &&
-      (filteredMode.length === 0 || el.mode.some((m) => filteredMode.includes(m))) &&
+      (filteredFeature.length === 0 ||
+        el.features.some((f) => filteredFeature.includes(f))) &&
+      (filteredGenre.length === 0 ||
+        el.genres.some((g) => filteredGenre.includes(g))) &&
+      (filteredMode.length === 0 ||
+        el.mode.some((m) => filteredMode.includes(m))) &&
       el.price <= price
   );
 
-  console.log(filteredGames)
+  console.log(filteredGames);
 
   return (
     <div className="games">
       <div className="container-fluid">
-        <div className="row back-img">
-          <div className="col-12 d-flex justify-content-center align-items-center">
-            <h1>
-              <i>PRODUCTS</i>
-            </h1>
-          </div>
-        </div>
-
         <div className="row middle py-4 d-flex gap-5 justify-content-center">
           <div className="col-lg-3">
-            <div className="d-flex flex-column gap-4 py-3">
+            <div className="d-flex flex-column gap-4">
+              <h2>Filters</h2>
               <div>
-                <h5>features</h5>
+                <h5>Features</h5>
                 {features.map((feature) => (
                   <div className="py-2" key={feature}>
                     <input
@@ -92,14 +88,13 @@ const Game = () => {
                       name="feature"
                       className="mx-2"
                       value={feature}
-                      checked={filteredFeature.includes(feature)} // Check if feature exists in array
+                      checked={filteredFeature.includes(feature)}
                       onChange={(e) => {
                         const selectedFeature = e.target.value;
-                        setFilteredFeature(
-                          (prev) =>
-                            prev.includes(selectedFeature)
-                              ? prev.filter((f) => f !== selectedFeature) // Remove if already selected
-                              : [...prev, selectedFeature] // Add if not selected
+                        setFilteredFeature((prev) =>
+                          prev.includes(selectedFeature)
+                            ? prev.filter((f) => f !== selectedFeature)
+                            : [...prev, selectedFeature]
                         );
                       }}
                     />
@@ -203,13 +198,13 @@ const Game = () => {
           </div>
 
           <div className="col-lg-8">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex gap-3 mx-2">
-                <GrCubes className="icon-b" />
-              </div>
+            <div className="d-flex justify-content-end align-items-center">
               <div className="d-flex gap-3">
                 <p className="mt-2 sort">Sort</p>
-                <select className="form mb-2" onChange={handleSortChange}>
+                <select
+                  className="form mb-2 sorting"
+                  onChange={handleSortChange}
+                >
                   <option value="az">A-Z</option>
                   <option value="za">Z-A</option>
                   <option value="low-high">Price: Low to High</option>

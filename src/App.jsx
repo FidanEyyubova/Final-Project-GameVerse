@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Discover from "./pages/Discover";
 import GameDetails from "./pages/GameDetails";
 import Game from "./pages/Game";
+import Contact from "./pages/Contact";
 
 function App() {
   return <>
@@ -16,6 +17,7 @@ function App() {
     <Route path="/about" element ={<About />} />
     <Route path="/game" element = {<Game />} />
     <Route path="/:id" element = {<GameDetails />} />
+    <Route path="/contact" element = {<Contact />} />
   </Routes>
   <Footer />
   </>;
