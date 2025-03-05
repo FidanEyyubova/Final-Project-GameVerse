@@ -10,7 +10,7 @@ import { MdAlternateEmail } from "react-icons/md";
 const SignIn = () => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
-    // window.scroll(0, 80);
+    window.scroll(0, 70);
   }, []);
   return (
     <div className="login-user py-5">
@@ -84,7 +84,7 @@ const SignIn = () => {
                 </button>
                 <p
                 >
-                    Do not have an account? <Link className="orange">Sign Up</Link>
+                    Do not have an account? <Link className="orange" to={"/signup"}>Sign Up</Link>
                 </p>
               </div>
             </form>

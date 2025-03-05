@@ -8,6 +8,7 @@ import GameDetails from "./pages/GameDetails";
 import Game from "./pages/Game";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return <>
@@ -20,6 +21,7 @@ function App() {
     <Route path="/:id" element = {<GameDetails />} />
     <Route path="/contact" element = {<Contact />} />
     <Route path="/signin" element = {<SignIn />} />
+    <Route path="/signup" element = {<SignUp />} />
   </Routes>
   <Footer />
   </>;
