@@ -36,7 +36,12 @@ const Navbar = () => {
               )}>
                 Discover
               </NavLink>
-              <Link className="page mx-2">Games</Link>
+              <NavLink
+                to={"/game"}
+                className={({ isActive }) => (isActive ? "active" : "page")}
+              >
+                Games
+              </NavLink>
               <NavLink
                 to={"/about"}
                 className={({ isActive }) => (isActive ? "active" : "page")}
@@ -44,7 +49,12 @@ const Navbar = () => {
                 About
               </NavLink>
               <Link className="page mx-2">Blog</Link>
-              <Link className="page mx-2">Contact us</Link>
+              <NavLink
+                to={"/contact"}
+                className={({ isActive }) => (isActive ? "active" : "page")}
+              >
+                Contact Us
+              </NavLink>
             </ul>
             <div className="icons d-flex gap-4 mx-4">
               <div className="icon">
