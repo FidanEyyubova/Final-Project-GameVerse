@@ -6,8 +6,8 @@ import axios from "axios";
 import { MyContext } from "../context/MyProvider";
 import { Link } from "react-router-dom";
 
-const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/products";
-const apikey = "YOUR_API_KEY_HERE";
+const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
+const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
 const Productslider = () => {
   const { game, setGame } = useContext(MyContext);
@@ -52,23 +52,24 @@ const Productslider = () => {
   return (
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
-        game.slice(0,12).map((el) => (
+        game.slice(3,15).map((el) => (
           <div className="popularity">
             <div
               key={el.id}
               className="product-slide d-flex justify-content-center"
             >
-              <img src={el.image} alt={el.name} />
+              <img src={el.imgProduct} alt={el.name} />
             </div>
             <div className="body px-4 mx-3">
-
-            <div>
-            <Link to={`/${el.id}`} className="name">{el.title}</Link>
-            </div>
-            <div className="d-flex end py-4">
-              <p className="my-2 mx-3 price">${el.price}</p>
-              <button className="add mx-5">Buy now</button>
-            </div>
+              <div>
+                <div>
+                  <Link className="mo" to={`/${el.id}`}>{el.name.slice(0,17)}</Link>
+                </div>
+                <div className="end d-flex gap-5 mt-4">
+                  <p className="mt-2 price">${el.price}</p>
+                  <button className="mx-5 add">Buy Now</button>
+                </div>
+              </div>
             </div>
           </div>
         ))

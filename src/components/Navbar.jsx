@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
+import { MyContext } from "../context/MyProvider";
 
 const Navbar = () => {
   const [openModal, setOpenModal] = useState();
+  const {cart, wishlist} = useContext(MyContext)
 
   const handleOpenModal = () => {
     setOpenModal(!openModal);
@@ -69,17 +71,21 @@ const Navbar = () => {
               </div>
               <div>
                 <button type="button" className="position-relative icon">
-                  <FaRegHeart />
+                  <Link to={"/wishlist"}>
+                  <FaRegHeart className="wishcart" />
+                  </Link>
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
-                    0<span className="visually-hidden">unread messages</span>
+                    {wishlist.length}
                   </span>
                 </button>
               </div>
               <div>
                 <button type="button" className="position-relative icon">
-                  <FiShoppingCart />
+                  <Link to={"/cart"}>
+                  <FiShoppingCart className="wishcart" />
+                  </Link>
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
-                    0<span className="visually-hidden">unread messages</span>
+                    {cart.length}
                   </span>
                 </button>
               </div>

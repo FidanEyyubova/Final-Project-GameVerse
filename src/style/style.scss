@@ -159,6 +159,7 @@
 }
 //DISCOVER.JSX
 .discover {
+
   .name{
     text-decoration: none;
     font-size: 20px;
@@ -185,12 +186,49 @@
       text-align: center;
       border-radius: 20px;
     }
+    img{
+      height: 300px;
+    }
   }
   img {
     width: 270px;
     height: 330px;
     border-radius: 10px;
   }
+  .miid {
+    position: relative;
+    // overflow: hidden;
+  }
+  
+  .load {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 88%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.274); /* Optional: Dark overlay effect */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  .up{
+    z-index: 10;
+  }
+  
+  .miid:hover .load {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  
+  
+
   background-color: #001128;
   .first {
     .carousel-item {
@@ -293,6 +331,13 @@
     border-radius: 15px;
     color: white;
     font-weight: 500;
+    font-size: 15px;
+    height: 40px;
+  }
+  .mo{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
   }
   .product-slide {
     position: relative;
@@ -301,6 +346,7 @@
     position: absolute;
     top: 210px;
     color: white;
+    width: 100%;
   }
 
   .product-slide::before {
@@ -855,3 +901,93 @@ textarea::placeholder{
     border-color: #f13d45 !important;
   }
 }
+.wishcart{
+  color: white;
+  transition: color 0.4s ease;
+}
+.wishcart:hover{
+  color: #ff4701;
+}
+
+.wishlist{
+  background-color: #001128;
+  color: white;
+  img{
+    width: 150px;
+    border-radius: 10px;
+  }
+  .wishlist-detail{
+    background-color: #152030b4;
+    width: 100%;
+    height: 270px;
+    border-radius: 10px;
+    button{
+      width: 140px;
+      height: 35px;
+    }
+    
+    .prop{
+      background-color: rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      width: 110px;
+      font-size: 15px;
+      border-radius: 20px;
+    }
+    .genre{
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.425);
+      font-weight: 600;
+    }
+    .remove{
+      background-color: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.531);
+    }
+    .add{
+      border: none;
+      background-color: #ff4701;
+      width: 130px;
+      border-radius: 15px;
+      color: white;
+      font-weight: 500;
+    }
+    .star-p{
+      font-size: 18px;
+      .star{
+        font-size: 17px;
+        color: yellow;
+      }
+    }
+  }
+  .clear{
+    width: 200px;
+    height: 43px;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    color: #ff4701;
+    font-weight: 600;
+  }
+  .empty{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.507);
+    font-weight: 600;
+  }
+  .shop-b{
+   width: 250px;
+   height: 45px;
+   border: none;
+   background-color: #ff4701;
+   border-radius: 17px;
+   .shop{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+   }
+  }
+ 
+}
+
+

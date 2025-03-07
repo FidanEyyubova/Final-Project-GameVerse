@@ -6,12 +6,12 @@ import Productslider from "../components/Productslider";
 import { Link, NavLink } from "react-router-dom";
 import Discountslider from "../components/Discountslider";
 
-const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/products";
+const baseURL = "hhttps://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
 const Discover = () => {
-  const { game, setGame } = useContext(MyContext);
+  const { game, setGame,addtoWishlist, addToCart } = useContext(MyContext);
 
   useEffect(() => {
     axios
@@ -36,27 +36,27 @@ const Discover = () => {
               data-bs-ride="carousel"
             >
               <div className="carousel-inner">
-                {game.slice(24,27).map((el, index) => (
+                {game.slice(0, 3).map((el, index) => (
                   <div
                     key={el.id}
                     className={`carousel-item ${index === 0 ? "active" : ""}`}
                   >
                     <img
-                      src={el.image}
+                      src={el.imgDetail ? el.imgDetail : el.imgData}
                       className="d-block w-100"
                       alt={el.title}
                     />
                     <div className="carousel-caption d-lg-flex flex-column align-items-start justify-content-center h-100 text-start d-md-flex d-flex">
-                      <h1>{el.title}</h1>
+                      <h1>{el.name}</h1>
                       <p className="w-75 my-4 d-lg-flex d-md-flex d-none">
-                        {el.desc.slice(0, 240)}
+                        {el.desc[0]}
                       </p>
 
                       <div className="d-flex flex-column flex-md-row flex-lg-row align-items-center">
-                        <button className="wish py-2 w-100 mb-2 mb-md-0">
+                        <button className="wish py-2 w-100 mb-2 mb-md-0" onClick={() => addtoWishlist(el)}>
                           Add to Wishlist
                         </button>
-                        <button className="add py-2 mx-md-2 w-lg-0 w-sm-75">
+                        <button className="add py-2 mx-md-2 w-lg-0 w-sm-75"  onClick={() => addToCart(el)}>
                           Buy Now
                         </button>
                       </div>
@@ -111,10 +111,24 @@ const Discover = () => {
             </div>
           </div>
           <div className="row px-3 g-0">
-            {game.slice(12, 16).map((el, index) => (
-              <div key={index} className="col-lg-3 col-md-6 col-12 mb-4">
+            {game.slice(15, 19).map((el, index) => (
+              <div key={index} className=" miid col-lg-3 col-md-6 col-12 mb-4">
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src={el.image} alt={el.title} className="img-fluid" />
+                  <img src={el.imgProduct} alt={el.name} className="img-fluid" />
+                </div>
+                <div className="d-flex flex-column gap-5 load justify-content-start align-items-center">
+                  <div className="up d-flex justify-content-evenly align-items-start gap-5 mt-4">
+                    <p>{el.rate}</p>
+                    <p>{el.price}</p>
+                    <Link>heart</Link>
+                  </div>
+                </div>
+                <div className="d-flex flex-column gap-5 load justify-content-end align-items-center">
+                  <div className="down text-center mb-4">
+                    <h6>{el.title}</h6>
+                    <p>fidan</p>
+                    <button>Buy now</button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -130,8 +144,8 @@ const Discover = () => {
             </div>
           </div>
         </div>
-        <div className="row five g-0 py-3" id="faq" >
-          <div className="col-12" >
+        <div className="row five g-0 py-3" id="faq">
+          <div className="col-12">
             <div className="d-flex flex-column justify-content-center align-items-center">
               <div>
                 <h2 className="py-3">Frequently Asked Questions</h2>
