@@ -8,6 +8,9 @@ import GameDetails from "./pages/GameDetails";
 import Game from "./pages/Game";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Wishlist from "./pages/Wishlist";
+import AddtoCart from "./pages/AddtoCart";
 
 function App() {
   return <>
@@ -20,6 +23,9 @@ function App() {
     <Route path="/:id" element = {<GameDetails />} />
     <Route path="/contact" element = {<Contact />} />
     <Route path="/signin" element = {<SignIn />} />
+    <Route path="/signup" element = {<SignUp />} />
+    <Route path="/wishlist" element = {<Wishlist />} />
+    <Route path="/cart" element = {<AddtoCart />} />
   </Routes>
   <Footer />
   </>;

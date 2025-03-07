@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
 
-const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/products";
+const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
@@ -13,6 +13,12 @@ const MyProvider = ({ children }) => {
   const [filteredGenre, setFilteredGenre] = useState([]);
   const [filteredMode, setFilteredMode] = useState([]);
   const [price, setPrice] = useState(100);
+  const [cart, setCart] = useState(() => {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  });
+  const [wishlist, setWishlist] = useState(() => {
+    return JSON.parse(localStorage.getItem("wishlist")) || [];
+  });
 
   useEffect(() => {
     axios
@@ -26,8 +32,70 @@ const MyProvider = ({ children }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
+
+
+  const addToCart = (game) => {
+    if (cart.some((item) => item.id === game.id)) {
+      alert("Bu mehsul cart-da var!");
+    } else {
+      setCart([...cart, game]);
+    }
+  };
+
+  const addtoWishlist = (game) => {
+    if (wishlist.some((item) => item.id === game.id)) {
+      alert("bu mehsul wishlistde var!");
+    } else {
+      setWishlist([...wishlist, game]);
+    }
+  };
+
+  const removeFromCart = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
+
+  const removeFromWishlist = (id) => {
+    setWishlist(wishlist.filter((item) => item.id !== id));
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const clearWishlist = () => {
+    setWishlist([]);
+  };
+
   return (
-    <MyContext.Provider value={{ game, setGame, filteredFeature, setFilteredFeature, filteredGenre, setFilteredGenre, filteredMode, setFilteredMode, price, setPrice }}>
+    <MyContext.Provider
+      value={{
+        game,
+        setGame,
+        filteredFeature,
+        setFilteredFeature,
+        filteredGenre,
+        setFilteredGenre,
+        filteredMode,
+        setFilteredMode,
+        price,
+        setPrice,
+        cart, setCart,
+        wishlist, setWishlist,
+        addToCart,
+        addtoWishlist,
+        removeFromCart,
+        removeFromWishlist,
+        clearCart,
+        clearWishlist,
+      }}
+    >
       {children}
     </MyContext.Provider>
   );
