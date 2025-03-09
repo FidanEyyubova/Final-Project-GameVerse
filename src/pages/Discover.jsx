@@ -107,7 +107,7 @@ const Discover = () => {
           <div className="col-12">
             <div className="d-flex justify-content-between align-items-center mx-5">
               <h2 className="py-4">Now On The Gameverse Store</h2>
-              <Link className="view p-2">View More</Link>
+              <Link className="view p-2" to={"/game"}>View More</Link>
             </div>
           </div>
           <div className="row px-3 g-0">
@@ -120,12 +120,12 @@ const Discover = () => {
                   <div className="up d-flex justify-content-evenly align-items-start gap-5 mt-4">
                     <p>{el.rate}</p>
                     <p>{el.price}</p>
-                    <Link>heart</Link>
+                    <Link onClick={() => addtoWishlist(el)}>heart</Link>
                   </div>
                 </div>
                 <div className="d-flex flex-column gap-5 load justify-content-end align-items-center">
                   <div className="down text-center mb-4">
-                    <h6>{el.title}</h6>
+                    <h6>{el.name}</h6>
                     <p>fidan</p>
                     <button>Buy now</button>
                   </div>

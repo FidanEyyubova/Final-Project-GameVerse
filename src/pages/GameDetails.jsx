@@ -10,7 +10,7 @@ const apikey =
 
 const GameDetails = () => {
   const { id } = useParams();
-  const { game, setGame } = useContext(MyContext);
+  const { game, setGame, addtoWishlist, addToCart } = useContext(MyContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -65,8 +65,8 @@ const GameDetails = () => {
               </p>
               <div className="d-flex flex-column">
                 <button className="add mb-2">Buy now</button>
-                <button className="wish mb-2">Add to Cart</button>
-                <button className="wish mb-2">Add to Wishlist</button>
+                <button className="wish mb-2" onClick={() => addToCart(gameDetail)}>Add to Cart</button>
+                <button className="wish mb-2" onClick={() => addtoWishlist(gameDetail)}>Add to Wishlist</button>
               </div>
               <div className="py-2 gap-md-3 d-lg-block d-md-flex">
                 <div>

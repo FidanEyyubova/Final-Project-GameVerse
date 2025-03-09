@@ -7,7 +7,7 @@ const Wishlist = () => {
   const { wishlist, removeFromWishlist, clearWishlist, addToCart } =
     useContext(MyContext);
   return (
-    <div className="wishlist py-4">
+    <div className="wishlist wishlist-first py-4">
       <div className="container-fluid">
         <div className="wishlist-header">
           <div className="d-flex justify-content-between align-items-center px-5 py-4">
@@ -22,10 +22,17 @@ const Wishlist = () => {
           </div>
         </div>
         {wishlist.length === 0 ? (
-            <div className="text-center d-flex flex-column justify-content-center align-items-center gap-4">
-                <p className="text-center empty">Your wishlist is empty! Add your favorite games now and never miss a great deal!</p>
-                <button className="shop-b mb-4"><Link className="shop" to={"/game"}>Back to the shop</Link></button>
-            </div>
+          <div className="text-center d-flex flex-column justify-content-center align-items-center gap-4">
+            <p className="text-center empty">
+              Your wishlist is empty! Add your favorite games now and never miss
+              a great deal!
+            </p>
+            <button className="shop-b mb-4">
+              <Link className="shop" to={"/game"}>
+                Back to the shop
+              </Link>
+            </button>
+          </div>
         ) : (
           <div className="row d-flex flex-wrap justify-content-center align-items-center py-4">
             {wishlist.map((el, index) => (
@@ -71,14 +78,13 @@ const Wishlist = () => {
                       >
                         Remove
                       </button>
-                      <button className="add" onClick={() => addToCart(el.id)}>
+                      <button className="add" onClick={() => addToCart(el)}>
                         Add to Cart
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
-              
             ))}
           </div>
         )}
