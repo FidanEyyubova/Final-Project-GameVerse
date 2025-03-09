@@ -3,15 +3,18 @@ import { MyContext } from "../context/MyProvider";
 import axios from "axios";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Productslider from "../components/Productslider";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Discountslider from "../components/Discountslider";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { GoStarFill } from "react-icons/go";
 
 const baseURL = "hhttps://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
 const Discover = () => {
-  const { game, setGame,addtoWishlist, addToCart } = useContext(MyContext);
+  const { game, setGame, addtoWishlist, addToCart } = useContext(MyContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -53,10 +56,16 @@ const Discover = () => {
                       </p>
 
                       <div className="d-flex flex-column flex-md-row flex-lg-row align-items-center">
-                        <button className="wish py-2 w-100 mb-2 mb-md-0" onClick={() => addtoWishlist(el)}>
+                        <button
+                          className="wish py-2 w-100 mb-2 mb-md-0"
+                          onClick={() => addtoWishlist(el)}
+                        >
                           Add to Wishlist
                         </button>
-                        <button className="add py-2 mx-md-2 w-lg-0 w-sm-75"  onClick={() => addToCart(el)}>
+                        <button
+                          className="add py-2 mx-md-2 w-lg-0 w-sm-75"
+                          onClick={() => addToCart(el)}
+                        >
                           Buy Now
                         </button>
                       </div>
@@ -107,27 +116,52 @@ const Discover = () => {
           <div className="col-12">
             <div className="d-flex justify-content-between align-items-center mx-5">
               <h2 className="py-4">Now On The Gameverse Store</h2>
-              <Link className="view p-2" to={"/game"}>View More</Link>
+              <Link className="view p-2" to={"/game"}>
+                View More
+              </Link>
             </div>
           </div>
-          <div className="row px-3 g-0">
+          <div className="or row px-3 g-0">
             {game.slice(15, 19).map((el, index) => (
               <div key={index} className=" miid col-lg-3 col-md-6 col-12 mb-4">
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src={el.imgProduct} alt={el.name} className="img-fluid" />
+                  <img
+                    src={el.imgProduct}
+                    alt={el.name}
+                    className="img-fluid"
+                  />
                 </div>
                 <div className="d-flex flex-column gap-5 load justify-content-start align-items-center">
-                  <div className="up d-flex justify-content-evenly align-items-start gap-5 mt-4">
-                    <p>{el.rate}</p>
-                    <p>{el.price}</p>
-                    <Link onClick={() => addtoWishlist(el)}>heart</Link>
+                  <div className="up d-flex justify-content-between px-3 align-items-start gap-5 mt-4 text-center">
+                    <div className="p-rate text-center">
+                      <p>
+                        <span className="pb-2">
+                          <GoStarFill  className="pb-1"/>
+                        </span>
+                        {el.rate}
+                      </p>
+                    </div>
+
+                    <Link onClick={() => addtoWishlist(el)}>
+                      <FaHeart className="heart" />
+                    </Link>
                   </div>
                 </div>
                 <div className="d-flex flex-column gap-5 load justify-content-end align-items-center">
                   <div className="down text-center mb-4">
-                    <h6>{el.name}</h6>
-                    <p>fidan</p>
-                    <button>Buy now</button>
+                    <h5>{el.name}</h5>
+                    <p className="desc px-2">{el.desc[0].slice(0, 120)}...</p>
+                    <div className="d-flex justify-content-center gap-4">
+                      <button
+                        className="add"
+                        onClick={() => navigate(`/${el.id}`)}
+                      >
+                        Buy now
+                      </button>
+                      <div className="price pt-2">
+                        <p>${el.price}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
