@@ -4,13 +4,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
 import { MyContext } from "../context/MyProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
 const Discountslider = () => {
-  const { game, setGame } = useContext(MyContext);
+  const { game, setGame,addToWishlist } = useContext(MyContext);
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
@@ -67,7 +68,7 @@ const Discountslider = () => {
                 </div>
                 <div className="end d-flex gap-5 mt-4">
                   <p className="mt-2 price">${el.price}</p>
-                  <button className="mx-5 add">Buy Now</button>
+                  <button className="mx-5 add" onClick={() => navigate(`/${el.id}`)}>Buy Now</button>
                 </div>
               </div>
             </div>
