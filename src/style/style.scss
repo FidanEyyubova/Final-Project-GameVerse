@@ -206,7 +206,7 @@
     left: 18px;
     width: 88%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.38); /* Optional: Dark overlay effect */
+    background: rgba(0, 0, 0, 0.435); /* Optional: Dark overlay effect */
     color: white;
     display: flex;
     flex-direction: column;
@@ -1245,3 +1245,46 @@ textarea::-webkit-scrollbar {
 
 
 
+
+
+
+//discover
+.or{
+  .add{
+    border: none;
+    background-color: #ff4701;
+    width: 130px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    height: 40px;
+  }
+  .up{
+    width: 250px; 
+  }
+  .p-rate{
+    background-color: rgba(0, 0, 0, 0.366);
+    width: 55px;
+    height: 27px;
+    font-size: 17px;
+    border-radius: 20px;
+    font-weight: 600;
+
+  }
+  span{
+    color: yellow;
+    font-size: 15px;
+  }
+  .heart{
+    color: white;
+    font-size: 18px;
+  }
+  .heart:hover{
+    color: #ff4701;
+  }
+  .price{
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
