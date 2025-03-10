@@ -64,7 +64,7 @@ const Discover = () => {
                         </button>
                         <button
                           className="add py-2 mx-md-2 w-lg-0 w-sm-75"
-                          onClick={() => addToCart(el)}
+                          onClick={() => navigate(`/${el.id}`)}
                         >
                           Buy Now
                         </button>

@@ -5,13 +5,15 @@ import Slider from "react-slick";
 import axios from "axios";
 import { MyContext } from "../context/MyProvider";
 import { Link, useNavigate } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
-const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
+const apikey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
 const Discountslider = () => {
-  const { game, setGame,addToWishlist } = useContext(MyContext);
-  const navigate = useNavigate()
+  const { game, setGame, addtoWishlist } = useContext(MyContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -61,14 +63,40 @@ const Discountslider = () => {
             >
               <img src={el.imgProduct} alt={el.name} />
             </div>
-            <div className="body px-4 mx-3">
+            <Link onClick={() => addtoWishlist(el)}>
+              <FaHeart className="heart" />
+            </Link>
+            <div className="body px-4 body-discount">
               <div>
                 <div>
-                  <Link className="mo" to={`/${el.id}`}>{el.name}</Link>
+                  <p className="name">
+
+                  <Link className="mo mx-3" to={`/${el.id}`}>
+                    {el.name}
+                  </Link>
+                  </p>
                 </div>
-                <div className="end d-flex gap-5 mt-4">
+                <div className="end d-flex justify-content-around text-center mt-2">
+                  <div>
+
+                  <p className="mt-2 price discount">-{el.discount}%</p>
+                  </div>
+                  <div>
+
                   <p className="mt-2 price">${el.price}</p>
-                  <button className="mx-5 add" onClick={() => navigate(`/${el.id}`)}>Buy Now</button>
+                  </div>
+                  <div>
+
+                  <button
+                    className="add"
+                    onClick={() => navigate(`/${el.id}`)}
+                  >
+                    Buy Now
+                  </button>
+                  </div>
+                </div>
+                <div className="mx-3 pb-3">
+                  <p className="prevprice"><del>${el.prevprice}</del></p>
                 </div>
               </div>
             </div>

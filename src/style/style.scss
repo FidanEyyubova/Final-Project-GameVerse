@@ -321,18 +321,19 @@
   }
 }
 .popularity {
+  cursor: pointer;
   .price {
     font-weight: bold;
   }
   .add {
     border: none;
     background-color: #ff4701;
-    width: 90px;
     border-radius: 15px;
     color: white;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13px;
     height: 40px;
+    width: 100px;
   }
   .mo{
     text-decoration: none;
@@ -343,6 +344,18 @@
     position: relative;
   }
   .body {
+    position: absolute;
+    top: 200px;
+    color: white;
+    width: 100%;
+  }
+  .body-discount{
+    position: absolute;
+    top: 200px;
+    color: white;
+    width: 100%;
+  }
+  .body-pop{
     position: absolute;
     top: 210px;
     color: white;
@@ -1250,6 +1263,7 @@ textarea::-webkit-scrollbar {
 
 //discover
 .or{
+  cursor: pointer;
   .add{
     border: none;
     background-color: #ff4701;
@@ -1288,3 +1302,41 @@ textarea::-webkit-scrollbar {
     font-weight: 600;
   }
 }
+
+.popularity {
+  .name{
+    font-weight: 600;
+  }
+  position: relative;
+  .discount{
+    background-color: white;
+    color: #ff4701;
+    width: 50px;
+    border-radius: 10px;
+  }
+  .heart {
+    position: absolute;
+    top: 5%;
+    right: 12%;
+    font-size: 18px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+  }
+  .prevprice{
+    color: #d7d7d7;
+    font-weight: 600;
+  }
+}
+
+
+.popularity:hover .heart {
+  opacity: 1;
+  visibility: visible;
+}
+
+.heart:hover {
+  color: #ff4701;
+}
+
