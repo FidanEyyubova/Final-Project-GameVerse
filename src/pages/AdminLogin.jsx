@@ -9,6 +9,7 @@ import { supabase } from "../supabaseClient";
 
 const AdminPanel = () => {
   const navigate = useNavigate();
+  
   useEffect(() => {
     Aos.init({ duration: 1000 });
     window.scroll(0, 70);
@@ -74,7 +75,7 @@ const AdminPanel = () => {
                       placeholder="Your email"
                       name="email"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)} // Handle email input
+                      onChange={(e) => setEmail(e.target.value)}
                       className="pass"
                     />
                   </div>
@@ -88,23 +89,23 @@ const AdminPanel = () => {
                       <IoIosLock />
                     </span>
                     <input
-                      type={passwordVisible ? "text" : "password"} // Toggle password visibility
+                      type={passwordVisible ? "text" : "password"}
                       placeholder="Your password"
                       name="password"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)} // Handle password input
+                      onChange={(e) => setPassword(e.target.value)}
                       className="pass"
                     />
                     <span
                       className="input-group-text lock-pass right"
                       id="addon-wrapping"
-                      onClick={togglePasswordVisibility} // Toggle password visibility on click
+                      onClick={togglePasswordVisibility}
                     >
                       {passwordVisible ? <FaEye /> : <FaEyeSlash />}
                     </span>
                   </div>
                 </div>
-                {error && <div className="alert alert-danger">{error}</div>} {/* Display error message */}
+                {error && <div className="alert alert-danger">{error}</div>}
                 <div className="text-center">
                   <button type="submit" className="mb-3 mt-2 button-log-reg">
                     Login

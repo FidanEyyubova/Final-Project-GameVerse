@@ -4,16 +4,16 @@ import { GrCubes } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiHeart, CiShoppingBasket } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { FaStar } from "react-icons/fa6";
+import { FaHeart, FaStar } from "react-icons/fa6";
 
 const Game = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    // window.scrollTo(0, 0);
+  }, []);
 
   const {
     game,
-    setGame,
+    // setGame,
     filteredFeature,
     setFilteredFeature,
     filteredGenre,
@@ -22,6 +22,7 @@ const Game = () => {
     setFilteredMode,
     price,
     setPrice,
+    addtoWishlist,
   } = useContext(MyContext);
 
   const [sortedGames, setSortedGames] = useState([]);
@@ -69,8 +70,6 @@ const Game = () => {
         el.mode.some((m) => filteredMode.includes(m))) &&
       el.price <= price
   );
-
-  console.log(filteredGames);
 
   return (
     <div className="games">
@@ -178,14 +177,14 @@ const Game = () => {
                   >
                     <div className="mx-3 py-3">
                       <img
-                        src={el.img}
+                        src={el?.imgProduct}
                         alt=""
                         style={{ width: "60px", height: "60px" }}
                       />
                     </div>
                     <div className="mx-3 pt-3">
-                      <p>
-                        <b>{el.title.slice(0, 20)}...</b>
+                      <p style={{ color: "black" }}>
+                        <b>{el?.name}...</b>
                       </p>
                       <p style={{ color: "#F13D45", fontWeight: "600" }}>
                         {el.price}.00
@@ -199,17 +198,24 @@ const Game = () => {
 
           <div className="col-lg-8">
             <div className="d-flex justify-content-end align-items-center">
-              <div className="d-flex gap-3">
-                <p className="mt-2 sort">Sort</p>
+              <div className="d-flex justify-content-center align-items-center gap-3 sorting">
+                <div>
+
+                <p className=" sort">Sort</p>
+                </div>
+                <div>
                 <select
-                  className="form mb-2 sorting"
+                  className="middle"
+                  aria-label="Default select example"
                   onChange={handleSortChange}
                 >
-                  <option value="az">A-Z</option>
-                  <option value="za">Z-A</option>
-                  <option value="low-high">Price: Low to High</option>
-                  <option value="high-low">Price: High to Low</option>
+                  <option value="az" selected>Open this select menu</option>
+                  <option value="za" >One</option>
+                  <option value="low-high">Two</option>
+                  <option value="high-low">Three</option>
                 </select>
+
+                </div>
               </div>
             </div>
             <div className="row">
@@ -217,35 +223,29 @@ const Game = () => {
                 <div key={el.id} className="col-md-4">
                   <div className="cont my-2 d-flex flex-column justify-content-center align-items-center">
                     <div className="image  text-center py-2 pt-5">
-                      <img src={el.image} />
-                      <div className="d-flex justify-content-between align-items-center mx-3">
-                        <Link className="icon px-2 pb-1">
-                          <CiHeart />
-                        </Link>
-                        <Link className="icon px-2 pb-1">
-                          <CiShoppingBasket />
-                        </Link>
-                      </div>
+                      <img src={el.imgProduct} />
                     </div>
-                    <div className="d-flex flex-column justify-content-center align-items-center py-2">
-                      <div className="py-2">
-                        <h5>
-                          <Link to={`/${el.id}`}>{el.title}</Link>
-                        </h5>
-                      </div>
-                      <div className="d-flex gap-2">
-                        {el.prevprice !== null && el.prevprice !== "" && (
-                          <p className="prev">${el.prevprice}.00</p>
-                        )}
-                        <p className="price">${el.price}.00</p>
-                      </div>
-                      <div className="d-flex">
-                        <p className="star">
-                          <FaStar />
-                        </p>
-                        <p className="mt-1 mx-2">
-                          <b>{el.rate}</b>
-                        </p>
+                    <Link onClick={() => addtoWishlist(el)}>
+                      <FaHeart className="heart" />
+                    </Link>
+                    <div className="body  body-pop">
+                      <div>
+                        <div>
+                          <p className="name">
+                            <Link className=" mx-4 px-2 mo" to={`/${el.id}`}>
+                              {el.name.slice(0, 17)}
+                            </Link>
+                          </p>
+                        </div>
+                        <div className="end d-flex justify-content-around mt-4">
+                          <p className="mt-2 price">${el.price}</p>
+                          <button
+                            className="add"
+                            onClick={() => navigate(`/${el.id}`)}
+                          >
+                            Buy Now
+                          </button>
+                        </div>
                       </div>
                     </div>
                     {el.percent !== null && el.percent !== "" && (
