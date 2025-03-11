@@ -60,9 +60,17 @@ const GameDetails = () => {
           </div>
           <div className="col-lg-4 col-md-12 col-12 d-flex justify-content-center align-items-center pt-4">
             <div>
-              <p className="price">
+              <div className="d-flex">
+              {gameDetail.prevprice !== null &&
+                  gameDetail.prevprice !== "" && (
+                    <p className="prev mt-2">
+                      <del>${gameDetail.prevprice}</del>
+                    </p>
+                  )}
+              <p className="price mx-2">
                 <b>${gameDetail.price}</b>
               </p>
+              </div>
               <div className="d-flex flex-column">
                 <button className="add mb-2">Buy now</button>
                 <button className="wish mb-2" onClick={() => addToCart(gameDetail)}>Add to Cart</button>

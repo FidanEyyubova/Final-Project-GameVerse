@@ -6,8 +6,20 @@ import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../context/MyProvider";
 
 const Navbar = () => {
+  const [searchData, setSearchData] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
   const [openModal, setOpenModal] = useState();
-  const {cart, wishlist} = useContext(MyContext)
+  const { cart, wishlist, game } = useContext(MyContext);
+
+  const handleSearch = (e) => {
+    const search = e.target.value;
+    setSearchData(search);
+
+    const filtered = game.filter((item) =>
+      item.title.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredData(filtered);
+  };
 
   const handleOpenModal = () => {
     setOpenModal(!openModal);
@@ -72,7 +84,7 @@ const Navbar = () => {
               <div>
                 <button type="button" className="position-relative icon">
                   <Link to={"/wishlist"}>
-                  <FaRegHeart className="wishcart" />
+                    <FaRegHeart className="wishcart" />
                   </Link>
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                     {wishlist.length}
@@ -82,7 +94,7 @@ const Navbar = () => {
               <div>
                 <button type="button" className="position-relative icon">
                   <Link to={"/cart"}>
-                  <FiShoppingCart className="wishcart" />
+                    <FiShoppingCart className="wishcart" />
                   </Link>
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                     {cart.length}
@@ -120,8 +132,38 @@ const Navbar = () => {
                           type="text"
                           className="search w-100  form-control  shadow-sm"
                           placeholder="Search"
+                          value={searchData}
+                          onChange={handleSearch}
                         />
                       </form>
+                      <div className="body">
+                        {searchData && filteredData.length > 0 ? (
+                          <ul>
+                            {filteredData.map((el) => (
+                              <li>
+                                <div className="d-flex my-4">
+                                  <div>
+                                    <img src={el.img} alt="" className="mx-3" />
+                                  </div>
+                                  <div>
+                                    <Link
+                                      to={`/products/${el.id}`}
+                                      style={{
+                                        color: "black",
+                                        textDecoration: "none",
+                                      }}
+                                    >
+                                      {el.title}
+                                    </Link>
+                                  </div>
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          searchData && <p>No products found.</p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -16,6 +16,7 @@ const Discover = () => {
   const { game, setGame, addtoWishlist, addToCart } = useContext(MyContext);
   const navigate = useNavigate();
 
+
   useEffect(() => {
     axios
       .get(`${baseURL}?select=*`, {
@@ -26,6 +27,8 @@ const Discover = () => {
       })
       .then((res) => setGame(res.data))
       .catch((err) => console.log(err));
+
+      window.scrollTo(0, 0);
   }, []);
 
   return (

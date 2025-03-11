@@ -539,8 +539,9 @@
   background-color: #09172b;
   color: white;
   img{
-    width: 200px;
-    height: 240px;
+    width: 210px;
+    height: 270px;
+    border-radius: 10px;
   }
   label {
     font-size: 18px;
@@ -627,11 +628,17 @@
 
 //game
 .sorting{
-  outline: none;
-  width: 210px;
-  background-color: rgba(255, 255, 255, 0.356);
-  border: none;
-  height: 35px;
+  background-color: red;
+  .middle{
+    outline: none;
+    width: 230px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+  }
+  option{
+    border-radius: 0%;
+  }
 }
 //contact
 .second-conc{
@@ -1339,4 +1346,79 @@ textarea::-webkit-scrollbar {
 .heart:hover {
   color: #ff4701;
 }
+
+
+.games{
+  .cont {
+    position: relative;
+    cursor: pointer;
+  }
+  .cont::before {
+    content: "";
+    position: absolute;
+    top: 208px;
+    width: 210px;
+    height: 110px;
+    background-color: rgba(0, 0, 0, 0.503);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0px 0px 10px 10px;
+  }
+  .body {
+    position: absolute;
+    top: 200px;
+    color: white;
+    width: 100%;
+  }
+  .body-pop{
+    position: absolute;
+    top: 218px;
+    color: white;
+    width: 100%;
+  }
+  .mo{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  .price{
+    font-weight: 600;
+  }
+  .add {
+    border: none;
+    background-color: #ff4701;
+    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    height: 38px;
+    width: 80px;
+  }
+  .heart {
+    position: absolute;
+    top: 18%;
+    right: 14%;
+    font-size: 18px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+  }
+  
+  
+  
+}
+.cont:hover .heart {
+  opacity: 1;
+  visibility: visible;
+}
+
+.heart:hover {
+  color: #ff4701;
+}
+
+
+
+
+
 
