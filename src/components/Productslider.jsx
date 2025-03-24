@@ -6,6 +6,8 @@ import axios from "axios";
 import { MyContext } from "../context/MyProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -14,6 +16,10 @@ const apikey =
 const Productslider = () => {
   const { game, setGame, addtoWishlist } = useContext(MyContext);
   const navigate = useNavigate();
+
+     useEffect(() => {
+        Aos.init({ duration: 1000});
+      }, []);
 
   useEffect(() => {
     axios
@@ -56,7 +62,7 @@ const Productslider = () => {
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
         game.slice(3, 15).map((el) => (
-          <div className="popularity">
+          <div className="popularity py-2" data-aos="fade-down">
             <div
               key={el.id}
               className="product-slide d-flex justify-content-center"
@@ -72,7 +78,7 @@ const Productslider = () => {
                   <p className="name">
 
                   <Link className="mo mx-3" to={`/${el.id}`}>
-                    {el.name.slice(0, 17)}
+                    {el.name}
                   </Link>
                   </p>
                 </div>

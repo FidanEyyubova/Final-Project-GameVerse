@@ -6,6 +6,8 @@ import axios from "axios";
 import { MyContext } from "../context/MyProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -14,6 +16,10 @@ const apikey =
 const Discountslider = () => {
   const { game, setGame, addtoWishlist } = useContext(MyContext);
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    Aos.init({ duration: 1000});
+  }, []);
 
   useEffect(() => {
     axios
@@ -56,7 +62,7 @@ const Discountslider = () => {
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
         game.slice(19, 27).map((el) => (
-          <div className="popularity">
+          <div className="popularity" data-aos="fade-down">
             <div
               key={el.id}
               className="product-slide d-flex justify-content-center"
@@ -70,13 +76,12 @@ const Discountslider = () => {
               <div>
                 <div>
                   <p className="name">
-
                   <Link className="mo mx-3" to={`/${el.id}`}>
                     {el.name}
                   </Link>
                   </p>
                 </div>
-                <div className="end d-flex justify-content-around text-center mt-2">
+                <div className="end d-flex justify-content-around text-center">
                   <div>
 
                   <p className="mt-2 price discount">-{el.discount}%</p>

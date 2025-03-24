@@ -42,6 +42,14 @@ const MyProvider = ({ children }) => {
 
 
   const addToCart = (game) => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    
+    if (!loggedInUser) {
+      alert("You need to log in first!");
+      window.location.href = "/login";
+      return;
+    }
+  
     if (cart.some((item) => item.id === game.id)) {
       alert("Bu mehsul cart-da var!");
     } else {
@@ -50,6 +58,13 @@ const MyProvider = ({ children }) => {
   };
 
   const addtoWishlist = (game) => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    
+    if (!loggedInUser) {
+      alert("You need to log in first!");
+      window.location.href = "/login"
+      return;
+    }
     if (wishlist.some((item) => item.id === game.id)) {
       alert("bu mehsul wishlistde var!");
     } else {
