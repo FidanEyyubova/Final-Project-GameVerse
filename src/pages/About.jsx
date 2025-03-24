@@ -4,14 +4,63 @@ import "aos/dist/aos.css";
 
 const About = () => {
   useEffect(() => {
-    Aos.init({ duration: 1500, once : true});
-    window.scrollTo(0, 0);
+    Aos.init({ duration: 1500, once: true });
+    // window.scrollTo(0, 0);
   }, []);
   return (
     <div className="about">
-      <div className="container-fluid">
-        <div className="row">
-          <img src="../src/images/aboutpic.jpg" alt="" />
+      <div className="container-fluid py-4">
+        <div className="row first mx-4 py-2 px-3">
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-start align-items-center">
+            <div className="d-flex flex-column gap-2">
+              <span className="pt-1">About</span>
+              <h3>GameVerse</h3>
+            </div>
+          </div>
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center">
+            <div>
+              <span>
+                Step into the arena – play, compete, and <br /> dominate
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="row middle py-4 mx-3" data-aos="fade-down">
+          <div className="col-lg-6 col-md-6 col-12">
+            <div className="d-flex flex-column gap-3">
+              <div>
+                <h2 className="py-3">
+                  Welcome to GameVerse your <br /> ultimate destination for
+                  games!
+                </h2>
+              </div>
+              <div>
+                <img
+                  src="https://cdn1.epicgames.com/95d0b9561be1464cb43bd029e94cf526/offer/GR_Epic_Landscape_Offer2560x1440-2560x1440-08987c0c3e1701ea6a7217ed5616922d.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-6 col-md-6 col-12">
+            <div>
+              <div>
+                <span className="text-center">
+                  We offer a wide selection of the latest and <br /> classic PS titles
+                  at the best prices. Whether <br /> you're looking for action,
+                  adventure, <br /> sports, or RPGs, we've got you covered.
+                </span>
+              </div>
+              <div className="text-center py-3">
+                <img
+                  src="https://gh.cdn.sewest.net/assets/ident/games/final-fantasy-xv/en_US/GamesIndex_GameListing_Artwork_01.jpg?quality=65"
+                  alt=""
+                  className="mx-4"
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="row descript py-3 mx-2" data-aos="fade-right">
           <div className="col-12 py-4">
@@ -31,54 +80,6 @@ const About = () => {
               audience informed with daily gaming news, covering game releases,
               industry updates, and esports events.
             </p>
-          </div>
-        </div>
-        <div className="row middle py-4 mx-3" data-aos="fade-down">
-          <div className="col-lg-6 col-md-6 col-12">
-            <div>
-              <div className="text-center">
-                <img
-                  src="https://cdn1.epicgames.com/95d0b9561be1464cb43bd029e94cf526/offer/GR_Epic_Landscape_Offer2560x1440-2560x1440-08987c0c3e1701ea6a7217ed5616922d.jpg"
-                  alt=""
-                />
-              </div>
-              <div>
-                <p className="py-3">
-                  One of the standout features of Gameverse is its extensive
-                  collection of game guides and tutorials. These guides help
-                  players navigate difficult levels, unlock achievements, and
-                  master game mechanics. The platform also includes a vibrant
-                  community section where gamers can discuss their favorite
-                  titles, share experiences, and exchange tips. Forums and
-                  comment sections allow for engaging discussions and debates on
-                  trending gaming topics.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-6 col-md-6 col-12">
-            <div>
-              <div>
-                <p>
-                  The website has a sleek and user-friendly interface, making it
-                  easy to navigate and find relevant content. A special section
-                  is dedicated to indie games, giving smaller developers a
-                  platform to showcase their work. Gameverse offers a
-                  marketplace for gaming merchandise, including apparel,
-                  accessories, and collectibles. It also features a section for
-                  deals and discounts on popular games and gaming gear. Readers
-                  can participate in giveaways and contests to win
-                  gaming-related prizes.
-                </p>
-              </div>
-              <div className="text-center py-3">
-                <img
-                  src="https://gh.cdn.sewest.net/assets/ident/games/final-fantasy-xv/en_US/GamesIndex_GameListing_Artwork_01.jpg?quality=65"
-                  alt=""
-                  className="mx-4"
-                />
-              </div>
-            </div>
           </div>
         </div>
         <div className="row  text-center team py-3 pb-5 " data-aos="fade-down">

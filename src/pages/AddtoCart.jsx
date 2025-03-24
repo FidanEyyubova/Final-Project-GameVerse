@@ -130,7 +130,6 @@ const AddtoCart = () => {
                           onClick={() => {
                             removeFromCart(el.id);
                             if (cart.length === 0) {
-                              // Since the item is being removed, check if it's the last one.
                               setDiscountAmount(0);
                               setTotalWithDiscount(null);
                             }
@@ -201,9 +200,6 @@ const AddtoCart = () => {
                   <MdKeyboardDoubleArrowRight className="icon mx-1" />
                 </button>
               </div>
-            </div>
-            <div className="img-order text-center mt-3">
-              <img src="../src/images/disscount.png" alt="" />
             </div>
           </div>
         </div>

@@ -29,29 +29,16 @@ const AdminPanel = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-
+    setError("");
     if (email === adminEmail && password === adminPassword) {
-      console.log('Admin login successful');
-      navigate('/');
+      console.log("Admin login successful");
+      localStorage.setItem("userRole", "admin");
+      navigate("/admin-dashboard");
+      setUserRole("admin");
       return;
     }
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-      });
-
-      if (error) {
-        setError(error.message);
-      } else {
-        alert('Signed in successfully:', data);
-        navigate('/game');
-      }
-    } catch (err) {
-      setError('An error occurred during login. Please try again.');
-      console.error(err);
-    }
+    setError("Invalid email or password.");
+    navigate("/admin");
   };
 
   return (
