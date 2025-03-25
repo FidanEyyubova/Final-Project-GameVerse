@@ -33,6 +33,8 @@ const Discountslider = () => {
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
 
+
+
   const settings = {
     dots: false,
     infinite: true,

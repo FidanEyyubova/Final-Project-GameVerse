@@ -7,7 +7,7 @@ import { IoIosLock } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import { supabase } from "../supabaseClient";
 
-const AdminPanel = () => {
+const AdminPanel = ({setUserRole}) => {
   const navigate = useNavigate();
   
   useEffect(() => {

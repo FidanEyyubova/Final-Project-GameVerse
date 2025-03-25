@@ -46,7 +46,7 @@ const MyProvider = ({ children }) => {
     
     if (!loggedInUser) {
       alert("You need to log in first!");
-      window.location.href = "/login";
+      window.location.href = "/signin";
       return;
     }
   
@@ -62,7 +62,7 @@ const MyProvider = ({ children }) => {
     
     if (!loggedInUser) {
       alert("You need to log in first!");
-      window.location.href = "/login"
+      window.location.href = "/signin"
       return;
     }
     if (wishlist.some((item) => item.id === game.id)) {

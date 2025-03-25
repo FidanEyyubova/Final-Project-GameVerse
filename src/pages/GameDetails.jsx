@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { MyContext } from "../context/MyProvider";
 import axios from "axios";
 import { GoStarFill } from "react-icons/go";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -17,22 +19,24 @@ const GameDetails = () => {
   }, []);
 
   useEffect(() => {
-    const fetchGameData = async () => {
-      try {
-        const res = await axios.get(`${baseURL}?select=*`, {
-          headers: {
-            apikey,
-            Authorization: `Bearer ${apikey}`,
-          },
-        });
-        setGame(res.data);
-      } catch (err) {
-        console.error("Error fetching games:", err);
-      }
-    };
+    if (!game || game.length === 0) {
+      const fetchGameData = async () => {
+        try {
+          const res = await axios.get(`${baseURL}?select=*`, {
+            headers: {
+              apikey,
+              Authorization: `Bearer ${apikey}`,
+            },
+          });
+          setGame(res.data);
+        } catch (err) {
+          console.error("Error fetching games:", err);
+        }
+      };
 
-    fetchGameData();
-  }, [setGame]);
+      fetchGameData();
+    }
+  }, [game, setGame]);
 
   const gameDetail = game?.find((item) => item.id == id);
 
@@ -40,9 +44,43 @@ const GameDetails = () => {
     return <div className="text-center mt-5">Loading...</div>;
   }
 
+  const handleClick = (el, action) => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (!loggedInUser || loggedInUser === "null") {
+      alert("You need to log in first!");
+      window.location.href = "/signin";
+      return;
+    }
+
+    const user = JSON.parse(loggedInUser);
+
+    if (action === "cart") {
+      addToCart(el);
+      alert("Added to cart!");
+    } else if (action === "wishlist") {
+      addtoWishlist(el);
+      alert("Added to wishlist!");
+    }
+  };
+
   return (
     <div className="gamedetail py-5">
       <div className="container-fluid">
+        <div className="row">
+          <div
+            className="col-12"
+            style={{
+              backgroundImage: `url(${gameDetail.imgDetail})`,
+              height: "500px",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <Header />
+            <Navbar />
+          </div>
+        </div>
         <div className="row g-0 d-flex justify-content-center align-items-center">
           <div className="col-lg-8 col-md-12 col-12 d-flex justify-content-center align-items-center">
             <div>
@@ -61,32 +99,42 @@ const GameDetails = () => {
           <div className="col-lg-4 col-md-12 col-12 d-flex justify-content-center align-items-center pt-4">
             <div>
               <div className="d-flex">
-              {gameDetail.prevprice !== null &&
-                  gameDetail.prevprice !== "" && (
-                    <p className="prev mt-2">
-                      <del>${gameDetail.prevprice}</del>
-                    </p>
-                  )}
-              <p className="price mx-2">
-                <b>${gameDetail.price}</b>
-              </p>
+                {gameDetail.prevprice && (
+                  <p className="prev mt-2">
+                    <del>${gameDetail.prevprice}</del>
+                  </p>
+                )}
+                <p className="price mx-2">
+                  <b>${gameDetail.price}</b>
+                </p>
               </div>
               <div className="d-flex flex-column">
                 <button className="add mb-2">Buy now</button>
-                <button className="wish mb-2" onClick={() => addToCart(gameDetail)}>Add to Cart</button>
-                <button className="wish mb-2" onClick={() => addtoWishlist(gameDetail)}>Add to Wishlist</button>
+                <button
+                  className="wish mb-2"
+                  onClick={() => handleClick(gameDetail, "cart")}
+                >
+                  Add to Cart
+                </button>
+                <button
+                  className="wish mb-2"
+                  onClick={() => handleClick(gameDetail, "wishlist")}
+                >
+                  Add to Wishlist
+                </button>
               </div>
               <div className="py-2 gap-md-3 d-lg-block d-md-flex">
                 <div>
-                  <p >
-                   <b>Genres</b> 
+                  <p>
+                    <b>Genres</b>
                   </p>
                   <div className="d-flex gap-3">
-                    {gameDetail.genres?.map((genre, index) => (
-                      <p key={index} className="prop text-center py-1">
-                        {genre}
-                      </p>
-                    ))}
+                    {gameDetail.genres?.length > 0 &&
+                      gameDetail.genres.map((genre, index) => (
+                        <p key={index} className="prop text-center py-1">
+                          {genre}
+                        </p>
+                      ))}
                   </div>
                 </div>
                 <div>
@@ -94,11 +142,12 @@ const GameDetails = () => {
                     <b>Features</b>
                   </p>
                   <div className="d-flex gap-3">
-                    {gameDetail.features?.map((feature, index) => (
-                      <p key={index} className="prop text-center py-1">
-                        {feature}
-                      </p>
-                    ))}
+                    {gameDetail.features?.length > 0 &&
+                      gameDetail.features.map((feature, index) => (
+                        <p key={index} className="prop text-center py-1">
+                          {feature}
+                        </p>
+                      ))}
                   </div>
                 </div>
               </div>

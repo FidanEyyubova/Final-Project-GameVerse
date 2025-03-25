@@ -5,6 +5,8 @@ import { MdLanguage, MdOutlineLanguage } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const HeaderTwo = () => {
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+  const logging = localStorage.getItem("loggedInUser");
   return (
     <div className="head py-3 px-3 header-two">
       <div className="container-fluid">
@@ -23,7 +25,9 @@ const HeaderTwo = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <small className="mx-1"><MdOutlineLanguage className="lang" /></small>
+                  <small className="mx-1">
+                    <MdOutlineLanguage className="lang" />
+                  </small>
                 </button>
                 <ul className="dropdown-menu  custom-dropdown-menu text-center">
                   <li>
@@ -52,8 +56,11 @@ const HeaderTwo = () => {
             </div>
             <div>
               {" "}
-              <Link className="user" to={"/signin"}>
-                <FiUser />
+              <Link className="user d-flex align-items-center" to={logging ? "/user-dashboard" : "/signin"}>
+                <FiUser  />
+                {loggedInUser.username && (
+                  <span className="ms-2">{loggedInUser.username}</span>
+                )}
               </Link>
             </div>
           </div>

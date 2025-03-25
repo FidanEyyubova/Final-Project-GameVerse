@@ -9,6 +9,8 @@ const NavbarTwo = () => {
   const [openModal, setOpenModal] = useState(false);
   const { cart, wishlist } = useContext(MyContext);
 
+  const logging = localStorage.getItem("loggedInUser");
+
 
 
 
