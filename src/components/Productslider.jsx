@@ -75,12 +75,11 @@ const Productslider = () => {
             <div className="body px-4 body-pop">
               <div>
                 <div>
-                  <p className="name">
-
-                  <Link className="mo mx-3" to={`/${el.id}`}>
-                    {el.name}
-                  </Link>
-                  </p>
+                <p className="name">
+  <Link className="mo mx-3" to={`/game/${el.id}`}>
+    {el.name}
+  </Link>
+</p>
                 </div>
                 <div className="end d-flex justify-content-around gap-5 mt-4">
                   <p className="mt-2 price">${el.price}</p>

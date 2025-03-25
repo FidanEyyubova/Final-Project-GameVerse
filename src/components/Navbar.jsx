@@ -11,6 +11,8 @@ const Navbar = () => {
   const { cart, wishlist } = useContext(MyContext);
   const [scrolling, setScrolling] = useState(false);
 
+  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {

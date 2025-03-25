@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <div className="footer d-flex justify-content-center align-items-center">
       <div className="container-fluid">
-        <div className="row mx-3 border-bottom py-3">
-          <img src="../src/images/logo2.png" alt="" />
+        <div className="row mx-3 border-bottom py-2 mt-2">
+        <h5>GAMEVERSE</h5>
         </div>
         <div className="row mx-3 border-bottom py-3">
           <div className="col-lg-3 col-md-12 col-12">

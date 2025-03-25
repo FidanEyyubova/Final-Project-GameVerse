@@ -31,6 +31,8 @@ const Discover = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  
+
   return (
     <div className="discover">
       <div className="container-fluid p-0 py-4">

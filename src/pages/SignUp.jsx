@@ -1,6 +1,6 @@
 import Aos from "aos";
-import React, { useEffect } from "react";
-import { FaEyeSlash, FaRegUserCircle, FaUserEdit } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaEyeSlash, FaEye, FaRegUserCircle, FaUserEdit } from "react-icons/fa";
 import { IoIosLock } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,6 +11,8 @@ const SignUp = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const [user, setUser] = useState({
+    firstname: "",
+    lastname: "",
     username: "",
     email: "",
     password: "",
@@ -26,15 +28,13 @@ const SignUp = () => {
   const handlePassword = () => {
     setShowPass((prev) => !prev);
   };
+
   const handleChange = (event) => {
+    const { name, value } = event.target;
     setUser((prevData) => ({
       ...prevData,
-      [event.target.name]: event.target.value,
+      [name]: value,
     }));
-  };
-
-  const handleCheckboxChange = () => {
-    setIsChecked((prevState) => !prevState);
   };
 
   const handleSubmit = (e) => {
@@ -43,7 +43,7 @@ const SignUp = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-    if (!user.username || !user.email || !user.password) {
+    if (!user.firstname || !user.lastname || !user.username || !user.email || !user.password) {
       setError("All fields must be filled.");
       return;
     }
@@ -54,87 +54,71 @@ const SignUp = () => {
     }
 
     if (!passwordRegex.test(user.password)) {
-      setError(
-        "Password must be at least 8 characters, including letters and numbers."
-      );
+      setError("Password must be at least 8 characters, including letters and numbers.");
       return;
     }
 
-    if (!isChecked) {
-      alert("You must agree to the Terms and Conditions.");
-      return;
-    }
 
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-
     const isUserExists = storedUsers.some(
-      (existingUser) =>
-        existingUser.email === user.email ||
-        existingUser.username === user.username
+      (existingUser) => existingUser.email === user.email || existingUser.username === user.username
     );
 
     if (isUserExists) {
       setError("This username or email is already taken.");
-      setUser({ username: "", email: "", password: "" });
+      setUser({ firstname: "", lastname: "", username: "", email: "", password: "" });
       return;
     }
 
-    const newUsers = [...storedUsers, user];
-    localStorage.setItem("users", JSON.stringify(newUsers));
+    storedUsers.push(user);
+    localStorage.setItem("users", JSON.stringify(storedUsers));
 
     setError("");
     alert("Registration successful!");
-    navigate("/login");
+    navigate("/signin");
   };
+
   return (
     <div>
       <div className="register py-5">
-        <div className="container-fluid  d-flex justify-content-center align-items-center">
-          <div
-            className="row middle g-0 pt-4 d-flex justify-content-center align-items-center"
-            data-aos="fade-right"
-          >
+        <div className="container-fluid d-flex justify-content-center align-items-center">
+          <div className="row middle g-0 pt-4 d-flex justify-content-center align-items-center" data-aos="fade-right">
             <div className="col-12 log-col d-flex justify-content-center align-items-center">
               <div className="d-flex flex-column justify-content-center align-items-center gap-3 pb-4">
                 <div className="header">
                   <h2 className="pt-3">Create account</h2>
                 </div>
+                {error && <p style={{ color: "red" }}>{error}</p>}
                 <form className="d-flex flex-column gap-4 mt-3 mb-3" onSubmit={handleSubmit}>
                   <div className="d-flex gap-3">
                     <div className="d-flex flex-column in gap-2">
                       <label>First Name</label>
-
                       <div className="input-group flex-nowrap pass">
-                        <span
-                          className="input-group-text lock-pass"
-                          id="addon-wrapping"
-                        >
+                        <span className="input-group-text lock-pass" id="addon-wrapping">
                           <FaUserEdit />
                         </span>
                         <input
                           type="text"
                           placeholder="First Name"
-                          name="password"
+                          name="firstname"
                           className="pass"
+                          value={user.firstname}
                           onChange={handleChange}
                         />
                       </div>
                     </div>
                     <div className="d-flex flex-column in gap-2">
                       <label>Last Name</label>
-
                       <div className="input-group flex-nowrap pass">
-                        <span
-                          className="input-group-text lock-pass"
-                          id="addon-wrapping"
-                        >
+                        <span className="input-group-text lock-pass" id="addon-wrapping">
                           <FaUserEdit />
                         </span>
                         <input
                           type="text"
                           placeholder="Last Name"
-                          name="password"
+                          name="lastname"
                           className="pass"
+                          value={user.lastname}
                           onChange={handleChange}
                         />
                       </div>
@@ -142,38 +126,32 @@ const SignUp = () => {
                   </div>
                   <div className="d-flex flex-column in gap-2 three">
                     <label>Username</label>
-
                     <div className="input-group flex-nowrap pass">
-                      <span
-                        className="input-group-text lock-pass"
-                        id="addon-wrapping"
-                      >
+                      <span className="input-group-text lock-pass" id="addon-wrapping">
                         <FaRegUserCircle />
                       </span>
                       <input
                         type="text"
                         placeholder="Username"
-                        name="password"
+                        name="username"
                         className="pass pass-three"
+                        value={user.username}
                         onChange={handleChange}
                       />
                     </div>
                   </div>
                   <div className="d-flex flex-column in gap-2 three">
                     <label>Email address</label>
-
                     <div className="input-group flex-nowrap pass">
-                      <span
-                        className="input-group-text lock-pass"
-                        id="addon-wrapping"
-                      >
+                      <span className="input-group-text lock-pass" id="addon-wrapping">
                         <MdAlternateEmail />
                       </span>
                       <input
                         type="email"
                         placeholder="Your email"
-                        name="password"
+                        name="email"
                         className="pass pass-three"
+                        value={user.email}
                         onChange={handleChange}
                       />
                     </div>
@@ -181,10 +159,7 @@ const SignUp = () => {
                   <div className="d-flex flex-column gap-2">
                     <label>Password</label>
                     <div className="input-group flex-nowrap pass">
-                      <span
-                        className="input-group-text lock-pass"
-                        id="addon-wrapping"
-                      >
+                      <span className="input-group-text lock-pass" id="addon-wrapping">
                         <IoIosLock />
                       </span>
                       <input
@@ -192,13 +167,10 @@ const SignUp = () => {
                         placeholder="Your password"
                         name="password"
                         className="pass"
+                        value={user.password}
                         onChange={handleChange}
                       />
-                      <span
-                        className="input-group-text lock-pass right"
-                        id="addon-wrapping"
-                        onClick={handlePassword}
-                      >
+                      <span className="input-group-text lock-pass right" id="addon-wrapping" onClick={handlePassword}>
                         {showPass ? <FaEye /> : <FaEyeSlash />}
                       </span>
                     </div>
