@@ -52,11 +52,11 @@ const Header = () => {
             </button>
             <div className="d-flex align-items-center">
               <Link className="user d-flex align-items-center" to={logging ? "/user-dashboard" : "/signin"}>
-                <FiUser />
-                {loggedInUser.username && (
-                  <span className="ms-2">{loggedInUser.username}</span>
-                )}
+                <FiUser/>
               </Link>
+                {loggedInUser.username && (
+                <span className="ms-2">{loggedInUser.username}</span>
+                )}
             </div>
           </div>
         </div>

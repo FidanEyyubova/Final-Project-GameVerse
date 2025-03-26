@@ -80,7 +80,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="register py-5">
+      <div className="register d-flex justify-content-center align-items-center py-5">
         <div className="container-fluid d-flex justify-content-center align-items-center">
           <div className="row middle g-0 pt-4 d-flex justify-content-center align-items-center" data-aos="fade-right">
             <div className="col-12 log-col d-flex justify-content-center align-items-center">
@@ -89,12 +89,12 @@ const SignUp = () => {
                   <h2 className="pt-3">Create account</h2>
                 </div>
                 {error && <p style={{ color: "red" }}>{error}</p>}
-                <form className="d-flex flex-column gap-4 mt-3 mb-3" onSubmit={handleSubmit}>
-                  <div className="d-flex gap-3">
+                <form className="d-flex flex-column gap-4 mb-3" onSubmit={handleSubmit}>
+                  <div className="d-flex flex-column gap-3">
                     <div className="d-flex flex-column in gap-2">
                       <label>First Name</label>
                       <div className="input-group flex-nowrap pass">
-                        <span className="input-group-text lock-pass" id="addon-wrapping">
+                        <span className="input-group-text lock-pass start-pass" id="addon-wrapping">
                           <FaUserEdit />
                         </span>
                         <input
@@ -110,7 +110,7 @@ const SignUp = () => {
                     <div className="d-flex flex-column in gap-2">
                       <label>Last Name</label>
                       <div className="input-group flex-nowrap pass">
-                        <span className="input-group-text lock-pass" id="addon-wrapping">
+                        <span className="input-group-text lock-pass start-pass" id="addon-wrapping">
                           <FaUserEdit />
                         </span>
                         <input
@@ -123,11 +123,10 @@ const SignUp = () => {
                         />
                       </div>
                     </div>
-                  </div>
                   <div className="d-flex flex-column in gap-2 three">
                     <label>Username</label>
                     <div className="input-group flex-nowrap pass">
-                      <span className="input-group-text lock-pass" id="addon-wrapping">
+                      <span className="input-group-text lock-pass start-pass" id="addon-wrapping">
                         <FaRegUserCircle />
                       </span>
                       <input
@@ -143,7 +142,7 @@ const SignUp = () => {
                   <div className="d-flex flex-column in gap-2 three">
                     <label>Email address</label>
                     <div className="input-group flex-nowrap pass">
-                      <span className="input-group-text lock-pass" id="addon-wrapping">
+                      <span className="input-group-text lock-pass start-pass" id="addon-wrapping">
                         <MdAlternateEmail />
                       </span>
                       <input
@@ -159,7 +158,7 @@ const SignUp = () => {
                   <div className="d-flex flex-column gap-2">
                     <label>Password</label>
                     <div className="input-group flex-nowrap pass">
-                      <span className="input-group-text lock-pass" id="addon-wrapping">
+                      <span className="input-group-text lock-pass end-pass" id="addon-wrapping">
                         <IoIosLock />
                       </span>
                       <input
@@ -176,8 +175,9 @@ const SignUp = () => {
                     </div>
                     <p>Minimum length is 8 characters.</p>
                   </div>
+                  </div>
                   <div className="text-center">
-                    <button type="submit" className="mb-3 mt-2 button-log-reg">
+                    <button type="submit" className="mb-3  button-log-reg">
                       Sign Up
                     </button>
                     <p className="end">

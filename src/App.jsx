@@ -19,6 +19,7 @@
   import UserDashboard from "./pages/UserDashboard";
   import AdminDashboard from "./pages/AdminDashboard";
   import { MyContext } from "./context/MyProvider";
+import NotFound from "./pages/NotFound";
 
   function App() {
     const location = useLocation();
@@ -90,6 +91,7 @@
             path="/admin"
             element={<AdminPanel setUserRole={setUserRole} />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <Footer />

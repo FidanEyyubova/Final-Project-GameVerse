@@ -18,7 +18,7 @@ const SignIn = ({ setUserRole }) => {
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
-    window.scroll(0, 80);
+    window.scroll(0, 100);
   }, []);
 
   const handlePassword = () => {
@@ -71,23 +71,38 @@ const SignIn = ({ setUserRole }) => {
   };
 
   return (
-    <div className="login-user py-5">
+    <div className="login-user d-flex justify-content-center align-items-center">
       <div className="container-fluid  d-flex justify-content-center align-items-center">
-        <div className="row middle g-0 pt-4 d-flex justify-content-center align-items-center" data-aos="fade-right">
+        <div
+          className="row middle g-0 pt-4 d-flex justify-content-center align-items-center"
+          data-aos="fade-right"
+        >
           <div className="col-12 log-col d-flex justify-content-center align-items-center">
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 pb-4">
               <div className="header">
                 <h2 className="pt-3">Log In</h2>
               </div>
-              <form className="d-flex flex-column gap-4 mt-3 mb-3" onSubmit={handleSubmit}>
+              <form
+                className="d-flex flex-column gap-4 mb-3"
+                onSubmit={handleSubmit}
+              >
                 <div className="d-flex flex-column in gap-2">
                   <label>Email address</label>
 
                   <div className="input-group flex-nowrap pass">
-                    <span className="input-group-text lock-pass" id="addon-wrapping">
+                    <span
+                      className="input-group-text lock-pass"
+                      id="addon-wrapping"
+                    >
                       <MdAlternateEmail />
                     </span>
-                    <input type="email" placeholder="Your email" name="email" className="pass" onChange={handleChange} />
+                    <input
+                      type="email"
+                      placeholder="Your email"
+                      name="email"
+                      className="pass"
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
                 <div className="d-flex flex-column gap-2">
@@ -96,7 +111,10 @@ const SignIn = ({ setUserRole }) => {
                     <Link className="orange">Forgot Password?</Link>
                   </div>
                   <div className="input-group flex-nowrap pass">
-                    <span className="input-group-text lock-pass" id="addon-wrapping">
+                    <span
+                      className="input-group-text lock-pass"
+                      id="addon-wrapping"
+                    >
                       <IoIosLock />
                     </span>
                     <input
@@ -124,9 +142,12 @@ const SignIn = ({ setUserRole }) => {
                     Login
                   </button>
                   <p>
-                    Do not have an account? <Link className="orange" to={"/signup"}>Sign Up</Link>
+                    Do not have an account?{" "}
+                    <Link className="orange" to={"/signup"}>
+                      Sign Up
+                    </Link>
                   </p>
-                  <p>{error}</p>
+                  <p className="error">{error}</p>
                 </div>
               </form>
             </div>
