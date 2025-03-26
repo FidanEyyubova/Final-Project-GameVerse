@@ -27,57 +27,38 @@ const About = () => {
         </div>
 
         <div
-          className="row middle py-5 d-flex justify-content-center align-items-center"
+          className="row middle py-5 d-flex justify-content-center align-items-center my-3"
           data-aos="fade-down"
         >
-          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-center align-items-center">
+          <div className="col-lg-7 col-md-7 col-12 d-flex justify-content-center align-items-center">
             <div className="d-flex flex-column  justify-content-center align-items-center">
-              <div>
-                <h2 className="py-3">
-                  Welcome to GameVerse your <br /> ultimate destination for
-                  games!
-                </h2>
-              </div>
-              <div className="d-flex justify-content-center align-items-center">
-                <img
-                  src="https://cdn1.epicgames.com/95d0b9561be1464cb43bd029e94cf526/offer/GR_Epic_Landscape_Offer2560x1440-2560x1440-08987c0c3e1701ea6a7217ed5616922d.jpg"
-                  alt=""
-                  className="image"
-                />
-              </div>
+              <h2 className="mx-5">Welcome to <span className="game-head-about">GameVerse</span> your ultimate destination for games!</h2>
+              <img src="../src/images/about1.png" alt="" className="image pt-4" />
             </div>
           </div>
-          <div className="col-lg-6 col-md-6 col-12  d-flex justify-content-center align-items-center col-second">
+          <div className="col-lg-5 col-md-5 col-12  d-flex justify-content-center align-items-center col-second">
             <div className="d-flex justify-content-center align-items-center flex-column">
-              <div className="spandiv">
-                <span>
-                  Gameverse is your ultimate gaming hub that brings together the
-                  latest news, in-depth reviews, and insights from the world of
-                  video games. Designed for gamers by gamers, the website serves
-                  as a one-stop destination to explore trending games, upcoming
-                  releases, esports tournaments, and gaming culture.
-                </span>
-              </div>
-              <div className="py-3">
-                <img
-                  src="https://gh.cdn.sewest.net/assets/ident/games/final-fantasy-xv/en_US/GamesIndex_GameListing_Artwork_01.jpg?quality=65"
-                  alt=""
-                />
-              </div>
+              <span className="mx-5 px-2">
+                We offer a wide selection of the latest and classic PS titles at
+                the best prices. Whether you're looking for action, adventure,
+                sports, or RPGs, we've got you covered.
+              </span>
+              <img src="../src/images/about2.png" alt="" className="image-2 pt-4" />
             </div>
           </div>
         </div>
-        <div className="row first mx-3 py-3 px-3 my-3">
+        <div className="row first mx-3 py-3 px-3 my-3 mt-5">
           <div className="col-lg-12 col-md-12 col-12 d-flex justify-content-start align-items-center">
             <div className="d-flex flex-column gap-2">
               <h3>The Future of Gaming Starts Now</h3>
               <span>
                 {" "}
-                At <span>GameVerse</span> we believe that gaming is evolving faster than
-                ever, bringing players together through innovation, competition,
-                and an immersive community experience. With a vast collection of
-                the latest games, AI-driven matchmaking, and interactive
-                tournaments, we are redefining how gamers connect and compete.
+                At <span>GameVerse</span> we believe that gaming is evolving
+                faster than ever, bringing players together through innovation,
+                competition, and an immersive community experience. With a vast
+                collection of the latest games, AI-driven matchmaking, and
+                interactive tournaments, we are redefining how gamers connect
+                and compete.
               </span>
             </div>
           </div>
@@ -89,47 +70,61 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="row  text-center team py-3 pb-5 " data-aos="fade-down">
+        <div className="row  text-center team pt-5" data-aos="fade-down">
           <h2 className="team text-center my-2 py-4">Our Team</h2>
-          <div className="col-lg-4 col-12 my-2" data-aos="fade-down">
+          <div className="col-lg-3 col-12 my-4" data-aos="fade-down">
             <div>
               <img
                 src="https://img.freepik.com/premium-photo/well-dressed-young-businessman-portrait_1024356-1568.jpg"
                 alt=""
               />
             </div>
-            <div className="my-3">
-              <h4>James Holloway</h4>
+            <div className="my-3 team-name">
+              <h5>James Holloway</h5>
               <p>
                 <i>CEO</i>
               </p>
             </div>
           </div>
-          <div className="col-lg-4 col-12 my-2" data-aos="fade-down">
+          <div className="col-lg-3 col-12 my-4" data-aos="fade-down">
             <div>
               <img
                 src="https://img.freepik.com/premium-photo/woman-business-suit-gray-background_1106493-225464.jpg"
                 alt=""
               />
             </div>
-            <div className="my-3">
-              <h4>Isabella Thornton</h4>
+            <div className="my-3 team-name">
+              <h5>Isabella Thornton</h5>
               <p>
                 <i>Marketing</i>
               </p>
             </div>
           </div>
-          <div className="col-lg-4 col-12 my-2" data-aos="fade-down">
+          <div className="col-lg-3 col-12 my-4" data-aos="fade-down">
             <div>
               <img
                 src="https://img.freepik.com/premium-photo/well-dressed-businessman-with-cross-arm-portrait_1024356-1497.jpg"
                 alt=""
               />
             </div>
-            <div className="my-3">
-              <h4>Lucas Montgomery</h4>
+            <div className="my-3 team-name">
+              <h5>Lucas Montgomery</h5>
               <p>
                 <i>Customer Support</i>
+              </p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-12 my-4" data-aos="fade-down">
+            <div>
+              <img
+                src="https://img.freepik.com/premium-photo/formal-female_929505-4339.jpg"
+                alt=""
+              />
+            </div>
+            <div className="my-3 team-name">
+              <h5>Angela Wilson</h5>
+              <p>
+                Designer
               </p>
             </div>
           </div>

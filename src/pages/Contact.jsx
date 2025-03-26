@@ -35,7 +35,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="second-conc d-flex justify-content-center align-items-center mt-5 py-4" data-aos="fade-down">
+        <div className="second-conc d-flex justify-content-center align-items-center mt-5 py-4 pt-5 mx-4" data-aos="fade-down">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="conc-header d-flex justify-content-start align-items-center">
               <div className="d-flex flex-column justify-content-center align-items-start">
