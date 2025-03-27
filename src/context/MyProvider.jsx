@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -13,12 +14,8 @@ const MyProvider = ({ children }) => {
   const [filteredGenre, setFilteredGenre] = useState([]);
   const [filteredMode, setFilteredMode] = useState([]);
   const [price, setPrice] = useState(100);
-  const [cart, setCart] = useState(() => {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  });
-  const [wishlist, setWishlist] = useState(() => {
-    return JSON.parse(localStorage.getItem("wishlist")) || [];
-  });
+  const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("cart")) || []);
+  const [wishlist, setWishlist] = useState(() => JSON.parse(localStorage.getItem("wishlist")) || []);
 
   useEffect(() => {
     axios
@@ -40,52 +37,98 @@ const MyProvider = ({ children }) => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
-
   const addToCart = (game) => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    
+
     if (!loggedInUser) {
-      alert("You need to log in first!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
       window.location.href = "/signin";
       return;
     }
-  
+
     if (cart.some((item) => item.id === game.id)) {
-      alert("Bu mehsul cart-da var!");
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "This product is already in the cart!",
+      });
     } else {
-      setCart([...cart, game]);
+      setCart((prevCart) => [...prevCart, game]);
+      Swal.fire({
+        icon: "success",
+        title: "Added!",
+        text: "Product added to cart successfully.",
+      });
     }
   };
 
-  const addtoWishlist = (game) => {
+  const addToWishlist =  (game) => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    
     if (!loggedInUser) {
-      alert("You need to log in first!");
-      window.location.href = "/signin"
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You need to log in first!",
+      });
+      window.location.href = "/signin";
       return;
     }
+
     if (wishlist.some((item) => item.id === game.id)) {
-      alert("bu mehsul wishlistde var!");
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "This product is already in your wishlist!",
+      });
     } else {
-      setWishlist([...wishlist, game]);
+      setWishlist((prevWishlist) => [...prevWishlist, game]);
+      Swal.fire({
+        icon: "success",
+        title: "Added!",
+        text: "Product added to wishlist successfully.",
+      });
     }
   };
 
-  const removeFromCart = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
+  const removeFromCart =  (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    Swal.fire({
+      icon: "info",
+      title: "Removed",
+      text: "Product removed from cart.",
+    });
   };
 
-  const removeFromWishlist = (id) => {
-    setWishlist(wishlist.filter((item) => item.id !== id));
+  const removeFromWishlist =  (id) => {
+    setWishlist((prevWishlist) => prevWishlist.filter((item) => item.id !== id));
+    Swal.fire({
+      icon: "info",
+      title: "Removed",
+      text: "Product removed from wishlist.",
+    });
   };
 
-  const clearCart = () => {
+  const clearCart =  () => {
     setCart([]);
+    Swal.fire({
+      icon: "info",
+      title: "Cleared",
+      text: "Cart has been emptied.",
+    });
   };
 
-  const clearWishlist = () => {
+  const clearWishlist =  () => {
     setWishlist([]);
+    Swal.fire({
+      icon: "info",
+      title: "Cleared",
+      text: "Wishlist has been emptied.",
+    });
   };
 
   return (
@@ -101,10 +144,12 @@ const MyProvider = ({ children }) => {
         setFilteredMode,
         price,
         setPrice,
-        cart, setCart,
-        wishlist, setWishlist,
+        cart,
+        setCart,
+        wishlist,
+        setWishlist,
         addToCart,
-        addtoWishlist,
+        addToWishlist,
         removeFromCart,
         removeFromWishlist,
         clearCart,

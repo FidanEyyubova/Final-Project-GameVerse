@@ -48,7 +48,10 @@ const Footer = () => {
                   <Link className="menu">Blog</Link>
                 </li>
                 <li className="nav-item mb-1 my-3">
-                  <Link className="menu">Contact</Link>
+                <NavLink className={({isActive}) => 
+                  isActive ? "active" : "menu"} to={"/contact"}>
+                    Contact
+                  </NavLink>
                 </li>
                 <li className="nav-item mb-1 my-3">
                 <HashLink className="menu" smooth to="/#faq">FAQ</HashLink>

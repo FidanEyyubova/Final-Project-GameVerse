@@ -1,0 +1,83 @@
+.admin-dashboard{
+    background-color: black;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+.out{
+    color: white;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.36);
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: color 0.4s ease;
+    transition: background-color 0.4s ease ;
+}
+.out:hover{
+    color: #ff4701;
+    background-color: white;
+  
+}
+.second{
+    img{
+        width: 90px;
+    }
+    small{
+        font-size: 14px;
+        color: #a3aed0;
+    }
+    h5{
+        color:#ff4701 ;
+        font-weight: 600;
+    }
+}
+.admin-first{
+    background-color: #191919;
+    border-radius: 20px;
+}
+.icon{
+    font-size: 25px;
+    color: #ff4701;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.static{
+    width: 65px!important;
+}
+.percent{
+    color: white!important;
+}
+.buy-arrow{
+    height: 40px;
+}
+.game-pur-img{
+    width: 42px;
+    height: 40px;
+    border-radius: 50%;
+}
+.game-pur{
+    small{
+        font-size: 13px;
+    }
+    .desc{
+        color: rgba(255, 255, 255, 0.579);
+    }
+    
+}
+.link-add-blog{
+    width: 170px!important;
+    height: 40px;
+}
+.blog-arrow{
+    background-color: #ff4701;
+    border: none;
+    border-radius: 15px;
+}
+
+.head-dash{
+    font-weight: bold;
+    font-size: 15px!important;
+}

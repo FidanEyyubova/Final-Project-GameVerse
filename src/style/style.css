@@ -2,56 +2,90 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .head {
-  background-color: #001128;
+  background-color: transparent;
+  font-family: "Sigmar One", sans-serif;
+  position: relative;
+  z-index: 5000 !important;
 }
-.head .img-logo {
-  width: 40px;
+.head h5 {
+  color: white;
+}
+.head .head-row {
+  position: relative;
+  z-index: 333 !important;
 }
 .head .moon {
+  background-color: transparent;
   border: none;
-  background-color: #001128;
   color: white;
-  font-size: 17px;
+  font-size: 18px;
 }
 .head .dropdown-toggle {
   border: none;
-  background-color: #001128;
+  background-color: transparent;
   color: white;
-}
-.head .custom-dropdown-menu {
-  min-width: 70px !important;
-  z-index: 1050 !important;
+  position: relative;
 }
 .head .user {
   color: white;
-  background-color: #505c6b;
-  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 7px 11px;
   border-radius: 50%;
+  font-size: 14px;
+  height: 33px;
+}
+.head span {
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 15px;
 }
-.head .img-lang {
-  width: 20px;
-  height: 25px;
+.head .custom-dropdown-menu {
+  min-width: 70px !important;
+  position: absolute !important;
+  z-index: 1050 !important;
+}
+.head .dropdown {
+  position: relative;
+}
+.head .head-dropdown {
+  min-width: 70px !important;
+  position: absolute !important;
+  z-index: 1050 !important;
+}
+.head .head-row {
+  position: absolute;
+  z-index: 333 !important;
 }
 
 .navbar {
   font-family: "Barlow", serif;
-  background-color: #000d1f;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  text-decoration: none;
+  color: white;
+  height: 58px;
+  text-align: center;
+  border-radius: 40px;
+  position: relative;
+  z-index: 5000 !important;
 }
 .navbar .page {
-  color: white;
+  color: rgba(255, 255, 255, 0.49);
   text-decoration: none;
-  font-weight: 500;
   transition: color 0.4s ease;
 }
 .navbar .page:hover {
-  color: #ff4701;
+  color: white;
 }
 .navbar .active {
-  color: #ff4701;
+  color: white;
   text-decoration: none;
   font-weight: 500;
 }
@@ -62,7 +96,7 @@
   transition: color 0.4s ease;
 }
 .navbar .icon:hover {
-  color: #ff4701;
+  color: white;
 }
 .navbar .badge {
   background-color: #ff4701;
@@ -71,7 +105,7 @@
 .navbar .custom-search {
   border-radius: 15px !important;
   border: none !important;
-  background-color: #7D7D7D;
+  background-color: #7d7d7d;
 }
 .navbar input::-moz-placeholder {
   padding: 10px;
@@ -86,15 +120,162 @@
   background-color: rgba(125, 125, 125, 0.6352941176) !important;
 }
 
+.dropdown-lang {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.home-pic .first img {
+  width: 170px;
+  height: 130px;
+  border-radius: 10px;
+}
+
+.top-section {
+  background-image: url("https://images4.alphacoders.com/138/1386594.jpg");
+  background-size: cover;
+  background-position: center-center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 620px;
+}
+
+.home-row {
+  height: 480px;
+  z-index: 333;
+}
+
+.top-section {
+  position: relative;
+}
+
+.top-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.462);
+}
+
+.lang {
+  font-size: 18px;
+}
+
+.home-pic-desc {
+  color: white;
+}
+.home-pic-desc h1 {
+  font-family: "Tektur", sans-serif;
+  font-size: 55px;
+}
+.home-pic-desc p {
+  color: rgba(255, 255, 255, 0.586);
+  font-size: 18px;
+}
+
+.wish {
+  background-color: rgba(255, 255, 255, 0.147);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 180px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+}
+
+.buy {
+  background-color: #ff4701;
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+}
+
+.buy-arrow {
+  background-color: #ff4701;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.link-add {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.badge-icon {
+  background-color: transparent;
+  border: none;
+}
+
+.nav-item-icon {
+  font-size: 16px;
+  color: white;
+}
+
+.discover {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+.discover .first, .discover .sixth {
+  background-color: rgba(255, 255, 255, 0.089);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 14px;
+}
+.discover span {
+  color: rgba(255, 255, 255, 0.435);
+}
+
+.popularity img {
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+}
+.popularity .add {
+  border: none;
+  background-color: #ff4701;
+  width: 100px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 400;
+  height: 40px;
+  font-size: 13px;
+}
+
+.scrolling-navbar {
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-item-icon {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.seventh img {
+  width: 100%;
+  max-width: 1207px;
+  border-radius: 20px;
+}
+
 .footer {
   font-family: "Barlow", serif;
-  background-color: #001128;
+  background-color: #262626;
 }
 .footer img {
   width: 80px;
 }
 .footer p {
   color: white;
+}
+.footer h5 {
+  font-family: "Sigmar One", sans-serif;
 }
 .footer .game {
   font-size: 17px;
@@ -106,30 +287,36 @@
   color: white;
 }
 .footer .menu {
-  color: white;
+  color: rgba(255, 255, 255, 0.49);
   text-decoration: none;
   transition: color 0.4s ease;
 }
 .footer .menu:hover {
-  color: #ff4701;
+  color: white;
 }
 .footer .active {
-  color: #ff4701;
+  color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 .footer .icon {
   font-size: 19px;
-  color: white;
+  color: rgba(255, 255, 255, 0.49);
   padding: 8px;
   transition: color 0.4s ease;
   cursor: pointer;
 }
 .footer .icon:hover {
-  color: #ff4701;
+  color: white;
 }
 
 .about {
-  background-color: #000d1f;
+  background-color: black;
+  color: white;
+}
+.about span {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.435);
 }
 .about .container-fluid .descript {
   color: white;
@@ -151,14 +338,704 @@
   color: rgba(255, 255, 255, 0.603);
 }
 .about .container-fluid .team img {
-  width: 340px;
+  width: 400px;
   border-radius: 10px;
 }
 
-.modal-content {
-  background-color: #000d1f !important;
+.sticky-top {
+  z-index: 5000 !important;
 }
 
-#close {
-  background-color: white !important;
+.five {
+  /* Remove Bootstrap default caret */
+  /* Add FontAwesome icon and place it on the right */
+}
+.five h2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+.five .accordion {
+  width: 100%;
+}
+.five .accordion-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.five .accordion-header {
+  border-radius: 10px;
+}
+.five .accordion-button {
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 15px;
+  border: none;
+  display: flex;
+  flex-direction: row-reverse; /* Moves arrow to the right */
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+.five .accordion-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+.five .accordion-button:not(.collapsed) {
+  color: white;
+  border-bottom: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.five .accordion-button::after {
+  display: none !important;
+}
+.five .accordion-button::before {
+  content: "\f107"; /* FontAwesome down arrow */
+  font-family: "FontAwesome";
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  background-color: #ff4701;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.five .accordion-button:not(.collapsed)::before {
+  transform: rotate(180deg);
+}
+.five .accordion-body {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0 0 10px 10px;
+}
+.five .accordion-item + .accordion-item {
+  margin-top: 10px;
+}
+
+.mo {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.product-slide {
+  position: relative;
+}
+
+.body {
+  position: absolute;
+  top: 200px;
+  color: white;
+  width: 100%;
+}
+
+.body-discount {
+  position: absolute;
+  top: 177px;
+  color: white;
+  width: 100%;
+}
+
+.body-pop {
+  position: absolute;
+  top: 200px;
+  color: white;
+  width: 100%;
+}
+
+.product-slide::before {
+  content: "";
+  position: absolute;
+  top: 170px;
+  width: 250px;
+  height: 130px;
+  background-color: rgba(0, 0, 0, 0.503);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 0px 0px 10px 10px;
+}
+
+.count-space {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 200px;
+  border-radius: 20px;
+  height: 100px;
+  color: white !important;
+}
+.count-space span {
+  color: white;
+}
+.count-space p {
+  color: #7d7d7d;
+}
+
+.text {
+  color: #7d7d7d;
+  font-size: 18px;
+}
+
+.mobile img {
+  width: 100%;
+  border-radius: 10px;
+  max-width: 900px;
+}
+
+.slick-prev {
+  font-size: 24px;
+  background: black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -57px;
+  left: 1100px;
+}
+
+.slick-next {
+  font-size: 24px;
+  color: white;
+  background: black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -57px;
+  right: 30px;
+}
+
+.gamedetail {
+  background-color: black;
+  color: white;
+}
+.gamedetail h2 {
+  color: #ff4701;
+}
+.gamedetail .des {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.gamedetail .price {
+  font-size: 27px;
+}
+.gamedetail img {
+  width: 100%; /* Ensures responsiveness */
+  height: 450px; /* Maintains aspect ratio */
+  border-radius: 10px;
+}
+.gamedetail .star {
+  color: yellow;
+  font-size: 20px;
+}
+.gamedetail .rate {
+  position: relative;
+  top: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  height: 32px;
+  width: 70px;
+}
+.gamedetail .add {
+  border: none;
+  background-color: #ff4701;
+  width: 235px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 400;
+  height: 40px;
+}
+.gamedetail .wish {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 275px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 400;
+  height: 40px;
+}
+.gamedetail .prop {
+  background-color: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 140px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+.gamedetail .dev {
+  border-bottom: 1px solid rgba(113, 110, 110, 0.466);
+}
+.gamedetail .b {
+  border-bottom: 1px solid rgba(139, 137, 137, 0.397);
+}
+
+.contact {
+  background-color: black;
+  color: white;
+}
+.contact .info {
+  background-color: rgba(255, 255, 255, 0.089);
+  width: 80%;
+  border-radius: 10px;
+}
+.contact h5 {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.473);
+  width: 86%;
+}
+.contact .num {
+  width: 100%;
+}
+.contact p:nth-child(1) {
+  color: rgba(128, 128, 128, 0.747);
+}
+.contact .cc {
+  font-size: 16px;
+  color: rgb(177, 176, 176);
+}
+
+.second-conc {
+  background-color: rgba(255, 255, 255, 0.089);
+  width: 80%;
+  border-radius: 10px;
+  position: relative;
+  left: 100px;
+}
+.second-conc .conc-header {
+  width: 73%;
+}
+.second-conc .conc-header h2 {
+  color: #ff4701;
+}
+.second-conc input {
+  width: 350px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  outline: none;
+  font-size: 16px; /* Consistent text size */
+  line-height: 50px;
+  caret-color: #ff4701;
+  text-indent: 10px;
+  color: white;
+}
+.second-conc textarea {
+  border: none;
+  height: 50px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  outline: none;
+  font-size: 16px; /* Consistent text size */
+  line-height: 50px;
+  caret-color: #ff4701;
+  text-indent: 10px;
+  resize: vertical; /* Allows users to expand if needed */
+  overflow-y: auto;
+  color: white; /* Enables scrolling when content overflows */
+}
+.second-conc textarea {
+  overflow: auto; /* Keeps scrolling */
+  scrollbar-width: none; /* For Firefox */
+}
+.second-conc textarea::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari */
+}
+.second-conc button {
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #ff4701;
+  color: white;
+  border: none;
+  border-radius: 16px;
+}
+.second-conc .input-wrapper:focus-within label {
+  color: #ff4701 !important;
+}
+
+.login-user {
+  background-color: black;
+  min-height: 100vh;
+}
+.login-user .log-col h2 {
+  font-weight: 600;
+}
+.login-user .log-col input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /* Removes default checkbox styles */
+  width: 12px;
+  height: 12px;
+  background-color: #dbdbdb; /* Default background */
+  border-radius: 3px; /* Optional */
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+.login-user .log-col input[type=checkbox]:checked {
+  background-color: #ff4701 !important; /* Background color when checked */
+}
+.login-user .log-col input::-moz-placeholder {
+  color: #a0a0a0; /* Lighter gray for placeholder text */
+  font-size: 16px;
+  opacity: 1;
+}
+.login-user .log-col input::placeholder {
+  color: #a0a0a0; /* Lighter gray for placeholder text */
+  font-size: 16px;
+  opacity: 1;
+}
+.login-user .log-col input {
+  height: 43px;
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  border-radius: 6px;
+  border-left: none;
+  outline: none;
+  font-size: 16px; /* Consistent text size */
+  line-height: 50px;
+  caret-color: #f13d45;
+  text-indent: 10px;
+  background-color: rgba(255, 255, 255, 0.089) !important;
+  color: white;
+}
+.login-user .log-col input:focus {
+  border: 1px solid #f13d45;
+  border-left: none;
+}
+.login-user .log-col .check {
+  border: 1px solid rgba(255, 255, 255, 0.089);
+}
+.login-user .log-col .check:focus {
+  border: 1px solid rgba(255, 255, 255, 0.089) !important;
+}
+.login-user .log-col button {
+  background-color: #ff4701;
+  width: 100%;
+  height: 43px;
+  border-radius: 7px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+.login-user .log-col button:hover {
+  background-color: transparent;
+  border: 2px solid #ff4701;
+  color: #f13d45;
+  transition: background-color 0.3s ease;
+}
+.login-user .log-col p {
+  font-size: 17px;
+}
+.login-user .log-col .sign-link {
+  text-decoration: none;
+  color: #ba232f;
+  font-weight: 500;
+}
+.login-user .log-col label {
+  font-weight: 450;
+}
+.login-user .log-col .pass {
+  width: 370px;
+}
+.login-user .log-col .check {
+  border: 1px solid rgba(255, 255, 255, 0.089);
+}
+.login-user .error {
+  color: #ff4701;
+}
+.login-user .middle {
+  background-color: rgba(255, 255, 255, 0.089);
+  width: 480px;
+  height: 530px;
+  border-radius: 10px;
+  color: white;
+}
+.login-user .input-group:focus-within .lock-pass {
+  border-color: #f13d45 !important;
+}
+.login-user .lock-pass {
+  background-color: rgba(255, 255, 255, 0.089) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.089) !important;
+  border-left: none;
+  cursor: pointer;
+  color: #9f9d9d;
+}
+.login-user .right {
+  border-left: none !important;
+}
+.login-user .orange {
+  color: #ff4701;
+  text-decoration: none;
+}
+
+.register {
+  background-color: black;
+  min-height: 140vh;
+}
+.register .log-col input {
+  width: 380px;
+  height: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  border-radius: 6px;
+  border-left: none;
+  outline: none;
+  font-size: 16px; /* Consistent text size */
+  line-height: 50px;
+  caret-color: #f13d45;
+  text-indent: 10px;
+  background-color: rgba(255, 255, 255, 0.089) !important;
+  color: white;
+}
+.register .log-col input::-moz-placeholder {
+  color: #a0a0a0; /* Lighter gray for placeholder text */
+  font-size: 16px;
+  opacity: 1;
+}
+.register .log-col input::placeholder {
+  color: #a0a0a0; /* Lighter gray for placeholder text */
+  font-size: 16px;
+  opacity: 1;
+}
+.register .pass-three {
+  width: 430px;
+}
+.register .pass {
+  width: 420px;
+}
+.register input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /* Removes default checkbox styles */
+  width: 12px;
+  height: 12px;
+  background-color: #dbdbdb; /* Default background */
+  border-radius: 3px; /* Optional */
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+.register input[type=checkbox]:checked {
+  background-color: #ff4701 !important; /* Background color when checked */
+}
+.register input:focus {
+  border: 1px solid #f13d45;
+  border-left: none;
+}
+.register p {
+  color: rgba(255, 255, 255, 0.305);
+}
+.register button {
+  background-color: #ff4701;
+  width: 100%;
+  height: 45px;
+  border-radius: 7px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+.register button:hover {
+  background-color: transparent;
+  border: 2px solid #ff4701;
+  color: #f13d45;
+  transition: background-color 0.3s ease;
+}
+.register .end {
+  font-size: 17px;
+  color: white;
+}
+.register .sign-link {
+  text-decoration: none;
+  color: #ba232f;
+  font-weight: 500;
+}
+.register label {
+  font-weight: 450;
+}
+.register .check {
+  border: 1px solid #3b444f;
+}
+.register .lock-pass {
+  background-color: rgba(255, 255, 255, 0.089) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.089) !important;
+  border-left: none;
+  cursor: pointer;
+  color: #9f9d9d;
+}
+.register .right {
+  border-left: none !important;
+}
+.register .orange {
+  color: #ff4701;
+  text-decoration: none;
+}
+.register .middle {
+  background-color: rgba(255, 255, 255, 0.089);
+  width: 600px;
+  height: 760px;
+  border-radius: 10px;
+  color: white;
+}
+.register .input-group:focus-within .lock-pass {
+  border-color: #f13d45 !important;
+}
+
+.popularity {
+  position: relative;
+}
+.popularity .name {
+  font-weight: 600;
+}
+.popularity .discount {
+  background-color: white;
+  color: #ff4701;
+  width: 50px;
+  border-radius: 10px;
+}
+.popularity .heart {
+  position: absolute;
+  top: 5%;
+  right: 12%;
+  font-size: 18px;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+}
+.popularity .prevprice {
+  color: #d7d7d7;
+  font-weight: 600;
+}
+
+.navbar-two {
+  background-color: black;
+}
+.navbar-two .navbar {
+  background-color: black;
+}
+
+.header-two {
+  background-color: black;
+}
+
+.scrolling-navbar {
+  background-color: black;
+}
+
+.top-section-about {
+  background-image: url("../images/about.jpg");
+  background-size: cover;
+  background-position: center-center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 620px;
+}
+
+.top-section-detail {
+  background-color: transparent;
+  background-image: none;
+}
+
+.about .first {
+  background-color: rgba(255, 255, 255, 0.089);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 14px;
+}
+
+.about .first span span {
+  color: #ff4701;
+  font-weight: 500;
+}
+
+.exm-img {
+  position: relative;
+  top: -700px;
+}
+
+.back-img {
+  position: relative;
+}
+
+.back-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.555);
+}
+
+.square-img {
+  position: relative;
+  top: -120px;
+}
+.square-img img {
+  width: 250px;
+  height: 220px;
+}
+
+.image-2 {
+  width: 390px !important;
+}
+
+.col-second span {
+  font-size: 19px;
+}
+
+.image {
+  width: 620px !important;
+}
+
+.game-head-about {
+  color: #ff4701 !important;
+  font-size: 30px !important;
+}
+
+.team img {
+  width: 250px !important;
+  height: 270px;
+}
+
+.team-name {
+  position: relative;
+  top: -90px;
+}
+
+.notfound {
+  min-height: 90vh;
+  background-color: black;
+}
+.notfound h1 {
+  font-size: 150px;
+}
+.notfound p {
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.462);
+}
+.notfound .link-add {
+  font-size: 20px;
+}
+.notfound .buy {
+  width: 200px;
 }/*# sourceMappingURL=style.css.map */
