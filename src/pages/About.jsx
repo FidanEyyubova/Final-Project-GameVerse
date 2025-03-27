@@ -2,11 +2,23 @@ import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
+
 const About = () => {
   useEffect(() => {
     Aos.init({ duration: 1500, once: true });
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
+
+
+  const handleclick = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!",
+      footer: '<a href="#">Why do I have this issue?</a>'
+    });
+  }
+
   return (
     <div className="about">
       <div className="container-fluid py-4">
@@ -128,6 +140,9 @@ const About = () => {
               </p>
             </div>
           </div>
+        </div>
+        <div>
+          <button onClick={handleclick}></button>
         </div>
       </div>
     </div>

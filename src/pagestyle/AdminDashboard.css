@@ -1,0 +1,53 @@
+.admin-dashboard {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.out {
+  color: white;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.36);
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.second img {
+  width: 90px;
+}
+.second small {
+  font-size: 14px;
+  color: #a3aed0;
+}
+.second h5 {
+  color: #ff4701;
+  font-weight: 600;
+}
+
+.admin-first {
+  background-color: #191919;
+  border-radius: 20px;
+}
+
+.icon {
+  font-size: 25px;
+  color: #ff4701;
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.static {
+  width: 65px !important;
+}
+
+.percent {
+  color: white !important;
+}
+
+.buy-arrow {
+  height: 40px;
+}/*# sourceMappingURL=AdminDashboard.css.map */

@@ -9,6 +9,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
+import Swal from 'sweetalert2'
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -42,9 +43,8 @@ const GameDetails = () => {
     }
   }, [game, setGame]);
   useEffect(() => {
-    Aos.init({ duration: 1500, once : true});
+    Aos.init({ duration: 1500, once: true });
   }, []);
-
 
   const gameDetail = game?.find((item) => item.id == id);
 
@@ -56,7 +56,12 @@ const GameDetails = () => {
     const loggedInUser = localStorage.getItem("loggedInUser");
 
     if (!loggedInUser || loggedInUser === "null") {
-      alert("You need to log in first!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
       window.location.href = "/signin";
       return;
     }
@@ -65,18 +70,27 @@ const GameDetails = () => {
 
     if (action === "cart") {
       addToCart(el);
-      alert("Added to cart!");
+      Swal.fire({
+        icon: "success",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     } else if (action === "wishlist") {
       addtoWishlist(el);
-      alert("Added to wishlist!");
+      Swal.fire({
+        icon: "success",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     }
   };
 
-    
   return (
     <div className="gamedetail">
       <div className="container-fluid">
-        <div className="row" >
+        <div className="row">
           <div
             className="col-12 back-img"
             style={{
@@ -117,41 +131,40 @@ const GameDetails = () => {
             <div>
               <div className="d-flex flex-column">
                 <h1 className="mb-3 mx-3">{gameDetail.name}</h1>
-                
-                <div>
-              <p className="des mx-3">{gameDetail.desc?.[1]}</p>
-              <h2 className="mt-5">{gameDetail.desc?.[2]}</h2>
-              <p className="des">{gameDetail.desc?.[3]}</p>
 
+                <div>
+                  <p className="des mx-3">{gameDetail.desc?.[1]}</p>
+                  <h2 className="mt-5">{gameDetail.desc?.[2]}</h2>
+                  <p className="des">{gameDetail.desc?.[3]}</p>
                 </div>
                 <div className="gap-md-3 d-lg-block d-md-flex mx-4">
-                <div>
-                  <h5 className="pb-2">
-                    <b>Genres</b>
-                  </h5>
-                  <div className="d-flex gap-3">
-                    {gameDetail.genres?.length > 0 &&
-                      gameDetail.genres.map((genre, index) => (
-                        <p key={index} className="prop text-center py-2">
-                          {genre}
-                        </p>
-                      ))}
+                  <div>
+                    <h5 className="pb-2">
+                      <b>Genres</b>
+                    </h5>
+                    <div className="d-flex gap-3">
+                      {gameDetail.genres?.length > 0 &&
+                        gameDetail.genres.map((genre, index) => (
+                          <p key={index} className="prop text-center py-2">
+                            {genre}
+                          </p>
+                        ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="pb-2">
+                      <b>Features</b>
+                    </h5>
+                    <div className="d-flex gap-3">
+                      {gameDetail.features?.length > 0 &&
+                        gameDetail.features.map((feature, index) => (
+                          <p key={index} className="prop text-center py-2">
+                            {feature}
+                          </p>
+                        ))}
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <h5 className="pb-2">
-                    <b>Features</b>
-                  </h5>
-                  <div className="d-flex gap-3">
-                    {gameDetail.features?.length > 0 &&
-                      gameDetail.features.map((feature, index) => (
-                        <p key={index} className="prop text-center py-2">
-                          {feature}
-                        </p>
-                      ))}
-                  </div>
-                </div>
-              </div>
               </div>
             </div>
           </div>
@@ -168,16 +181,16 @@ const GameDetails = () => {
                 </p>
               </div>
               <div className="d-flex flex-column gap-3">
-              <div className="d-flex">
-                <button className="add mb-2">
-                  <Link className="link-add">Play for free</Link>
-                </button>
-                <button className="buy-arrow mb-2">
-                  <Link className="link-add pb-1">
-                    <MdArrowOutward />
-                  </Link>
-                </button>
-              </div>
+                <div className="d-flex">
+                  <button className="add mb-2">
+                    <Link className="link-add">Play for free</Link>
+                  </button>
+                  <button className="buy-arrow mb-2">
+                    <Link className="link-add pb-1">
+                      <MdArrowOutward />
+                    </Link>
+                  </button>
+                </div>
                 <button
                   className="wish mb-2"
                   onClick={() => handleClick(gameDetail, "cart")}
@@ -191,7 +204,7 @@ const GameDetails = () => {
                   Add to Wishlist
                 </button>
               </div>
-              
+
               <div className="d-flex flex-column justify-content-center gap-2">
                 <div className="d-flex justify-content-between b mt-4 mb-3">
                   <p>Developer</p>
@@ -217,7 +230,6 @@ const GameDetails = () => {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );
