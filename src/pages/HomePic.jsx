@@ -2,16 +2,51 @@ import React, { useContext, useEffect } from "react";
 import { MyContext } from "../context/MyProvider";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
+import Swal from "sweetalert2";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 const HomePic = () => {
-  const { game } = useContext(MyContext);
-   useEffect(() => {
-      Aos.init({ duration: 1500, once : true});
-    }, []);
+  const { game, addToWishlist } = useContext(MyContext);
 
-    
+  useEffect(() => {
+    Aos.init({ duration: 1500, once: true });
+  }, []);
+
+  const handleClick = (el) => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (!loggedInUser || loggedInUser === "null") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You need to sign in first!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      }).then(() => {
+        window.location.href = "/signin";
+      });
+      return;
+    } else {
+      addToWishlist(el);
+      Swal.fire({
+        icon: "success",
+        title: "Added to Wishlist",
+        text: `${el.name} has been added to your wishlist!`,
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      });
+    }
+  };
+
   return (
     <div className="home-pic">
       <div className="container-fluid">
@@ -19,43 +54,49 @@ const HomePic = () => {
           <div className="d-flex justify-content-center align-items-center home-row">
             <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-center align-items-center home-pic-desc">
               <div className="mx-lg-5">
-                {game.slice(0, 1).map((el) => (
-                  <div data-aos="fade-down">
-                    <h1>{el.name}</h1>
-                    <p className="pb-3 py-2">{el.desc[0]}</p>
-                    <div className="d-flex gap-3">
-                      <button className="wish">
-                        <Link className="link-add">Add to Wishlist</Link>
-                      </button>
-                      <div className="d-flex">
-                        <button className="buy">
-                          <Link className="link-add">Buy now</Link>
+                {game && game.length > 0 ? (
+                  game.slice(0, 1).map((el) => (
+                    <div key={el.id} data-aos="fade-down">
+                      <h1>{el.name}</h1>
+                      <p className="pb-3 py-2">{el.desc[0]}</p>
+                      <div className="d-flex gap-3">
+                        <button className="wish" style={{color: "white"}} onClick={() => handleClick(el)}>
+                          Add to Wishlist
                         </button>
-                        <button className="buy-arrow">
-                          <Link className="link-add pb-1">
-                            <MdArrowOutward />
-                          </Link>
-                        </button>
+                        <div className="d-flex">
+                          <button className="buy">
+                            <Link className="link-add" to={`/game/${el.id}`}>Buy now</Link>
+                          </button>
+                          <button className="buy-arrow">
+                            <Link className="link-add pb-1">
+                              <MdArrowOutward />
+                            </Link>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-                
+                  ))
+                ) : (
+                  <p>Loading games...</p>
+                )}
               </div>
             </div>
-            <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center" data-aos="fade-down">
-              <div className="d-flex flex-column  gap-3 mx-lg-5 pt-2">
+            <div
+              className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center"
+              data-aos="fade-down"
+            >
+              <div className="d-flex flex-column gap-3 mx-lg-5 pt-2">
                 <img
                   src="https://www.playdeltaforce.com/ossweb-img/p3-main2.jpg"
-                  alt=""
+                  alt="Game Preview 1"
                 />
                 <img
                   src="https://i.redd.it/high-quality-delta-force-wallpapers-v0-juvk2c34z48e1.png?width=3840&format=png&auto=webp&s=9ecab059e7548a99c0dfb72e94721d764bd889aa"
-                  alt=""
+                  alt="Game Preview 2"
                 />
                 <img
                   src="https://images8.alphacoders.com/138/1386595.jpg"
-                  alt=""
+                  alt="Game Preview 3"
                 />
               </div>
             </div>
