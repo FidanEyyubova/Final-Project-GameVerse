@@ -1,0 +1,111 @@
+//PRODUCT-SLIDER-DISCOUNT-SLIDER
+.heart {
+    position: absolute;
+    top: 4%;
+    right: 13%;
+    font-size: 18px;
+    color: white;
+    visibility: hidden;
+    background-color: transparent;
+    border: none;
+    transition: visibility 0.2s ease, color 0.3s ease;
+  }
+  .heart:hover{
+    color: #ff4701;
+  }
+  .act-heart{
+    color: #ff4701;
+    visibility: visible;
+  }
+  .wishlist-popup {
+    background: rgb(17, 17, 17); /* Dark gradient */
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .wishlist-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff4701; /* Gold color */
+  }
+  
+  .wishlist-text {
+    font-size: 18px;
+    color: #ccc;
+  }
+  
+  .wishlist-button {
+    background-color: #ff4701 !important;
+    color: white!important;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .wishlist-button:hover {
+    background-color: white !important;
+    color: #ff4701!important;
+  }
+  
+//   .wishlist-popup {
+//     background-color: #1e1e2d; /* Dark theme */
+//     color: white;
+//     border-radius: 12px;
+//     padding: 20px;
+//     width: 350px;
+//   }
+  
+//   .wishlist-title {
+//     font-size: 22px;
+//     font-weight: bold;
+//     color: #ffcc00; /* Gold color */
+//   }
+  
+//   .wishlist-text {
+//     font-size: 16px;
+//     color: #ccc;
+//   }
+  
+//   .wishlist-button {
+//     background-color: #ffcc00 !important;
+//     color: #1e1e2d !important;
+//     border-radius: 8px;
+//     padding: 10px 20px;
+//     font-weight: bold;
+//   }
+  
+
+.swal2-popup.wishlist-popup {
+    background: rgb(17, 17, 17) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+}
+
+.swal2-title.wishlist-title {
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: #ff4701 !important;
+}
+
+.swal2-html-container.wishlist-text {
+    font-size: 18px !important;
+    color: #ccc !important;
+}
+
+.swal2-confirm.wishlist-button {
+    background-color: #ff4701 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 10px 20px !important;
+    font-weight: bold !important;
+    transition: 0.3s !important;
+}
+
+.swal2-confirm.wishlist-button:hover {
+    background-color: white !important;
+    color: #ff4701 !important;
+}

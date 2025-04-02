@@ -364,7 +364,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     overflow: hidden;
   }
@@ -396,7 +396,7 @@
   .accordion-button:not(.collapsed) {
     color: white;
     border-bottom: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   /* Remove Bootstrap default caret */
@@ -1417,26 +1417,20 @@ textarea::-webkit-scrollbar {
     width: 50px;
     border-radius: 10px;
   }
-  .heart {
-    position: absolute;
-    top: 5%;
-    right: 12%;
-    font-size: 18px;
-    color: white;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
-  }
+  
   .prevprice{
     color: #d7d7d7;
     font-weight: 600;
   }
 }
 
-// .popularity:hover .heart {
-//   opacity: 1;
-//   visibility: visible;
-// }
+.popularity:hover .heart {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
 
 // .heart:hover {
 //   color: #ff4701;
@@ -1704,3 +1698,22 @@ textarea::-webkit-scrollbar {
   }
 }
 
+
+
+
+
+
+
+
+
+.footer-icon{
+  color: white;
+  font-size: 20px;
+}
+.footer-icon{
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+.footer-icon:hover {
+  color: white;
+}
