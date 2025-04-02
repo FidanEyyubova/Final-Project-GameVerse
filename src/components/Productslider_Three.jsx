@@ -15,7 +15,7 @@ const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
-const Productslider = () => {
+const Productslider_Three = () => {
   const { game, setGame, addToWishlist, wishlist, removeFromWishlist } =
     useContext(MyContext);
   const navigate = useNavigate();
@@ -63,7 +63,7 @@ const Productslider = () => {
       Swal.fire({
         icon: "warning",
         title: "Removed from Wishlist",
-        text: "Game has been removed from your wishlist!",
+        text: `${el.name} has been removed from your wishlist!`,
         customClass: {
           popup: "wishlist-popup",
           title: "wishlist-title",
@@ -76,7 +76,7 @@ const Productslider = () => {
       Swal.fire({
         icon: "success",
         title: "Added to Wishlist",
-        text: "Game has been added to your wishlist!",
+        text: `${el.name} has been added to your wishlist!`,
         customClass: {
           popup: "wishlist-popup",
           title: "wishlist-title",
@@ -115,7 +115,7 @@ const Productslider = () => {
   return (
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
-        game.slice(3, 15).map((el) => (
+        game.slice(19, 27).map((el) => (
           <div key={el.id} className="popularity py-2" data-aos="fade-down">
             <div className="product-slide d-flex justify-content-center">
               <img src={el.imgProduct} alt={el.name} />
@@ -137,12 +137,27 @@ const Productslider = () => {
                   {el.name}
                 </Link>
               </p>
-              <div className="end d-flex justify-content-around gap-5 mt-4">
-                <p className="mt-2 price">${el.price}</p>
-                <button className="add" onClick={() => navigate(`/game/${el.id}`)}>
-                  Buy Now
-                </button>
-              </div>
+              <div className="end d-flex justify-content-around text-center">
+                  <div>
+                    <p className="mt-2 price discount">-{el.discount}%</p>
+                  </div>
+                  <div>
+                    <p className="mt-2 price">${el.price}</p>
+                  </div>
+                  <div>
+                    <button
+                      className="add"
+                      onClick={() => navigate(`/${el.id}`)}
+                    >
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+                <div className="mx-3 pb-3">
+                  <p className="prevprice">
+                    <del>${el.prevprice}</del>
+                  </p>
+                </div>
             </div>
           </div>
         ))
@@ -153,4 +168,4 @@ const Productslider = () => {
   );
 };
 
-export default Productslider;
+export default Productslider_Three;

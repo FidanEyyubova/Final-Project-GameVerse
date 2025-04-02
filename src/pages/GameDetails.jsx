@@ -17,7 +17,7 @@ const apikey =
 
 const GameDetails = () => {
   const { id } = useParams();
-  const { game, setGame, addtoWishlist, addToCart } = useContext(MyContext);
+  const { game, setGame, addToWishlist, addToCart } = useContext(MyContext);
 
   useEffect(() => {
     // window.scrollTo(0, 0);
@@ -76,7 +76,7 @@ const GameDetails = () => {
         footer: '<a href="#">Why do I have this issue?</a>',
       });
     } else if (action === "wishlist") {
-      addtoWishlist(el);
+      addToWishlist(el);
       Swal.fire({
         icon: "success",
         title: "Oops...",

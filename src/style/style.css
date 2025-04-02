@@ -363,7 +363,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -389,7 +389,7 @@
 .five .accordion-button:not(.collapsed) {
   color: white;
   border-bottom: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 .five .accordion-button::after {
   display: none !important;
@@ -911,19 +911,14 @@
   width: 50px;
   border-radius: 10px;
 }
-.popularity .heart {
-  position: absolute;
-  top: 5%;
-  right: 12%;
-  font-size: 18px;
-  color: white;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
-}
 .popularity .prevprice {
   color: #d7d7d7;
   font-weight: 600;
+}
+
+.popularity:hover .heart {
+  opacity: 1;
+  visibility: visible;
 }
 
 .navbar-two {
@@ -1038,4 +1033,84 @@
 }
 .notfound .buy {
   width: 200px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: slideIn 0.3s forwards;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.footer-icon {
+  color: white;
+  font-size: 20px;
+}
+
+.footer-icon {
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.footer-icon:hover {
+  color: white;
 }/*# sourceMappingURL=style.css.map */

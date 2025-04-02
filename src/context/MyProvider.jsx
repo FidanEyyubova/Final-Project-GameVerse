@@ -46,7 +46,6 @@ const MyProvider = ({ children }) => {
         title: "Oops...",
         text: "Something went wrong!",
       });
-      // window.location.href = "/signin";
       return;
     }
 
@@ -74,7 +73,6 @@ const MyProvider = ({ children }) => {
         title: "Oops...",
         text: "You need to log in first!",
       });
-      window.location.href = "/signin";
       return;
     }
 

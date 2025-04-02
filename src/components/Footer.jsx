@@ -62,19 +62,19 @@ const Footer = () => {
           <div className="col-lg-3 col-md-12 col-12 py-3">
             <div>
               <h5 className="mx-2">Follow us</h5>
-              <div className="d-flex gap-2">
-                <a href="https://www.youtube.com/" className="icon">
+              <div className="d-flex gap-3 mx-2">
+                <a href="https://www.youtube.com/" className="footer-icon">
                   <FaYoutube />
                 </a>
-                <a href="https://x.com/?lang=en" className="icon">
+                <a href="https://x.com/?lang=en" className="footer-icon">
                   <RiTwitterXFill />
                 </a>
-                <a href="https://www.instagram.com/" className="icon">
+                <a href="https://www.instagram.com/" className="footer-icon">
                   <FaInstagram />
                 </a>
                 <a
                   href="https://www.facebook.com/?locale=ru_RU"
-                  className="icon"
+                  className="footer-icon"
                 >
                   <FaFacebookF />
                 </a>

@@ -12,6 +12,13 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  transition: color 0.4s ease;
+  transition: background-color 0.4s ease;
+}
+
+.out:hover {
+  color: #ff4701;
+  background-color: white;
 }
 
 .second img {
@@ -50,4 +57,33 @@
 
 .buy-arrow {
   height: 40px;
+}
+
+.game-pur-img {
+  width: 42px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.game-pur small {
+  font-size: 13px;
+}
+.game-pur .desc {
+  color: rgba(255, 255, 255, 0.579);
+}
+
+.link-add-blog {
+  width: 170px !important;
+  height: 40px;
+}
+
+.blog-arrow {
+  background-color: #ff4701;
+  border: none;
+  border-radius: 15px;
+}
+
+.head-dash {
+  font-weight: bold;
+  font-size: 15px !important;
 }/*# sourceMappingURL=AdminDashboard.css.map */

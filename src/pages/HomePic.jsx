@@ -10,6 +10,8 @@ const HomePic = () => {
    useEffect(() => {
       Aos.init({ duration: 1500, once : true});
     }, []);
+
+    
   return (
     <div className="home-pic">
       <div className="container-fluid">

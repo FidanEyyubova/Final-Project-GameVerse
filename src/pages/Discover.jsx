@@ -8,6 +8,7 @@ import Discountslider from "../components/Discountslider";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { GoStarFill } from "react-icons/go";
 import CountPage from "../components/CountPage";
+import Productslider_Three from "../components/Productslider_Three";
 
 const baseURL = "hhttps://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -73,7 +74,7 @@ const Discover = () => {
               Featured Discounts <MdKeyboardArrowRight />
             </h2>
             <div className="mx-4 py-2">
-              <Discountslider />
+              <Productslider_Three/>
             </div>
           </div>
         </div>
@@ -94,7 +95,7 @@ const Discover = () => {
             <div>
               <div className="d-flex">
                 <button className="buy">
-                  <Link className="link-add">Play for free</Link>
+                  <Link className="link-add" to={"/game"}>Play for free</Link>
                 </button>
                 <button className="buy-arrow">
                   <Link className="link-add pb-1">
