@@ -48,7 +48,9 @@ const Footer = () => {
             <div>
               <ul className="nav flex-column">
                 <li className="nav-item mb-1 my-3">
-                  <Link className="menu">Blog</Link>
+                <NavLink to={"/blog"} className={({isActive}) => (
+                    isActive ? "active" : "menu"
+                  )}>Blog</NavLink>
                 </li>
                 <li className="nav-item mb-1 my-3">
                 <NavLink className={({isActive}) => 

@@ -141,9 +141,6 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div>
-          <button onClick={handleclick}></button>
-        </div>
       </div>
     </div>
   );

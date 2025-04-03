@@ -81,4 +81,58 @@
 .swal2-confirm.wishlist-button:hover {
   background-color: white !important;
   color: #ff4701 !important;
+}
+
+.product-slide {
+  position: relative;
+}
+
+.body-wrap {
+  position: absolute;
+  top: 195px !important;
+  color: white;
+  width: 100%;
+}
+
+.body-discount {
+  position: absolute;
+  top: 100px !important;
+  color: white;
+  width: 100%;
+}
+
+.body-pop {
+  position: absolute;
+  top: 200px;
+  color: white;
+  width: 100%;
+}
+
+.body-wrap-dis {
+  position: absolute;
+  top: 185px !important;
+  color: white;
+  width: 100%;
+}
+
+.heart {
+  position: absolute;
+  top: 6% !important;
+  right: 13% !important;
+  font-size: 18px;
+  color: white;
+  visibility: hidden;
+  background-color: transparent;
+  border: none;
+  transition: visibility 0.2s ease, color 0.3s ease;
+}
+
+.heart:hover {
+  color: #ff4701;
+}
+
+.act-heart {
+  color: #ff4701;
+  opacity: 1 !important;
+  visibility: visible !important;
 }/*# sourceMappingURL=Discover.css.map */

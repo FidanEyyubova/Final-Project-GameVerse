@@ -1,12 +1,26 @@
-import React from 'react'
-import Header from '../components/Header'
-import Navbar from '../components/Navbar'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBlog } from "../store/blogSlice";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import "../pagestyle/Blog.scss";
 
 const Blog = () => {
+  const dispatch = useDispatch();
+  const { blog } = useSelector((state) => state.blog.blog);
+  const status = useSelector((state) => state.blog.status);
+
+  useEffect(() => {
+    dispatch(fetchBlog());
+  }, [dispatch]);
+
+  if (status === "loading") return <p>Loading...</p>;
+  if (status === "error") return <p>Something went wrong!</p>;
+
   return (
-    <div className='blog'>
+    <div className="blog">
       <div className="container-fluid">
-      <div className="row" >
+        <div className="row">
           <div
             className="col-12 back-img"
             style={{
@@ -19,10 +33,29 @@ const Blog = () => {
             <Header />
             <Navbar />
           </div>
+          <div className="row">
+            {blog && blog.length > 0 ? (
+              blog.map((el) => (
+                <div key={el.id} className="col-lg-6">
+                  <div className="card m-3" style={{ width: "18rem" }}>
+                    <img src={el.img} className="card-img-top" alt={el.title} />
+                    <div className="card-body">
+                      <h5 className="card-title">{el.title}</h5>
+                      <p className="card-text">{el.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="col-lg-12">
+                <p>No blogs available</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;

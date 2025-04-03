@@ -189,7 +189,6 @@ const Game = () => {
                 <div className="d-flex">
                   <select
                     className="genre-select px-3 custom-genre-select"
-                    // aria-label="Genre selection"
                     onChange={(e) =>
                       setFilteredGenre(
                         e.target.value ? [e.target.value] : genres
