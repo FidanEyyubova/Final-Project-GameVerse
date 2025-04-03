@@ -54,7 +54,7 @@ const Discover = () => {
         </div>
         <div className="row second g-0 popular">
           <div className="col-12 pt-3">
-            <h2 className="py-4 mx-5">Popularity</h2>
+            <h2 className="py-4 mx-5">Popularity <MdKeyboardArrowRight /></h2>
             <div className="mx-4 py-2">
               <Productslider />
             </div>
@@ -62,7 +62,7 @@ const Discover = () => {
         </div>
         <div className="row g-0 third">
           <div className="col-12">
-            <h2 className="py-4 mx-5">Now On The Gameverse Store</h2>
+            <h2 className="py-4 mx-5">Now On The Gameverse Store <MdKeyboardArrowRight /></h2>
             <div className="mx-4 py-2">
               <Productslider />
             </div>

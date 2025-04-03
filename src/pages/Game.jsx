@@ -4,17 +4,23 @@ import "../pagestyle/Games.scss";
 import { GrCubes } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiHeart, CiShoppingBasket } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaHeart, FaStar } from "react-icons/fa6";
 import { HashLink } from "react-router-hash-link";
 import { IoMdSearch } from "react-icons/io";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
+import Swal from "sweetalert2";
 
 const Game = () => {
   useEffect(() => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const {
     game,
     // setGame,
@@ -26,7 +32,9 @@ const Game = () => {
     setFilteredMode,
     price,
     setPrice,
-    addtoWishlist,
+    addToWishlist,
+    wishlist,
+    removeFromWishlist
   } = useContext(MyContext);
 
   const [sortedGames, setSortedGames] = useState([]);
@@ -77,6 +85,57 @@ const Game = () => {
       el.name.toLowerCase().includes(searchProducts.toLowerCase())
   );
 
+   const handleClick = (el) => {
+      const loggedInUser = localStorage.getItem("loggedInUser");
+  
+      if (!loggedInUser || loggedInUser === "null") {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "You need to sign in first!",
+          customClass: {
+            popup: "wishlist-popup",
+            title: "wishlist-title",
+            htmlContainer: "wishlist-text",
+            confirmButton: "wishlist-button",
+          },
+        }).then(() => {
+          window.location.href = "/signin";
+        });
+        return;
+      }
+  
+      const isInWishlist = wishlist.some((item) => item.id === el.id);
+  
+      if (isInWishlist) {
+        removeFromWishlist(el.id);
+        Swal.fire({
+          icon: "warning",
+          title: "Removed from Wishlist",
+          text: "Game has been removed from your wishlist!",
+          customClass: {
+            popup: "wishlist-popup",
+            title: "wishlist-title",
+            htmlContainer: "wishlist-text",
+            confirmButton: "wishlist-button",
+          },
+        });
+      } else {
+        addToWishlist(el);
+        Swal.fire({
+          icon: "success",
+          title: "Added to Wishlist",
+          text: "Game has been added to your wishlist!",
+          customClass: {
+            popup: "wishlist-popup",
+            title: "wishlist-title",
+            htmlContainer: "wishlist-text",
+            confirmButton: "wishlist-button",
+          },
+        });
+      }
+    };
+
   return (
     <div className="games">
       <div className="container-fluid py-4">
@@ -96,61 +155,66 @@ const Game = () => {
           </div>
         </div>
         <div className="row middle py-4 d-flex gap-5 justify-content-center">
-          <div className="col-lg-3">
+          <div className="col-lg-3 mt-5 pt-5">
             <div className="d-flex flex-column gap-4">
               <div>
-                <h5>Search</h5>
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    <IoMdSearch />
+                <div className="input-group input-custom-group">
+                  <span
+                    className="input-group-text span-search"
+                    id="basic-addon1"
+                  >
+                    <IoMdSearch className="span-icon" />
                   </span>
                   <input
                     type="text"
                     className="search-input"
-                    placeholder="Search products..."
+                    placeholder="Search"
                     value={searchProducts}
                     onChange={(e) => setSearchProducts(e.target.value)}
                   />
                 </div>
               </div>
-              <div className="d-flex flex-column">
-                <HashLink className="menu" smooth to="/#faq">
-                  FAQ
+              <div className="d-flex flex-column gap-4 py-2">
+                <HashLink className="menu-tag" smooth to="/#popularity">
+                  Popularity <MdOutlineKeyboardArrowRight />
                 </HashLink>
-                <HashLink className="menu" smooth to="/#faq">
-                  FAQ
+                <HashLink className="menu-tag" smooth to="/#nowongamestore">
+                  Now On The Gameverse Store <MdOutlineKeyboardArrowRight />
                 </HashLink>
-                <HashLink className="menu" smooth to="/#faq">
-                  FAQ
+                <HashLink className="menu-tag" smooth to="/#discount">
+                  Featured Discounts <MdOutlineKeyboardArrowRight />
                 </HashLink>
               </div>
-              <div>
-                <h4>Genres</h4>
-                <div>
+              <div className="select-container mt-2">
+                <div className="d-flex">
                   <select
-                    className="genre-select"
-                    aria-label="Genre selection"
+                    className="genre-select px-3 custom-genre-select"
+                    // aria-label="Genre selection"
                     onChange={(e) =>
                       setFilteredGenre(
                         e.target.value ? [e.target.value] : genres
                       )
                     }
                   >
-                    <option value="">Select a genre</option>
+                    <option value="" className="select-name">
+                      Genre
+                    </option>
                     {genres.map((genre) => (
                       <option key={genre} value={genre}>
                         {genre}
                       </option>
                     ))}
                   </select>
+                  <div className="icon-container d-flex justify-content-center align-items-center">
+                    <MdOutlineKeyboardArrowDown />
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <h4>Features</h4>
-                <div>
+              <div className="select-container mt-2">
+                <div className="d-flex">
                   <select
-                    className="genre-select"
+                    className="genre-select px-3"
                     aria-label="Feature selection"
                     onChange={(e) =>
                       setFilteredFeature(
@@ -158,24 +222,28 @@ const Game = () => {
                       )
                     }
                   >
-                    <option value="">Select a feature</option>
+                    <option value="" className="select-name">
+                      Feature
+                    </option>
                     {features.map((feature) => (
                       <option key={feature} value={feature}>
                         {feature}
                       </option>
                     ))}
                   </select>
+                  <div className="icon-container d-flex justify-content-center align-items-center">
+                    <MdOutlineKeyboardArrowDown />
+                  </div>
                 </div>
               </div>
 
               <div>
-                <h4>Mode</h4>
                 {modes.map((mode) => (
                   <div className="py-2" key={mode}>
                     <input
                       type="checkbox"
                       name="category"
-                      className="mx-2"
+                      className="mx-2 mode"
                       value={mode}
                       checked={filteredMode.includes(mode)} // Check if mode exists in the array
                       onChange={(e) => {
@@ -188,7 +256,7 @@ const Game = () => {
                         );
                       }}
                     />
-                    <label>{mode}</label>
+                    <label className="label-name">{mode}</label>
                   </div>
                 ))}
               </div>
@@ -197,7 +265,7 @@ const Game = () => {
                 <h4>Max Price: ${price}</h4>
                 <input
                   type="range"
-                  className="form-range custom-range"
+                  className="custom-range"
                   min="0"
                   max="100"
                   step="5"
@@ -206,74 +274,54 @@ const Game = () => {
                 />
               </div>
             </div>
-
-            <div className="mb-4">
-              <h4>Best Sellers</h4>
-              <div className="d-flex flex-column flex-wrap gap-2 mt-4">
-                {game.slice(0, 2).map((el) => (
-                  <div
-                    key={el.id}
-                    className="d-flex slm mb-2"
-                    style={{ backgroundColor: "white", borderRadius: "10px" }}
-                  >
-                    <div className="mx-3 py-3">
-                      <img
-                        src={el?.imgProduct}
-                        alt=""
-                        style={{ width: "60px", height: "60px" }}
-                      />
-                    </div>
-                    <div className="mx-3 pt-3">
-                      <p style={{ color: "black" }}>
-                        <b>{el?.name}...</b>
-                      </p>
-                      <p style={{ color: "#F13D45", fontWeight: "600" }}>
-                        {el.price}.00
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           <div className="col-lg-8">
             <div className="d-flex justify-content-end align-items-center">
-              <div className="d-flex justify-content-center align-items-center gap-3 sorting">
-                <div>
-                  <p className=" sort">Sort</p>
-                </div>
-                <div>
+              <div className="d-flex justify-content-center align-items-center gap-3 sorting select-container">
+                <div className="d-flex">
                   <select
-                    className="middle"
+                    className="middle-sorting px-3"
                     aria-label="Default select example"
                     onChange={handleSortChange}
                   >
-                    <option value="az" selected>
-                      Open this select menu
+                    <option value="" selected>
+                      Sorting
                     </option>
-                    <option value="za">One</option>
-                    <option value="low-high">Two</option>
-                    <option value="high-low">Three</option>
+                    <option value="az">AZ</option>
+                    <option value="za">ZA</option>
+                    <option value="low-high">Low-High</option>
+                    <option value="high-low">High-Low</option>
                   </select>
+                  <div className="icon-container-two d-flex justify-content-center align-items-center">
+                    <MdOutlineKeyboardArrowDown />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="row">
+            <div className="row filtered-game">
               {filteredGames.map((el) => (
                 <div key={el.id} className="col-md-4">
                   <div className="cont my-2 d-flex flex-column justify-content-center align-items-center">
                     <div className="image  text-center py-2 pt-5">
                       <img src={el.imgProduct} />
                     </div>
-                    <Link onClick={() => addtoWishlist(el)}>
-                      <FaHeart className="heart" />
+                    <Link className={`heart ${
+                wishlist.some((item) => item.id === el.id)
+                  ? "act-heart-game"
+                  : "heart-game"
+              }`}
+              onClick={() => handleClick(el)}>
+                      <FaHeart />
                     </Link>
                     <div className="body  body-pop">
                       <div>
                         <div>
                           <p className="name">
-                            <Link className=" mx-4 px-2 mo" to={`/${el.id}`}>
+                            <Link
+                              className=" mx-4 px-2 mo"
+                              to={`/game/${el.id}`}
+                            >
                               {el.name.slice(0, 17)}
                             </Link>
                           </p>
@@ -282,7 +330,7 @@ const Game = () => {
                           <p className="mt-2 price">${el.price}</p>
                           <button
                             className="add"
-                            onClick={() => navigate(`/${el.id}`)}
+                            onClick={() => navigate(`/game/${el.id}`)}
                           >
                             Buy Now
                           </button>
