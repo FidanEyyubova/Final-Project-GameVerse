@@ -1,4 +1,6 @@
 .games{
+    
+
     .first{
         background-color: rgba(255, 255, 255, 0.089);
         backdrop-filter: blur(2px);
@@ -19,7 +21,7 @@
       appearance: none; /* Removes default checkbox styles */
       width: 13px;
       height: 13px;
-      background-color: white; /* Default background */
+      background-color: white!important; /* Default background */
       border-radius: 3px; /* Optional */
       cursor: pointer;
       display: inline-block;
@@ -27,19 +29,10 @@
     }
   
     input[type="checkbox"]:checked {
-      background-color: #ff4701; /* Background color when checked */
+      background-color: #ff4701!important; /* Background color when checked */
     }
   
-    input[type="checkbox"]:checked::after {
-      content: "✔"; /* Unicode tick symbol */
-      color: green!important;
-      font-size: 9px;
-      position: absolute;
-      top: 44%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-weight: bold;
-    }
+    
   
     .custom-range {
       appearance: none;
@@ -55,7 +48,7 @@
       appearance: none;
       width: 16px;
       height: 16px;
-      background: #f13d45;
+      background: #ff4701;
       border-radius: 50%;
       cursor: pointer;
     }
@@ -63,7 +56,7 @@
     .custom-range::-moz-range-thumb {
       width: 16px;
       height: 16px;
-      background: #f13d45;
+      background: #ff4701;
       border-radius: 50%;
       cursor: pointer;
     }
@@ -137,7 +130,6 @@
 .dropdown-wrapper-genres {
     position: relative;
     overflow: hidden;
-    transition: height 0.3s ease-in-out;
     height: 40px; /* Default closed height */
   }
   
@@ -158,4 +150,147 @@
   }
   
 
+
+  .search-input{
+    outline: none;
+    border: none;
+    width: 85%;
+    height: 45px;
+    border-radius: 0px 20px 20px 0px;
+    background-color: rgba(255, 255, 255, 0.089)!important;
+    backdrop-filter: blur(2px)!important;
+    -webkit-backdrop-filter: blur(5px)!important;
+    line-height: 50px;
+      caret-color: #ff4701;
+      text-indent: 10px;
+      color: white;
+}
+
+.input-group{
+    width: 100%;
+}
+
+.span-search{
+    background-color: rgba(255, 255, 255, 0.089)!important;
+    backdrop-filter: blur(2px)!important;
+    -webkit-backdrop-filter: blur(5px)!important;
+    border: none!important;
+    box-shadow: none!important;
+    color: white;
+    border-radius: 20px 0px 0px 20px!important;
+}
+input::placeholder {
+    color: #a0a0a0; /* Lighter gray for placeholder text */
+    font-size: 16px;
+    opacity: 1;
+    font-weight: 500;
+  }
+
+.span-icon{
+    color: rgb(98, 96, 96);
+    font-size: 20px;
+}
+
+
+
+.select-container{
+position: relative;
+}
+
+.genre-select{
+  border: none;
+  appearance: none;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.089)!important;
  
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 20px;
+  height: 45px;
+}
+.icon-container{
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+}
+
+
+
+
+
+
+
+.menu-tag{
+  text-decoration: none!important;
+  color: white!important;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease!important;
+}
+.menu-tag:hover{
+  color: #ff4701!important;
+}
+.label-name{
+  font-weight: 500;
+}
+
+
+.middle-sorting{
+  cursor: pointer;
+  border: none;
+  appearance: none;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.089)!important;
+ border: none!important;
+ outline: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 20px;
+  height: 40px;
+}
+.icon-container-two{
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+}
+.filtered-game{
+  .heart-game {
+    position: absolute;
+    top: 14%!important;
+    right: 10%!important;
+    font-size: 18px;
+    color: white;
+    visibility: hidden;
+    background-color: transparent;
+    border: none;
+    transition: visibility 0.2s ease, color 0.3s ease;
+  }
+  .heart-game:hover{
+    color: #ff4701;
+  }
+  .act-heart-game{
+    color: #ff4701;
+    opacity: 1 !important;
+    visibility: visible!important;
+  }
+}
+select option {
+  background-color: rgb(54, 53, 53);
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+
+}
+
+select option:hover {
+  background-color: #ff4701!important;
+  color: black;
+  outline: none;
+}
+

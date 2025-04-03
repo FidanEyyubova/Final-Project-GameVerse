@@ -116,7 +116,7 @@ const Productslider = () => {
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
         game.slice(3, 15).map((el) => (
-          <div key={el.id} className="popularity py-2" data-aos="fade-down">
+          <div key={el.id} className="popularity py-2" data-aos="fade-down" id="popularity">
             <div className="product-slide d-flex justify-content-center">
               <img src={el.imgProduct} alt={el.name} />
             </div>
@@ -131,7 +131,7 @@ const Productslider = () => {
               <FaHeart />
             </button>
 
-            <div className="body px-4 body-pop">
+            <div className="body-wrap px-4 body-pop">
               <p className="name">
                 <Link className="mo mx-3" to={`/game/${el.id}`}>
                   {el.name}

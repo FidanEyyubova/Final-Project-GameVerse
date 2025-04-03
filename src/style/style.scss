@@ -451,25 +451,7 @@
   .product-slide {
     position: relative;
   }
-  .body {
-    position: absolute;
-    top: 200px;
-    color: white;
-    width: 100%;
-  }
-  .body-discount{
-    position: absolute;
-    top: 177px;
-    color: white;
-    width: 100%;
-  }
-  // .body-pop{
-  //   position: absolute;
-  //   top: 200px;
-  //   color: white;
-  //   width: 100%;
-  // }
-
+  
   .product-slide::before {
     content: "";
     position: absolute;

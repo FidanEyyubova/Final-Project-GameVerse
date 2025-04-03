@@ -30,7 +30,10 @@ const Footer = () => {
                   )}>Discover</NavLink>
                 </li>
                 <li className="nav-item mb-1 my-3">
-                  <Link className="menu">Games</Link>
+                <NavLink className={({isActive}) => 
+                  isActive ? "active" : "menu"} to={"/game"}>
+                    Games
+                  </NavLink>
                 </li>
                 <li className="nav-item mb-1 my-3">
                   <NavLink className={({isActive}) => 
