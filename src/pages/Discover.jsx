@@ -123,13 +123,13 @@ const Discover = () => {
           </div>
         </div>
        </div>
-        <div className="row five g-0 py-5" id="faq">
+        <div className="row five g-0 py-5" >
           <div className="col-12">
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <div>
+              <div id="faq">
                 <h2 className="py-3">Frequently Asked Questions</h2>
               </div>
-              <div className="w-75 py-3">
+              <div className="w-75 py-3" >
                 <div className="accordion" id="accordionExample">
                   <div className="accordion-item mb-4">
                     <h2 className="accordion-header">
