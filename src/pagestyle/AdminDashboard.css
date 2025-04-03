@@ -86,4 +86,117 @@
 .head-dash {
   font-weight: bold;
   font-size: 15px !important;
+}
+
+.modal-label {
+  color: white;
+  font-weight: 500;
+}
+
+.modal-input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  line-height: 50px;
+  caret-color: #ff4701;
+  text-indent: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.089) !important;
+  color: white;
+}
+
+.modal-container {
+  background: rgb(17, 17, 17) !important;
+}
+.modal-container .name {
+  color: #ff4701;
+}
+.modal-container .add {
+  border: none;
+  background-color: #ff4701;
+  width: 100px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 400;
+  height: 40px;
+  font-size: 17px;
+  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.modal-container .add:hover {
+  border: none;
+  background-color: white;
+  width: 100px;
+  border-radius: 10px;
+  color: #ff4701;
+  font-weight: 400;
+  height: 40px;
+  font-size: 17px;
+}
+
+.close-btn {
+  color: white;
+}
+
+.admin-blog {
+  position: relative !important;
+}
+.admin-blog img {
+  width: 280px;
+  border-radius: 10px;
+  height: 200px;
+}
+
+.blog-container {
+  position: relative;
+}
+
+.middle-pr {
+  width: 290px;
+}
+
+.title {
+  font-weight: 500;
+}
+
+span:nth-child(2) {
+  font-size: 13px;
+  color: rgb(182, 181, 181);
+}
+
+.edit-delete {
+  position: absolute;
+  top: 0px; /* Adjust top to fit your design */
+  right: 40px; /* Adjust right to fit your design */
+  background-color: transparent !important;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.blog-container:hover .edit-delete {
+  opacity: 1;
+}
+
+.edit-blog,
+.delete-blog {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: black;
+  transition: color 0.3s ease;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.edit-blog:hover,
+.delete-blog:hover {
+  color: #ff4701;
+}
+
+.blog-container:hover .edit-delete {
+  opacity: 1 !important;
 }/*# sourceMappingURL=AdminDashboard.css.map */

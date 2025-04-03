@@ -10,7 +10,8 @@ import {
   fetchBlog,
   updateBlog,
 } from "../store/blogSlice";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaPen, FaPenFancy } from "react-icons/fa";
+import "../pagestyle/Blog.scss";
 
 const AdminDashboard = ({ setUserRole }) => {
   const navigate = useNavigate();
@@ -279,100 +280,114 @@ const AdminDashboard = ({ setUserRole }) => {
                 </button>
               </div>
               {openModal && (
-  <div className="modal-overlay">
-    <div className="modal-container">
-      <div className="modal-header">
-        <h2>{edit ? "Edit Blog" : "Add a New Blog"}</h2>
-        <button className="close-btn" onClick={() => setOpenModal(false)}>
-          ✖
-        </button>
-      </div>
-      <div className="modal-body">
-        <form className="d-flex flex-column">
-          <label>Image</label>
-          <input
-            type="text"
-            className="my-2"
-            value={edit ? editImage : inputImg}
-            onChange={(e) =>
-              edit ? setEditImage(e.target.value) : setInputImg(e.target.value)
-            }
-          />
-          <label>Title</label>
-          <input
-            type="text"
-            className="my-2"
-            value={edit ? editTitle : inputTitle}
-            onChange={(e) =>
-              edit ? setEditTitle(e.target.value) : setInputTitle(e.target.value)
-            }
-          />
-          <label>Description</label>
-          <input
-            type="text"
-            className="my-2"
-            value={edit ? editDesc : inputDesc}
-            onChange={(e) =>
-              edit ? setEditDesc(e.target.value) : setInputDesc(e.target.value)
-            }
-          />
-        </form>
-      </div>
-      <div className="modal-footer">
-        <button className="btn btn-danger" onClick={edit ? handleSave : handleCreate}>
-          {edit ? "Save" : "Add"}
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
-
+                <div className="modal-overlay">
+                  <div className="modal-container">
+                    <div className="modal-header">
+                      <h3 className="py-3 name">
+                        {edit ? "Edit Blog" : "Add a New Blog"}
+                      </h3>
+                      <button
+                        className="close-btn"
+                        onClick={() => setOpenModal(false)}
+                      >
+                        ✖
+                      </button>
+                    </div>
+                    <div className="modal-body">
+                      <form className="d-flex flex-column">
+                        <label className="modal-label">Image</label>
+                        <input
+                          type="text"
+                          className="my-2 modal-input"
+                          value={edit ? editImage : inputImg}
+                          onChange={(e) =>
+                            edit
+                              ? setEditImage(e.target.value)
+                              : setInputImg(e.target.value)
+                          }
+                        />
+                        <label className="modal-label">Title</label>
+                        <input
+                          type="text"
+                          className="my-2 modal-input"
+                          value={edit ? editTitle : inputTitle}
+                          onChange={(e) =>
+                            edit
+                              ? setEditTitle(e.target.value)
+                              : setInputTitle(e.target.value)
+                          }
+                        />
+                        <label className="modal-label">Description-One</label>
+                        <input
+                          type="text"
+                          className="my-2 modal-input"
+                          value={edit ? editDesc : inputDesc}
+                          onChange={(e) =>
+                            edit
+                              ? setEditDesc(e.target.value)
+                              : setInputDesc(e.target.value)
+                          }
+                        />
+                        <label className="modal-label">Description-Two</label>
+                        <input
+                          type="text"
+                          className="my-2 modal-input"
+                          value={edit ? editDesc : inputDesc}
+                          onChange={(e) =>
+                            edit
+                              ? setEditDesc(e.target.value)
+                              : setInputDesc(e.target.value)
+                          }
+                        />
+                      </form>
+                    </div>
+                    <div className="modal-footer">
+                      <button
+                        className="add"
+                        onClick={edit ? handleSave : handleCreate}
+                      >
+                        {edit ? "Save" : "Add"}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="d-flex justify-content-between gap-2 align-items-center mb-2  px-3 py-3">
-              <div className="blog-map w-100">
-                
-                <table className="table text-center">
-                  <thead>
-                    <tr>
-                      <th scope="col">Image</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Description</th>
-                      <th scope="col">Process</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {blog && blog.length > 0 ? (
-                      blog.map((el) => (
-                        <tr key={el.id}>
-                          <td>
-                            <img src={el.img} alt="blog" />
-                          </td>
-                          <td>{el.title}</td>
-                          <td>{el.desc}</td>
-                          <td>
-                            <div className="icon d-flex text-center">
-                              <FaEdit
-                                className="edit"
-                                onClick={() => handleUpdate(el)}
-                              />
-                              <MdDelete
-                                className="delete"
-                                onClick={() => handleDelete(el.id)}
-                              />
-                            </div>
-                          </td>
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td colSpan="4" className="text-center">
-                          No blogs found.
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
+            <div className="d-flex justify-content-between gap-2 align-items-center mb-2  px-3 py-3 admin-blog">
+              <div className="blog-map w-100 d-flex flex-wrap gap-2">
+                {blog && blog.length > 0 ? (
+                  blog.map((el) => (
+                    <div key={el.id} className="blog-container">
+                      <img src={el.img} alt="blog" />
+                      <div className="middle-pr d-flex flex-column">
+                        <span className="pt-2 title">{el.title}</span>
+                        <span>{el.desc?.slice(0,50)}...</span>
+                      </div>
+                      <div>
+                        <div className="icon d-flex edit-delete gap-2">
+                          <div>
+                            <FaPenFancy 
+                              className="edit-blog p-1"
+                              onClick={() => handleUpdate(el)}
+                            />
+                          </div>
+                          <div>
+                            <MdDelete
+                              className="delete-blog p-1"
+                              onClick={() => handleDelete(el.id)}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div>
+                    <p colSpan="4" className="text-center">
+                      No blogs found.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>

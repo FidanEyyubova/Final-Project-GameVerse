@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .games {
   background-color: black;
   color: white;
@@ -23,24 +22,14 @@
           appearance: none; /* Removes default checkbox styles */
   width: 13px;
   height: 13px;
-  background-color: white; /* Default background */
+  background-color: white !important; /* Default background */
   border-radius: 3px; /* Optional */
   cursor: pointer;
   display: inline-block;
   position: relative;
 }
 .games input[type=checkbox]:checked {
-  background-color: #ff4701; /* Background color when checked */
-}
-.games input[type=checkbox]:checked::after {
-  content: "✔"; /* Unicode tick symbol */
-  color: green !important;
-  font-size: 9px;
-  position: absolute;
-  top: 44%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: bold;
+  background-color: #ff4701 !important; /* Background color when checked */
 }
 .games .custom-range {
   -webkit-appearance: none;
@@ -58,14 +47,14 @@
           appearance: none;
   width: 16px;
   height: 16px;
-  background: #f13d45;
+  background: #ff4701;
   border-radius: 50%;
   cursor: pointer;
 }
 .games .custom-range::-moz-range-thumb {
   width: 16px;
   height: 16px;
-  background: #f13d45;
+  background: #ff4701;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -212,20 +201,102 @@ input::placeholder {
   font-size: 20px;
 }
 
-.menu-tag {
-  text-decoration: none !important;
-  color: white !important;
-  font-size: 19px;
-  font-weight: 500;
+.select-container {
+  position: relative;
 }
 
 .genre-select {
-  background-color: rgba(255, 255, 255, 0.089) !important;
-  backdrop-filter: blur(2px) !important;
-  -webkit-backdrop-filter: blur(5px) !important;
-  border-radius: 20px;
   border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.089) !important;
   color: white;
+  font-size: 17px;
   font-weight: 500;
-  height: 50px;
+  border-radius: 20px;
+  height: 45px;
+}
+
+.icon-container {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+}
+
+.menu-tag {
+  text-decoration: none !important;
+  color: white !important;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease !important;
+}
+
+.menu-tag:hover {
+  color: #ff4701 !important;
+}
+
+.label-name {
+  font-weight: 500;
+}
+
+.middle-sorting {
+  cursor: pointer;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.089) !important;
+  border: none !important;
+  outline: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 20px;
+  height: 40px;
+}
+
+.icon-container-two {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+}
+
+.filtered-game .heart-game {
+  position: absolute;
+  top: 14% !important;
+  right: 10% !important;
+  font-size: 18px;
+  color: white;
+  visibility: hidden;
+  background-color: transparent;
+  border: none;
+  transition: visibility 0.2s ease, color 0.3s ease;
+}
+.filtered-game .heart-game:hover {
+  color: #ff4701;
+}
+.filtered-game .act-heart-game {
+  color: #ff4701;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+select option {
+  background-color: rgb(54, 53, 53);
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+select option:hover {
+  background-color: #ff4701 !important;
+  color: black;
+  outline: none;
 }/*# sourceMappingURL=Games.css.map */
