@@ -147,7 +147,7 @@ const Productslider_Three = () => {
                   <div>
                     <button
                       className="add"
-                      onClick={() => navigate(`/${el.id}`)}
+                      onClick={() => navigate(`/game/${el.id}`)}
                     >
                       Buy Now
                     </button>

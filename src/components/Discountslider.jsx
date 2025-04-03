@@ -61,7 +61,6 @@ const Discountslider = () => {
           confirmButton: "swal2-confirm wishlist-button",
         },
       });
-      
     }
   };
 
@@ -129,12 +128,9 @@ const Discountslider = () => {
                     <p className="mt-2 price">${el.price}</p>
                   </div>
                   <div>
-                    <button
-                      className="add"
-                      onClick={() => navigate(`/${el.id}`)}
-                    >
+                    <Link to={`/game/${el.id}`} className="add">
                       Buy Now
-                    </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="mx-3 pb-3">
