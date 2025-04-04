@@ -12,6 +12,7 @@ import {
 } from "../store/blogSlice";
 import { FaEdit, FaPen, FaPenFancy } from "react-icons/fa";
 import "../pagestyle/Blog.scss";
+import Swal from "sweetalert2";
 
 const AdminDashboard = ({ setUserRole }) => {
   const navigate = useNavigate();
@@ -22,10 +23,15 @@ const AdminDashboard = ({ setUserRole }) => {
   const [inputImg, setInputImg] = useState("");
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesc, setInputDesc] = useState("");
+  const [inputDate, setInputDate] = useState(
+    new Date().toISOString().split("T")[0]
+  ); // Set current date
+
   const [editImage, setEditImage] = useState("");
   const [editTitle, setEditTitle] = useState("");
   const [editDesc, setEditDesc] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const [editDate, setEditDate] = useState("");
 
   useEffect(() => {
     dispatch(fetchBlog());
@@ -33,31 +39,48 @@ const AdminDashboard = ({ setUserRole }) => {
 
   const handleCreate = (e) => {
     e.preventDefault();
-    if (
-      inputImg?.trim() !== "" &&
-      inputTitle?.trim() !== "" &&
-      inputDesc?.trim() !== ""
-    ) {
+    if (inputImg.trim() && inputTitle.trim() && inputDesc.trim()) {
       dispatch(
         createBlog({
-          inputImg: inputImg.trim(),
-          inputTitle: inputTitle.trim(),
-          inputDesc: inputDesc.trim(),
+          img: inputImg.trim(),
+          title: inputTitle.trim(),
+          desc: inputDesc.trim(),
+          date: inputDate, // Automatically include the current date
         })
-      ).then(() => {
-        dispatch(fetchBlog());
-        toast.success("Product list loaded successfully!");
-      });
+      ).then(() => dispatch(fetchBlog()));
+
       setInputImg("");
       setInputTitle("");
       setInputDesc("");
+      setInputDate(new Date().toISOString().split("T")[0]); // Reset date
+
       setOpenModal(false);
+      Swal.fire({
+        icon: "success",
+        title: "Added",
+        text: "Blog has been added successfully!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      });
     }
   };
 
   const handleDelete = (id) => {
-    dispatch(deleteBlog(id)).then(() => {
-      dispatch(fetchBlog());
+    dispatch(deleteBlog(id)).then(() => dispatch(fetchBlog()));
+    Swal.fire({
+      icon: "warning",
+      title: "Removed",
+      text: "Blog has been removed!",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
     });
   };
 
@@ -66,24 +89,39 @@ const AdminDashboard = ({ setUserRole }) => {
     setEditImage(blog.img);
     setEditTitle(blog.title);
     setEditDesc(blog.desc);
+    setEditDate(blog.date || new Date().toISOString().split("T")[0]); // Preserve date or set current date
     setOpenModal(true);
   };
 
   const handleSave = () => {
-    const saveBlog = {
-      id: edit,
-      img: editImage.trim(),
-      title: editTitle.trim(),
-      desc: editDesc.trim(),
-    };
-    dispatch(updateBlog(saveBlog)).then(() => {
-      dispatch(fetchBlog());
-    });
+    dispatch(
+      updateBlog({
+        id: edit,
+        img: editImage.trim(),
+        title: editTitle.trim(),
+        desc: editDesc.trim(),
+        date: editDate, // Preserve the existing date
+      })
+    ).then(() => dispatch(fetchBlog()));
+
     setEdit(null);
     setEditImage("");
     setEditTitle("");
     setEditDesc("");
+    setEditDate("");
+
     setOpenModal(false);
+    Swal.fire({
+      icon: "success",
+      title: "Saved",
+      text: "Blog has been updated successfully!",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
+    });
   };
 
   const logoutAdmin = () => {
@@ -328,16 +366,12 @@ const AdminDashboard = ({ setUserRole }) => {
                               : setInputDesc(e.target.value)
                           }
                         />
-                        <label className="modal-label">Description-Two</label>
+                        <label>Date</label>
                         <input
                           type="text"
-                          className="my-2 modal-input"
-                          value={edit ? editDesc : inputDesc}
-                          onChange={(e) =>
-                            edit
-                              ? setEditDesc(e.target.value)
-                              : setInputDesc(e.target.value)
-                          }
+                         className="my-2 modal-input"
+                          value={edit ? editDate : inputDate}
+                          disabled
                         />
                       </form>
                     </div>
@@ -359,14 +393,15 @@ const AdminDashboard = ({ setUserRole }) => {
                   blog.map((el) => (
                     <div key={el.id} className="blog-container">
                       <img src={el.img} alt="blog" />
-                      <div className="middle-pr d-flex flex-column">
+                      <div className="middle-pr d-flex gap-1 flex-column">
                         <span className="pt-2 title">{el.title}</span>
-                        <span>{el.desc?.slice(0,50)}...</span>
+                        <span>{el.desc?.slice(0, 50)}...</span>
+                        <span className="date">{el.date}</span>
                       </div>
                       <div>
                         <div className="icon d-flex edit-delete gap-2">
                           <div>
-                            <FaPenFancy 
+                            <FaPenFancy
                               className="edit-blog p-1"
                               onClick={() => handleUpdate(el)}
                             />

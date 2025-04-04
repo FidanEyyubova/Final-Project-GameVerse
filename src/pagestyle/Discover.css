@@ -15,7 +15,7 @@
 }
 
 .act-heart {
-  color: #ff4701;
+  color: #ff4701 !important;
   visibility: visible;
 }
 

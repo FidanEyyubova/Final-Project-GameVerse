@@ -5,25 +5,25 @@ const baseUrl = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/blog";
 const apikey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
-//   CREATE BLOG
+// CREATE BLOG
 export const createBlog = createAsyncThunk(
   "blog/createBlog",
-  async ({inputImg, inputTitle, inputDesc}, { rejectWithValue }) => {
+  async ({ inputImg, inputTitle, inputDesc }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(
-        baseUrl,
-        {
-          img: inputImg,
-          title: inputTitle,
-          desc: inputDesc,
+      const newBlog = {
+        img: inputImg,
+        title: inputTitle,
+        desc: inputDesc,
+        date: new Date().toISOString().split("T")[0], // Auto-generate date
+      };
+
+      const response = await axios.post(baseUrl, newBlog, {
+        headers: {
+          apikey: apikey,
+          Authorization: `Bearer ${apikey}`,
         },
-        {
-          headers: {
-            apikey: apikey,
-            Authorization: `Bearer ${apikey}`,
-          },
-        }
-      );
+      });
+
       return response.data;
     } catch (error) {
       return rejectWithValue(error?.response?.data?.message || error.message);
@@ -31,7 +31,7 @@ export const createBlog = createAsyncThunk(
   }
 );
 
-// FETCH BLOG
+// FETCH BLOGS
 export const fetchBlog = createAsyncThunk(
   "blog/fetchBlog",
   async (_, { rejectWithValue }) => {
@@ -44,7 +44,7 @@ export const fetchBlog = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error?.response?.data?.message || error?.message);
+      return rejectWithValue(error?.response?.data?.message || error.message);
     }
   }
 );
@@ -54,33 +54,29 @@ export const deleteBlog = createAsyncThunk(
   "blog/deleteBlog",
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`${baseUrl}?id=eq.${id}`, {
+      await axios.delete(`${baseUrl}?id=eq.${id}`, {
         headers: {
           apikey: apikey,
           Authorization: `Bearer ${apikey}`,
         },
       });
-      return response.data;
+
+      return id; // Return the ID of the deleted blog
     } catch (error) {
-      return rejectWithValue(error?.response?.data?.message || error?.message);
+      return rejectWithValue(error?.response?.data?.message || error.message);
     }
   }
 );
 
 // UPDATE BLOG
-
 export const updateBlog = createAsyncThunk(
   "blog/updateBlog",
-  async (newBlog, { rejectWithValue }) => {
-    const { id, img, title, desc } = newBlog;
+  async (updatedBlog, { rejectWithValue }) => {
+    const { id, img, title, desc, date } = updatedBlog;
     try {
       const response = await axios.patch(
         `${baseUrl}?id=eq.${id}`,
-        {
-          img,
-          title,
-          desc,
-        },
+        { img, title, desc, date }, // Ensure date persists
         {
           headers: {
             apikey: apikey,
@@ -88,9 +84,10 @@ export const updateBlog = createAsyncThunk(
           },
         }
       );
+
       return response.data;
     } catch (error) {
-      return rejectWithValue(error?.response?.data?.message || error?.message);
+      return rejectWithValue(error?.response?.data?.message || error.message);
     }
   }
 );
@@ -98,6 +95,7 @@ export const updateBlog = createAsyncThunk(
 const initialState = {
   blog: [],
   status: "idle",
+  error: null,
 };
 
 const blogSlice = createSlice({
@@ -111,34 +109,41 @@ const blogSlice = createSlice({
         state.status = "loading";
       })
       .addCase(createBlog.fulfilled, (state, action) => {
-        (state.status = "succeed"), state.blog.push(action.payload);
+        state.status = "succeed";
+        state.blog.push(action.payload);
       })
       .addCase(createBlog.rejected, (state, action) => {
-        (state.status = "error"), (state.error = action.payload);
-        // FETCH
+        state.status = "error";
+        state.error = action.payload;
       })
+
+      // FETCH
       .addCase(fetchBlog.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchBlog.fulfilled, (state, action) => {
-        (state.status = "succeed"), (state.blog = action.payload);
+        state.status = "succeed";
+        state.blog = action.payload;
       })
       .addCase(fetchBlog.rejected, (state, action) => {
-        (state.status = "error"), (state.error = action.payload);
+        state.status = "error";
+        state.error = action.payload;
       })
-      //   DELETE
+
+      // DELETE
       .addCase(deleteBlog.pending, (state) => {
         state.status = "loading";
       })
       .addCase(deleteBlog.fulfilled, (state, action) => {
-        (state.status = "succeed"),
-          (state.blog = state.blog.filter((el) => el.id !== action.payload));
+        state.status = "succeed";
+        state.blog = state.blog.filter((el) => el.id !== action.payload);
       })
       .addCase(deleteBlog.rejected, (state, action) => {
         state.status = "error";
         state.error = action.payload;
       })
-      //   UPDATE
+
+      // UPDATE
       .addCase(updateBlog.pending, (state) => {
         state.status = "loading";
       })
@@ -150,7 +155,8 @@ const blogSlice = createSlice({
         }
       })
       .addCase(updateBlog.rejected, (state, action) => {
-        (state.status = "error"), (state.error = action.payload);
+        state.status = "error";
+        state.error = action.payload;
       });
   },
 });

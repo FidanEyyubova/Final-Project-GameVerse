@@ -15,7 +15,7 @@ const HomePic = () => {
 
   const handleClick = (el) => {
     const loggedInUser = localStorage.getItem("loggedInUser");
-
+  
     if (!loggedInUser || loggedInUser === "null") {
       Swal.fire({
         icon: "error",
@@ -31,8 +31,28 @@ const HomePic = () => {
         window.location.href = "/signin";
       });
       return;
+    }
+  
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const isAlreadyInWishlist = wishlist.some((item) => item.id === el.id);
+  
+    if (isAlreadyInWishlist) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "This game is already in your wishlist!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      });
     } else {
+      wishlist.push(el);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
       addToWishlist(el);
+  
       Swal.fire({
         icon: "success",
         title: "Added to Wishlist",
@@ -46,6 +66,7 @@ const HomePic = () => {
       });
     }
   };
+  
 
   return (
     <div className="home-pic">
