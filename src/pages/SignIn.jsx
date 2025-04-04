@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { LuCircleUserRound } from "react-icons/lu";
 import { IoIosLock } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const SignIn = ({ setUserRole }) => {
   const [error, setError] = useState("");
@@ -61,8 +62,20 @@ const SignIn = ({ setUserRole }) => {
 
     if (foundUser) {
       localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
-      alert("Login successful!");
-      navigate("/user-dashboard");
+      Swal .fire({
+        icon: "success",
+        title: "Welcome Back!",
+        text: "You have logged in successfully!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      }).then(() => {
+        window.location.href = "/user-dashboard";
+      });;
+      
       setUserRole("user");
       localStorage.setItem("userRole", "user");
     } else {

@@ -5,6 +5,7 @@ import { IoIosLock } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -74,8 +75,20 @@ const SignUp = () => {
     localStorage.setItem("users", JSON.stringify(storedUsers));
 
     setError("");
-    alert("Registration successful!");
+    Swal.fire({
+      icon: "success",
+      title: "Account Created",
+      text: "Your account has been created successfully!",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
+    });
     navigate("/signin");
+
+
   };
 
   return (

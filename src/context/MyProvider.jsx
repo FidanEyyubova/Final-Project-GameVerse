@@ -45,6 +45,12 @@ const MyProvider = ({ children }) => {
         icon: "error",
         title: "Oops...",
         text: "Something went wrong!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
       });
       return;
     }
@@ -54,6 +60,12 @@ const MyProvider = ({ children }) => {
         icon: "warning",
         title: "Oops...",
         text: "This product is already in the cart!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
       });
     } else {
       setCart((prevCart) => [...prevCart, game]);
@@ -61,6 +73,12 @@ const MyProvider = ({ children }) => {
         icon: "success",
         title: "Added!",
         text: "Product added to cart successfully.",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
       });
     }
   };
@@ -72,15 +90,27 @@ const MyProvider = ({ children }) => {
         icon: "error",
         title: "Oops...",
         text: "You need to log in first!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
       });
       return;
     }
 
     if (wishlist.some((item) => item.id === game.id)) {
       Swal.fire({
-        icon: "warning",
+        icon: "error",
         title: "Oops...",
         text: "This product is already in your wishlist!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
       });
     } else {
       setWishlist((prevWishlist) => [...prevWishlist, game]);
@@ -88,6 +118,12 @@ const MyProvider = ({ children }) => {
         icon: "success",
         title: "Added!",
         text: "Product added to wishlist successfully.",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
       });
     }
   };
@@ -98,6 +134,12 @@ const MyProvider = ({ children }) => {
       icon: "info",
       title: "Removed",
       text: "Product removed from cart.",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
     });
   };
 
@@ -107,6 +149,12 @@ const MyProvider = ({ children }) => {
       icon: "info",
       title: "Removed",
       text: "Product removed from wishlist.",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
     });
   };
 
@@ -116,6 +164,12 @@ const MyProvider = ({ children }) => {
       icon: "info",
       title: "Cleared",
       text: "Cart has been emptied.",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
     });
   };
 
@@ -125,6 +179,12 @@ const MyProvider = ({ children }) => {
       icon: "info",
       title: "Cleared",
       text: "Wishlist has been emptied.",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
     });
   };
 
