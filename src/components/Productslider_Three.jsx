@@ -10,6 +10,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import "../pagestyle/Discover.scss";
 import { FaHeart } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -23,6 +24,8 @@ const Productslider_Three = () => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios
@@ -116,7 +119,12 @@ const Productslider_Three = () => {
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
         game.slice(19, 27).map((el) => (
-          <div key={el.id} className="popularity py-2" data-aos="fade-down" id="discount">
+          <div
+            key={el.id}
+            className="popularity py-2"
+            data-aos="fade-down"
+            id="discount"
+          >
             <div className="product-slide d-flex justify-content-center">
               <img src={el.imgProduct} alt={el.name} />
             </div>
@@ -138,26 +146,26 @@ const Productslider_Three = () => {
                 </Link>
               </p>
               <div className="end d-flex justify-content-around text-center">
-                  <div>
-                    <p className="mt-2 price discount">-{el.discount}%</p>
-                  </div>
-                  <div>
-                    <p className="mt-2 price">${el.price}</p>
-                  </div>
-                  <div>
-                    <button
-                      className="add"
-                      onClick={() => navigate(`/game/${el.id}`)}
-                    >
-                      Buy Now
-                    </button>
-                  </div>
+                <div>
+                  <p className="mt-2 price discount">-{el.discount}%</p>
                 </div>
-                <div className="mx-3 pb-3">
-                  <p className="prevprice">
-                    <del>${el.prevprice}</del>
-                  </p>
+                <div>
+                  <p className="mt-2 price">${el.price}</p>
                 </div>
+                <div>
+                  <button
+                    className="add"
+                    onClick={() => navigate(`/game/${el.id}`)}
+                  >
+                    {t("buynow")}
+                  </button>
+                </div>
+              </div>
+              <div className="mx-3 pb-3">
+                <p className="prevprice">
+                  <del>${el.prevprice}</del>
+                </p>
+              </div>
             </div>
           </div>
         ))

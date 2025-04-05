@@ -6,11 +6,14 @@ import Navbar from "../components/Navbar";
 import "../pagestyle/Blog.scss";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
+import { Trans, useTranslation } from "react-i18next";
 
 const Blog = () => {
   const dispatch = useDispatch();
   const { blog } = useSelector((state) => state.blog.blog);
   const status = useSelector((state) => state.blog.status);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchBlog());
@@ -22,7 +25,6 @@ const Blog = () => {
   return (
     <div className="blog">
       <div className="container-fluid">
-        
         <div className="row">
           <div
             className="col-12 back-img"
@@ -40,49 +42,50 @@ const Blog = () => {
         <div className="row first mx-4 py-2 px-3 my-4">
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-start align-items-center">
             <div className="d-flex flex-column gap-2">
-              <span className="pt-1">Top picks</span>
-              <h3>Games</h3>
+              <span className="pt-1">{t("Top")}</span>
+              <h3>{t("Games")}</h3>
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center">
             <div>
               <span>
-                Unleash the gamer in you – explore, battle, and <br /> conquer
+                <Trans i18nKey="Topdesc" components={{ br: <br /> }} />
               </span>
             </div>
           </div>
         </div>
-          <div className="row py-5">
-            {blog && blog.length > 0 ? (
-              blog.map((el) => (
-                <div key={el.id} className="col-lg-4 d-flex flex-column ">
-                  <div className="card d-flex justify-content-center align-items-center" >
-                    <img src={el.img} className="card-img-top" alt={el.title} />
-                    <div className="card-body">
-                      <h5 className="card-title">{el.title}</h5>
-                      <p className="card-text">{el.desc.slice(0,80)}...</p>
-                      <span className="date-blog">{el.date}</span>
-                    </div>
+        <div className="row py-5">
+          {blog && blog.length > 0 ? (
+            blog.map((el) => (
+              <div key={el.id} className="col-lg-4 d-flex flex-column ">
+                <div className="card d-flex justify-content-center align-items-center">
+                  <img src={el.img} className="card-img-top" alt={el.title} />
+                  <div className="card-body">
+                    <h5 className="card-title">{el.title}</h5>
+                    <p className="card-text">{el.desc.slice(0, 80)}...</p>
+                    <span className="date-blog">{el.date}</span>
                   </div>
-                    <div className="d-flex mx-lg-3 mb-4">
-                <button className="buy">
-                  <Link className="link-add" to={`/blogs/${el.id}`}>Read more</Link>
-                </button>
-                <button className="buy-arrow">
-                  <Link className="link-add pb-1">
-                    <MdArrowOutward />
-                  </Link>
-                </button>
-              </div>
                 </div>
-              ))
-            ) : (
-              <div className="col-lg-12">
-                <p>No blogs available</p>
+                <div className="d-flex mx-lg-3 mb-4">
+                  <button className="buy">
+                    <Link className="link-add" to={`/blogs/${el.id}`}>
+                      Read more
+                    </Link>
+                  </button>
+                  <button className="buy-arrow">
+                    <Link className="link-add pb-1">
+                      <MdArrowOutward />
+                    </Link>
+                  </button>
+                </div>
               </div>
-            )}
-          </div>
-        
+            ))
+          ) : (
+            <div className="col-lg-12">
+              <p>No blogs available</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

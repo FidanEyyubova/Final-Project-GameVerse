@@ -1,9 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../context/MyProvider";
 import "../pagestyle/Games.scss";
-import { GrCubes } from "react-icons/gr";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { CiHeart, CiShoppingBasket } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
 import { FaHeart, FaStar } from "react-icons/fa6";
 import { HashLink } from "react-router-hash-link";
@@ -13,11 +10,13 @@ import {
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Trans, useTranslation } from "react-i18next";
 
 const Game = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const { t } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ const Game = () => {
     setPrice,
     addToWishlist,
     wishlist,
-    removeFromWishlist
+    removeFromWishlist,
   } = useContext(MyContext);
 
   const [sortedGames, setSortedGames] = useState([]);
@@ -85,56 +84,56 @@ const Game = () => {
       el.name.toLowerCase().includes(searchProducts.toLowerCase())
   );
 
-   const handleClick = (el) => {
-      const loggedInUser = localStorage.getItem("loggedInUser");
-  
-      if (!loggedInUser || loggedInUser === "null") {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "You need to sign in first!",
-          customClass: {
-            popup: "wishlist-popup",
-            title: "wishlist-title",
-            htmlContainer: "wishlist-text",
-            confirmButton: "wishlist-button",
-          },
-        }).then(() => {
-          window.location.href = "/signin";
-        });
-        return;
-      }
-  
-      const isInWishlist = wishlist.some((item) => item.id === el.id);
-  
-      if (isInWishlist) {
-        removeFromWishlist(el.id);
-        Swal.fire({
-          icon: "warning",
-          title: "Removed from Wishlist",
-          text: "Game has been removed from your wishlist!",
-          customClass: {
-            popup: "wishlist-popup",
-            title: "wishlist-title",
-            htmlContainer: "wishlist-text",
-            confirmButton: "wishlist-button",
-          },
-        });
-      } else {
-        addToWishlist(el);
-        Swal.fire({
-          icon: "success",
-          title: "Added to Wishlist",
-          text: "Game has been added to your wishlist!",
-          customClass: {
-            popup: "wishlist-popup",
-            title: "wishlist-title",
-            htmlContainer: "wishlist-text",
-            confirmButton: "wishlist-button",
-          },
-        });
-      }
-    };
+  const handleClick = (el) => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (!loggedInUser || loggedInUser === "null") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You need to sign in first!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      }).then(() => {
+        window.location.href = "/signin";
+      });
+      return;
+    }
+
+    const isInWishlist = wishlist.some((item) => item.id === el.id);
+
+    if (isInWishlist) {
+      removeFromWishlist(el.id);
+      Swal.fire({
+        icon: "warning",
+        title: "Removed from Wishlist",
+        text: "Game has been removed from your wishlist!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      });
+    } else {
+      addToWishlist(el);
+      Swal.fire({
+        icon: "success",
+        title: "Added to Wishlist",
+        text: "Game has been added to your wishlist!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      });
+    }
+  };
 
   return (
     <div className="games">
@@ -142,14 +141,14 @@ const Game = () => {
         <div className="row first mx-4 py-2 px-3">
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-start align-items-center">
             <div className="d-flex flex-column gap-2">
-              <span className="pt-1">Top picks</span>
-              <h3>Games</h3>
+            <span className="pt-1">{t("Top")}</span>
+            <h3>{t("Games")}</h3>
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center">
             <div>
               <span>
-                Unleash the gamer in you – explore, battle, and <br /> conquer
+                <Trans i18nKey="Topdesc" components={{ br: <br /> }} />
               </span>
             </div>
           </div>
@@ -168,7 +167,7 @@ const Game = () => {
                   <input
                     type="text"
                     className="search-input"
-                    placeholder="Search"
+                    placeholder={t("search")}
                     value={searchProducts}
                     onChange={(e) => setSearchProducts(e.target.value)}
                   />
@@ -176,13 +175,13 @@ const Game = () => {
               </div>
               <div className="d-flex flex-column gap-4 py-2">
                 <HashLink className="menu-tag" smooth to="/#popularity">
-                  Popularity <MdOutlineKeyboardArrowRight />
+                  {t("Popularity")} <MdOutlineKeyboardArrowRight />
                 </HashLink>
                 <HashLink className="menu-tag" smooth to="/#nowongamestore">
-                  Now On The Gameverse Store <MdOutlineKeyboardArrowRight />
+                  {t("NowOn")} <MdOutlineKeyboardArrowRight />
                 </HashLink>
                 <HashLink className="menu-tag" smooth to="/#discount">
-                  Featured Discounts <MdOutlineKeyboardArrowRight />
+                  {t("Discount")} <MdOutlineKeyboardArrowRight />
                 </HashLink>
               </div>
               <div className="select-container mt-2">
@@ -196,7 +195,7 @@ const Game = () => {
                     }
                   >
                     <option value="" className="select-name">
-                      Genre
+                      {t("genre")}
                     </option>
                     {genres.map((genre) => (
                       <option key={genre} value={genre}>
@@ -222,7 +221,7 @@ const Game = () => {
                     }
                   >
                     <option value="" className="select-name">
-                      Feature
+                    {t("feature")}
                     </option>
                     {features.map((feature) => (
                       <option key={feature} value={feature}>
@@ -261,7 +260,7 @@ const Game = () => {
               </div>
 
               <div>
-                <h4>Max Price: ${price}</h4>
+                <h4>{t("maxprice")}: ${price}</h4>
                 <input
                   type="range"
                   className="custom-range"
@@ -285,12 +284,12 @@ const Game = () => {
                     onChange={handleSortChange}
                   >
                     <option value="" selected>
-                      Sorting
+                      {t("sorting")}
                     </option>
                     <option value="az">AZ</option>
                     <option value="za">ZA</option>
-                    <option value="low-high">Low-High</option>
-                    <option value="high-low">High-Low</option>
+                    <option value="low-high">{t("Low-high")}</option>
+                    <option value="high-low">{t("High-low")}</option>
                   </select>
                   <div className="icon-container-two d-flex justify-content-center align-items-center">
                     <MdOutlineKeyboardArrowDown />
@@ -305,12 +304,14 @@ const Game = () => {
                     <div className="image  text-center py-2 pt-5">
                       <img src={el.imgProduct} />
                     </div>
-                    <Link className={`heart ${
-                wishlist.some((item) => item.id === el.id)
-                  ? "act-heart-game"
-                  : "heart-game"
-              }`}
-              onClick={() => handleClick(el)}>
+                    <Link
+                      className={`heart ${
+                        wishlist.some((item) => item.id === el.id)
+                          ? "act-heart-game"
+                          : "heart-game"
+                      }`}
+                      onClick={() => handleClick(el)}
+                    >
                       <FaHeart />
                     </Link>
                     <div className="body  body-pop">
@@ -331,7 +332,7 @@ const Game = () => {
                             className="add"
                             onClick={() => navigate(`/game/${el.id}`)}
                           >
-                            Buy Now
+                            {t("buynow")}
                           </button>
                         </div>
                       </div>
@@ -346,11 +347,7 @@ const Game = () => {
               ))}
             </div>
           </div>
-          <div className="row g-0">
-            <div className="col-12">
-              <div className="back py-4"></div>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>

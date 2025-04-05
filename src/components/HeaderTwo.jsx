@@ -1,12 +1,21 @@
 import React from "react";
-import { FaRegUser } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import { FiMoon, FiUser } from "react-icons/fi";
 import { MdLanguage, MdOutlineLanguage } from "react-icons/md";
 import { Link } from "react-router-dom";
+import "../pagestyle/Header.scss";
 
 const HeaderTwo = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
   const logging = localStorage.getItem("loggedInUser");
+
+  
+    const { t, i18n } = useTranslation();
+    const handleChangeLang = (lang) => {
+      i18n.changeLanguage(lang);
+    };
+
+
   return (
     <div className="head py-3 px-3 header-two">
       <div className="container-fluid">
@@ -32,17 +41,17 @@ const HeaderTwo = () => {
                 <ul className="dropdown-menu  custom-dropdown-menu text-center">
                   <li>
                     <a className="dropdown-item" href="#">
-                      <small className="mx-2">ENG</small>
+                      <small className="mx-2" onClick={() => handleChangeLang("en")}>ENG</small>
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      <small className="mx-2">AZ</small>
+                      <small className="mx-2" onClick={() => handleChangeLang("az")}>AZ</small>
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      <small className="mx-1">RUS</small>
+                      <small className="mx-1" onClick={() => handleChangeLang("rus")}>RUS</small>
                     </a>
                   </li>
                 </ul>

@@ -22,11 +22,14 @@ import { MyContext } from "./context/MyProvider";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import { useTranslation } from "react-i18next";
 
 function App() {
   const location = useLocation();
   const { game } = useContext(MyContext);
-  const [userRole, setUserRole] = useState(localStorage.getItem("userRole") || "");
+  const [userRole, setUserRole] = useState(
+    localStorage.getItem("userRole") || ""
+  );
 
   useEffect(() => {
     const storedRole = localStorage.getItem("userRole");
@@ -37,6 +40,7 @@ function App() {
 
   const isAdminDashboard = location.pathname === "/admin-dashboard";
 
+
   return (
     <>
       {!isAdminDashboard && (
@@ -45,7 +49,7 @@ function App() {
             location.pathname !== "/about" &&
             !location.pathname.startsWith("/game/") &&
             location.pathname !== "/blog" &&
-            !location.pathname.startsWith("/blogs/") &&(
+            !location.pathname.startsWith("/blogs/") && (
               <>
                 <HeaderTwo />
                 <NavbarTwo />
@@ -80,7 +84,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/blog" element={<Blog />} />
-        
+
         <Route
           path="/admin-dashboard"
           element={
@@ -103,10 +107,14 @@ function App() {
         <Route
           path="/admin"
           element={
-            userRole === "admin" ? <Navigate to="/admin-dashboard" /> : <AdminPanel setUserRole={setUserRole} />
+            userRole === "admin" ? (
+              <Navigate to="/admin-dashboard" />
+            ) : (
+              <AdminPanel setUserRole={setUserRole} />
+            )
           }
         />
-        
+
         <Route path="*" element={<NotFound />} />
       </Routes>
 

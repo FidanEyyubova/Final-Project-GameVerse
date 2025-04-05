@@ -4,6 +4,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../context/MyProvider";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const NavbarTwo = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -11,13 +13,15 @@ const NavbarTwo = () => {
 
   const logging = localStorage.getItem("loggedInUser");
 
-
-
+  const { t } = useTranslation();
 
   return (
     <>
       <div className="sticky-top main-navbar navbar-two py-2">
-        <nav className="navbar navbar-expand-sm navbar-dark mx-4" aria-label="Main navbar">
+        <nav
+          className="navbar navbar-expand-sm navbar-dark mx-4"
+          aria-label="Main navbar"
+        >
           <div className="container-fluid">
             <button
               className="navbar-toggler"
@@ -34,28 +38,53 @@ const NavbarTwo = () => {
               <ul className="navbar-nav me-auto mb-2 mb-sm-0 gap-5">
                 <div className="d-flex gap-5 mx-3">
                   <li className="nav-item">
-                    <NavLink className={({ isActive }) => (isActive ? "active" : "page")} to="/">
-                      Discover
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active" : "page"
+                      }
+                      to="/"
+                    >
+                      {t("Discover")}
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className={({ isActive }) => (isActive ? "active" : "page")} to="/game">
-                      Games
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active" : "page"
+                      }
+                      to="/game"
+                    >
+                      {t("Games")}
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className={({ isActive }) => (isActive ? "active" : "page")} to="/about">
-                      About
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active" : "page"
+                      }
+                      to="/about"
+                    >
+                      {t("About")}
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className={({ isActive }) => (isActive ? "active" : "page")} to="/blog">
-                      Blog
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active" : "page"
+                      }
+                      to="/blog"
+                    >
+                      {t("Blog")}
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className={({ isActive }) => (isActive ? "active" : "page")} to="/contact">
-                      Contact Us
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active" : "page"
+                      }
+                      to="/contact"
+                    >
+                      {t("Contact")}
                     </NavLink>
                   </li>
                 </div>
@@ -66,7 +95,10 @@ const NavbarTwo = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <button type="button" className="position-relative badge-icon">
+                    <button
+                      type="button"
+                      className="position-relative badge-icon"
+                    >
                       <Link to={"/wishlist"}>
                         <FaRegHeart className="nav-item-icon" />
                       </Link>
@@ -76,7 +108,10 @@ const NavbarTwo = () => {
                     </button>
                   </li>
                   <li className="nav-item">
-                    <button type="button" className="position-relative badge-icon">
+                    <button
+                      type="button"
+                      className="position-relative badge-icon"
+                    >
                       <Link to={"/cart"}>
                         <FiShoppingCart className="nav-item-icon" />
                       </Link>

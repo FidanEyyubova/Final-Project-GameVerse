@@ -48,6 +48,12 @@ const AddtoCart = () => {
         icon: "success",
         title: "Discount Applied",
         text: "The discount has been successfully applied to your order!",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
       });
     }
 
@@ -188,6 +194,12 @@ const AddtoCart = () => {
                       icon: "warning",
                       title: "Your cart is empty!",
                       text: "Please add some items before proceeding to checkout.",
+                      customClass: {
+                        popup: "wishlist-popup",
+                        title: "wishlist-title",
+                        htmlContainer: "wishlist-text",
+                        confirmButton: "wishlist-button",
+                      },
                     });
                   } else {
                     setShowModal(true);

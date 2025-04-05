@@ -5,6 +5,7 @@ import { MdArrowOutward } from "react-icons/md";
 import Swal from "sweetalert2";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useTranslation } from "react-i18next";
 
 const HomePic = () => {
   const { game, addToWishlist } = useContext(MyContext);
@@ -13,9 +14,11 @@ const HomePic = () => {
     Aos.init({ duration: 1500, once: true });
   }, []);
 
+  const { t } = useTranslation();
+
   const handleClick = (el) => {
     const loggedInUser = localStorage.getItem("loggedInUser");
-  
+
     if (!loggedInUser || loggedInUser === "null") {
       Swal.fire({
         icon: "error",
@@ -32,10 +35,10 @@ const HomePic = () => {
       });
       return;
     }
-  
+
     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     const isAlreadyInWishlist = wishlist.some((item) => item.id === el.id);
-  
+
     if (isAlreadyInWishlist) {
       Swal.fire({
         icon: "error",
@@ -52,7 +55,7 @@ const HomePic = () => {
       wishlist.push(el);
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
       addToWishlist(el);
-  
+
       Swal.fire({
         icon: "success",
         title: "Added to Wishlist",
@@ -66,7 +69,6 @@ const HomePic = () => {
       });
     }
   };
-  
 
   return (
     <div className="home-pic">
@@ -81,12 +83,18 @@ const HomePic = () => {
                       <h1>{el.name}</h1>
                       <p className="pb-3 py-2">{el.desc[0]}</p>
                       <div className="d-flex gap-3">
-                        <button className="wish" style={{color: "white"}} onClick={() => handleClick(el)}>
-                          Add to Wishlist
+                        <button
+                          className="wish"
+                          style={{ color: "white" }}
+                          onClick={() => handleClick(el)}
+                        >
+                          {t("wishlistbtn")}
                         </button>
                         <div className="d-flex">
                           <button className="buy">
-                            <Link className="link-add" to={`/game/${el.id}`}>Buy now</Link>
+                            <Link className="link-add" to={`/game/${el.id}`}>
+                            {t("buynow")}
+                            </Link>
                           </button>
                           <button className="buy-arrow">
                             <Link className="link-add pb-1">

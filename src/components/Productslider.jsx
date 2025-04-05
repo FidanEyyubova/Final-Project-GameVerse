@@ -10,6 +10,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import "../pagestyle/Discover.scss";
 import { FaHeart } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -19,6 +20,8 @@ const Productslider = () => {
   const { game, setGame, addToWishlist, wishlist, removeFromWishlist } =
     useContext(MyContext);
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -116,7 +119,12 @@ const Productslider = () => {
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
         game.slice(3, 15).map((el) => (
-          <div key={el.id} className="popularity py-2" data-aos="fade-down" id="popularity">
+          <div
+            key={el.id}
+            className="popularity py-2"
+            data-aos="fade-down"
+            id="popularity"
+          >
             <div className="product-slide d-flex justify-content-center">
               <img src={el.imgProduct} alt={el.name} />
             </div>
@@ -139,8 +147,11 @@ const Productslider = () => {
               </p>
               <div className="end d-flex justify-content-around gap-5 mt-4">
                 <p className="mt-2 price">${el.price}</p>
-                <button className="add" onClick={() => navigate(`/game/${el.id}`)}>
-                  Buy Now
+                <button
+                  className="add"
+                  onClick={() => navigate(`/game/${el.id}`)}
+                >
+                  {t("buynow")}
                 </button>
               </div>
             </div>
