@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
+import { Trans, useTranslation } from "react-i18next";
 
 const About = () => {
   useEffect(() => {
@@ -9,15 +9,16 @@ const About = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { t } = useTranslation();
 
   const handleclick = () => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
       text: "Something went wrong!",
-      footer: '<a href="#">Why do I have this issue?</a>'
+      footer: '<a href="#">Why do I have this issue?</a>',
     });
-  }
+  };
 
   return (
     <div className="about">
@@ -25,14 +26,14 @@ const About = () => {
         <div className="row first mx-4 py-2 px-3">
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-start align-items-center">
             <div className="d-flex flex-column gap-2">
-              <span className="pt-1">About</span>
+              <span className="pt-1">{t("About")}</span>
               <h3>GameVerse</h3>
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center">
             <div>
               <span>
-                Step into the arena – play, compete, and <br /> dominate
+                <Trans i18nKey="aboutstep" components={{ br: <br /> }} />
               </span>
             </div>
           </div>
@@ -44,33 +45,33 @@ const About = () => {
         >
           <div className="col-lg-7 col-md-7 col-12 d-flex justify-content-center align-items-center">
             <div className="d-flex flex-column  justify-content-center align-items-center">
-              <h2 className="mx-5">Welcome to <span className="game-head-about">GameVerse</span> your ultimate destination for games!</h2>
-              <img src="../src/images/about1.png" alt="" className="image pt-4" />
+              <h2 className="mx-5 text-center">{t("abouthead")}</h2>
+              <img
+                src="../src/images/about1.png"
+                alt=""
+                className="image pt-4"
+              />
             </div>
           </div>
           <div className="col-lg-5 col-md-5 col-12  d-flex justify-content-center align-items-center col-second">
             <div className="d-flex justify-content-center align-items-center flex-column">
               <span className="mx-5 px-2">
-                We offer a wide selection of the latest and classic PS titles at
-                the best prices. Whether you're looking for action, adventure,
-                sports, or RPGs, we've got you covered.
+                {t("aboutspan")}
               </span>
-              <img src="../src/images/about2.png" alt="" className="image-2 pt-4" />
+              <img
+                src="../src/images/about2.png"
+                alt=""
+                className="image-2 pt-4"
+              />
             </div>
           </div>
         </div>
         <div className="row first mx-3 py-3 px-3 my-3 mt-5">
           <div className="col-lg-12 col-md-12 col-12 d-flex justify-content-start align-items-center">
             <div className="d-flex flex-column gap-2">
-              <h3>The Future of Gaming Starts Now</h3>
+              <h3> {t("futurehead")}</h3>
               <span>
-                {" "}
-                At <span>GameVerse</span> we believe that gaming is evolving
-                faster than ever, bringing players together through innovation,
-                competition, and an immersive community experience. With a vast
-                collection of the latest games, AI-driven matchmaking, and
-                interactive tournaments, we are redefining how gamers connect
-                and compete.
+              {t("futurespan")}
               </span>
             </div>
           </div>
@@ -83,7 +84,7 @@ const About = () => {
           </div>
         </div>
         <div className="row  text-center team pt-5" data-aos="fade-down">
-          <h2 className="team text-center my-2 py-4">Our Team</h2>
+          <h2 className="team text-center my-2 py-4">{t("team")}</h2>
           <div className="col-lg-3 col-12 my-4" data-aos="fade-down">
             <div>
               <img
@@ -108,7 +109,7 @@ const About = () => {
             <div className="my-3 team-name">
               <h5>Isabella Thornton</h5>
               <p>
-                <i>Marketing</i>
+                <i>{t("marketing")}</i>
               </p>
             </div>
           </div>
@@ -122,7 +123,7 @@ const About = () => {
             <div className="my-3 team-name">
               <h5>Lucas Montgomery</h5>
               <p>
-                <i>Customer Support</i>
+                <i>{t("customer")}</i>
               </p>
             </div>
           </div>
@@ -135,9 +136,7 @@ const About = () => {
             </div>
             <div className="my-3 team-name">
               <h5>Angela Wilson</h5>
-              <p>
-                Designer
-              </p>
+              <p><i>{t("designer")}</i></p>
             </div>
           </div>
         </div>

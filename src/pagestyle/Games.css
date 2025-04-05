@@ -283,6 +283,9 @@ input::placeholder {
   color: #ff4701;
 }
 .filtered-game .act-heart-game {
+  position: absolute;
+  top: 14% !important;
+  right: 10% !important;
   color: #ff4701;
   opacity: 1 !important;
   visibility: visible !important;

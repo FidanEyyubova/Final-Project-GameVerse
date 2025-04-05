@@ -199,4 +199,9 @@ span:nth-child(2) {
 
 .blog-container:hover .edit-delete {
   opacity: 1 !important;
+}
+
+.date {
+  color: white;
+  font-size: 13px;
 }/*# sourceMappingURL=AdminDashboard.css.map */

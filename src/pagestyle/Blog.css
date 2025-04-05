@@ -23,4 +23,31 @@
 }
 .blog .card p {
   color: rgba(255, 255, 255, 0.435);
+}
+.blog .date-blog {
+  color: white;
+}
+
+.blog-detail {
+  background-color: black;
+  color: rgba(255, 255, 255, 0.955);
+}
+.blog-detail img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 20px;
+}
+.blog-detail .arrow-icon {
+  background-color: #ff4701;
+  color: rgba(255, 255, 255, 0.832);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.blog-detail .desc {
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.716);
+}
+.blog-detail .about {
+  color: #ff4701;
 }/*# sourceMappingURL=Blog.css.map */

@@ -1,76 +1,11 @@
-//  font-family: "Tektur", sans-serif;
-//background-color: rgba(255, 255, 255, 0.089);
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-// //HEADER.JSX
-.head {
-  background-color: transparent;
-  font-family: "Sigmar One", sans-serif;
-  position: relative;
-  z-index: 5300!important;
-  h5 {
-    color: white;
-  }
-  .head-row {
-    position: relative; // Required for z-index to take effect
-    z-index: 333 !important;
-  }
+// HEADER.JSX
 
-  .moon {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-  }
-
-  .dropdown-toggle {
-    border: none;
-    background-color: transparent;
-    color: white;
-    position: relative;
-  }
-
-  .user {
-    color: white;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(5px);
-    padding: 7px 11px;
-    border-radius: 50%;
-    font-size: 14px;
-    height: 33px;
-  }
-  span{
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 15px;
-  }
-  .custom-dropdown-menu {
-    min-width: 30px !important;
-    position: absolute !important; // Change from relative to absolute
-    z-index: 1050 !important; // Bootstrap default for dropdowns
-  }
-  .dropdown {
-    position: relative; // Ensures the absolute dropdown is positioned correctly
-  }
-  .head-dropdown{
-    min-width: 70px !important;
-    position: absolute !important; // Change from relative to absolute
-    z-index: 1050 !important;
-  }
-  .head-row{
-    position: absolute;
-    z-index: 333!important;
-  }
-  small{
-    font-size: 12px;
-    font-weight: normal;
-  }
-}
 // //NAVBAR.JSX
 .navbar {
   font-family: "Barlow", serif;
@@ -491,50 +426,6 @@
     }
   }
 
-// @media (min-width: 0px) and (max-width: 576px) {
-//   .carousel-control-prev {
-//     height: 300px;
-//   }
-//   .carousel-control-next {
-//     height: 300px;
-//   }
-//   .gamedetail{
-//     img{
-//       width: 100%!important;
-//       height: auto!important;
-//     }
-//   }
-// }
-// @media (min-width: 576px) and (max-width: 768px) {
-//   .carousel-control-prev {
-//     height: 370px;
-//   }
-//   .carousel-control-next {
-//     height: 370px;
-//   }
-//   .gamedetail{
-//     img{
-//       width: 100%!important;
-//       height: auto!important;
-//     }
-//   }
-// }
-// @media (min-width: 768px) and (max-width: 1000px) {
-
-//   .gamedetail{
-//     img{
-//       width: 100%!important;
-//       height: auto!important;
-//     }
-//     .add{
-//       width: 700px!important;
-//     }
-//     .wish{
-//       width: 700px!important;
-//     }
-//   }
-// }
-
 .slick-prev {
   font-size: 24px;
   background: black;
@@ -944,14 +835,6 @@ textarea::-webkit-scrollbar {
     border-color: #f13d45 !important;
   }
 }
-// .wishcart{
-//   color: white;
-//   transition: color 0.4s ease;
-// }
-// .wishcart:hover{
-//   color: #ff4701;
-// }
-
 .wishlist{
   background-color: black;
   color: white;
@@ -1156,233 +1039,6 @@ textarea::-webkit-scrollbar {
     }
   }
 }
-//   /* From Uiverse.io by mobinkakei */
-// .wrapper {
-//   width: 200px;
-//   height: 60px;
-//   position: relative;
-//   z-index: 1;
-//   left: 115px;
-//   top: -50px;
-// }
-
-// .circle {
-//   width: 20px;
-//   height: 20px;
-//   position: absolute;
-//   border-radius: 50%;
-//   background-color: #fff;
-//   left: 15%;
-//   transform-origin: 50%;
-//   animation: circle7124 .5s alternate infinite ease;
-// }
-
-// @keyframes circle7124 {
-//   0% {
-//     top: 60px;
-//     height: 5px;
-//     border-radius: 50px 50px 25px 25px;
-//     transform: scaleX(1.7);
-//   }
-
-//   40% {
-//     height: 20px;
-//     border-radius: 50%;
-//     transform: scaleX(1);
-//   }
-
-//   100% {
-//     top: 0%;
-//   }
-// }
-
-// .circle:nth-child(2) {
-//   left: 45%;
-//   animation-delay: .2s;
-// }
-
-// .circle:nth-child(3) {
-//   left: auto;
-//   right: 15%;
-//   animation-delay: .3s;
-// }
-
-// .shadow {
-//   width: 20px;
-//   height: 4px;
-//   border-radius: 50%;
-//   background-color: rgba(0,0,0,0.9);
-//   position: absolute;
-//   top: 62px;
-//   transform-origin: 50%;
-//   z-index: -1;
-//   left: 15%;
-//   filter: blur(1px);
-//   animation: shadow046 .5s alternate infinite ease;
-// }
-
-// @keyframes shadow046 {
-//   0% {
-//     transform: scaleX(1.5);
-//   }
-
-//   40% {
-//     transform: scaleX(1);
-//     opacity: .7;
-//   }
-
-//   100% {
-//     transform: scaleX(.2);
-//     opacity: .4;
-//   }
-// }
-
-// .shadow:nth-child(4) {
-//   left: 45%;
-//   animation-delay: .2s
-// }
-
-// .shadow:nth-child(5) {
-//   left: auto;
-//   right: 15%;
-//   animation-delay: .3s;
-// }
-// }
-
-// .wishlist-first{
-//   .wrapper {
-//     width: 200px;
-//     height: 60px;
-//     position: relative;
-//     z-index: 1;
-//     top: 0px;
-//     left: 0px;
-//   }
-
-//   .circle {
-//     width: 20px;
-//     height: 20px;
-//     position: absolute;
-//     border-radius: 50%;
-//     background-color: #fff;
-//     left: 15%;
-//     transform-origin: 50%;
-//     animation: circle7124 .5s alternate infinite ease;
-//   }
-
-//   @keyframes circle7124 {
-//     0% {
-//       top: 60px;
-//       height: 5px;
-//       border-radius: 50px 50px 25px 25px;
-//       transform: scaleX(1.7);
-//     }
-
-//     40% {
-//       height: 20px;
-//       border-radius: 50%;
-//       transform: scaleX(1);
-//     }
-
-//     100% {
-//       top: 0%;
-//     }
-//   }
-
-//   .circle:nth-child(2) {
-//     left: 45%;
-//     animation-delay: .2s;
-//   }
-
-//   .circle:nth-child(3) {
-//     left: auto;
-//     right: 15%;
-//     animation-delay: .3s;
-//   }
-
-//   .shadow {
-//     width: 20px;
-//     height: 4px;
-//     border-radius: 50%;
-//     background-color: rgba(0,0,0,0.9);
-//     position: absolute;
-//     top: 62px;
-//     transform-origin: 50%;
-//     z-index: -1;
-//     left: 15%;
-//     filter: blur(1px);
-//     animation: shadow046 .5s alternate infinite ease;
-//   }
-
-//   @keyframes shadow046 {
-//     0% {
-//       transform: scaleX(1.5);
-//     }
-
-//     40% {
-//       transform: scaleX(1);
-//       opacity: .7;
-//     }
-
-//     100% {
-//       transform: scaleX(.2);
-//       opacity: .4;
-//     }
-//   }
-
-//   .shadow:nth-child(4) {
-//     left: 45%;
-//     animation-delay: .2s
-//   }
-
-//   .shadow:nth-child(5) {
-//     left: auto;
-//     right: 15%;
-//     animation-delay: .3s;
-//   }
-// }
-
-// //discover
-// .or{
-//   cursor: pointer;
-//   .add{
-//     border: none;
-//     background-color: #ff4701;
-//     width: 130px;
-//     border-radius: 15px;
-//     color: white;
-//     font-weight: 500;
-//     font-size: 15px;
-//     height: 40px;
-//   }
-//   .up{
-//     width: 250px;
-//   }
-//   .p-rate{
-//     background-color: rgba(0, 0, 0, 0.366);
-//     width: 55px;
-//     height: 27px;
-//     font-size: 17px;
-//     border-radius: 20px;
-//     font-weight: 600;
-
-//   }
-//   span{
-//     color: yellow;
-//     font-size: 15px;
-//   }
-//   .heart{
-//     color: white;
-//     font-size: 18px;
-//   }
-//   .heart:hover{
-//     color: #ff4701;
-//   }
-  // .price{
-  //   font-size: 18px;
-  //   font-weight: 600;
-  // }
-// }
 
 .popularity {
   .name{
@@ -1493,10 +1149,10 @@ textarea::-webkit-scrollbar {
 }
 .square-img{
   position: relative;
-  top: -120px;
+  top: -90px;
   img{
-    width: 250px;
-    height: 220px;
+    width: 260px;
+    height: 160px;
   }
 }
 .image-2{
