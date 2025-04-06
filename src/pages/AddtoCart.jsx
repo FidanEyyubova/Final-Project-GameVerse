@@ -5,9 +5,14 @@ import { IoTicketOutline } from "react-icons/io5";
 import { MdDelete, MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 
 const AddtoCart = () => {
-  const { cart, clearCart, removeFromCart, addToCart } = useContext(MyContext);
+  const { cart, clearCart, removeFromCart,cardNumber, setCardNumber,
+    cvv, setCvv,
+    month, setMonth,
+    year,setYear,
+    handleAdd } = useContext(MyContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [discount, setDiscount] = useState("");
   const [discountAmount, setDiscountAmount] = useState(0);
@@ -62,9 +67,29 @@ const AddtoCart = () => {
     setDiscount("");
   };
 
+  
+
   return (
     <div className="wishlist py-5 pb-5">
       <div className="container-fluid">
+        <div className="row motion">
+          <div className="col-12">
+            <div className="overflow-hidden">
+              <motion.div
+                animate={{ x: ["100%", "-100%"] }}
+                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                className="text-4xl font-bold"
+              >
+                <div className="py-3">
+                  <span>
+                    You can get a 20% discount at checkout by entering the promo
+                    code "GAME20"!
+                  </span>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
         <div className="wishlist-header">
           <div className="d-flex justify-content-between align-items-center px-5 py-4">
             <h1 className={cart.length === 0 ? "mx-auto text-center" : ""}>
@@ -213,37 +238,72 @@ const AddtoCart = () => {
           </div>
         </div>
 
-        {/* Checkout Modal */}
         {showModal && (
-          <div className="modal-overlay">
-            <div className="modal-container">
-              <div className="modal-header">
-                <h3 className="py-3 name">Checkout</h3>
-                <button
-                  className="close-btn"
-                  onClick={() => setShowModal(false)}
-                >
-                  ✖
-                </button>
-              </div>
-              <div className="modal-body">
-                <form className="d-flex flex-column">
-                  <label className="modal-label">Image</label>
-                  <input type="text" className="my-2 modal-input" />
-                  <label className="modal-label">Title</label>
-                  <input type="text" className="my-2 modal-input" />
-                  <label className="modal-label">Description-One</label>
-                  <input type="text" className="my-2 modal-input" />
-                  <label>Date</label>
-                  <input type="text" className="my-2 modal-input" />
-                </form>
-              </div>
-              <div className="modal-footer">
-                <button className="add">Add</button>
-              </div>
-            </div>
+      <div className="modal-overlay">
+        <div className="modal-container">
+          <div className="modal-header">
+            <h3 className="py-3 name">Checkout</h3>
+            <button className="close-btn" onClick={() => setShowModal(false)}>
+              ✖
+            </button>
           </div>
-        )}
+          <div className="modal-body">
+            <form className="d-flex flex-column" onSubmit={handleAdd}>
+              <label className="modal-label">Card Number</label>
+              <input
+                type="text"
+                className="my-2 modal-input"
+                value={cardNumber}
+                onChange={(e) =>
+                  setCardNumber(e.target.value.replace(/\D/g, "").slice(0, 16))
+                }
+                placeholder="Enter 16-digit card number"
+                required
+              />
+
+              <label className="modal-label">CVV</label>
+              <input
+                type="text"
+                className="my-2 modal-input"
+                value={cvv}
+                onChange={(e) =>
+                  setCvv(e.target.value.replace(/\D/g, "").slice(0, 3))
+                }
+                placeholder="Enter 3-digit CVV"
+                required
+              />
+
+              <label className="modal-label">Expiry Month</label>
+              <input
+                type="text"
+                className="my-2 modal-input"
+                value={month}
+                onChange={(e) =>
+                  setMonth(e.target.value.replace(/\D/g, "").slice(0, 2))
+                }
+                placeholder="MM"
+                required
+              />
+
+              <label className="modal-label">Expiry Year</label>
+              <input
+                type="text"
+                className="my-2 modal-input"
+                value={year}
+                onChange={(e) =>
+                  setYear(e.target.value.replace(/\D/g, "").slice(0, 4))
+                }
+                placeholder="YYYY"
+                required
+              />
+              <button type="submit" className="add mt-3">
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    )}
       </div>
     </div>
   );

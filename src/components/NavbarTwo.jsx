@@ -4,8 +4,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../context/MyProvider";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import "../pagestyle/Navbar.scss";
 
 const NavbarTwo = () => {
   const [openModal, setOpenModal] = useState(false);

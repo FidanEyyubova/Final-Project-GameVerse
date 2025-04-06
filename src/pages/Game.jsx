@@ -14,7 +14,7 @@ import { Trans, useTranslation } from "react-i18next";
 
 const Game = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, []);
   const { t } = useTranslation();
 
@@ -139,13 +139,13 @@ const Game = () => {
     <div className="games">
       <div className="container-fluid py-4">
         <div className="row first mx-4 py-2 px-3">
-          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-start align-items-center">
-            <div className="d-flex flex-column gap-2">
-            <span className="pt-1">{t("Top")}</span>
-            <h3>{t("Games")}</h3>
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-start justify-content-md-start  justify-content-center align-items-center">
+            <div className="d-flex flex-column justify-content-center gap-2 top-game">
+              <span className="pt-1">{t("Top")}</span>
+              <h3>{t("Games")}</h3>
             </div>
           </div>
-          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center">
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end   justify-content-center text-lg-start text-md-start text-center align-items-center">
             <div>
               <span>
                 <Trans i18nKey="Topdesc" components={{ br: <br /> }} />
@@ -221,7 +221,7 @@ const Game = () => {
                     }
                   >
                     <option value="" className="select-name">
-                    {t("feature")}
+                      {t("feature")}
                     </option>
                     {features.map((feature) => (
                       <option key={feature} value={feature}>
@@ -260,7 +260,9 @@ const Game = () => {
               </div>
 
               <div>
-                <h4>{t("maxprice")}: ${price}</h4>
+                <h4>
+                  {t("maxprice")}: ${price}
+                </h4>
                 <input
                   type="range"
                   className="custom-range"
@@ -299,7 +301,7 @@ const Game = () => {
             </div>
             <div className="row filtered-game">
               {filteredGames.map((el) => (
-                <div key={el.id} className="col-md-4">
+                <div key={el.id} className="col-md-4 col-sm-6">
                   <div className="cont my-2 d-flex flex-column justify-content-center align-items-center">
                     <div className="image  text-center py-2 pt-5">
                       <img src={el.imgProduct} />
@@ -319,7 +321,7 @@ const Game = () => {
                         <div>
                           <p className="name">
                             <Link
-                              className=" mx-4 px-2 mo"
+                              className="mx-lg-3 mx-md-3 mx-sm-4 px-lg-3 px-md-3 px-sm-2  mx-4 px-3 mo"
                               to={`/game/${el.id}`}
                             >
                               {el.name.slice(0, 17)}
@@ -347,7 +349,6 @@ const Game = () => {
               ))}
             </div>
           </div>
-         
         </div>
       </div>
     </div>

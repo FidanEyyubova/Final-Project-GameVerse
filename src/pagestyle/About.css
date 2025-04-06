@@ -1,0 +1,53 @@
+.about {
+  background-color: black;
+  color: white;
+}
+.about span {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.435);
+}
+.about .container-fluid .descript {
+  color: white;
+}
+.about .container-fluid .descript span {
+  color: #ff4701;
+}
+.about .container-fluid .middle img {
+  width: 82%;
+  border-radius: 10px;
+}
+.about .container-fluid .middle p {
+  color: rgba(255, 255, 255, 0.603);
+}
+.about .container-fluid .team {
+  color: white;
+}
+.about .container-fluid .team p {
+  color: rgba(255, 255, 255, 0.603);
+}
+.about .container-fluid .team img {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.about .first {
+  background-color: rgba(255, 255, 255, 0.089);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 14px;
+}
+
+.about .first span span {
+  color: #ff4701;
+  font-weight: 500;
+}
+
+.team img {
+  width: 250px !important;
+  height: 270px;
+}
+
+.team-name {
+  position: relative;
+  top: -90px;
+}/*# sourceMappingURL=About.css.map */

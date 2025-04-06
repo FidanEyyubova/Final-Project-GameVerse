@@ -58,4 +58,16 @@
 .head small {
   font-size: 12px;
   font-weight: normal;
+}
+.head .dropdown-lang {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.head .lang {
+  font-size: 18px;
+}
+
+.header-two {
+  background-color: black;
 }/*# sourceMappingURL=Header.css.map */

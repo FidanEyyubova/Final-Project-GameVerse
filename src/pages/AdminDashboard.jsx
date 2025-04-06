@@ -25,7 +25,7 @@ const AdminDashboard = ({ setUserRole }) => {
   const [inputDesc, setInputDesc] = useState("");
   const [inputDate, setInputDate] = useState(
     new Date().toISOString().split("T")[0]
-  ); // Set current date
+  );
 
   const [editImage, setEditImage] = useState("");
   const [editTitle, setEditTitle] = useState("");
@@ -39,26 +39,12 @@ const AdminDashboard = ({ setUserRole }) => {
 
   const handleCreate = (e) => {
     e.preventDefault();
-    if (inputImg.trim() && inputTitle.trim() && inputDesc.trim()) {
-      dispatch(
-        createBlog({
-          img: inputImg.trim(),
-          title: inputTitle.trim(),
-          desc: inputDesc.trim(),
-          date: inputDate, // Automatically include the current date
-        })
-      ).then(() => dispatch(fetchBlog()));
-
-      setInputImg("");
-      setInputTitle("");
-      setInputDesc("");
-      setInputDate(new Date().toISOString().split("T")[0]); // Reset date
-
-      setOpenModal(false);
+  
+    if (!inputImg.trim() || !inputTitle.trim() || !inputDesc.trim()) {
       Swal.fire({
-        icon: "success",
-        title: "Added",
-        text: "Blog has been added successfully!",
+        icon: "error",
+        title: "Missing Fields",
+        text: "Please fill in all blog details before submitting.",
         customClass: {
           popup: "wishlist-popup",
           title: "wishlist-title",
@@ -66,8 +52,37 @@ const AdminDashboard = ({ setUserRole }) => {
           confirmButton: "wishlist-button",
         },
       });
+      return;
     }
+  
+    dispatch(
+      createBlog({
+        img: inputImg.trim(),
+        title: inputTitle.trim(),
+        desc: inputDesc.trim(),
+        date: inputDate,
+      })
+    ).then(() => dispatch(fetchBlog()));
+  
+    setInputImg("");
+    setInputTitle("");
+    setInputDesc("");
+    setInputDate(new Date().toISOString().split("T")[0]);
+  
+    setOpenModal(false);
+    Swal.fire({
+      icon: "success",
+      title: "Added",
+      text: "Blog has been added successfully!",
+      customClass: {
+        popup: "wishlist-popup",
+        title: "wishlist-title",
+        htmlContainer: "wishlist-text",
+        confirmButton: "wishlist-button",
+      },
+    });
   };
+  
 
   const handleDelete = (id) => {
     dispatch(deleteBlog(id)).then(() => dispatch(fetchBlog()));
@@ -89,7 +104,7 @@ const AdminDashboard = ({ setUserRole }) => {
     setEditImage(blog.img);
     setEditTitle(blog.title);
     setEditDesc(blog.desc);
-    setEditDate(blog.date || new Date().toISOString().split("T")[0]); // Preserve date or set current date
+    setEditDate(blog.date || new Date().toISOString().split("T")[0]); 
     setOpenModal(true);
   };
 
@@ -100,7 +115,7 @@ const AdminDashboard = ({ setUserRole }) => {
         img: editImage.trim(),
         title: editTitle.trim(),
         desc: editDesc.trim(),
-        date: editDate, // Preserve the existing date
+        date: editDate, 
       })
     ).then(() => dispatch(fetchBlog()));
 
@@ -392,7 +407,7 @@ const AdminDashboard = ({ setUserRole }) => {
                 {blog && blog.length > 0 ? (
                   blog.map((el) => (
                     <div key={el.id} className="blog-container">
-                      <img src={el.img} alt="blog" />
+                      <img src={el?.img} alt="blog" />
                       <div className="middle-pr d-flex gap-1 flex-column">
                         <span className="pt-2 title">{el.title}</span>
                         <span>{el.desc?.slice(0, 50)}...</span>

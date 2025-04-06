@@ -1,0 +1,59 @@
+.footer {
+  font-family: "Barlow", serif;
+  background-color: #262626;
+}
+.footer img {
+  width: 80px;
+}
+.footer p {
+  color: white;
+}
+.footer h5 {
+  font-family: "Sigmar One", sans-serif;
+}
+.footer .game {
+  font-size: 17px;
+}
+.footer .game span {
+  font-weight: bold;
+}
+.footer h5 {
+  color: white;
+}
+.footer .menu {
+  color: rgba(255, 255, 255, 0.49);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+.footer .menu:hover {
+  color: white;
+}
+.footer .active {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.footer .icon {
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.49);
+  padding: 8px;
+  transition: color 0.4s ease;
+  cursor: pointer;
+}
+.footer .icon:hover {
+  color: white;
+}
+
+.footer-icon {
+  color: white;
+  font-size: 20px;
+}
+
+.footer-icon {
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.footer-icon:hover {
+  color: white;
+}/*# sourceMappingURL=Footer.css.map */

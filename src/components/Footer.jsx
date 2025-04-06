@@ -4,6 +4,7 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import "../pagestyle/Footer.scss"
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -81,8 +82,8 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 col-md-12 col-12 py-3">
             <div>
-              <h5 className="mx-2">{t("follow")}</h5>
-              <div className="d-flex gap-3 mx-2">
+              <h5 className="mx-lg-2 mx-md-2 follow">{t("follow")}</h5>
+              <div className="d-flex gap-3 mx-lg-2 mx-md-2">
                 <a href="https://www.youtube.com/" className="footer-icon">
                   <FaYoutube />
                 </a>
