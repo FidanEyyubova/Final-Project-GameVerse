@@ -39,13 +39,13 @@ const Discover = () => {
     <div className="discover">
       <div className="container-fluid p-0 py-4">
         <div className="row first mx-4 py-2 px-3">
-          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-start align-items-center">
-            <div className="d-flex flex-column gap-2">
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-start justify-content-md-start  justify-content-center align-items-center">
+            <div className="d-flex flex-column justify-content-center gap-2 top-game">
               <span className="pt-1">{t("Top")}</span>
               <h3>{t("Games")}</h3>
             </div>
           </div>
-          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center">
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end   justify-content-center text-lg-start text-md-start text-center align-items-center">
             <div>
               <span>
                 <Trans i18nKey="Topdesc" components={{ br: <br /> }} />
@@ -88,14 +88,14 @@ const Discover = () => {
         </div>
         <div className="row sixth g-0 mx-4 py-2 px-3 my-3">
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-start align-items-center">
-            <div className="d-flex flex-column gap-2 py-2">
+            <div className="d-flex flex-column gap-2 py-2 text-lg-start text-md-start text-center">
               <h4>{t("Anniversary")}</h4>
-              <span>{t("Anniversarydesc")}</span>
+              <span className="anniversarydesc">{t("Anniversarydesc")}</span>
             </div>
           </div>
-          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-end align-items-center">
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-center align-items-center">
             <div>
-              <div className="d-flex">
+              <div className="d-flex mt-lg-0 mt-md-0 mt-2">
                 <button className="buy">
                   <Link className="link-add" to={"/game"}>
                     {t("Playfree")}
@@ -112,7 +112,7 @@ const Discover = () => {
         </div>
         <div className="row seventh g-0">
           <div className="col-12">
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center mx-4">
               <img src="../src/images/pubg.jpg" alt="" />
             </div>
           </div>

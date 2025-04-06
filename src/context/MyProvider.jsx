@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -14,8 +14,50 @@ const MyProvider = ({ children }) => {
   const [filteredGenre, setFilteredGenre] = useState([]);
   const [filteredMode, setFilteredMode] = useState([]);
   const [price, setPrice] = useState(100);
-  const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("cart")) || []);
-  const [wishlist, setWishlist] = useState(() => JSON.parse(localStorage.getItem("wishlist")) || []);
+  const [cart, setCart] = useState(
+    () => JSON.parse(localStorage.getItem("cart")) || []
+  );
+  const [wishlist, setWishlist] = useState(
+    () => JSON.parse(localStorage.getItem("wishlist")) || []
+  );
+  const [cardNumber, setCardNumber] = useState("");
+  const [cvv, setCvv] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  const [purchasedGames, setPurchasedGames] = useState([]);
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+
+    if (
+      cardNumber.length === 16 &&
+      cvv.length === 3 &&
+      /^\d{2}$/.test(month) &&
+      Number(month) >= 1 &&
+      Number(month) <= 12 &&
+      /^\d{4}$/.test(year)
+    ) {
+
+      const existing = JSON.parse(localStorage.getItem("purchasedGames")) || [];
+
+      // Combine current cart items with existing purchased ones
+      const updatedPurchased = [...existing, ...cart];
+  
+      // Save back to localStorage
+      localStorage.setItem("purchasedGames", JSON.stringify(updatedPurchased));
+  
+      // Optional: update in context state if needed
+      setPurchasedGames(updatedPurchased);
+      
+      setPurchasedGames((prev) => [...prev, ...cart]);
+
+      clearCart();
+      setShowModal(false);
+      navigate("/checkout");
+    } else {
+      alert("Please fill all fields correctly.");
+    }
+  };
 
   useEffect(() => {
     axios
@@ -83,7 +125,7 @@ const MyProvider = ({ children }) => {
     }
   };
 
-  const addToWishlist =  (game) => {
+  const addToWishlist = (game) => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (!loggedInUser) {
       Swal.fire({
@@ -128,7 +170,7 @@ const MyProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart =  (id) => {
+  const removeFromCart = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
     Swal.fire({
       icon: "info",
@@ -143,8 +185,10 @@ const MyProvider = ({ children }) => {
     });
   };
 
-  const removeFromWishlist =  (id) => {
-    setWishlist((prevWishlist) => prevWishlist.filter((item) => item.id !== id));
+  const removeFromWishlist = (id) => {
+    setWishlist((prevWishlist) =>
+      prevWishlist.filter((item) => item.id !== id)
+    );
     Swal.fire({
       icon: "info",
       title: "Removed",
@@ -158,7 +202,7 @@ const MyProvider = ({ children }) => {
     });
   };
 
-  const clearCart =  () => {
+  const clearCart = () => {
     setCart([]);
     Swal.fire({
       icon: "info",
@@ -173,7 +217,7 @@ const MyProvider = ({ children }) => {
     });
   };
 
-  const clearWishlist =  () => {
+  const clearWishlist = () => {
     setWishlist([]);
     Swal.fire({
       icon: "info",
@@ -211,6 +255,17 @@ const MyProvider = ({ children }) => {
         removeFromWishlist,
         clearCart,
         clearWishlist,
+        cardNumber,
+        setCardNumber,
+        cvv,
+        setCvv,
+        month,
+        setMonth,
+        year,
+        setYear,
+        purchasedGames,
+        setPurchasedGames,
+        handleAdd,
       }}
     >
       {children}

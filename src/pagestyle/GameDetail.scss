@@ -1,0 +1,100 @@
+.gamedetail{
+    h2{
+      color: #ff4701;
+    }
+    .des{
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.62);
+    }
+  
+    .price{
+      font-size: 27px;
+    }
+    background-color: black;
+    color: white;
+    img {
+      width: 100%;
+      max-width: 270px; /* Ensures responsiveness */
+      height: 170px; /* Maintains aspect ratio */
+      border-radius: 10px;
+  }
+    .star{
+      color: yellow;
+      font-size: 20px;
+    }
+    .rate{
+      position: relative;
+      top: 15px;
+      background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        height: 32px;
+        width: 70px;
+    }
+    .add{
+      border: none;
+      background-color: #ff4701;
+      width: 235px;
+      border-radius: 15px;
+      color: white;
+      font-weight: 400;
+      height: 40px;
+    }
+    .link-add{
+      font-size: 17px;
+    }
+    .wish{
+      border: none;
+        background-color: rgba(255, 255, 255, 0.24);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        width: 275px;
+        border-radius: 15px;
+        color: white;
+        font-weight: 400;
+        height: 40px;
+    }
+    .prop{
+      background-color: rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      width: 140px;
+      border-radius: 20px;
+      font-size: 15px;
+    }
+    .dev{
+      border-bottom: 1px solid rgba(113, 110, 110, 0.466);
+    }
+    .b{
+      border-bottom: 1px solid rgba(139, 137, 137, 0.397);
+    }
+  }
+
+  .square-img{
+    position: relative;
+    top: -90px;
+    img{
+      width: 260px;
+      height: 160px;
+    }
+  }
+
+  // @media(max-width:992px){
+  //   .add{
+  //     width: 610px!important;
+  //   }
+  //   .wish{
+  //     width: 650px!important;
+  //   }
+  // }
+
+  // @media(max-width:500px){
+  //   .add{
+  //     width: 340px!important;
+  //   }
+  //   .wish{
+  //     width: 380px!important;
+  //   }
+  // }
+ 

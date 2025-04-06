@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../context/MyProvider";
 import NavbarTwo from "./NavbarTwo";
 import { useTranslation } from "react-i18next";
+import "../pagestyle/Navbar.scss";
 
 const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -28,7 +29,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Navbar (Hidden when scrolling) */}
       <div className={`sticky-top main-navbar ${scrolling ? "d-none" : ""}`}>
         <nav
           className="navbar navbar-expand-sm navbar-dark mx-4"
@@ -47,9 +47,9 @@ const Navbar = () => {
               <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarsExample03">
-              <ul className="navbar-nav me-auto mb-2 mb-sm-0 gap-5">
-                <div className="d-flex gap-5 mx-3">
-                  <li className="nav-item">
+              <ul className="navbar-nav navbar-nav-first me-auto mb-2 mb-sm-0 gap-lg-4 gap-md-4 gap-sm-5  gap-2">
+                <div className="d-flex flex-lg-row flex-md-row flex-sm-row flex-column gap-lg-4 gap-md-4 gap-sm-4 gap-2 mx-3">
+                  <li className="nav-item nav-item-name mt-lg-0 mt-md-0 mt-sm-0 mt-2">
                     <NavLink
                       className={({ isActive }) =>
                         isActive ? "active" : "page"
@@ -59,7 +59,7 @@ const Navbar = () => {
                       {t("Discover")}
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav-item-name">
                     <NavLink
                       className={({ isActive }) =>
                         isActive ? "active" : "page"
@@ -69,7 +69,7 @@ const Navbar = () => {
                       {t("Games")}
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav-item-name">
                     <NavLink
                       className={({ isActive }) =>
                         isActive ? "active" : "page"
@@ -79,7 +79,7 @@ const Navbar = () => {
                       {t("About")}
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav-item-name">
                     <NavLink
                       className={({ isActive }) =>
                         isActive ? "active" : "page"
@@ -89,7 +89,7 @@ const Navbar = () => {
                       {t("Blog")}
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav-item-name">
                     <NavLink
                       className={({ isActive }) =>
                         isActive ? "active" : "page"

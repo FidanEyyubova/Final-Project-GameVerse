@@ -109,7 +109,7 @@ const Productslider = () => {
         settings: { slidesToShow: 2, slidesToScroll: 2 },
       },
       {
-        breakpoint: 480,
+        breakpoint: 500,
         settings: { slidesToShow: 1, slidesToScroll: 1 },
       },
     ],
@@ -121,7 +121,7 @@ const Productslider = () => {
         game.slice(3, 15).map((el) => (
           <div
             key={el.id}
-            className="popularity py-2"
+            className="popularity"
             data-aos="fade-down"
             id="popularity"
           >
@@ -141,7 +141,7 @@ const Productslider = () => {
 
             <div className="body-wrap px-4 body-pop">
               <p className="name">
-                <Link className="mo mx-3" to={`/game/${el.id}`}>
+                <Link className="mo mx-lg-3 mx-md-2 mx-sm-2 mx-3" to={`/game/${el.id}`}>
                   {el.name}
                 </Link>
               </p>

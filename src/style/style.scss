@@ -4,91 +4,12 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-// HEADER.JSX
-
-// //NAVBAR.JSX
-.navbar {
-  font-family: "Barlow", serif;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(5px);
-  text-decoration: none;
-  color: white;
-  height: 58px;
-  text-align: center;
-  border-radius: 40px;
-  position: relative;
-  z-index: 5000!important;
-  .page {
-    color: rgba(255, 255, 255, 0.49);
-    text-decoration: none;
-    // font-weight: 500;
-    transition: color 0.4s ease;
-  }
-  .page:hover {
-    color: white;
-  }
-  .active {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  .icon {
-    border: none;
-    background-color: #000d1f;
-    color: white;
-    transition: color 0.4s ease;
-  }
-  .icon:hover {
-    color: white;
-  }
-  .badge {
-    background-color: #ff4701;
-    font-size: 10px;
-  }
-
-  .custom-search {
-    border-radius: 15px !important;
-    border: none !important;
-    background-color: #7d7d7d;
-  }
-  input::placeholder {
-    padding: 10px;
-  }
-  #exampleModalLabel {
-    color: white !important;
-  }
-  .search {
-    background-color: #7d7d7da2 !important;
-  }
-}
-.dropdown-lang{
-  background-color: transparent;
-  border: none;
-  color: white;
-}
-.home-pic {
-  .first {
-    img {
-      width: 170px;
-      height: 130px;
-      border-radius: 10px;
-    }
-  }
-}
 .top-section {
   background-image: url("https://images4.alphacoders.com/138/1386594.jpg");
   background-size: cover;
   background-position: center-center;
   object-fit: cover;
   height: 620px;
-}
-.home-row {
-  height: 480px;
-  z-index: 333;
-}
-.top-section {
-  position: relative;
 }
 .top-section::before {
   content: "";
@@ -98,334 +19,52 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.462);
 }
-.lang{
-  font-size: 18px;
+.top-section-about {
+  background-image: url("../images/about.jpg");
+  background-size: cover;
+  background-position: center-center;
+  object-fit: cover;
+  height: 620px;
 }
-.home-pic-desc{
-  color: white;
-  h1{
-    font-family: "Tektur", sans-serif;
-    font-size: 55px;
-  }
-  p{
-    color: rgba(255, 255, 255, 0.586);
-    font-size: 18px;
-  }
-}
-.wish{
-  background-color: rgba(255, 255, 255, 0.147);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(5px);
-  width: 180px;
-  height: 40px;
-  border: none;
-  border-radius: 20px;
-}
-.buy{
-  background-color: #ff4701;
-  width: 140px;
-  height: 40px;
-  border: none;
-  border-radius: 20px;
-}
-.buy-arrow{
-  background-color: #ff4701;
-  width: 40px;
-  border: none;
-  border-radius: 50%;
-  font-size: 18px;
-}
-.link-add{
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-}
-.badge-icon{
+.top-section-detail {
   background-color: transparent;
-  border: none;
-
+  background-image: none;
 }
-.nav-item-icon{
-  font-size: 16px;
-  color: white;
+.back-img {
+  position: relative;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
 }
-.discover{
-  background-color: black;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  .first,.sixth{
-    background-color: rgba(255, 255, 255, 0.089);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 14px;
-  }
-  span{
-    color: rgba(255, 255, 255, 0.435);
-  }
+.back-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.555);
 }
-.popularity{
-  img{
+.product-slide {
+  position: relative;
+}
+.popularity {
+  img {
     width: 250px;
     height: 300px;
     border-radius: 10px;
   }
   .add {
-          border: none;
-          background-color: #ff4701;
-          width: 100px;
-          border-radius: 20px;
-          color: white;
-          font-weight: 400;
-          height: 40px;
-          font-size: 13px;
-        }
-}
-
-.scrolling-navbar {
-  background-color: rgba(0, 0, 0, 0.9);
-  transition: all 0.3s ease-in-out;
-}
-.nav-item-icon {
-  font-size: 1.2rem;
-  color: white;
-}
-
-.seventh{
-  img{
-    width: 100%;
-    max-width: 1207px;
-    border-radius: 20px;
-  }
-}
-// // FOOTER.JSX
-.footer {
-  font-family: "Barlow", serif;
-  background-color: #262626;
-  img {
-    width: 80px;
-  }
-  p {
-    color: white;
-  }
-  h5{
-    font-family: "Sigmar One", sans-serif;
-  }
-  .game {
-    font-size: 17px;
-    span {
-      font-weight: bold;
-    }
-  }
-  h5 {
-    color: white;
-  }
-  .menu {
-    color: rgba(255, 255, 255, 0.49);
-    text-decoration: none;
-    transition: color 0.4s ease;
-  }
-  .menu:hover {
-    color: white;
-  }
-  .active {
-    color: white;
-    text-decoration: none;
-    font-weight: bold
-  }
-  .icon {
-    font-size: 19px;
-    color: rgba(255, 255, 255, 0.49);
-    padding: 8px;
-    transition: color 0.4s ease;
-    cursor: pointer;
-  }
-  .icon:hover {
-    color: white;
-  }
-}
-// //ABOUT.JSX
-  .about {
-    background-color: black;
-    color: white;
-    
-    span{
-      font-size: 17px;
-      color: rgba(255, 255, 255, 0.435);;
-    }
-    .container-fluid {
-      .descript {
-        color: white;
-        span {
-          color: #ff4701;
-        }
-      }
-      .middle {
-        img {
-          width: 82%;
-          border-radius: 10px;
-        }
-        p {
-          color: rgba(255, 255, 255, 0.603);
-        }
-      }
-      .team {
-        color: white;
-        p {
-          color: rgba(255, 255, 255, 0.603);
-        }
-        img {
-          width: 400px;
-          border-radius: 10px;
-        }
-      }
-     
-    }
-  }
-// //DISCOVER.JSX
-// 
-.sticky-top {
-  z-index: 5000!important;
-}
-
-.five {
-  h2 {
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .accordion {
-    width: 100%;
-  }
-
-  .accordion-item {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .accordion-header {
-    border-radius: 10px;
-  }
-
-  .accordion-button {
-    background: transparent;
-    color: white;
-    font-size: 16px;
-    padding: 15px;
     border: none;
-    display: flex;
-    flex-direction: row-reverse; /* Moves arrow to the right */
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-  }
-
- 
-
-  .accordion-button:focus {
-    box-shadow: none;
-    outline: none;
-  }
-
-  .accordion-button:not(.collapsed) {
-    color: white;
-    border-bottom: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-
-  /* Remove Bootstrap default caret */
-  .accordion-button::after {
-    display: none !important;
-  }
-
-  /* Add FontAwesome icon and place it on the right */
-  .accordion-button::before {
-    content: "\f107"; /* FontAwesome down arrow */
-    font-family: "FontAwesome";
-    font-size: 1rem;
-    width: 30px;
-    height: 30px;
     background-color: #ff4701;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-  }
-
-  .accordion-button:not(.collapsed)::before {
-    transform: rotate(180deg);
-  }
-
-  .accordion-body {
+    width: 100px;
+    border-radius: 20px;
     color: white;
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 0 0 10px 10px;
-  }
-
-  .accordion-item + .accordion-item {
-    margin-top: 10px;
+    font-weight: 400;
+    height: 40px;
+    font-size: 13px;
   }
 }
-
-
-// popularity
-  .mo{
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-  }
-  .product-slide {
-    position: relative;
-  }
-  
-  .product-slide::before {
-    content: "";
-    position: absolute;
-    top: 170px;
-    width: 250px;
-    height: 130px;
-    background-color: rgba(0, 0, 0, 0.503);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 0px 0px 10px 10px;
-  }
-  
-  .count-space{
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(5px);
-    width: 200px;
-    border-radius: 20px;
-    height: 100px;
-    color: white!important;
-    span{
-      color: white;
-    }
-    p{
-      color: #7d7d7d;
-    }
-  }
-  .text{
-    color: #7d7d7d;
-    font-size: 18px;
-  }
-  .mobile{
-    img{
-      width: 100%;
-      border-radius: 10px;
-      max-width: 900px;
-    }
-  }
-
 .slick-prev {
   font-size: 24px;
   background: black;
@@ -447,113 +86,172 @@
   top: -57px;
   right: 30px;
 }
+.product-slide {
+  position: relative;
+}
+.product-slide::before {
+  content: "";
+  position: absolute;
+  top: 170px;
+  width: 250px;
+  height: 130px;
+  background-color: rgba(0, 0, 0, 0.503);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 0px 0px 10px 10px;
+}
 
-.gamedetail{
-  h2{
+@media (max-width: 1000px) {
+  .slick-prev {
+    top: -50px;
+    left: 685px;
+  }
+  .slick-next {
+    top: -50px;
+  }
+  .product-slide::before {
+    content: "";
+    position: absolute;
+    top: 170px;
+    width: 250px;
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.503);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0px 0px 10px 10px;
+  }
+}
+
+@media ((max-width: 768px)and (min-width:500px)) {
+  .slick-prev {
+    top: -50px;
+    left: 570px;
+  }
+  .slick-next {
+    top: -50px;
+  }
+  .product-slide::before {
+    content: "";
+    position: absolute;
+    top: 170px;
+    width: 250px;
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.503);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0px 0px 10px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .slick-prev {
+    top: -50px;
+    left: 330px;
+  }
+  .slick-next {
+    top: -50px;
+  }
+  .product-slide::before {
+    content: "";
+    position: absolute;
+    top: 170px;
+    width: 250px;
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.503);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0px 0px 10px 10px;
+  }
+}
+
+.popularity {
+  .name {
+    font-weight: 600;
+  }
+  position: relative;
+  .discount {
+    background-color: white;
     color: #ff4701;
-  }
-  .des{
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.62);
-  }
-
-  .price{
-    font-size: 27px;
-  }
-  background-color: black;
-  color: white;
-  img {
-    width: 100%; /* Ensures responsiveness */
-    height: 450px; /* Maintains aspect ratio */
+    width: 50px;
     border-radius: 10px;
+  }
+
+  .prevprice {
+    color: #d7d7d7;
+    font-weight: 600;
+  }
 }
-  .star{
-    color: yellow;
-    font-size: 20px;
-  }
-  .rate{
-    position: relative;
-    top: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 20px;
-      height: 32px;
-      width: 70px;
-  }
-  .add{
-    border: none;
-    background-color: #ff4701;
-    width: 235px;
-    border-radius: 15px;
-    color: white;
-    font-weight: 400;
-    height: 40px;
-  }
-  .wish{
-    border: none;
-      background-color: rgba(255, 255, 255, 0.24);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      width: 100%;
-      max-width: 275px;
-      border-radius: 15px;
-      color: white;
-      font-weight: 400;
-      height: 40px;
-  }
-  .prop{
-    background-color: rgba(255, 255, 255, 0.24);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    width: 140px;
-    border-radius: 20px;
-    font-size: 15px;
-  }
-  .dev{
-    border-bottom: 1px solid rgba(113, 110, 110, 0.466);
-  }
-  .b{
-    border-bottom: 1px solid rgba(139, 137, 137, 0.397);
-  }
+.popularity:hover .heart {
+  opacity: 1;
+  visibility: visible;
+}
+.swal2-popup.wishlist-popup {
+  background: rgb(17, 17, 17) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
 }
 
+.swal2-title.wishlist-title {
+  font-size: 25px !important;
+  font-weight: bold !important;
+  color: #ff4701 !important;
+}
+
+.swal2-html-container.wishlist-text {
+  font-size: 18px !important;
+  color: #ccc !important;
+}
+
+.swal2-confirm.wishlist-button {
+  background-color: #ff4701 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  font-weight: bold !important;
+  transition: 0.3s !important;
+}
+
+.swal2-confirm.wishlist-button:hover {
+  background-color: white !important;
+  color: #ff4701 !important;
+}
 
 // //Contact
-.contact{
-  background-color:black;
+.contact {
+  background-color: black;
   color: white;
-  .info{
-    background-color: rgba(255, 255, 255, 0.089);;
+  .info {
+    background-color: rgba(255, 255, 255, 0.089);
     width: 80%;
     border-radius: 10px;
   }
-  h5{
+  h5 {
     border-bottom: 1px solid rgba(128, 128, 128, 0.473);
     width: 86%;
   }
-  .num{
+  .num {
     width: 100%;
   }
-  p:nth-child(1){
+  p:nth-child(1) {
     color: rgba(128, 128, 128, 0.747);
   }
- .cc{
-  font-size: 16px;
-  color: rgb(177, 176, 176);
- }
+  .cc {
+    font-size: 16px;
+    color: rgb(177, 176, 176);
+  }
 }
 
 // //contact
-.second-conc{
+.second-conc {
   background-color: rgba(255, 255, 255, 0.089);
   width: 80%;
   border-radius: 10px;
   position: relative;
   left: 100px;
-  .conc-header{
+  .conc-header {
     width: 73%;
-    h2{
+    h2 {
       color: #ff4701;
     }
   }
@@ -589,11 +287,11 @@
   textarea {
     overflow: auto; /* Keeps scrolling */
     scrollbar-width: none; /* For Firefox */
-}
+  }
 
-textarea::-webkit-scrollbar {
+  textarea::-webkit-scrollbar {
     display: none; /* For Chrome, Safari */
-}
+  }
 
   button {
     width: 150px;
@@ -612,11 +310,11 @@ textarea::-webkit-scrollbar {
 
 // //login-user
 
-.login-user{
+.login-user {
   background-color: black;
   min-height: 100vh;
-  .log-col{
-    h2{
+  .log-col {
+    h2 {
       font-weight: 600;
     }
     input[type="checkbox"] {
@@ -631,7 +329,7 @@ textarea::-webkit-scrollbar {
     }
 
     input[type="checkbox"]:checked {
-      background-color: #ff4701!important; /* Background color when checked */
+      background-color: #ff4701 !important; /* Background color when checked */
     }
 
     input::placeholder {
@@ -649,20 +347,20 @@ textarea::-webkit-scrollbar {
       line-height: 50px;
       caret-color: #f13d45;
       text-indent: 10px;
-      background-color: rgba(255, 255, 255, 0.089)!important;
+      background-color: rgba(255, 255, 255, 0.089) !important;
       color: white;
     }
     input:focus {
       border: 1px solid #f13d45;
       border-left: none;
     }
-    .check{
+    .check {
       border: 1px solid rgba(255, 255, 255, 0.089);
     }
-    .check:focus{
-      border: 1px solid rgba(255, 255, 255, 0.089)!important;
+    .check:focus {
+      border: 1px solid rgba(255, 255, 255, 0.089) !important;
     }
-    button{
+    button {
       background-color: #ff4701;
       width: 100%;
       height: 43px;
@@ -672,35 +370,35 @@ textarea::-webkit-scrollbar {
       font-size: 20px;
       font-weight: 500;
     }
-    button:hover{
+    button:hover {
       background-color: transparent;
-      border:2px solid #ff4701;
+      border: 2px solid #ff4701;
       color: #f13d45;
       transition: background-color 0.3s ease;
     }
-    p{
+    p {
       font-size: 17px;
     }
-    .sign-link{
+    .sign-link {
       text-decoration: none;
       color: #ba232f;
       font-weight: 500;
     }
-    label{
+    label {
       font-weight: 450;
     }
-    .pass{
+    .pass {
       width: 370px;
     }
-    .check{
+    .check {
       border: 1px solid rgba(255, 255, 255, 0.089);
     }
   }
-  .error{
+  .error {
     color: #ff4701;
   }
-  .middle{
-    background-color: rgba(255, 255, 255, 0.089);;
+  .middle {
+    background-color: rgba(255, 255, 255, 0.089);
     width: 480px;
     height: 530px;
     border-radius: 10px;
@@ -709,51 +407,51 @@ textarea::-webkit-scrollbar {
   .input-group:focus-within .lock-pass {
     border-color: #f13d45 !important;
   }
-  .lock-pass{
-    background-color: rgba(255, 255, 255, 0.089)!important;
-    color: white!important;
-    border: 1px solid rgba(255, 255, 255, 0.089)!important;
+  .lock-pass {
+    background-color: rgba(255, 255, 255, 0.089) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.089) !important;
     border-left: none;
     cursor: pointer;
     color: #9f9d9d;
   }
-  .right{
-    border-left: none!important;
+  .right {
+    border-left: none !important;
   }
-  .orange{
+  .orange {
     color: #ff4701;
     text-decoration: none;
   }
 }
 
-.register{
+.register {
   background-color: black;
   min-height: 140vh;
-.log-col{
-  input {
-    width: 380px;
-    height: 45px;
-    border: 1px solid rgba(255, 255, 255, 0.089);
-    border-radius: 6px;
-    border-left: none;
-    outline: none;
-    font-size: 16px; /* Consistent text size */
-    line-height: 50px;
-    caret-color: #f13d45;
-    text-indent: 10px;
-    background-color: rgba(255, 255, 255, 0.089)!important;
-    color: white;
+  .log-col {
+    input {
+      width: 380px;
+      height: 45px;
+      border: 1px solid rgba(255, 255, 255, 0.089);
+      border-radius: 6px;
+      border-left: none;
+      outline: none;
+      font-size: 16px; /* Consistent text size */
+      line-height: 50px;
+      caret-color: #f13d45;
+      text-indent: 10px;
+      background-color: rgba(255, 255, 255, 0.089) !important;
+      color: white;
+    }
+    input::placeholder {
+      color: #a0a0a0; /* Lighter gray for placeholder text */
+      font-size: 16px;
+      opacity: 1;
+    }
   }
-  input::placeholder {
-    color: #a0a0a0; /* Lighter gray for placeholder text */
-    font-size: 16px;
-    opacity: 1;
-  }
-}
-  .pass-three{
+  .pass-three {
     width: 430px;
   }
-  .pass{
+  .pass {
     width: 420px;
   }
 
@@ -769,16 +467,16 @@ textarea::-webkit-scrollbar {
   }
 
   input[type="checkbox"]:checked {
-    background-color: #ff4701!important; /* Background color when checked */
+    background-color: #ff4701 !important; /* Background color when checked */
   }
   input:focus {
     border: 1px solid #f13d45;
     border-left: none;
   }
-  p{
+  p {
     color: rgba(255, 255, 255, 0.305);
   }
-  button{
+  button {
     background-color: #ff4701;
     width: 100%;
     height: 45px;
@@ -788,44 +486,44 @@ textarea::-webkit-scrollbar {
     font-size: 20px;
     font-weight: 500;
   }
-  button:hover{
+  button:hover {
     background-color: transparent;
-    border:2px solid #ff4701;
+    border: 2px solid #ff4701;
     color: #f13d45;
     transition: background-color 0.3s ease;
   }
-  .end{
+  .end {
     font-size: 17px;
     color: white;
   }
-  .sign-link{
+  .sign-link {
     text-decoration: none;
     color: #ba232f;
     font-weight: 500;
   }
-  label{
+  label {
     font-weight: 450;
   }
-  .check{
+  .check {
     border: 1px solid #3b444f;
   }
-  .lock-pass{
-    background-color: rgba(255, 255, 255, 0.089)!important;
-    color: white!important;
-    border: 1px solid rgba(255, 255, 255, 0.089)!important;
+  .lock-pass {
+    background-color: rgba(255, 255, 255, 0.089) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.089) !important;
     border-left: none;
     cursor: pointer;
     color: #9f9d9d;
   }
-  .right{
-    border-left: none!important;
+  .right {
+    border-left: none !important;
   }
-  .orange{
+  .orange {
     color: #ff4701;
     text-decoration: none;
   }
-  .middle{
-    background-color: rgba(255, 255, 255, 0.089);;
+  .middle {
+    background-color: rgba(255, 255, 255, 0.089);
     width: 600px;
     height: 760px;
     border-radius: 10px;
@@ -835,31 +533,31 @@ textarea::-webkit-scrollbar {
     border-color: #f13d45 !important;
   }
 }
-.wishlist{
+
+.wishlist {
   background-color: black;
   color: white;
-  h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;
+  h1 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
     font-size: 45px;
   }
-  
-  img{
+
+  img {
     width: 150px;
     border-radius: 10px;
   }
-  .wishlist-detail{
-    
+  .wishlist-detail {
     background-color: rgba(255, 255, 255, 0.089);
     width: 100%;
     height: 250px;
     border-radius: 10px;
-    
-    button{
+
+    button {
       width: 140px;
       height: 35px;
     }
 
-    .prop{
+    .prop {
       background-color: rgba(255, 255, 255, 0.24);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -867,17 +565,17 @@ textarea::-webkit-scrollbar {
       font-size: 15px;
       border-radius: 20px;
     }
-    .genre{
+    .genre {
       font-size: 17px;
       color: rgba(255, 255, 255, 0.425);
       font-weight: 600;
     }
-    .remove{
+    .remove {
       background-color: transparent;
       border: none;
       color: rgba(255, 255, 255, 0.531);
     }
-    .add{
+    .add {
       border: none;
       background-color: #ff4701;
       width: 130px;
@@ -887,25 +585,25 @@ textarea::-webkit-scrollbar {
       font-weight: 500;
       transition: background-color 0.4s ease;
     }
-    .add:hover{
+    .add:hover {
       background-color: white;
       color: #ff4701;
     }
-    .prev{
+    .prev {
       font-size: 17px;
       color: #979696;
     }
-    .price{
+    .price {
       font-size: 23px;
     }
-    .star-p{
+    .star-p {
       font-size: 18px;
-      .star{
+      .star {
         font-size: 17px;
         color: yellow;
       }
     }
-    .remove{
+    .remove {
       color: white;
       font-size: 20px;
       background-color: rgba(157, 156, 156, 0.418);
@@ -914,16 +612,16 @@ textarea::-webkit-scrollbar {
       border-radius: 50%;
       transition: background-color 0.3s ease;
     }
-    .desc{
+    .desc {
       color: #979696;
       font-weight: 500;
     }
-    .remove:hover{
+    .remove:hover {
       background-color: white;
       color: #ff4701;
     }
   }
-  .clear{
+  .clear {
     width: 150px;
     height: 43px;
     border: none;
@@ -932,18 +630,17 @@ textarea::-webkit-scrollbar {
     color: #ff4701;
     font-weight: 600;
     background-color: white;
-    transition: background-color 0.4s ease ;
+    transition: background-color 0.4s ease;
   }
-  .clear:hover{
-  
+  .clear:hover {
     color: white;
     background-color: #ff4701;
   }
-  .empty{
+  .empty {
     color: rgba(255, 255, 255, 0.507);
     font-weight: 600;
   }
-   .shop{
+  .shop {
     text-decoration: none;
     color: white;
     font-size: 18px;
@@ -953,25 +650,25 @@ textarea::-webkit-scrollbar {
     border: none;
     background-color: #ff4701;
     border-radius: 17px;
-   transition: background-color 0.4s ease;
+    transition: background-color 0.4s ease;
   }
-    .shop:hover{
-      background-color: white;
+  .shop:hover {
+    background-color: white;
 
-      color: #ff4701;
+    color: #ff4701;
   }
-  .text{
-    color: rgba(255, 255, 255, 0.507)!important;
+  .text {
+    color: rgba(255, 255, 255, 0.507) !important;
   }
 
-  .order-summary{
-    background-color:rgba(255, 255, 255, 0.089) ;
+  .order-summary {
+    background-color: rgba(255, 255, 255, 0.089);
     height: 350px;
     border-radius: 10px;
-    .icon-max{
-      font-size: 25px!important;
+    .icon-max {
+      font-size: 25px !important;
     }
-    input{
+    input {
       width: 200px;
       border: none;
       outline: none;
@@ -980,17 +677,17 @@ textarea::-webkit-scrollbar {
       line-height: 50px;
       caret-color: #f13d45;
     }
-    .input-group{
-      border-radius: 10px!important;
+    .input-group {
+      border-radius: 10px !important;
     }
-    p{
+    p {
       font-size: 18px;
       font-weight: 600;
     }
-    .discount{
+    .discount {
       color: #ff4701;
     }
-    .apply{
+    .apply {
       width: 90px;
       height: 40px;
       border-radius: 13px;
@@ -1000,20 +697,19 @@ textarea::-webkit-scrollbar {
       font-weight: 600;
       transition: background-color 0.3s ease;
     }
-    .apply:hover{
-    
+    .apply:hover {
       color: white;
       background-color: #ff4701;
       border: none;
       font-weight: 600;
     }
-    span{
-      font-size:20px;
+    span {
+      font-size: 20px;
       background-color: white;
       color: #7d7d7d;
       border-radius: 10px 0px 0px 10px;
     }
-    .checkout{
+    .checkout {
       background-color: #ff4701;
       width: 100%;
       height: 45px;
@@ -1023,301 +719,25 @@ textarea::-webkit-scrollbar {
       font-size: 18px;
       font-weight: 500;
     }
-    .checkout:hover{
+    .checkout:hover {
       background-color: white;
-      border:2px solid #ff4701;
+      border: 2px solid #ff4701;
       color: #f13d45;
       transition: background-color 0.3s ease;
     }
-   
-
   }
-  .img-order{
-    img{
+  .img-order {
+    img {
       width: 350px;
       height: 150px;
     }
   }
 }
 
-.popularity {
-  .name{
-    font-weight: 600;
-  }
-  position: relative;
-  .discount{
-    background-color: white;
-    color: #ff4701;
-    width: 50px;
-    border-radius: 10px;
-  }
-  
-  .prevprice{
-    color: #d7d7d7;
-    font-weight: 600;
-  }
-}
-
-.popularity:hover .heart {
-  opacity: 1;
-  visibility: visible;
-}
 
 
-
-
-// .heart:hover {
-//   color: #ff4701;
-// }
-
-
-// background-color: rgba(255, 255, 255, 0.1);
-// backdrop-filter: blur(2px);
-// -webkit-backdrop-filter: blur(5px);
-// text-decoration: none;
-// color: white;
-// font-weight: 500;
-// width: 100px;
-// text-align: center;
-// border-radius: 20px;
-
-.navbar-two{
-  background-color: black;
-  
-  .navbar{
-    background-color: black;
-  }
-}
-.header-two{
-  background-color: black;
-}
-.scrolling-navbar{
-  background-color: black;
-}
-.top-section-about{
-  background-image: url("../images/about.jpg");
-  background-size: cover;
-  background-position: center-center;
-  object-fit: cover;
-  height: 620px;
-}
-.top-section-detail{
-  background-color: transparent;
-  background-image: none;
-}
-.about{
-  .first{
-    background-color: rgba(255, 255, 255, 0.089);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 14px;
-  }
-}
-
-.about{
-  .first{
-    span{
-      span{
-        color: #ff4701;
-        font-weight: 500;
-      }
-    }
-  }
-}
-
-
-.exm-img{
-  position: relative;
-  top: -700px;
-}
-
-
-.back-img {
-  position: relative;
-  height: 600px;
-  background-size: cover;
-  background-position: center;
-}
-.back-img::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -1px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.555);
-}
-.square-img{
-  position: relative;
-  top: -90px;
-  img{
-    width: 260px;
-    height: 160px;
-  }
-}
-.image-2{
-  width: 390px!important;
-}
-.col-second{
-  span{
+.col-second {
+  span {
     font-size: 19px;
   }
-}
-
-// .image{
-//   width: 620px!important;
-// }
-
-.game-head-about{
-  color: #ff4701!important;
-  font-size: 30px!important;
-}
-
-.team{
-  img{
-    width: 250px!important;
-    height: 270px;
-  }
-}
-.team-name{
-  position: relative;
-  top: -90px;
-}
-
-.notfound{
-  min-height: 90vh;
-  background-color: black;
-  h1{
-    font-size: 150px;
-  }
-  p{
-    font-size: 60px;
-    color: rgba(255, 255, 255, 0.462);
-  }
-  .link-add{
-    font-size: 20px;
-  }
-  .buy{
-    width: 200px;
-  }
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  animation: fadeIn 0.3s forwards;
-}
-
-.modal-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-20px);
-  opacity: 0;
-  animation: slideIn 0.3s forwards;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-/* Animation Effects */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-
-
-
-
-
-
-.footer-icon{
-  color: white;
-  font-size: 20px;
-}
-.footer-icon{
-  text-decoration: none;
-  transition: color 0.4s ease;
-}
-.footer-icon:hover {
-  color: white;
-}
-
-
-.swal2-popup.wishlist-popup {
-  background: rgb(17, 17, 17) !important;
-  color: white !important;
-  border-radius: 12px !important;
-  padding: 20px !important;
-}
-
-.swal2-title.wishlist-title {
-  font-size: 25px !important;
-  font-weight: bold !important;
-  color: #ff4701 !important;
-}
-
-.swal2-html-container.wishlist-text {
-  font-size: 18px !important;
-  color: #ccc !important;
-}
-
-.swal2-confirm.wishlist-button {
-  background-color: #ff4701 !important;
-  color: white !important;
-  border-radius: 8px !important;
-  padding: 10px 20px !important;
-  font-weight: bold !important;
-  transition: 0.3s !important;
-}
-
-.swal2-confirm.wishlist-button:hover {
-  background-color: white !important;
-  color: #ff4701 !important;
 }

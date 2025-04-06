@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
 import Swal from 'sweetalert2'
+import "../pagestyle/GameDetail.scss"
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -94,9 +95,7 @@ const GameDetails = () => {
             className="col-12 back-img"
             style={{
               backgroundImage: `url(${gameDetail.imgDetail})`,
-              height: "600px",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+            
             }}
           >
             <Header />
@@ -104,28 +103,28 @@ const GameDetails = () => {
           </div>
         </div>
         <div className="row g-0" data-aos="zoom-in">
-          <div className="col-lg-3 col-md-6 col-12  d-flex justify-content-center align-items-center">
+          <div className="col-lg-3 col-md-6 col-12  d-flex  justify-content-center align-items-center">
             <div className="square-img">
-              <img src={gameDetail.imgDetail} alt="" />
+              <img src={gameDetail.imgDetail} alt="" className="d-flex" />
             </div>
           </div>
           <div className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center">
             <div className="square-img">
-              <img src={gameDetail.imgDetail} alt="" />
+              <img src={gameDetail.imgDetail} alt="" className="d-lg-flex d-md-flex d-sm-none d-none" />
             </div>
           </div>
           <div className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center">
             <div className="square-img">
-              <img src={gameDetail.imgDetail} alt="" />
+              <img src={gameDetail.imgDetail} alt="" className="d-lg-flex d-md-none d-sm-none d-none" />
             </div>
           </div>
           <div className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center">
             <div className="square-img">
-              <img src={gameDetail.imgDetail} alt="" />
+              <img src={gameDetail.imgDetail} alt="" className="d-lg-flex d-md-none d-sm-none d-none" />
             </div>
           </div>
         </div>
-        <div className="row g-0 d-flex justify-content-center align-items-center mx-3">
+        <div className="row g-0 d-flex justify-content-center align-items-center mx-3 pb-5">
           <div className="col-lg-9 col-md-12 col-12 d-flex justify-content-center align-items-center">
             <div>
               <div className="d-flex flex-column">
@@ -136,9 +135,9 @@ const GameDetails = () => {
                   <h2 className="mt-5">{gameDetail.desc?.[2]}</h2>
                   <p className="des">{gameDetail.desc?.[3]}</p>
                 </div>
-                <div className="gap-md-3 d-lg-block d-md-flex mx-4">
+                <div className="gap-md-4 d-lg-block d-md-flex mx-4">
                   <div>
-                    <h5 className="pb-2">
+                    <h5 className="">
                       <b>Genres</b>
                     </h5>
                     <div className="d-flex gap-3">
@@ -151,7 +150,7 @@ const GameDetails = () => {
                     </div>
                   </div>
                   <div>
-                    <h5 className="pb-2">
+                    <h5 className="">
                       <b>Features</b>
                     </h5>
                     <div className="d-flex gap-3">
@@ -221,14 +220,7 @@ const GameDetails = () => {
             </div>
           </div>
         </div>
-        <div className="row g-0">
-          <div className="col-12 d-flex justify-content-center align-items-center">
-            <div className="mx-4">
-              <h2>{gameDetail.name}</h2>
-              <p>{gameDetail.desc?.[1]}</p>
-            </div>
-          </div>
-        </div>
+     
       </div>
     </div>
   );

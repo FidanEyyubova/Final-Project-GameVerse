@@ -1,6 +1,7 @@
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
+import "../pagestyle/NotFound.scss"
 
 const NotFound = () => {
   return (

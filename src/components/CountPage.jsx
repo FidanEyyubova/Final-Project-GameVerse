@@ -31,7 +31,7 @@ const CountPage = () => {
               className="col-lg-4 col-md-4 col-12 d-flex justify-content-center align-items-center"
               data-aos="zoom-in"
             >
-              <div className="count-space py-3">
+              <div className="count-space py-3 mb-3">
                 <h3>
                   {counterOn && (
                     <CountUp start={0} end={2000} duration={2} delay={0} />
@@ -46,7 +46,7 @@ const CountPage = () => {
               className="col-lg-4 col-md-4 col-12 d-flex justify-content-center align-items-center"
               data-aos="zoom-in"
             >
-              <div className="count-space py-3">
+              <div className="count-space py-3 mb-3">
                 <h3>4.8/5</h3>
                 <p>{t("Avg")}</p>
               </div>

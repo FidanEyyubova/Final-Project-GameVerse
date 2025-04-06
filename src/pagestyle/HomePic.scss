@@ -1,0 +1,53 @@
+.home-pic {
+    .first {
+      img {
+        width: 170px;
+        height: 130px;
+        border-radius: 10px;
+      }
+    }
+  }
+  .home-row {
+    height: 480px;
+    z-index: 333;
+  }
+  .home-pic-desc{
+    color: white;
+    h1{
+      font-family: "Tektur", sans-serif;
+      font-size: 55px;
+    }
+    p{
+      color: rgba(255, 255, 255, 0.586);
+      font-size: 18px;
+    }
+  }
+  .wish{
+    background-color: rgba(255, 255, 255, 0.147);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 180px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+  }
+  .buy{
+    background-color: #ff4701;
+    width: 140px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+  }
+  .buy-arrow{
+    background-color: #ff4701;
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  .link-add{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  

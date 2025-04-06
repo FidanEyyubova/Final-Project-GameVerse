@@ -14,13 +14,13 @@ export const createBlog = createAsyncThunk(
         img: inputImg,
         title: inputTitle,
         desc: inputDesc,
-        date: new Date().toISOString().split("T")[0], // Auto-generate date
+        date: new Date().toISOString().split("T")[0],
       };
-
       const response = await axios.post(baseUrl, newBlog, {
         headers: {
           apikey: apikey,
           Authorization: `Bearer ${apikey}`,
+          "Prefer": "return=minimal"
         },
       });
 
@@ -61,7 +61,7 @@ export const deleteBlog = createAsyncThunk(
         },
       });
 
-      return id; // Return the ID of the deleted blog
+      return id;
     } catch (error) {
       return rejectWithValue(error?.response?.data?.message || error.message);
     }
@@ -76,7 +76,7 @@ export const updateBlog = createAsyncThunk(
     try {
       const response = await axios.patch(
         `${baseUrl}?id=eq.${id}`,
-        { img, title, desc, date }, // Ensure date persists
+        { img, title, desc, date },
         {
           headers: {
             apikey: apikey,

@@ -297,3 +297,30 @@ select option:hover {
   outline: none;
 }
 
+
+@media (max-width: 768px) {
+  .body-pop {
+    top: 240px !important;
+    left: 33px!important;
+    width: 80% !important;
+  }
+  .heart {
+    position: absolute;
+    top: 17%;
+    left: 250px!important;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .body-pop {
+    top: 240px !important;
+    left: 90px!important;
+    width: 60% !important;
+  }
+  .heart {
+    position: absolute;
+    top: 17%;
+    left: 310px!important;
+  }
+}
