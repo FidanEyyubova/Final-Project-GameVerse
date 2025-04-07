@@ -73,7 +73,7 @@ const Blog = () => {
                     </Link>
                   </button>
                   <button className="buy-arrow">
-                    <Link className="link-add pb-1">
+                    <Link className="link-add pb-1" to={`/blogs/${el.id}`}>
                       <MdArrowOutward />
                     </Link>
                   </button>

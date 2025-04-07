@@ -28,7 +28,7 @@ const MyProvider = ({ children }) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-
+  
     if (
       cardNumber.length === 16 &&
       cvv.length === 3 &&
@@ -37,28 +37,59 @@ const MyProvider = ({ children }) => {
       Number(month) <= 12 &&
       /^\d{4}$/.test(year)
     ) {
-
       const existing = JSON.parse(localStorage.getItem("purchasedGames")) || [];
-
-      // Combine current cart items with existing purchased ones
-      const updatedPurchased = [...existing, ...cart];
   
-      // Save back to localStorage
+      const newPurchases = cart.filter(
+        (gameInCart) => !existing.some((purchased) => purchased.id === gameInCart.id)
+      );
+  
+      if (newPurchases.length === 0) {
+        Swal.fire({
+          icon: "warning",
+          title: "Duplicate Purchase",
+          text: "You have already purchased these games.",
+          customClass: {
+            popup: "wishlist-popup",
+            title: "wishlist-title",
+            htmlContainer: "wishlist-text",
+            confirmButton: "wishlist-button",
+          },
+        });
+        return;
+      }
+  
+      const updatedPurchased = [...existing, ...newPurchases];
+  
       localStorage.setItem("purchasedGames", JSON.stringify(updatedPurchased));
-  
-      // Optional: update in context state if needed
       setPurchasedGames(updatedPurchased);
-      
-      setPurchasedGames((prev) => [...prev, ...cart]);
-
-      clearCart();
-      setShowModal(false);
-      navigate("/checkout");
+  
+      setCart((prev) =>
+        prev.filter((item) => newPurchases.every((newItem) => newItem.id !== item.id))
+      );
+  
+      Swal.fire({
+        icon: "success",
+        title: "Success!",
+        text: "Purchase completed successfully.",
+        customClass: {
+          popup: "wishlist-popup",
+          title: "wishlist-title",
+          htmlContainer: "wishlist-text",
+          confirmButton: "wishlist-button",
+        },
+      }).then(() => {
+        window.location.href = "/recommend";
+      });
+  
+      setCardNumber("");
+      setCvv("");
+      setMonth("");
+      setYear("");
     } else {
       alert("Please fill all fields correctly.");
     }
   };
-
+  
   useEffect(() => {
     axios
       .get(`${baseURL}?select=*`, {

@@ -40,7 +40,7 @@ const AdminDashboard = ({ setUserRole }) => {
   const handleCreate = (e) => {
     e.preventDefault();
   
-    if (!inputImg.trim() || !inputTitle.trim() || !inputDesc.trim()) {
+    if (!inputImg?.trim() || !inputTitle?.trim() || !inputDesc?.trim()) {
       Swal.fire({
         icon: "error",
         title: "Missing Fields",
@@ -57,10 +57,10 @@ const AdminDashboard = ({ setUserRole }) => {
   
     dispatch(
       createBlog({
-        img: inputImg.trim(),
-        title: inputTitle.trim(),
-        desc: inputDesc.trim(),
-        date: inputDate,
+        inputImg: inputImg.trim(),
+        inputTitle: inputTitle.trim(),
+        inputDesc: inputDesc.trim(),
+        inputDate,
       })
     ).then(() => dispatch(fetchBlog()));
   

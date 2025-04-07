@@ -48,7 +48,7 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarsExample03">
               <ul className="navbar-nav navbar-nav-first me-auto mb-2 mb-sm-0 gap-lg-4 gap-md-4 gap-sm-5  gap-2">
-                <div className="d-flex flex-lg-row flex-md-row flex-sm-row flex-column gap-lg-4 gap-md-4 gap-sm-4 gap-2 mx-3">
+                <div className="d-flex flex-lg-row flex-md-row flex-sm-row flex-column gap-lg-5 gap-md-5 gap-sm-5 gap-2 mx-3">
                   <li className="nav-item nav-item-name mt-lg-0 mt-md-0 mt-sm-0 mt-2">
                     <NavLink
                       className={({ isActive }) =>

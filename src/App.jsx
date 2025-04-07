@@ -23,6 +23,7 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import { useTranslation } from "react-i18next";
+import Recommend from "./pages/Recommend";
 
 function App() {
   const location = useLocation();
@@ -84,6 +85,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/recommend" element={<Recommend />} />
 
         <Route
           path="/admin-dashboard"

@@ -146,10 +146,7 @@ const SignIn = ({ setUserRole }) => {
                     </span>
                   </div>
                 </div>
-                <div className="mx-2">
-                  <input type="checkbox" className="check" />
-                  <span className="mx-2">Remember Me</span>
-                </div>
+               
                 <div className="text-center">
                   <button type="submit" className="mb-3 mt-2 button-log-reg">
                     Login

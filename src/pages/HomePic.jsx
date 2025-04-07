@@ -91,14 +91,14 @@ const HomePic = () => {
                         >
                           {t("wishlistbtn")}
                         </button>
-                        <div className="d-flex">
-                          <button className="buy">
+                        <div className="d-flex arrow-btn">
+                          <button className="buy link-add">
                             <Link className="link-add" to={`/game/${el.id}`}>
                             {t("buynow")}
                             </Link>
                           </button>
                           <button className="buy-arrow">
-                            <Link className="link-add pb-1">
+                            <Link className="link-add pb-1" to={`/game/${el.id}`}>
                               <MdArrowOutward />
                             </Link>
                           </button>
