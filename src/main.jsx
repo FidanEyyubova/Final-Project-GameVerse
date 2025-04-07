@@ -7,14 +7,17 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter } from "react-router-dom";
 import MyProvider from "./context/MyProvider.jsx";
 import store from "./store/store.js";
-import "./i18next.js"
+import "./i18next.js";
+import ThemeProvider from "./context/ThemeProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <Provider store={store}> 
+  <Provider store={store}>
     <BrowserRouter>
-      <MyProvider>
-        <App />
-      </MyProvider>
+      <ThemeProvider>
+        <MyProvider>
+          <App />
+        </MyProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </Provider>
 );

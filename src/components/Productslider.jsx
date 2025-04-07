@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import "../pagestyle/Discover.scss";
 import { FaHeart } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -19,6 +20,8 @@ const apikey =
 const Productslider = () => {
   const { game, setGame, addToWishlist, wishlist, removeFromWishlist } =
     useContext(MyContext);
+
+    const {isLight, setIsLight} = useContext(ThemeContext)
   const navigate = useNavigate();
 
   const { t } = useTranslation();
@@ -119,8 +122,10 @@ const Productslider = () => {
     <Slider {...settings} arrows>
       {game && game.length > 0 ? (
         game.slice(3, 15).map((el) => (
+          <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
+
           <div
-            key={el.id}
+            
             className="popularity"
             data-aos="fade-down"
             id="popularity"
@@ -155,6 +160,7 @@ const Productslider = () => {
                 </button>
               </div>
             </div>
+          </div>
           </div>
         ))
       ) : (

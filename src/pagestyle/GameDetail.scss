@@ -17,6 +17,11 @@
       max-width: 270px; /* Ensures responsiveness */
       height: 170px; /* Maintains aspect ratio */
       border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+  }
+  img:hover{
+    transform: scale(1.2);
   }
     .star{
       color: yellow;

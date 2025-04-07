@@ -11,10 +11,13 @@ import {
 } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Trans, useTranslation } from "react-i18next";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Game = () => {
   useEffect(() => {
     // window.scrollTo(0, 0);
+    Aos.init({ duration: 1000,once:true });
   }, []);
   const { t } = useTranslation();
 
@@ -288,10 +291,10 @@ const Game = () => {
                     <option value="" selected>
                       {t("sorting")}
                     </option>
-                    <option value="az">AZ</option>
-                    <option value="za">ZA</option>
-                    <option value="low-high">{t("Low-high")}</option>
-                    <option value="high-low">{t("High-low")}</option>
+                    <option className="op" value="az">AZ</option>
+                    <option className="op" value="za">ZA</option>
+                    <option className="op" value="low-high">{t("Low-high")}</option>
+                    <option className="op" value="high-low">{t("High-low")}</option>
                   </select>
                   <div className="icon-container-two d-flex justify-content-center align-items-center">
                     <MdOutlineKeyboardArrowDown />
@@ -299,7 +302,7 @@ const Game = () => {
                 </div>
               </div>
             </div>
-            <div className="row filtered-game">
+            <div className="row filtered-game" data-aos="fade-down">
               {filteredGames.map((el) => (
                 <div key={el.id} className="col-md-4 col-sm-6">
                   <div className="cont my-2 d-flex flex-column justify-content-center align-items-center">

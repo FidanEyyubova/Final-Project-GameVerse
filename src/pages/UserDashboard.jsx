@@ -95,17 +95,16 @@ const UserDashboard = () => {
               {purchasedGames.length === 0 ? (
                 <p>You haven't purchased any games yet.</p>
               ) : (
-                <div className="row">
+                <div className="row pb-5 pt-2">
                   {purchasedGames.map((game) => (
-                    <div key={game.id} className="col-md-4 col-sm-6 mb-3">
-                      <div className="game-card p-3 border rounded shadow-sm h-100">
+                    <div key={game.id} className=" col-lg-2 col-md-4 col-sm-6 mb-3 purchased">
+                      <div className="game-card p-3 h-100">
                         <img
                           src={game.imgProduct}
                           alt={game.name}
                           className="img-fluid mb-2"
                         />
                         <h5>{game.name}</h5>
-                        <p className="text-muted">${game.price}</p>
                       </div>
                     </div>
                   ))}

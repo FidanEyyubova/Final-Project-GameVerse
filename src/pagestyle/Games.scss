@@ -105,6 +105,17 @@
     font-size: 13px;
     height: 38px;
     width: 80px;
+    transition: background-color 0.3s ease;
+  }
+  .add:hover {
+    border: none;
+    background-color: white;
+    border-radius: 15px;
+    color: #ff4701;
+    font-weight: 500;
+    font-size: 13px;
+    height: 38px;
+    width: 80px;
   }
   .heart {
     position: absolute;
@@ -114,7 +125,7 @@
     color: white;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease!important;
   }
 
 
@@ -324,3 +335,4 @@ select option:hover {
     left: 310px!important;
   }
 }
+

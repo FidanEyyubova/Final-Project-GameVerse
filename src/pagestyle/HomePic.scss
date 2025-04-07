@@ -2,8 +2,13 @@
     .first {
       img {
         width: 170px;
-        height: 130px;
+        height: 120px;
         border-radius: 10px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+      img:hover{
+        transform: scale(1.2);
       }
     }
   }
@@ -30,6 +35,15 @@
     height: 40px;
     border: none;
     border-radius: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  .wish:hover{
+  background-color: black;
+    width: 180px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
   }
   .buy{
     background-color: #ff4701;
@@ -37,6 +51,13 @@
     height: 40px;
     border: none;
     border-radius: 20px;
+    transition: background-color 0.3s ease;
+  }
+  .buy:hover{
+    background-color: white;
+    .link-add{
+      color: #ff4701!important;
+    }
   }
   .buy-arrow{
     background-color: #ff4701;
@@ -44,6 +65,14 @@
     border: none;
     border-radius: 50%;
     font-size: 18px;
+    transition: background-color 0.3s ease;
+    
+  }
+  .buy-arrow:hover{
+    background-color: white;
+    .link-add{
+      color: #ff4701;
+    }
   }
   .link-add{
     text-decoration: none;

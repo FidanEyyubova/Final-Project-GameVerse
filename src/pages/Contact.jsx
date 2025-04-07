@@ -84,7 +84,7 @@ const Contact = () => {
                     ></textarea>
                   </div>
                   <div className="d-flex justify-content-end align-items-center my-4">
-                    <button>{t("sendmessage")}</button>
+                    <button className="send">{t("sendmessage")}</button>
                   </div>
                 </form>
               </div>

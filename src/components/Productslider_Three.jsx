@@ -129,7 +129,7 @@ const Productslider_Three = () => {
               <img src={el.imgProduct} alt={el.name} />
             </div>
             <button
-              className={`heart ${
+              className={`heart heart-dis ${
                 wishlist.some((item) => item.id === el.id)
                   ? "act-heart mb-2"
                   : "heart mb-3"
