@@ -38,7 +38,6 @@ const MyProvider = ({ children }) => {
       /^\d{4}$/.test(year)
     ) {
       const existing = JSON.parse(localStorage.getItem("purchasedGames")) || [];
-  
       const newPurchases = cart.filter(
         (gameInCart) => !existing.some((purchased) => purchased.id === gameInCart.id)
       );
@@ -67,6 +66,8 @@ const MyProvider = ({ children }) => {
         prev.filter((item) => newPurchases.every((newItem) => newItem.id !== item.id))
       );
   
+      localStorage.setItem("checkedOut", "true");
+
       Swal.fire({
         icon: "success",
         title: "Success!",
@@ -86,7 +87,17 @@ const MyProvider = ({ children }) => {
       setMonth("");
       setYear("");
     } else {
-      alert("Please fill all fields correctly.");
+       Swal.fire({
+              icon: "error",
+              title: "Uncorrect fields!",
+              text: "Please fill all fields correctly.",
+              customClass: {
+                popup: "wishlist-popup",
+                title: "wishlist-title",
+                htmlContainer: "wishlist-text",
+                confirmButton: "wishlist-button",
+              },
+            });
     }
   };
   
@@ -175,7 +186,7 @@ const MyProvider = ({ children }) => {
 
     if (wishlist.some((item) => item.id === game.id)) {
       Swal.fire({
-        icon: "error",
+        icon: "warning",
         title: "Oops...",
         text: "This product is already in your wishlist!",
         customClass: {

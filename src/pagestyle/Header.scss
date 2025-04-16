@@ -21,7 +21,7 @@
   .dropdown-toggle {
     border: none;
     background-color: transparent;
-    color: white;
+    color: white!important;
     position: relative;
   }
 
@@ -90,84 +90,86 @@ color: white!important;
 background-color: #ff4701!important;
 }
 
-
-
-
 .light-app{
-  .header-two{
-    background-color: white!important;
-    color: black!important;
-    .dropdown-toggle {
-      border: none;
-      color: rgb(190, 22, 22)!important;
-      position: relative;
-    }
-  }
-  .head {
-    h5 {
-      color: rgb(12, 12, 12);
-    }
  
-  
-    .moon {
-      background-color: transparent;
-      border: none;
-      color: rgb(0, 0, 0);
-      font-size: 18px;
-    }
-  
-    
-  
-    .user {
-      color: rgb(6, 6, 6);
-      background-color: rgba(4, 4, 4, 0.1);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(5px);
-      padding: 7px 11px;
-      border-radius: 50%;
-      font-size: 14px;
-      height: 33px;
-    }
-    span {
-      color: rgb(0, 0, 0);
-      font-size: 15px;
-    }
-    .custom-dropdown-menu {
-      min-width: 30px !important;
-      position: absolute !important;
-      z-index: 1050 !important;
-     
-    }
-    .dropdown {
+  .header-two{
+    background-color: #b0afaf7d!important;
+      font-family: "Sigmar One", sans-serif;
       position: relative;
-    }
-    .head-dropdown {
-      min-width: 70px !important;
-      position: absolute !important;
-      z-index: 1050 !important;
-    }
-    .head-row {
-      position: absolute;
-      z-index: 333 !important;
-    }
-    .small {
-      font-size: 12px;
-      font-weight: normal;
-      // font-family: ;
-      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
-      color: white;
-    }
+      z-index: 5300 !important;
+      h5 {
+        color: rgb(0, 0, 0);
+      }
+      .head-row {
+        position: relative;
+        z-index: 333 !important;
+      }
     
-    .dropdown-lang{
-      background-color: transparent;
-      border: none;
-      color: white;
-    }
-    .lang{
-      font-size: 18px;
+      .moon {
+        background-color: transparent;
+        border: none;
+        color: rgb(0, 0, 0);
+        font-size: 18px;
+      }
+    
+      .dropdown-toggle {
+        border: none;
+        background-color: transparent;
+        color: white!important;
+        position: relative;
+      }
+    
+      .user {
+        color: rgb(0, 0, 0);
+        background-color: rgba(131, 129, 129, 0.291);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(5px);
+        padding: 7px 11px;
+        border-radius: 50%;
+        font-size: 14px;
+        height: 33px;
+      }
+      span {
+        color: rgb(0, 0, 0);
+        font-size: 13px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
+      }
+      .custom-dropdown-menu {
+        min-width: 30px !important;
+        position: absolute !important;
+        z-index: 1050 !important;
+      }
+      .dropdown {
+        position: relative;
+      }
+      .head-dropdown {
+        min-width: 70px !important;
+        position: absolute !important;
+        z-index: 1050 !important;
+      }
+      .head-row {
+        position: absolute;
+        z-index: 333 !important;
+      }
+      .small {
+        font-size: 12px;
+        font-weight: normal;
+        // font-family: ;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
+        color: white;
+      }
+      
+      .dropdown-lang{
+        background-color: transparent;
+        border: none;
+        color: white;
+      }
+      .lang{
+        font-size: 18px;
+        color: black;
+      }
     }
   }
-
   .custom-dropdown-menu{
     background-color: black!important;
   }
@@ -180,5 +182,3 @@ background-color: #ff4701!important;
   color: white!important;
   background-color: #ff4701!important;
   }
-  
-}

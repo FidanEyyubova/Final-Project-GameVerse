@@ -9,8 +9,11 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
-import Swal from 'sweetalert2'
-import "../pagestyle/GameDetail.scss"
+import Swal from "sweetalert2";
+import "../pagestyle/GameDetail.scss";
+import { useTranslation } from "react-i18next";
+import { FaStar } from "react-icons/fa6";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -19,9 +22,12 @@ const apikey =
 const GameDetails = () => {
   const { id } = useParams();
   const { game, setGame, addToWishlist, addToCart } = useContext(MyContext);
+  const { t } = useTranslation();
+
+  const { isLight } = useContext(ThemeContext);
 
   useEffect(() => {
-    // window.scrollTo(0, 0);
+    Aos.init({ duration: 1000, once: true });
   }, []);
 
   useEffect(() => {
@@ -50,52 +56,68 @@ const GameDetails = () => {
   const gameDetail = game?.find((item) => item.id == id);
 
   if (!gameDetail) {
-    return <div className="text-center mt-5">Loading...</div>;
+    return;
   }
 
-  const handleClick = (el, action) => {
-    const loggedInUser = localStorage.getItem("loggedInUser");
+  // const handleClick = (el, action) => {
+  //   const loggedInUser = localStorage.getItem("loggedInUser");
 
-    if (!loggedInUser || loggedInUser === "null") {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-      }).then(() => {
-        window.location.href = "/signin";
-      });
-      return;
-    }
-    const user = JSON.parse(loggedInUser);
+  //   if (!loggedInUser || loggedInUser === "null") {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "Something went wrong!",
+  //       customClass: {
+  //         popup: "wishlist-popup",
+  //         title: "wishlist-title",
+  //         htmlContainer: "wishlist-text",
+  //         confirmButton: "wishlist-button",
+  //       },
+  //     }).then(() => {
+  //       window.location.href = "/signin";
+  //     });
+  //     return;
+  //   }
 
-    if (action === "cart") {
-      addToCart(el);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>',
-      });
-    } else if (action === "wishlist") {
-      addToWishlist(el);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>',
-      });
-    }
-  };
+  //   if (action === "cart") {
+  //     addToCart(el);
+  //     Swal.fire({
+  //       icon: "success",
+  //       title: "Added to Cart",
+  //       text: "Game has been added to your cart!",
+  //       customClass: {
+  //         popup: "wishlist-popup",
+  //         title: "wishlist-title",
+  //         htmlContainer: "wishlist-text",
+  //         confirmButton: "wishlist-button",
+  //       },
+  //     });
+  //   } else if (action === "wishlist") {
+  //     addToWishlist(el);
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Added to Wishlist",
+  //       text: "Game has been added to your wishlist!",
+  //       customClass: {
+  //         popup: "wishlist-popup",
+  //         title: "wishlist-title",
+  //         htmlContainer: "wishlist-text",
+  //         confirmButton: "wishlist-button",
+  //       },
+  //     });
+  //   }
+  // };
 
   return (
-    <div className="gamedetail">
+    <div className={isLight ? "light-app" : "dark-app"}>
+
+    <div className="gamedetail pb-5">
       <div className="container-fluid">
         <div className="row">
           <div
             className="col-12 back-img"
             style={{
               backgroundImage: `url(${gameDetail.imgDetail})`,
-            
             }}
           >
             <Header />
@@ -110,25 +132,46 @@ const GameDetails = () => {
           </div>
           <div className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center">
             <div className="square-img">
-              <img src={gameDetail.imgDetail} alt="" className="d-lg-flex d-md-flex d-sm-none d-none" />
+              <img
+                src={gameDetail.imgDetail}
+                alt=""
+                className="d-lg-flex d-md-flex d-sm-none d-none"
+              />
             </div>
           </div>
           <div className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center">
             <div className="square-img">
-              <img src={gameDetail.imgDetail} alt="" className="d-lg-flex d-md-none d-sm-none d-none" />
+              <img
+                src={gameDetail.imgDetail}
+                alt=""
+                className="d-lg-flex d-md-none d-sm-none d-none"
+              />
             </div>
           </div>
           <div className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center">
             <div className="square-img">
-              <img src={gameDetail.imgDetail} alt="" className="d-lg-flex d-md-none d-sm-none d-none" />
+              <img
+                src={gameDetail.imgDetail}
+                alt=""
+                className="d-lg-flex d-md-none d-sm-none d-none"
+              />
             </div>
           </div>
         </div>
-        <div className="row g-0 d-flex justify-content-center align-items-center mx-3 pb-5">
+        <div
+          className="row g-0 d-flex justify-content-center align-items-center mx-3 pb-5"
+          data-aos="fade-down"
+        >
           <div className="col-lg-9 col-md-12 col-12 d-flex justify-content-center align-items-center">
             <div>
               <div className="d-flex flex-column">
-                <h1 className="mb-3 mx-3">{gameDetail.name}</h1>
+                <div className="d-flex align-items-center">
+                  <h1 className="mb-3 mx-3">{gameDetail.name}</h1>
+                  <p className="gamedet-rate px-3 py-1">
+                    <FaStar className="game-star pb-1 mx-1" />
+                    {gameDetail.rate}
+                  </p>
+                </div>
 
                 <div>
                   <p className="des mx-3">{gameDetail.desc?.[1]}</p>
@@ -137,8 +180,8 @@ const GameDetails = () => {
                 </div>
                 <div className="gap-md-4 d-lg-block d-md-flex mx-4">
                   <div>
-                    <h5 className="">
-                      <b>Genres</b>
+                    <h5 className="pb-2">
+                      <b>{t("genre")}</b>
                     </h5>
                     <div className="d-flex gap-3">
                       {gameDetail.genres?.length > 0 &&
@@ -150,8 +193,8 @@ const GameDetails = () => {
                     </div>
                   </div>
                   <div>
-                    <h5 className="">
-                      <b>Features</b>
+                    <h5 className="pb-2">
+                      <b>{t("feature")}</b>
                     </h5>
                     <div className="d-flex gap-3">
                       {gameDetail.features?.length > 0 &&
@@ -180,8 +223,8 @@ const GameDetails = () => {
               </div>
               <div className="d-flex flex-column gap-3">
                 <div className="d-flex">
-                  <button className="add mb-2">
-                    <Link className="link-add">Play for free</Link>
+                  <button className="add-btn mb-2">
+                    <Link className="link-add">{t("Playfree")}</Link>
                   </button>
                   <button className="buy-arrow mb-2">
                     <Link className="link-add pb-1">
@@ -190,38 +233,38 @@ const GameDetails = () => {
                   </button>
                 </div>
                 <button
-                  className="wish mb-2"
-                  onClick={() => handleClick(gameDetail, "cart")}
+                  className="wish-btn mb-2"
+                  onClick={() => addToCart(gameDetail)}
                 >
-                  Add to Cart
+                  {t("addbtn")}
                 </button>
                 <button
-                  className="wish mb-2"
-                  onClick={() => handleClick(gameDetail, "wishlist")}
+                  className="wish-btn mb-2"
+                  onClick={() => addToWishlist(gameDetail)}
                 >
-                  Add to Wishlist
+                  {t("wishlistbtn")}
                 </button>
               </div>
 
               <div className="d-flex flex-column justify-content-center gap-2">
                 <div className="d-flex justify-content-between b mt-4 mb-3">
-                  <p>Developer</p>
+                  <p>{t("devop")}</p>
                   <p>{gameDetail.developer}</p>
                 </div>
                 <div className="d-flex justify-content-between b mb-3">
-                  <p>Publisher</p>
+                  <p>{t("publish")}</p>
                   <p>{gameDetail.publisher}</p>
                 </div>
                 <div className="d-flex justify-content-between b">
-                  <p>Release Date</p>
+                  <p>{t("date")}</p>
                   <p>{gameDetail.date}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-     
       </div>
+    </div>
     </div>
   );
 };

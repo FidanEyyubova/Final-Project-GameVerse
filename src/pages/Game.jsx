@@ -13,16 +13,19 @@ import Swal from "sweetalert2";
 import { Trans, useTranslation } from "react-i18next";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { HashLoader } from "react-spinners";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const Game = () => {
   useEffect(() => {
     // window.scrollTo(0, 0);
-    Aos.init({ duration: 1000,once:true });
+    Aos.init({ duration: 1000, once: true });
   }, []);
   const { t } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const {isLight} = useContext(ThemeContext)
   const {
     game,
     // setGame,
@@ -139,8 +142,8 @@ const Game = () => {
   };
 
   return (
-    <div className="games">
-      <div className="container-fluid py-4">
+    <div className={isLight ? "light-app games" : "dark-app games"}>
+      <div className="container-fluid py-4 game-cont">
         <div className="row first mx-4 py-2 px-3">
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-start justify-content-md-start  justify-content-center align-items-center">
             <div className="d-flex flex-column justify-content-center gap-2 top-game">
@@ -291,10 +294,18 @@ const Game = () => {
                     <option value="" selected>
                       {t("sorting")}
                     </option>
-                    <option className="op" value="az">AZ</option>
-                    <option className="op" value="za">ZA</option>
-                    <option className="op" value="low-high">{t("Low-high")}</option>
-                    <option className="op" value="high-low">{t("High-low")}</option>
+                    <option className="op" value="az">
+                      AZ
+                    </option>
+                    <option className="op" value="za">
+                      ZA
+                    </option>
+                    <option className="op" value="low-high">
+                      {t("Low-high")}
+                    </option>
+                    <option className="op" value="high-low">
+                      {t("High-low")}
+                    </option>
                   </select>
                   <div className="icon-container-two d-flex justify-content-center align-items-center">
                     <MdOutlineKeyboardArrowDown />
@@ -303,53 +314,74 @@ const Game = () => {
               </div>
             </div>
             <div className="row filtered-game" data-aos="fade-down">
-              {filteredGames.map((el) => (
-                <div key={el.id} className="col-md-4 col-sm-6">
-                  <div className="cont my-2 d-flex flex-column justify-content-center align-items-center">
-                    <div className="image  text-center py-2 pt-5">
-                      <img src={el.imgProduct} />
-                    </div>
-                    <Link
-                      className={`heart ${
-                        wishlist.some((item) => item.id === el.id)
-                          ? "act-heart-game"
-                          : "heart-game"
-                      }`}
-                      onClick={() => handleClick(el)}
-                    >
-                      <FaHeart />
-                    </Link>
-                    <div className="body  body-pop">
-                      <div>
-                        <div>
-                          <p className="name">
-                            <Link
-                              className="mx-lg-3 mx-md-3 mx-sm-4 px-lg-3 px-md-3 px-sm-2  mx-4 px-3 mo"
-                              to={`/game/${el.id}`}
-                            >
-                              {el.name.slice(0, 17)}
-                            </Link>
-                          </p>
-                        </div>
-                        <div className="end d-flex justify-content-around mt-4">
-                          <p className="mt-2 price">${el.price}</p>
-                          <button
-                            className="add"
-                            onClick={() => navigate(`/game/${el.id}`)}
-                          >
-                            {t("buynow")}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    {el.percent !== null && el.percent !== "" && (
-                      <div className="percent px-2">
-                        <p>{el.percent}</p>
-                      </div>
-                    )}
-                  </div>
+              {filteredGames.length === 0 ? (
+                <div className="d-flex justify-content-center align-items-center load w-100 my-5">
+                  <HashLoader color="#ff4701" loading size={50} />
                 </div>
-              ))}
+              ) : (
+                filteredGames.map((el) => (
+                  <div key={el.id} className="col-md-4 col-sm-6">
+                    <div className="cont my-2 d-flex flex-column justify-content-center align-items-center">
+                      <div className="image text-center py-2 pt-5">
+                        <img src={el.imgProduct} />
+                      </div>
+                      <div>
+                        <Link
+                          className={`heart ${
+                            wishlist.some((item) => item.id === el.id)
+                              ? "act-heart-game"
+                              : "heart-game"
+                          }`}
+                          onClick={() => handleClick(el)}
+                        >
+                          <FaHeart />
+                        </Link>
+                        <p className="rate px-2 py-1">
+                          <FaStar className="rate-star pb-1" />
+                          {el.rate}
+                        </p>
+                      </div>
+                      <div className="body body-pop">
+                        <div>
+                          <div>
+                            <p className="name">
+                              <Link
+                                className="mx-lg-3 mx-md-3 mx-sm-4 px-lg-3 px-md-3 px-sm-2 mx-4 px-3 mo"
+                                to={`/game/${el.id}`}
+                              >
+                                {el.name.slice(0, 17)}
+                              </Link>
+                            </p>
+                          </div>
+                          <div className="end d-flex justify-content-around align-items-start mt-4">
+                            <div className="d-flex gap-1">
+                              {el.prevprice && (
+                                <div>
+                                  <p className="prevprice">
+                                    <del>${el.prevprice}</del>
+                                  </p>
+                                </div>
+                              )}
+                              <p className="price mt-1">${el.price}</p>
+                            </div>
+                            <button
+                              className="add"
+                              onClick={() => navigate(`/game/${el.id}`)}
+                            >
+                              {t("buynow")}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      {el.percent !== null && el.percent !== "" && (
+                        <div className="percent px-2">
+                          <p>{el.percent}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

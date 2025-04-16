@@ -20,6 +20,7 @@
   .card{
     background-color: transparent;
     color: white;
+    border: none!important;
     p{
         color: rgba(255, 255, 255, 0.435);
     }
@@ -55,3 +56,30 @@
  
 }
 
+
+
+.light-app{
+  .blog{
+    background-color: #f7f4fa;
+    
+    .first{
+      background-color: #dddbdb7d;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+        border-radius: 14px;
+        span{
+          color: rgba(88, 88, 88, 0.723);
+        }
+      }
+      .card-title{
+        color: black;
+      }
+      .card-text{
+
+        color: black;
+      }
+      .date-blog{
+        color: black;
+      }
+  }
+}

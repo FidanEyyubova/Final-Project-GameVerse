@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useCallback, useContext } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import "../pagestyle/Footer.scss"
+import "../pagestyle/Footer.scss";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const { isLight } = useContext(ThemeContext);
   return (
+    <div className={isLight ? "light-app" : "dark-app"}>
+
     <div className="footer d-flex justify-content-center align-items-center">
       <div className="container-fluid">
-        <div className="row mx-3 border-bottom py-2 mt-2">
+        <div className="row mx-3 border-bottom py-2 pt-3 mt-2">
           <h5>GAMEVERSE</h5>
         </div>
         <div className="row mx-3 border-bottom py-3">
@@ -19,7 +23,6 @@ const Footer = () => {
             <div>
               <p className="my-3 game">
                 <Trans i18nKey="footdesc" components={{ br: <br /> }} />
-              
               </p>
             </div>
           </div>
@@ -109,6 +112,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
+    </div>
+
     </div>
   );
 };

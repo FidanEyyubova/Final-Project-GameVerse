@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import axios from "axios";
+// import axios from "axios";
 import { MyContext } from "../context/MyProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -11,13 +11,11 @@ import "aos/dist/aos.css";
 import "../pagestyle/Discover.scss";
 import { FaHeart } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-
-const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
-const apikey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
+import { HashLoader } from "react-spinners";
+import { FaStar } from "react-icons/fa6";
 
 const Productslider_Three = () => {
-  const { game, setGame, addToWishlist, wishlist, removeFromWishlist } =
+  const { game, addToWishlist, wishlist, removeFromWishlist } =
     useContext(MyContext);
   const navigate = useNavigate();
 
@@ -26,18 +24,6 @@ const Productslider_Three = () => {
   }, []);
 
   const { t } = useTranslation();
-
-  useEffect(() => {
-    axios
-      .get(`${baseURL}?select=*`, {
-        headers: {
-          apikey,
-          Authorization: `Bearer ${apikey}`,
-        },
-      })
-      .then((res) => setGame(res.data))
-      .catch((err) => console.error("Error fetching products:", err));
-  }, []);
 
   const handleClick = (el) => {
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -117,7 +103,11 @@ const Productslider_Three = () => {
 
   return (
     <Slider {...settings} arrows>
-      {game && game.length > 0 ? (
+      {game.length === 0 ? (
+        <div className="d-flex justify-content-center align-items-center load w-100 my-5">
+          <HashLoader color="#ff4701" loading={true} size={50} />
+        </div>
+      ) : (
         game.slice(19, 27).map((el) => (
           <div
             key={el.id}
@@ -128,16 +118,22 @@ const Productslider_Three = () => {
             <div className="product-slide d-flex justify-content-center">
               <img src={el.imgProduct} alt={el.name} />
             </div>
-            <button
-              className={`heart heart-dis ${
-                wishlist.some((item) => item.id === el.id)
-                  ? "act-heart mb-2"
-                  : "heart mb-3"
-              }`}
-              onClick={() => handleClick(el)}
-            >
-              <FaHeart />
-            </button>
+            <div className="top-rate-wish">
+              <button
+                className={`heart heart-app ${
+                  wishlist.some((item) => item.id === el.id)
+                    ? "act-heart mb-2"
+                    : "heart mb-3"
+                }`}
+                onClick={() => handleClick(el)}
+              >
+                <FaHeart />
+              </button>
+              <p className="rate rate-app px-2 py-1">
+                <FaStar className="rate-star pb-1" />
+                {el.rate}
+              </p>
+            </div>
 
             <div className="body-wrap-dis px-4 body-pop">
               <p className="name">
@@ -169,8 +165,6 @@ const Productslider_Three = () => {
             </div>
           </div>
         ))
-      ) : (
-        <div className="loading">Loading products...</div>
       )}
     </Slider>
   );
