@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { FiMoon, FiSun, FiUser } from "react-icons/fi";
-import { MdLanguage, MdOutlineLanguage } from "react-icons/md";
+import { MdOutlineLanguage } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "../pagestyle/Header.scss";
 import { ThemeContext } from "../context/ThemeProvider";
-import { FaMoon, FaSun } from "react-icons/fa";
 
 const HeaderTwo = () => {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
@@ -13,7 +12,7 @@ const HeaderTwo = () => {
 
   const { isLight, setIsLight } = useContext(ThemeContext);
 
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const handleChangeLang = (lang) => {
     i18n.changeLanguage(lang);
   };

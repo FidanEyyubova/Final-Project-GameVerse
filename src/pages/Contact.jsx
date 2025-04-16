@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Trans, useTranslation } from "react-i18next";
+import "../pagestyle/Contact.scss";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const Contact = () => {
   useEffect(() => {
@@ -9,9 +11,12 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { isLight } = useContext(ThemeContext);
   const { t } = useTranslation();
 
   return (
+    <div className={isLight ? "light-app" : "dark-app"}>
+
     <div className="contact">
       <div className="container-fluid">
         <div
@@ -31,11 +36,11 @@ const Contact = () => {
               <div className="d-flex gap-4">
                 <div>
                   <h5 className="text-center pb-2">{t("email")}</h5>
-                  <p className="cc">gameverse@gmail.com</p>
+                  <p className="cc text-center">gameverse@gmail.com</p>
                 </div>
                 <div>
                   <h5 className="text-center num pb-2">{t("number")}</h5>
-                  <p className="cc">+123456789</p>
+                  <p className="cc text-center">+123456789</p>
                 </div>
               </div>
             </div>
@@ -84,7 +89,7 @@ const Contact = () => {
                     ></textarea>
                   </div>
                   <div className="d-flex justify-content-end align-items-center my-4">
-                    <button className="send">{t("sendmessage")}</button>
+                    <button className="send py-2">{t("sendmessage")}</button>
                   </div>
                 </form>
               </div>
@@ -107,6 +112,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

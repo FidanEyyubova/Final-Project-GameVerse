@@ -58,3 +58,71 @@
   .follow{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;
   }
+
+  .light-app{
+    .footer {
+      font-family: "Barlow", serif;
+      background-color: #b0afaf7d!important;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+      img {
+        width: 80px;
+      }
+      p {
+        color: rgb(0, 0, 0);
+      }
+      h5{
+        font-family: "Sigmar One", sans-serif;
+      }
+      .game {
+        font-size: 17px;
+        span {
+          font-weight: bold;
+        }
+      }
+      h5 {
+        color: rgb(0, 0, 0);
+      }
+      .menu {
+        color: rgba(0, 0, 0, 0.849);
+        text-decoration: none;
+        transition: color 0.4s ease;
+      }
+      .menu:hover {
+        color: rgb(139, 138, 138);
+      }
+      .active {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-weight: bold
+      }
+      .icon {
+        font-size: 19px;
+        color: black!important;
+        padding: 8px;
+        transition: color 0.4s ease;
+        cursor: pointer;
+      }
+      .icon:hover {
+        color: white;
+      }
+    }
+  
+    .footer-icon{
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+    }
+    .footer-icon{
+      text-decoration: none;
+      transition: color 0.4s ease;
+    }
+    .footer-icon:hover {
+      color: rgb(133, 133, 133);
+    }
+    .follow{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;
+    }
+    .nav-item{
+      color: black!important;
+    }
+  }

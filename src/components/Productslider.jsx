@@ -12,16 +12,16 @@ import "../pagestyle/Discover.scss";
 import { FaHeart } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../context/ThemeProvider";
+import { FaStar } from "react-icons/fa6";
+import { HashLoader } from "react-spinners";
+import "../pagestyle/Popularity.scss"
 
-const baseURL = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
-const apikey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
 const Productslider = () => {
-  const { game, setGame, addToWishlist, wishlist, removeFromWishlist } =
+  const { game, addToWishlist, wishlist, removeFromWishlist } =
     useContext(MyContext);
 
-    const {isLight, setIsLight} = useContext(ThemeContext)
+  const { isLight} = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const { t } = useTranslation();
@@ -30,17 +30,6 @@ const Productslider = () => {
     Aos.init({ duration: 1000 });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`${baseURL}?select=*`, {
-        headers: {
-          apikey,
-          Authorization: `Bearer ${apikey}`,
-        },
-      })
-      .then((res) => setGame(res.data))
-      .catch((err) => console.error("Error fetching products:", err));
-  }, []);
 
   const handleClick = (el) => {
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -120,51 +109,56 @@ const Productslider = () => {
 
   return (
     <Slider {...settings} arrows>
-      {game && game.length > 0 ? (
+      {game.length === 0 ? (
+        <div className="d-flex justify-content-center align-items-center load w-100 my-5">
+          <HashLoader color="#ff4701" loading={true} size={50} />
+        </div>
+      ) : (
         game.slice(3, 15).map((el) => (
           <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
-
-          <div
-            
-            className="popularity"
-            data-aos="fade-down"
-            id="popularity"
-          >
-            <div className="product-slide d-flex justify-content-center">
-              <img src={el.imgProduct} alt={el.name} />
-            </div>
-            <button
-              className={`heart ${
-                wishlist.some((item) => item.id === el.id)
-                  ? "act-heart mb-2"
-                  : "heart mb-3"
-              }`}
-              onClick={() => handleClick(el)}
-            >
-              <FaHeart />
-            </button>
-
-            <div className="body-wrap px-4 body-pop">
-              <p className="name">
-                <Link className="mo mx-lg-3 mx-md-2 mx-sm-2 mx-3" to={`/game/${el.id}`}>
-                  {el.name}
-                </Link>
-              </p>
-              <div className="end d-flex justify-content-around gap-5 mt-4">
-                <p className="mt-2 price">${el.price}</p>
+            <div className="popularity" data-aos="fade-down" id="popularity">
+              <div className="product-slide d-flex justify-content-center">
+                <img src={el.imgProduct} alt={el.name} />
+              </div>
+              <div>
                 <button
-                  className="add"
-                  onClick={() => navigate(`/game/${el.id}`)}
+                  className={`heart ${
+                    wishlist.some((item) => item.id === el.id)
+                      ? "act-heart mb-2"
+                      : "heart mb-3"
+                  }`}
+                  onClick={() => handleClick(el)}
                 >
-                  {t("buynow")}
+                  <FaHeart />
                 </button>
+                <p className="rate px-2 py-1">
+                  <FaStar className="rate-star pb-1" />
+                  {el.rate}
+                </p>
+              </div>
+
+              <div className="body-wrap px-4 body-pop">
+                <p className="name">
+                  <Link
+                    className="mo mx-lg-3 mx-md-2 mx-sm-2 mx-3"
+                    to={`/game/${el.id}`}
+                  >
+                    {el.name}
+                  </Link>
+                </p>
+                <div className="end d-flex justify-content-around gap-5 mt-4">
+                  <p className="mt-2 price">${el.price}</p>
+                  <button
+                    className="add"
+                    onClick={() => navigate(`/game/${el.id}`)}
+                  >
+                    {t("buynow")}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          </div>
         ))
-      ) : (
-        <div className="loading">Loading products...</div>
       )}
     </Slider>
   );

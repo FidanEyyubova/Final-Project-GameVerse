@@ -34,6 +34,7 @@
   "right": "All Rights Reserved © 2025 Wedesigntech Pvt Ltd",
   "buynow": "Buy now",
   "wishlistbtn": "Add to Wishlist",
+  "addbtn": "Add to Cart",
   "sorting": "Sorting",
   "Low-high": "Low-high",
   "High-low": "High-low",
@@ -63,15 +64,48 @@
   "sendmessage": "Send Message",
 
   "wihslist": "My Wishlist",
-  "woshtext": "You haven't added anything to your wishlist yet.",
+  "woshtext": "You haven't added anything <br /> to your wishlist yet.",
   "backshop": "Back to the shop",
   "motion": "You can get a 20% discount at checkout by entering the promo code GAME20!",
   "cart": "My Cart",
-  "carttext": "You haven't added anything to your cart yet.",
+  "carttext": "You haven't added anything to <br /> your cart yet.",
   "ordersummary": "Order Summary",
   "subtotal": "Subtotal",
   "total": "Total",
   "discode": "Enter discount code",
   "apply": "Apply",
-  "checkcout": "Go to Checkout"
+  "checkcout": "Go to Checkout",
+  "clearwish": "Clear Wishlist",
+  "clearcart": "Clear Cart",
+  "disapp": "Discount Applied",
+  "cardnumber": "Card Number",
+  "month": "Expiry Month",
+  "year": "Expiry Year",
+  "buy": "Buy",
+
+  "login": "Log In",
+  "yourmail": "Your email",
+  "yourpass": "Your password",
+  "password": "Password",
+  "forgot": "Forgot Password?",
+  "dontacc": "Do not have an account?",
+  "SignUp": "Sign Up",
+  "username": "Username",
+  "passlenght": "Minimum length is 8 characters.",
+  "already": "Already have an account? ",
+  "admin": "Admin Login",
+  "create": "Create account",
+
+
+  "earn": "Total XP Earned",
+  "achieve": "Achievements",
+  "platinum": "Platinum",
+  "purch": "Purchased Games",
+  "purchnon": "You haven't purchased any games yet.",
+
+  "devop": "Developer",
+  "publish": "Publisher",
+  "date": "Release Date"
+
+
 }

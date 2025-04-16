@@ -24,6 +24,8 @@ import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import { useTranslation } from "react-i18next";
 import Recommend from "./pages/Recommend";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import { ThemeContext } from "./context/ThemeProvider";
 
 function App() {
   const location = useLocation();
@@ -31,6 +33,8 @@ function App() {
   const [userRole, setUserRole] = useState(
     localStorage.getItem("userRole") || ""
   );
+  const [check, setCheck] = useState(localStorage.getItem("checkedOut") || "");
+  const { isLight } = useContext(ThemeContext);
 
   useEffect(() => {
     const storedRole = localStorage.getItem("userRole");
@@ -39,11 +43,17 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const hasCheckedOut = localStorage.getItem("checkedOut");
+    if (hasCheckedOut) {
+      setCheck(hasCheckedOut);
+    }
+  }, []);
+
   const isAdminDashboard = location.pathname === "/admin-dashboard";
 
-
   return (
-    <>
+    <div className={isLight ? "light-app" : "dark-app"}>
       {!isAdminDashboard && (
         <>
           {location.pathname !== "/" &&
@@ -64,13 +74,6 @@ function App() {
               <HomePic />
             </div>
           )}
-
-          {location.pathname === "/about" && (
-            <div className="top-section top-section-about">
-              <Header />
-              <Navbar />
-            </div>
-          )}
         </>
       )}
 
@@ -85,7 +88,11 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/recommend" element={<Recommend />} />
+
+        <Route
+          path="/recommend"
+          element={check === "true" ? <Recommend /> : <Navigate to="/" />}
+        />
 
         <Route
           path="/admin-dashboard"
@@ -105,7 +112,6 @@ function App() {
         />
         <Route path="/cart" element={<AddtoCart />} />
 
-        {/* Fixed /admin route logic */}
         <Route
           path="/admin"
           element={
@@ -121,7 +127,8 @@ function App() {
       </Routes>
 
       {!isAdminDashboard && <Footer />}
-    </>
+      <ScrollToTopButton />
+    </div>
   );
 }
 

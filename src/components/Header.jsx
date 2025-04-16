@@ -12,7 +12,7 @@ const Header = () => {
 
   const logging = localStorage.getItem("loggedInUser");
 
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const handleChangeLang = (lang) => {
     i18n.changeLanguage(lang);
   };

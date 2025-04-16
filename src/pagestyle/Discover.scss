@@ -271,9 +271,31 @@
 
 
 .light-app{
-  .discover{
-    background-color: rgb(255, 255, 255)!important;
+  .count-space {
+    background-color: #dddbdb7d!important;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+    width: 200px;
+    border-radius: 20px;
+    height: 100px;
+    color: rgb(0, 0, 0) !important;
+    span {
+      color: rgb(5, 5, 5)!important;
+    }
+    p {
+      color: #7d7d7d;
+    }
+    h3{
+      color: black;
+    }
   }
+  .count-page{
+    
+    h2{
+      color: black!important;
+    }
+  }
+ 
   .heart {
     position: absolute;
     top: 4%;
@@ -293,23 +315,18 @@
     visibility: visible;
   }
   .discover {
-    background-color: black;
-    color: rgb(255, 255, 255);
+    background-color: #f5f7fa;
+    color: rgb(0, 0, 0);
     font-family: "Poppins", sans-serif;
     .first,
     .sixth {
-      background-color: #1414147d;
+      background-color: #dddbdb7d;
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(5px);
       border-radius: 14px;
     }
-  
-  
-  
-  
-    
     span {
-      color: rgba(255, 255, 255, 0.435);
+      color: rgba(142, 141, 141, 0.435);
     }
   }
   
@@ -368,7 +385,7 @@
   
   .five {
     h2 {
-      color: white;
+      color: rgb(0, 0, 0);
       font-size: 2rem;
       font-weight: bold;
       text-align: center;
@@ -376,24 +393,25 @@
   
     .accordion {
       width: 100%;
+      color: black!important;
     }
   
     .accordion-item {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: rgba(54, 52, 52, 0.271)!important;
+      color: black!important;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       overflow: hidden;
     }
   
     .accordion-header {
       border-radius: 10px;
+      color: black!important;
     }
   
     .accordion-button {
       background: transparent;
-      color: white;
+      color: rgb(255, 255, 255);
       font-size: 16px;
       padding: 15px;
       border: none;
@@ -410,9 +428,11 @@
     }
   
     .accordion-button:not(.collapsed) {
-      color: white;
+      color:rgb(0, 0, 0)!important;
       border-bottom: 1px solid white;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255, 255, 255, 0.089)!important;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
     }
   
     /* Remove Bootstrap default caret */
@@ -428,6 +448,7 @@
       width: 30px;
       height: 30px;
       background-color: #ff4701;
+      color: white!important;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -440,16 +461,17 @@
     }
   
     .accordion-body {
-      color: white;
+      color: black!important;
       font-size: 1rem;
       line-height: 1.5;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255, 255, 255, 0.089)!important;
       border-radius: 0 0 10px 10px;
     }
   
     .accordion-item + .accordion-item {
       margin-top: 10px;
+      color: black!important;
     }
   }
   .count-space {

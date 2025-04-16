@@ -298,13 +298,67 @@
     border-bottom: 1px solid grey;
   }
 
-  .motion{
-    background-color: #ff4701;
-    font-weight: 500;
-  }
+  
   .purchased{
     img{
-      width: 160px;
       border-radius: 10px;
+      height: 200px;
     }
+  }
+
+
+  .light-app{
+    .user-dashboard{
+      background-color: #f5f7fa;
+      color: rgb(0, 0, 0);
+      .user{
+        color: white;
+        background-color: rgba(20, 20, 20, 0.36);
+        width: 150px;
+        height: 150px;
+        font-size: 40px;
+        border-radius: 50%;
+      }
+    
+      h3{
+        color: rgba(0, 0, 0, 0.723);
+      }
+      .pp{
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.36);
+      }
+      .icon-user{
+        font-size: 19px;
+        color: #ff4701;
+      }
+    }
+  
+    .row-purch{
+      border-bottom: 1px solid grey;
+    }
+  
+    
+    .purchased{
+      img{
+        border-radius: 10px;
+        height: 200px;
+      }
+    }
+    .out{
+      color: white;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.36);
+      font-size: 20px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: color 0.4s ease;
+      transition: background-color 0.4s ease ;
+  }
+  .out:hover{
+      color: #ff4701;
+      background-color: white;
+    
+  }
   }

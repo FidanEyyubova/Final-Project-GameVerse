@@ -10,6 +10,7 @@ import store from "./store/store.js";
 import "./i18next.js";
 import ThemeProvider from "./context/ThemeProvider.jsx";
 
+
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>

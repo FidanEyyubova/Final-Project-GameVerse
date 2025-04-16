@@ -6,19 +6,41 @@ import { MdDelete, MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
+import { Trans, useTranslation } from "react-i18next";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import "../pagestyle/WishAdd.scss"
+import { ThemeContext } from "../context/ThemeProvider";
 
 const AddtoCart = () => {
-  const { cart, clearCart, removeFromCart,cardNumber, setCardNumber,
-    cvv, setCvv,
-    month, setMonth,
-    year,setYear,
-    handleAdd } = useContext(MyContext);
+  const {
+    cart,
+    clearCart,
+    removeFromCart,
+    cardNumber,
+    setCardNumber,
+    cvv,
+    setCvv,
+    month,
+    setMonth,
+    year,
+    setYear,
+    handleAdd,
+  } = useContext(MyContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [discount, setDiscount] = useState("");
   const [discountAmount, setDiscountAmount] = useState(0);
   const [totalWithDiscount, setTotalWithDiscount] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const { isLight } = useContext(ThemeContext);
+
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: true });
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const newTotal = cart.reduce((sum, item) => sum + item.price, 0);
@@ -67,44 +89,28 @@ const AddtoCart = () => {
     setDiscount("");
   };
 
-  
 
   return (
-    <div className="wishlist py-5 pb-5">
-      <div className="container-fluid">
-        <div className="row motion">
-          <div className="col-12">
-            <div className="overflow-hidden">
-              <motion.div
-                animate={{ x: ["100%", "-100%"] }}
-                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-                className="text-4xl font-bold"
-              >
-                <div className="py-3">
-                  <span>
-                    You can get a 20% discount at checkout by entering the promo
-                    code "GAME20"!
-                  </span>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
+    <div className={isLight ? "light-app" : "dark-app"}>
+
+    <div className="wishlist py-5">
+      <div className="container-fluid"> 
+        
         <div className="wishlist-header">
           <div className="d-flex justify-content-between align-items-center px-5 py-4">
             <h1 className={cart.length === 0 ? "mx-auto text-center" : ""}>
-              My Cart
+              {t("cart")}
             </h1>
             {cart.length > 0 && (
               <button
-                className="clear"
+                className="clear py-1 px-1"
                 onClick={() => {
                   clearCart();
                   setDiscountAmount(0);
                   setTotalWithDiscount(null);
                 }}
               >
-                Clear Cart
+                {t("clearcart")}
               </button>
             )}
           </div>
@@ -115,13 +121,13 @@ const AddtoCart = () => {
             {cart.length === 0 ? (
               <div className="d-flex flex-column justify-content-center align-items-center gap-3">
                 <h2 className="text-center empty">
-                  You haven't added anything to <br /> your cart yet.
+                  <Trans i18nKey="carttext" components={{ br: <br /> }} />
                 </h2>
                 <button
                   className="shop animate__animated animate__tada animate__infinite	infinite animate__slower mb-4"
                   onClick={() => navigate("/game")}
                 >
-                  Back to the shop
+                  {t("backshop")}
                 </button>
               </div>
             ) : (
@@ -129,6 +135,7 @@ const AddtoCart = () => {
                 <div
                   key={el.id}
                   className="col-md-10 col-sm-12 d-flex flex-column justify-content-center align-items-center"
+                  data-aos="fade-down"
                 >
                   <div className="d-flex wishlist-detail gap-3 p-4 align-items-center mb-4">
                     <div>
@@ -136,11 +143,15 @@ const AddtoCart = () => {
                     </div>
                     <div>
                       <div className="d-flex justify-content-between">
-                        <div className="d-flex gap-3">
-                          <h4>{el.name}</h4>
-                          <p className="star-p">
-                            <GoStarFill className="star mb-lg-1" /> {el.rate}
-                          </p>
+                        <div className="d-flex gap-3 ">
+                          <h4 onClick={() => navigate(`/game/${el.id}`)}>
+                            {el.name}
+                          </h4>
+                          <div>
+                            <p className="star-b px-2">
+                              <GoStarFill className="star mb-lg-1" /> {el.rate}
+                            </p>
+                          </div>
                         </div>
                         <button
                           className="remove"
@@ -169,25 +180,24 @@ const AddtoCart = () => {
             )}
           </div>
 
-          {/* Right side: Order summary */}
           <div className="col-lg-4 d-flex justify-content-start flex-column">
             <div className="order-summary sticky-summary pt-4 px-4">
               <h4 className="pb-3">Order Summary</h4>
               <div className="d-flex justify-content-between">
-                <p>Subtotal</p>
+                <p>{t("subtotal")}</p>
                 <p>${totalPrice.toFixed(2)}</p>
               </div>
 
               {discountAmount > 0 && (
                 <div className="d-flex justify-content-between">
-                  <p>Discount Applied</p>
+                  <p>{t("disapp")}</p>
                   <p className="discount">- ${discountAmount}</p>
                 </div>
               )}
 
               <div className="d-flex justify-content-between mb-4">
                 <h5>
-                  <b>Total</b>
+                  <b>{t("total")}</b>
                 </h5>
                 <h5>
                   <b>${totalWithDiscount || totalPrice.toFixed(2)}</b>
@@ -201,13 +211,13 @@ const AddtoCart = () => {
                   </span>
                   <input
                     type="text"
-                    placeholder="Enter discount code"
+                    placeholder={t("discode")}
                     value={discount}
                     onChange={(e) => setDiscount(e.target.value)}
                   />
                 </div>
                 <button onClick={applyDiscount} className="apply">
-                  Apply
+                  {t("apply")}
                 </button>
               </div>
 
@@ -231,7 +241,7 @@ const AddtoCart = () => {
                   }
                 }}
               >
-                Go to Checkout
+                {t("checkcout")}
                 <MdKeyboardDoubleArrowRight className="icon-max mx-1" />
               </button>
             </div>
@@ -239,72 +249,96 @@ const AddtoCart = () => {
         </div>
 
         {showModal && (
-      <div className="modal-overlay">
-        <div className="modal-container">
-          <div className="modal-header">
-            <h3 className="py-3 name">Checkout</h3>
-            <button className="close-btn" onClick={() => setShowModal(false)}>
-              ✖
-            </button>
+          <div className="modal-overlay">
+            <div className="modal-container">
+              <div className="modal-header">
+                <h3 className="py-3 name">{t("checkcout")}</h3>
+                <button
+                  className="close-btn"
+                  onClick={() => setShowModal(false)}
+                >
+                  ✖
+                </button>
+              </div>
+              <div className="modal-body">
+                <form
+                  className="d-flex flex-column"
+                  onSubmit={handleAdd}
+                >
+                  <label className="modal-label">{t("cardnumber")}</label>
+                  <input
+                    type="text"
+                    className="my-2 modal-input"
+                    value={cardNumber}
+                    onChange={(e) =>
+                      setCardNumber(
+                        e.target.value.replace(/\D/g, "").slice(0, 16)
+                      )
+                    }
+                    placeholder="Enter 16-digit card number"
+                    required
+                  />
+
+                  <label className="modal-label">CVV</label>
+                  <input
+                    type="text"
+                    className="my-2 modal-input"
+                    value={cvv}
+                    onChange={(e) =>
+                      setCvv(e.target.value.replace(/\D/g, "").slice(0, 3))
+                    }
+                    placeholder="Enter 3-digit CVV"
+                    required
+                  />
+
+                  <label className="modal-label">{t("month")}</label>
+                  <input
+                    type="text"
+                    className="my-2 modal-input"
+                    value={month}
+                    onChange={(e) =>
+                      setMonth(e.target.value.replace(/\D/g, "").slice(0, 2))
+                    }
+                    placeholder="MM"
+                    required
+                  />
+
+                  <label className="modal-label">{t("year")}</label>
+                  <input
+                    type="text"
+                    className="my-2 modal-input"
+                    value={year}
+                    onChange={(e) =>
+                      setYear(e.target.value.replace(/\D/g, "").slice(0, 4))
+                    }
+                    placeholder="YYYY"
+                    required
+                  />
+                  <button type="submit" className="add mt-3">
+                    {t("buy")}
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
-          <div className="modal-body">
-            <form className="d-flex flex-column" onSubmit={handleAdd}>
-              <label className="modal-label">Card Number</label>
-              <input
-                type="text"
-                className="my-2 modal-input"
-                value={cardNumber}
-                onChange={(e) =>
-                  setCardNumber(e.target.value.replace(/\D/g, "").slice(0, 16))
-                }
-                placeholder="Enter 16-digit card number"
-                required
-              />
-
-              <label className="modal-label">CVV</label>
-              <input
-                type="text"
-                className="my-2 modal-input"
-                value={cvv}
-                onChange={(e) =>
-                  setCvv(e.target.value.replace(/\D/g, "").slice(0, 3))
-                }
-                placeholder="Enter 3-digit CVV"
-                required
-              />
-
-              <label className="modal-label">Expiry Month</label>
-              <input
-                type="text"
-                className="my-2 modal-input"
-                value={month}
-                onChange={(e) =>
-                  setMonth(e.target.value.replace(/\D/g, "").slice(0, 2))
-                }
-                placeholder="MM"
-                required
-              />
-
-              <label className="modal-label">Expiry Year</label>
-              <input
-                type="text"
-                className="my-2 modal-input"
-                value={year}
-                onChange={(e) =>
-                  setYear(e.target.value.replace(/\D/g, "").slice(0, 4))
-                }
-                placeholder="YYYY"
-                required
-              />
-              <button type="submit" className="add mt-3">
-                Add
-              </button>
-            </form>
+        )}
+        <div className="row motion mt-5">
+          <div className="col-12">
+            <div className="overflow-hidden">
+              <motion.div
+                animate={{ x: ["100%", "-100%"] }}
+                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                className="text-4xl font-bold"
+              >
+                <div className="py-3">
+                  <span>{t("motion")}</span>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
-    )}
-      </div>
+    </div>
     </div>
   );
 };

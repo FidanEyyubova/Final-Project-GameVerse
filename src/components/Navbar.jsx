@@ -2,17 +2,19 @@ import React, { useContext, useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MyContext } from "../context/MyProvider";
 import NavbarTwo from "./NavbarTwo";
 import { useTranslation } from "react-i18next";
 import "../pagestyle/Navbar.scss";
 
 const Navbar = () => {
-  const [openModal, setOpenModal] = useState(false);
   const { cart, wishlist } = useContext(MyContext);
   const [scrolling, setScrolling] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,23 +112,34 @@ const Navbar = () => {
                     <button
                       type="button"
                       className="position-relative badge-icon"
+                      onClick={() => {
+                        if (!loggedInUser) {
+                          navigate("/signin");
+                        } else {
+                          navigate("/wishlist");
+                        }
+                      }}
                     >
-                      <Link to={"/wishlist"}>
-                        <FaRegHeart className="nav-item-icon" />
-                      </Link>
+                      <FaRegHeart className="nav-item-icon" />
                       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                         {wishlist.length}
                       </span>
                     </button>
                   </li>
+
                   <li className="nav-item">
                     <button
                       type="button"
                       className="position-relative badge-icon"
+                      onClick={() => {
+                        if (!loggedInUser) {
+                          navigate("/signin");
+                        } else {
+                          navigate("/cart");
+                        }
+                      }}
                     >
-                      <Link to={"/cart"}>
-                        <FiShoppingCart className="nav-item-icon" />
-                      </Link>
+                      <FiShoppingCart className="nav-item-icon" />
                       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                         {cart.length}
                       </span>
@@ -139,7 +152,6 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Scrolling Navbar (Appears when scrolling) */}
       {scrolling && (
         <div className="fixed-top scrolling-navbar">
           <NavbarTwo />

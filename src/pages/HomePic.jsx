@@ -7,6 +7,9 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
 import "../pagestyle/HomePic.scss"
+import { HashLoader } from "react-spinners";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 const HomePic = () => {
   const { game, addToWishlist } = useContext(MyContext);
@@ -107,7 +110,9 @@ const HomePic = () => {
                     </div>
                   ))
                 ) : (
-                  <p>Loading games...</p>
+                  <div className="d-flex justify-content-center align-items-center load w-100 my-5">
+    <HashLoader color="#ff4701" loading={true} size={50} />
+  </div>
                 )}
               </div>
             </div>

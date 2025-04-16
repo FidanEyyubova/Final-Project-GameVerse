@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -7,6 +7,9 @@ import { LuCircleUserRound } from "react-icons/lu";
 import { IoIosLock } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
+import "../pagestyle/LogReg.scss";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const SignIn = ({ setUserRole }) => {
   const [error, setError] = useState("");
@@ -16,6 +19,9 @@ const SignIn = ({ setUserRole }) => {
     email: "",
     password: "",
   });
+  const { t } = useTranslation();
+
+  const { isLight } = useContext(ThemeContext);
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -62,7 +68,7 @@ const SignIn = ({ setUserRole }) => {
 
     if (foundUser) {
       localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
-      Swal .fire({
+      Swal.fire({
         icon: "success",
         title: "Welcome Back!",
         text: "You have logged in successfully!",
@@ -74,8 +80,8 @@ const SignIn = ({ setUserRole }) => {
         },
       }).then(() => {
         window.location.href = "/user-dashboard";
-      });;
-      
+      });
+
       setUserRole("user");
       localStorage.setItem("userRole", "user");
     } else {
@@ -84,6 +90,8 @@ const SignIn = ({ setUserRole }) => {
   };
 
   return (
+    <div className={isLight ? "light-app" : "dark-app"}>
+
     <div className="login-user d-flex justify-content-center align-items-center">
       <div className="container-fluid  d-flex justify-content-center align-items-center">
         <div
@@ -93,25 +101,25 @@ const SignIn = ({ setUserRole }) => {
           <div className="col-12 log-col d-flex justify-content-center align-items-center">
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 pb-4">
               <div className="header">
-                <h2 className="pt-3">Log In</h2>
+                <h2 className="pt-3">{t("login")}</h2>
               </div>
               <form
                 className="d-flex flex-column gap-4 mb-3"
                 onSubmit={handleSubmit}
               >
                 <div className="d-flex flex-column in gap-2">
-                  <label>Email address</label>
+                  <label>{t("email")}</label>
 
                   <div className="input-group flex-nowrap pass">
                     <span
-                      className="input-group-text lock-pass"
+                      className="input-group-text lock-pass lock-pass-up"
                       id="addon-wrapping"
                     >
                       <MdAlternateEmail />
                     </span>
                     <input
                       type="email"
-                      placeholder="Your email"
+                      placeholder={t("yourmail")}
                       name="email"
                       className="pass"
                       onChange={handleChange}
@@ -120,25 +128,25 @@ const SignIn = ({ setUserRole }) => {
                 </div>
                 <div className="d-flex flex-column gap-2">
                   <div className="d-flex justify-content-between">
-                    <label>Password</label>
-                    <Link className="orange">Forgot Password?</Link>
+                    <label>{t("password")}</label>
+                    <Link className="orange">{t("forgot")}</Link>
                   </div>
                   <div className="input-group flex-nowrap pass">
                     <span
-                      className="input-group-text lock-pass"
+                      className="input-group-text lock-pass lock-pass-middle"
                       id="addon-wrapping"
                     >
                       <IoIosLock />
                     </span>
                     <input
                       type={showPass ? "text" : "password"}
-                      placeholder="Your password"
+                      placeholder={t("yourpass")}
                       name="password"
                       className="pass"
                       onChange={handleChange}
                     />
                     <span
-                      className="input-group-text lock-pass right"
+                      className="input-group-text lock-pass lock-pass-down"
                       id="addon-wrapping"
                       onClick={handlePassword}
                     >
@@ -146,15 +154,15 @@ const SignIn = ({ setUserRole }) => {
                     </span>
                   </div>
                 </div>
-               
+
                 <div className="text-center">
                   <button type="submit" className="mb-3 mt-2 button-log-reg">
-                    Login
+                    {t("login")}
                   </button>
                   <p>
-                    Do not have an account?{" "}
+                    {t("dontacc")}{" "}
                     <Link className="orange" to={"/signup"}>
-                      Sign Up
+                      {t("SignUp")}
                     </Link>
                   </p>
                   <p className="error">{error}</p>
@@ -164,6 +172,7 @@ const SignIn = ({ setUserRole }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

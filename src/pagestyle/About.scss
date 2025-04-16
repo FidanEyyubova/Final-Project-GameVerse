@@ -84,3 +84,87 @@
     }
    
   }
+
+
+  .light-app{
+    .about{
+      background-color: #f5f7fa;
+    }
+    .about {
+      color: rgb(0, 0, 0);
+      
+   
+      .container-fluid {
+        .descript {
+          color: white;
+          span {
+            color: #ff4701;
+          }
+        }
+        .middle {
+          img {
+            width: 82%;
+            border-radius: 10px;
+            height: auto;
+          }
+          p {
+            color: rgba(255, 255, 255, 0.603);
+          }
+        }
+        .team {
+          color: rgb(0, 0, 0);
+          p {
+            color: rgba(255, 255, 255, 0.603);
+          }
+          h5{
+            color: white;
+          }
+          img {
+            width: 400px;
+            border-radius: 10px;
+          }
+        }
+       
+      }
+    }
+    .about{
+      .first{
+        background-color: #dddbdb7d;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+        border-radius: 14px;
+      }
+    }
+    
+    .about{
+      .first{
+        span{
+          font-size: 18px;
+          span{
+            color: #ff4701;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+   
+    .team{
+      img{
+        width: 250px!important;
+        height: 270px;
+      }
+    }
+    .team-name{
+      position: relative;
+      top: -90px;
+    }
+  
+    .down-img{
+      width: 390px!important;
+    }
+    .seventh{
+      img{
+        height: auto;
+      }
+    }
+  }

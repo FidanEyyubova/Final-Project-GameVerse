@@ -1,0 +1,193 @@
+.contact {
+    background-color: black;
+    color: white;
+    .info {
+      background-color: rgba(255, 255, 255, 0.089);
+      width: 80%;
+      border-radius: 10px;
+    }
+    h5 {
+      border-bottom: 1px solid rgba(128, 128, 128, 0.473);
+      width: 86%;
+    }
+    .num {
+      width: 100%;
+    }
+    p:nth-child(1) {
+      color: rgba(128, 128, 128, 0.747);
+    }
+    .cc {
+      font-size: 16px;
+      color: rgb(177, 176, 176);
+    }
+   
+  }
+  
+  .second-conc {
+    background-color: rgba(255, 255, 255, 0.089);
+    width: 80%;
+    border-radius: 10px;
+    position: relative;
+    left: 100px;
+    .conc-header {
+      width: 73%;
+      h2 {
+        color: #ff4701;
+      }
+    }
+    input {
+      width: 350px;
+      height: 50px;
+      border: none;
+      background-color: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  
+      outline: none;
+      font-size: 16px; /* Consistent text size */
+      line-height: 50px;
+      caret-color: #ff4701;
+      text-indent: 10px;
+      color: white;
+    }
+    textarea {
+      border: none;
+      height: 50px;
+      background-color: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  
+      outline: none;
+      font-size: 16px; /* Consistent text size */
+      line-height: 50px;
+      caret-color: #ff4701;
+      text-indent: 10px;
+      resize: vertical; /* Allows users to expand if needed */
+      overflow-y: auto;
+      color: white; /* Enables scrolling when content overflows */
+    }
+    textarea {
+      overflow: auto; /* Keeps scrolling */
+      scrollbar-width: none; /* For Firefox */
+    }
+  
+    textarea::-webkit-scrollbar {
+      display: none; /* For Chrome, Safari */
+    }
+  
+    button {
+      width: 150px;
+      height: auto;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: #ff4701;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover{
+      background-color: white;
+      color: #ff4701;
+    }
+    .input-wrapper:focus-within label {
+      color: #ff4701 !important;
+    }
+  }
+
+
+
+  .light-app{
+    .contact {
+      background-color: #f5f7fa;
+      color: white;
+      .info {
+        background-color: rgba(105, 105, 105, 0.127);
+        border-radius: 14px;
+        color: black;
+      }
+      h5 {
+        border-bottom: 1px solid rgba(128, 128, 128, 0.473);
+        width: 86%;
+      }
+      .num {
+        width: 100%;
+      }
+      p:nth-child(1) {
+        color: rgba(128, 128, 128, 0.747);
+      }
+      .cc {
+        font-size: 16px;
+        color: rgb(177, 176, 176);
+      }
+     
+    }
+    
+    .second-conc {
+      background-color: rgba(105, 105, 105, 0.127);
+      border-radius: 14px;
+      color: black;
+      position: relative;
+      left: 100px;
+      .conc-header {
+        width: 73%;
+        h2 {
+          color: #ff4701;
+        }
+      }
+      input {
+        width: 350px;
+        height: 50px;
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid black;
+    
+        outline: none;
+        font-size: 16px; /* Consistent text size */
+        line-height: 50px;
+        caret-color: #ff4701;
+        text-indent: 10px;
+        color: white;
+      }
+      textarea {
+        border: none;
+        height: 50px;
+        background-color: transparent;
+        border-bottom: 1px solid black;
+    
+        outline: none;
+        font-size: 16px; /* Consistent text size */
+        line-height: 50px;
+        caret-color: #ff4701;
+        text-indent: 10px;
+        resize: vertical; /* Allows users to expand if needed */
+        overflow-y: auto;
+        color: white; /* Enables scrolling when content overflows */
+      }
+      textarea {
+        overflow: auto; /* Keeps scrolling */
+        scrollbar-width: none; /* For Firefox */
+      }
+    
+      textarea::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari */
+      }
+    
+      button {
+        width: 150px;
+        height: auto;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: #ff4701;
+        color: white;
+        border: none;
+        border-radius: 16px;
+        transition: background-color 0.3s ease;
+      }
+      button:hover{
+        background-color: white;
+        color: #ff4701;
+      }
+      .input-wrapper:focus-within label {
+        color: #ff4701 !important;
+      }
+    }
+  }

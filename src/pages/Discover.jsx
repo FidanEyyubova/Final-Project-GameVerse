@@ -4,7 +4,6 @@ import axios from "axios";
 import { MdArrowOutward, MdKeyboardArrowRight } from "react-icons/md";
 import Productslider from "../components/Productslider";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Discountslider from "../components/Discountslider";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { GoStarFill } from "react-icons/go";
 import CountPage from "../components/CountPage";
@@ -125,9 +124,17 @@ const Discover = () => {
           </div>
           <div className="row mobile g-0 d-flex justify-content-center align-items-center">
             <div className="col-12 d-flex justify-content-center align-items-center">
+              {isLight ? (
               <div className="d-flex justify-content-center align-items-center">
-                <img src="../src/images/mobile.png" alt="" />
+                 <img src="../src/images/app-light.png" alt="" />
               </div>
+
+              ) : (
+                <div className="d-flex justify-content-center align-items-center">
+                  <img src="../src/images/mobile.png" alt="" />
+               
+              </div>
+              )}
             </div>
           </div>
           <div className="row five g-0 py-5">

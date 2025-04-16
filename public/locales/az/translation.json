@@ -34,6 +34,7 @@
   "right" : "Bütün hüquqlar qorunur © 2025 Wedesigntech Pvt Ltd",
   "buynow": "İndi al",
   "wishlistbtn" : "İstəyə əlavə edin",
+  "addbtn": "Səbətə əlavə edin",
   "sorting" : "Çeşidləmə",
   "Low-high": "Çoxdan-aza",
   "High-low": "Azdan-çoxa",
@@ -58,5 +59,53 @@
   "first": "Ad",
   "last": "Soyad",
   "message": "Mesaj",
-  "sendmessage": "Mesaj Göndər"
+  "sendmessage": "Mesaj Göndər",
+
+  "wihslist": "İstək Siyahım",
+  "woshtext": "İstək siyahınıza hələ <br /> heç nə əlavə etməmisiniz.",
+  "backshop": "Mağazaya qayıt",
+  "motion": "GAME20 promo kodunu daxil etməklə ödəniş zamanı 20% endirim əldə edə bilərsiniz!",
+  "cart": "Mənim Səbətim",
+  "carttext": "Siz hələ səbətinizə <br /> heç nə əlavə etməmisiniz.",
+  "ordersummary": "Sifariş Xülasəsi",
+  "subtotal": "Ara cəmi",
+  "total": "Cəmi",
+  "discode": "Endirim kodunu daxil edin",
+  "apply": "Təsdiq edin",
+  "checkcout": "Ödəniş bölməsinə keçin",
+  "clearwish" : "İstək siyahısını silin",
+  "clearcart": "Səbəti təmizləyin",
+  "disapp": "Endirim Tətbiq olunub",
+  "cardnumber": "Kart nömrəsi",
+  "month": "Bitmə ayı",
+  "year": "Bitmə ili",
+  "buy": "Almaq",
+
+
+  "login": "Daxil ol",
+  "yourmail": "E-poçtunuz",
+  "yourpass": "Şifrəniz",
+  "password": "Şifrə",
+  "forgot": "Şifrəni unutmusunuz?",
+  "dontacc": "Hesabınız yoxdur?",
+  "SignUp": "Qeydiyyatdan keçin",
+  "username": "İstifadəçi adı",
+  "passlenght": "Minimum uzunluq 8 simvoldur.",
+  "already": "Artıq hesabınız var? ",
+  "admin": "Admin Giriş",
+  "create": "Hesab yaradın",
+
+
+  "earn": "Qazanılan ümumi XP",
+  "achieve": "Nailiyyətlər",
+  "platinum": "Platin",
+  "purch": "Alınan Oyunlar",
+  "purchnon": "Siz hələ heç bir oyun almamısınız.",
+
+
+  "devop": "Tərtibatçı",
+  "publish": "Nəşriyyatçı",
+  "date": "Buraxılış tarixi"
+
+
 }

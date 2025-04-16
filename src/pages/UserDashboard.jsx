@@ -6,16 +6,28 @@ import "../pagestyle/AdminDashboard.scss";
 import { FaFireAlt, FaUser } from "react-icons/fa";
 import { GiStarFormation } from "react-icons/gi";
 import { PiMedal } from "react-icons/pi";
+import { Trans, useTranslation } from "react-i18next";
+import { ThemeContext } from "../context/ThemeProvider";
 
 const UserDashboard = () => {
   const navigate = useNavigate();
-  const { cart, wishlist, setCart, setWishlist, purchasedGames, setPurchasedGames } =
-    useContext(MyContext);
+  const {
+    cart,
+    wishlist,
+    setCart,
+    setWishlist,
+    purchasedGames,
+    setPurchasedGames,
+  } = useContext(MyContext);
 
-    useEffect(() => {
-      const storedPurchased = JSON.parse(localStorage.getItem("purchasedGames")) || [];
-      setPurchasedGames(storedPurchased);
-    }, []);
+  const { t } = useTranslation();
+   const { isLight } = useContext(ThemeContext);
+
+  useEffect(() => {
+    const storedPurchased =
+      JSON.parse(localStorage.getItem("purchasedGames")) || [];
+    setPurchasedGames(storedPurchased);
+  }, []);
 
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
 
@@ -37,6 +49,7 @@ const UserDashboard = () => {
   }, [cart, wishlist]);
 
   return (
+    <div className={isLight ? "light-app" : "dark-app"}>
     <div className="dashboard user-dashboard">
       <div className="container-fluid">
         <div className=" row dashboard-head d-flex justify-content-between px-3 align-items-center py-3">
@@ -66,19 +79,19 @@ const UserDashboard = () => {
                 </div>
                 <div className="d-flex gap-5">
                   <div>
-                    <p className="pp">Total XP Earned</p>
+                    <p className="pp">{t("earn")}</p>
                     <h3>
                       <GiStarFormation className="icon-user mb-1 mx-1" />0 XP
                     </h3>
                   </div>
                   <div>
-                    <p className="pp">Achievements</p>
+                    <p className="pp">{t("achieve")}</p>
                     <h3>
                       <PiMedal className="icon-user mb-1 mx-1" />0 XP
                     </h3>
                   </div>
                   <div>
-                    <p className="pp">Platinum</p>
+                    <p className="pp">{t("platinum")}</p>
                     <h3>
                       <FaFireAlt className="icon-user mb-1 mx-1" />0 XP
                     </h3>
@@ -91,13 +104,16 @@ const UserDashboard = () => {
         <div className="row mx-3 pb-4">
           <div className="col-12">
             <div>
-              <h2 className="pb-2 row-purch">Purchased Games</h2>
+              <h2 className="pb-2"><Trans i18nKey="purch" components={{ br: <br /> }} /></h2>
               {purchasedGames.length === 0 ? (
-                <p>You haven't purchased any games yet.</p>
+                <p>{t("purchnon")}</p>
               ) : (
                 <div className="row pb-5 pt-2">
                   {purchasedGames.map((game) => (
-                    <div key={game.id} className=" col-lg-2 col-md-4 col-sm-6 mb-3 purchased">
+                    <div
+                      key={game.id}
+                      className=" col-lg-2 col-md-4 col-sm-6 mb-3 purchased"
+                    >
                       <div className="game-card p-3 h-100">
                         <img
                           src={game.imgProduct}
@@ -114,6 +130,8 @@ const UserDashboard = () => {
           </div>
         </div>
       </div>
+    </div>
+
     </div>
   );
 };

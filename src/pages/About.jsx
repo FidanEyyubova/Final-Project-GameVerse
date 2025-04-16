@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Trans, useTranslation } from "react-i18next";
 import "../pagestyle/About.scss"
+import { ThemeContext } from "../context/ThemeProvider";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 const About = () => {
   useEffect(() => {
@@ -11,6 +14,7 @@ const About = () => {
   }, []);
 
   const { t } = useTranslation();
+  const {isLight} = useContext(ThemeContext)
 
   const handleclick = () => {
     Swal.fire({
@@ -22,8 +26,24 @@ const About = () => {
   };
 
   return (
+    <div className={isLight ? "light-app" : "dark-app"}>
+
     <div className="about">
-      <div className="container-fluid py-4">
+      <div className="container-fluid pb-4">
+      <div className="row pb-5">
+          <div
+            className="col-12 back-img"
+            style={{
+              backgroundImage: `url(https://cdn.wallpapersafari.com/76/63/LXlAPV.jpg)`,
+              height: "600px",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <Header />
+            <Navbar />
+          </div>
+        </div>
       <div className="row first mx-4 py-2 px-3">
           <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-start justify-content-md-start  justify-content-center align-items-center">
             <div className="d-flex flex-column justify-content-center gap-2 top-game">
@@ -142,6 +162,7 @@ const About = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

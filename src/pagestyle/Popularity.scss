@@ -1,0 +1,218 @@
+.product-slide {
+    position: relative;
+    img{
+        width: 250px!important;
+    }
+  }
+  .popularity {
+    color: white!important;
+    img {
+      width: 250px;
+      height: 300px;
+      border-radius: 10px;
+    }
+    .heart {
+      position: absolute;
+      top: 3% !important;
+      right: 12%;
+      font-size: 18px;
+      color: white;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+    }
+    .heart:hover {
+      color: #ff4701 !important;
+    }
+    .rate {
+      position: absolute;
+      top: 3% !important;
+      left: 12%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+    }
+  
+    .heart-dis {
+      position: absolute;
+      top: 5% !important;
+      right: 12%;
+      font-size: 18px;
+      color: white;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+    }
+    .add {
+      border: none;
+      background-color: #ff4701;
+      width: 100px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 400;
+      height: 40px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    .add:hover {
+      border: none;
+      background-color: white;
+      width: 100px;
+      border-radius: 20px;
+      color: #ff4701;
+      font-weight: 400;
+      height: 40px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+  .slick-prev {
+    font-size: 24px;
+    background: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -57px;
+    left: 1100px;
+  }
+  .slick-next {
+    font-size: 24px;
+    color: white;
+    background: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -57px;
+    right: 30px;
+  }
+  .product-slide {
+    position: relative;
+  }
+  .product-slide::before {
+    content: "";
+    position: absolute;
+    top: 170px;
+    width: 250px;
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.503);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  @media (max-width: 1000px) {
+    .slick-prev {
+      top: -50px;
+      left: 685px;
+    }
+    .slick-next {
+      top: -50px;
+    }
+    .product-slide::before {
+      content: "";
+      position: absolute;
+      top: 170px;
+      width: 250px;
+      height: 130px;
+      background-color: rgba(0, 0, 0, 0.503);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: 0px 0px 10px 10px;
+    }
+  }
+  
+  @media ((max-width: 768px)and (min-width:500px)) {
+    .slick-prev {
+      top: -50px;
+      left: 570px;
+    }
+    .slick-next {
+      top: -50px;
+    }
+    .product-slide::before {
+      content: "";
+      position: absolute;
+      top: 170px;
+      width: 250px;
+      height: 130px;
+      background-color: rgba(0, 0, 0, 0.503);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: 0px 0px 10px 10px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .slick-prev {
+      top: -50px;
+      left: 330px;
+    }
+    .slick-next {
+      top: -50px;
+    }
+    .product-slide::before {
+      content: "";
+      position: absolute;
+      top: 170px;
+      width: 250px;
+      height: 130px;
+      background-color: rgba(0, 0, 0, 0.503);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: 0px 0px 10px 10px;
+    }
+  }
+  
+  .popularity {
+    .heart-app {
+      position: absolute;
+      top: 16px !important;
+    }
+    .rate-app {
+      position: absolute;
+      top: 16px !important;
+    }
+    .name {
+      font-weight: 600;
+    }
+    position: relative;
+    .discount {
+      background-color: white;
+      color: #ff4701;
+      width: 50px;
+      border-radius: 10px;
+    }
+    .price {
+      font-size: 17px;
+    }
+  
+    .prevprice {
+      color: #d7d7d7;
+      font-weight: 600;
+    }
+  }
+  .product-slide:hover {
+    cursor: pointer;
+  }
+  .popularity:hover .heart {
+    opacity: 1;
+    visibility: visible;
+  }
+  .popularity:hover .rate {
+    opacity: 1;
+    visibility: visible;
+  }
+  .rate {
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0.503);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 15px;
+  }
+  .rate-star {
+    font-size: 16px;
+    color: yellow;
+  }
