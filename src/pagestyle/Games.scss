@@ -541,10 +541,13 @@ select option:hover {
 
   .light-app{
     .games{
+      .end{
+        left: 10px;
+      }
       .search-input {
         outline: none;
         border: none;
-        width: 89%;
+        width: 94%;
         height: 45px;
         border-radius: 0px 20px 20px 0px;
         background-color: rgba(96, 95, 95, 0.212)!important;
@@ -596,6 +599,9 @@ select option:hover {
 
   .light-app{
     .games{
+      .end{
+        left: 25px;
+      }
       .search-input {
         outline: none;
         border: none;

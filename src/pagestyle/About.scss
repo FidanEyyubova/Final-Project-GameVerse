@@ -155,3 +155,26 @@
       }
     }
   }
+
+
+  @media(max-width:770px){
+    
+    .down-img{
+      width: 270px!important;
+    }
+    .col-second{
+      span{
+        font-size: 15px;
+      }
+    }
+    .light-app{
+      .down-img{
+        width: 270px!important;
+      }
+      .col-second{
+        span{
+          font-size: 15px;
+        }
+      }
+    }
+  }
