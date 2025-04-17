@@ -79,42 +79,45 @@
   }
 }
 
-@media ((max-width: 768px)and (min-width:500px)) {
-  .navbar-nav {
-    background-color: black;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
-  .nav-item-name {
-    width: 75px;
-  }
-}
 
-@media (max-width: 500px) {
-  .nav-item-name {
-    width: 75px;
-  }
-}
 
 .light-app {
   .navbar-two {
     background-color: #b0afaf7d!important;
     .page {
-      color: rgba(0, 0, 0, 0.654);
+      color: rgba(255, 255, 255, 0.654);
       text-decoration: none;
       // font-weight: 500;
       transition: color 0.4s ease;
     }
     .page:hover {
-      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
     }
     .custom-navbar{
       background-color: transparent;
     }
     .active {
-      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
       text-decoration: none;
       font-weight: 500;
     }
+  }
+}
+
+
+@media(max-width:430px){
+  .navbar-nav {
+    background-color: black;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  .nav-item-name {
+    width: 80px;
+  }
+  .nav-item-icon {
+    font-size: 1.2rem;
+    color: white;
+    margin: 3px;
   }
 }

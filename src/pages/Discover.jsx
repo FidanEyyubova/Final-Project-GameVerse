@@ -67,7 +67,7 @@ const Discover = () => {
           </div>
           <div className="row g-0 third">
             <div className="col-12">
-              <h2 className="py-4 mx-5 hed-pop">
+              <h2 className="py-4 mx-5 hed-pop now">
                 {t("NowOn")} <MdKeyboardArrowRight />
               </h2>
               <div className="mx-4 py-2 hed-pop">

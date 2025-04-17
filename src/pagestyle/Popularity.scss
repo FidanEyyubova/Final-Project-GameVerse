@@ -2,6 +2,7 @@
     position: relative;
     img{
         width: 250px!important;
+        height: 300px!important;
     }
   }
   .popularity {
@@ -102,69 +103,9 @@
     -webkit-backdrop-filter: blur(5px);
     border-radius: 0px 0px 10px 10px;
   }
+
   
-  @media (max-width: 1000px) {
-    .slick-prev {
-      top: -50px;
-      left: 685px;
-    }
-    .slick-next {
-      top: -50px;
-    }
-    .product-slide::before {
-      content: "";
-      position: absolute;
-      top: 170px;
-      width: 250px;
-      height: 130px;
-      background-color: rgba(0, 0, 0, 0.503);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(5px);
-      border-radius: 0px 0px 10px 10px;
-    }
-  }
   
-  @media ((max-width: 768px)and (min-width:500px)) {
-    .slick-prev {
-      top: -50px;
-      left: 570px;
-    }
-    .slick-next {
-      top: -50px;
-    }
-    .product-slide::before {
-      content: "";
-      position: absolute;
-      top: 170px;
-      width: 250px;
-      height: 130px;
-      background-color: rgba(0, 0, 0, 0.503);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(5px);
-      border-radius: 0px 0px 10px 10px;
-    }
-  }
-  
-  @media (max-width: 500px) {
-    .slick-prev {
-      top: -50px;
-      left: 330px;
-    }
-    .slick-next {
-      top: -50px;
-    }
-    .product-slide::before {
-      content: "";
-      position: absolute;
-      top: 170px;
-      width: 250px;
-      height: 130px;
-      background-color: rgba(0, 0, 0, 0.503);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(5px);
-      border-radius: 0px 0px 10px 10px;
-    }
-  }
   
   .popularity {
     .heart-app {
@@ -215,4 +156,72 @@
   .rate-star {
     font-size: 16px;
     color: yellow;
+  }
+
+
+
+
+
+
+  @media (max-width: 430px) {
+    .slick-prev {
+      top: -50px;
+      left: 290px;
+    }
+    .slick-next {
+      top: -50px;
+      right: 5px;
+    }
+    .product-slide::before {
+      content: "";
+      position: absolute;
+      top: 170px;
+      width: 250px;
+      height: 130px;
+      background-color: rgba(0, 0, 0, 0.503);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: 0px 0px 10px 10px;
+    }
+    .name {
+      font-weight: 600;
+      position: absolute;
+      top: -50px;
+    }
+    .end{
+      position: absolute;
+    }
+    .heart-rate{
+      .heart{
+        position: absolute;
+        left: 280px!important;
+      }
+     .rate{
+      position: absolute;
+      left: 80px;
+     }
+    }
+
+    .light-app{
+      .name {
+        font-weight: 600;
+        position: absolute;
+        top: 0px;
+      }
+      .end{
+        position: absolute;
+        top: 50px;
+      }
+      .heart-rate{
+        .heart{
+          position: absolute;
+          left: 250px!important;
+        }
+       .rate{
+        position: absolute;
+        left: 80px;
+       }
+      }
+    }
+    
   }

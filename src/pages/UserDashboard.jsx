@@ -67,7 +67,7 @@ const UserDashboard = () => {
         </div>
         <div className="row py-4 mx-3">
           <div className="col-12">
-            <div className="d-flex gap-5 mb-5">
+            <div className="d-flex flex-lg-row flex-md-row  flex-sm-row flex-column gap-5 mb-5">
               <div className="user d-flex justify-content-center align-items-center">
                 <FaUser />
               </div>
@@ -108,13 +108,14 @@ const UserDashboard = () => {
               {purchasedGames.length === 0 ? (
                 <p>{t("purchnon")}</p>
               ) : (
+
                 <div className="row pb-5 pt-2">
                   {purchasedGames.map((game) => (
                     <div
                       key={game.id}
-                      className=" col-lg-2 col-md-4 col-sm-6 mb-3 purchased"
+                      className=" col-lg-2 col-md-4 col-sm-6 mb-3 purchased d-flex justify-content-center align-items-center"
                     >
-                      <div className="game-card p-3 h-100">
+                      <div className="game-card p-3 h-100 ">
                         <img
                           src={game.imgProduct}
                           alt={game.name}

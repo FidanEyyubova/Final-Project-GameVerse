@@ -97,7 +97,7 @@ const AddtoCart = () => {
       <div className="container-fluid"> 
         
         <div className="wishlist-header">
-          <div className="d-flex justify-content-between align-items-center px-5 py-4">
+          <div className="d-flex justify-content-between align-items-center px-5 py-4 gap-lg-0 gap-md-0 gap-sm-0 gap-3">
             <h1 className={cart.length === 0 ? "mx-auto text-center" : ""}>
               {t("cart")}
             </h1>
@@ -119,7 +119,7 @@ const AddtoCart = () => {
         <div className="row d-flex justify-content-center py-4">
           <div className="col-lg-7 d-flex flex-column justify-content-center align-items-center">
             {cart.length === 0 ? (
-              <div className="d-flex flex-column justify-content-center align-items-center gap-3">
+              <div className="d-flex flex-column justify-content-center align-items-center gap-3 mb-4">
                 <h2 className="text-center empty">
                   <Trans i18nKey="carttext" components={{ br: <br /> }} />
                 </h2>

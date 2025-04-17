@@ -18,7 +18,7 @@ const NavbarTwo = () => {
 
   return (
     <div
-      className={`main-navbar navbar-two py-2 sticky-top z-3 ${
+      className={`main-navbar navbar-two py-1 sticky-top z-3 ${
         isLight ? "light-app" : "dark-app"
       }`}
     >
@@ -40,7 +40,7 @@ const NavbarTwo = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarsExample03">
             <ul className="navbar-nav me-auto mb-2 mb-sm-0 gap-5">
-              <div className="d-flex gap-5 mx-3">
+              <div className="d-flex gap-lg-5 gap-md-5 gap-sm-5 gap-2 mx-3 flex-lg-row flex-md-row flex-sm-row flex-column justify-content-center align-items-start">
                 <li className="nav-item">
                   <NavLink
                     className={({ isActive }) => (isActive ? "active" : "page")}

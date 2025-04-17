@@ -92,14 +92,14 @@ const SignIn = ({ setUserRole }) => {
   return (
     <div className={isLight ? "light-app" : "dark-app"}>
 
-    <div className="login-user d-flex justify-content-center align-items-center">
+    <div className="login-user  d-flex justify-content-center align-items-center">
       <div className="container-fluid  d-flex justify-content-center align-items-center">
         <div
-          className="row middle g-0 pt-4 d-flex justify-content-center align-items-center"
+          className="row middle g-0 pt-4 pb-5 d-flex justify-content-center align-items-center "
           data-aos="fade-right"
         >
-          <div className="col-12 log-col d-flex justify-content-center align-items-center">
-            <div className="d-flex flex-column justify-content-center align-items-center gap-3 pb-4">
+          <div className="col-12 log-col  d-flex justify-content-center align-items-center">
+            <div className="d-flex flex-column justify-content-center align-items-center gap-3 pb-4 ">
               <div className="header">
                 <h2 className="pt-3">{t("login")}</h2>
               </div>
