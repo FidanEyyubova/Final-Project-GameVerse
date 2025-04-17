@@ -115,7 +115,7 @@ const Discover = () => {
           <div className="row seventh g-0">
             <div className="col-12">
               <div className="d-flex justify-content-center align-items-center mx-4">
-                <img src="../src/images/pubg.jpg" alt="" />
+                <img src="https://images2.alphacoders.com/947/947385.jpg" alt="" />
               </div>
             </div>
           </div>
