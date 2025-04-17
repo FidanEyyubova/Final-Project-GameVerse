@@ -72,19 +72,6 @@
   }
  
 
-  @media(max-width:1000px){
-    .down-img{
-      width: 300px!important;
-    }
-   
-  }
-  @media(max-width:768px){
-    .down-img{
-      width: 400px!important;
-    }
-   
-  }
-
 
   .light-app{
     .about{
@@ -165,6 +152,29 @@
     .seventh{
       img{
         height: auto;
+      }
+    }
+  }
+
+
+  @media(max-width:770px){
+    
+    .down-img{
+      width: 270px!important;
+    }
+    .col-second{
+      span{
+        font-size: 15px;
+      }
+    }
+    .light-app{
+      .down-img{
+        width: 270px!important;
+      }
+      .col-second{
+        span{
+          font-size: 15px;
+        }
       }
     }
   }

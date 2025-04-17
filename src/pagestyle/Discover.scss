@@ -204,6 +204,36 @@
   color: #7d7d7d;
   font-size: 18px;
 }
+@media (max-width: 1000px) {
+
+  .heart {
+    top: 5% !important;
+    right: 10% !important;
+  }
+ 
+}
+@media (max-width: 768px) {
+  .body-wrap {
+    top: 185px !important;
+    left: 33px;
+    width: 80% !important;
+  }
+  .heart {
+    top: 5% !important;
+    right: 18% !important;
+  }
+  .second,.third,.fourth{
+    h2{
+      font-size: 22px;
+    }
+  }
+  .body-wrap-dis {
+    top: 183px !important;
+    left: 33px;
+    width: 80% !important;
+    
+  }
+}
 
 
 
@@ -455,64 +485,188 @@
   }
 }
 
+@media (max-width: 770px) {
+  .discount{
+
+    .body-wrap {
+      top: 100px !important;
+      left: 65px!important;
+      width: 70% !important;
+    }
+    .heart {
+      top: 5% !important;
+      left: 260px!important;
+    }
+    .rate{
+      left: 70px!important;
+    }
+    .second,.third,.fourth{
+      h2{
+        font-size: 19px;
+      }
+    }
+    .body-wrap-dis {
+      top: 183px !important;
+      left: 65px;
+      width: 70% !important;
+      
+    }
+    .name{
+      top: 10px;
+      left: -13px;
+    }
+    .end{
+      top: 50px;
+      left: -20px;
+    }
+    .prevprice{
+      position: absolute;
+      top: 100px!important;
+      left: 0px;
+    }
+  }
+  .light-app{
+    .discount{
+
+      .body-wrap {
+        top: 100px !important;
+        left: 65px!important;
+        width: 70% !important;
+      }
+      .heart {
+        top: 5% !important;
+        left: 260px!important;
+      }
+      .rate{
+        left: 70px!important;
+      }
+      .second,.third,.fourth{
+        h2{
+          font-size: 19px;
+        }
+      }
+      .body-wrap-dis {
+        top: 183px !important;
+        left: 65px;
+        width: 70% !important;
+        
+      }
+      .name{
+        top: 10px;
+        left: -13px;
+      }
+      .end{
+        top: 50px;
+        left: -1px;
+      }
+      .prevprice{
+        position: absolute;
+        top: 100px!important;
+        left: 0px;
+      }
+    }
+  }
+}
+
 
 
 @media (max-width: 430px) {
-  .body-wrap {
-    top: -500px !important;
-    width: 70% !important;
+.main-slide{
+  .name{
+    top: 10px!important;
+    left: 40px;
   }
-  .heart {
-    top: 5% !important;
-    right: 25% !important;
+  .end{
+    top: 60px;
+    left: 40px;
   }
-  .second,.third,.fourth{
-    h2{
-      font-size: 19px;
-    }
+  .rate{
+    left:70px!important;
   }
-  .body-wrap-dis {
-    top: 183px !important;
-    left: 65px;
-    width: 70% !important;
-    
-  }
-  .now{
-    font-size: 16px!important;
-  }
-  .discount{
-      .heart{
-        position: absolute;
-        left: 280px!important;
-      }
-     .rate{
-      position: absolute;
-      left: 80px!important;
-     }
-     .end{
-      position: absolute;
-      top: -10px;
-     }
-     .prevprice{
-      position: absolute;
-      top: 40px;
-     }
-  }
-  .light-app{
+}
 
-  .second,.third,.fourth{
-    h2{
-      font-size: 19px;
-    }
+  .now{
+    font-size: 15px!important;
   }
-  .body-wrap-dis {
-    top: 183px !important;
-    left: 65px;
-    width: 70% !important;
+
+  .discount{
+
+    .body-wrap {
+      top: 100px !important;
+      left: 65px!important;
+      width: 70% !important;
+    }
+    .heart {
+      top: 5% !important;
+    left: 270px !important;
+    }
+    .second,.third,.fourth{
+      h2{
+        font-size: 19px;
+      }
+    }
+    .body-wrap-dis {
+      top: 183px !important;
+      left: 65px;
+      width: 70% !important;
+      
+    }
+   
+    .name{
+      top: 10px;
+      left: 10px;
+    }
+    .end{
+      top: 50px;
+      left: -5px;
+    }
+    .prevprice{
+      position: absolute;
+      top: 100px!important;
+      left: 10px;
+    }
     
   }
-  .prevprice{
-    top: 95px;
-  }
+
+  .light-app{
+    .discount{
+
+      .body-wrap {
+        top: 100px !important;
+        left: 65px!important;
+        width: 70% !important;
+      }
+      .heart {
+        top: 5% !important;
+        left: 260px!important;
+      }
+      .rate{
+        left: 70px!important;
+      }
+      .second,.third,.fourth{
+        h2{
+          font-size: 19px;
+        }
+      }
+      .body-wrap-dis {
+        top: 183px !important;
+        left: 65px;
+        width: 70% !important;
+        
+      }
+      .name{
+        top: 10px;
+        left: 10px;
+      }
+      .end{
+        top: 50px;
+        left: 10px;
+      }
+      .prevprice{
+        position: absolute;
+        top: 100px!important;
+        left: 10px;
+      }
+    }
   }
 }

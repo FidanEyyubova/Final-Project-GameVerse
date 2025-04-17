@@ -25,7 +25,7 @@ const Contact = () => {
         >
           <div className="row info d-flex justify-content-center align-items-center py-4">
             <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-center align-items-center">
-              <div className="mb-3">
+              <div className="mb-3 mx-md-4">
                 <p>{t("contactinfo")}</p>
                 <h2>
                   <Trans i18nKey="contacthead" components={{ br: <br /> }} />
@@ -33,7 +33,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-center align-items-center">
-              <div className="d-flex flex-lg-row  flex-md-row flex-sm-row flex-column gap-4">
+              <div className="d-flex flex-lg-row  flex-md-column flex-sm-row flex-column gap-4">
                 <div>
                   <h5 className="text-center pb-2">{t("email")}</h5>
                   <p className="cc text-center">gameverse@gmail.com</p>

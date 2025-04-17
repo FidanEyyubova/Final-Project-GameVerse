@@ -136,12 +136,12 @@ const Productslider_Three = () => {
             </div>
 
             <div className="body-wrap-dis px-lg-4 px-md-4 px-sm-4  body-pop">
-              <p className="name">
+              <p className="name ">
                 <Link className="mo mx-lg-3 mx-md-3 mx-sm-3" to={`/game/${el.id}`}>
                   {el.name}
                 </Link>
               </p>
-              <div className="end d-flex justify-content-around gap-lg-0 gap-md-0 gap-sm-0 gap-2 text-center">
+              <div className="end d-flex justify-content-around gap-lg-0 gap-md-2 gap-sm-2 gap-2 text-center">
                 <div>
                   <p className="mt-2 price discount">-{el.discount}%</p>
                 </div>
