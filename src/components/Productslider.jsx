@@ -116,7 +116,7 @@ const Productslider = () => {
       ) : (
         game.slice(3, 15).map((el) => (
           <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
-            <div className="popularity" data-aos="fade-down" id="popularity">
+            <div className="popularity main-slide" data-aos="fade-down" id="popularity">
               <div className="product-slide d-flex justify-content-center">
                 <img src={el.imgProduct} alt={el.name} />
               </div>
@@ -138,7 +138,7 @@ const Productslider = () => {
               </div>
 
               <div className="body-wrap px-lg-4 px-md-4 px-sm-4  body-pop">
-                <p className="name">
+                <p className="name name-pro">
                   <Link
                     className="mo mx-lg-3 mx-md-2 mx-sm-2"
                     to={`/game/${el.id}`}

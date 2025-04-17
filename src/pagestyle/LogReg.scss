@@ -402,9 +402,23 @@
 }
 
 
-
 .admin{
-  min-height: 90vh!important;
+  min-height: 70vh!important;
+}
+
+@media(max-width:770px){
+  .end{
+    position: relative;
+    top: 0px;
+    left: -10px;
+  }
+  .login-user{
+
+    .middle{
+
+      height: 450px;
+    }
+  }
 }
 
 @media(max-width:430px){

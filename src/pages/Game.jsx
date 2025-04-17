@@ -353,7 +353,7 @@ const Game = () => {
                               </Link>
                             </p>
                           </div>
-                          <div className="end d-flex justify-content-around align-items-start mt-4 gap-lg-0 gap-md-0 gap-sm-0 gap-5">
+                          <div className="end d-flex justify-content-around align-items-start mt-4 gap-lg-0 gap-md-0 gap-sm-0 gap-0 mx-lg-0 mx-md-0 mx-sm-0 mx-5 px-lg-0 px-md-0 px-sm-0 px-4">
                             <div className="d-flex gap-1">
                               {el.prevprice && (
                                 <div>

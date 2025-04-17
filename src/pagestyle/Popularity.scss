@@ -159,11 +159,80 @@
   }
 
 
+@media(max-width:770px){
+  .slick-prev {
+    top: -50px;
+    left: 630px;
+  }
+  .slick-next {
+    top: -50px;
+    right: 5px;
+  }
+  .product-slide::before {
+    content: "";
+    position: absolute;
+    top: 170px;
+    width: 250px;
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.503);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  .name {
+    font-weight: 600;
+    position: absolute;
+    top: 10px;
+  }
 
+  .main-slide{
+
+    .end{
+      position: absolute;
+      top: 30px;
+      left: 33px;
+    }
+  }
+  .heart-rate{
+    .heart{
+      position: absolute;
+      left: 260px!important;
+    }
+   .rate{
+    position: absolute;
+    left: 70px;
+   }
+  }
+
+  .light-app{
+    .name {
+      font-weight: 600;
+      position: absolute;
+      top: 0px;
+    }
+    .end{
+      position: absolute;
+      top: 50px;
+    }
+    .heart-rate{
+      .heart{
+        position: absolute;
+        left: 250px!important;
+      }
+     .rate{
+      position: absolute;
+      left: 80px;
+     }
+    }
+  }
+}
 
 
 
   @media (max-width: 430px) {
+
+    
     .slick-prev {
       top: -50px;
       left: 290px;
@@ -183,23 +252,28 @@
       -webkit-backdrop-filter: blur(5px);
       border-radius: 0px 0px 10px 10px;
     }
-    .name {
-      font-weight: 600;
-      position: absolute;
-      top: -50px;
-    }
-    .end{
-      position: absolute;
-    }
-    .heart-rate{
-      .heart{
+    .main-slide{
+      
+      .name {
+        font-weight: 600;
         position: absolute;
-        left: 280px!important;
+        top: -50px;
       }
-     .rate{
-      position: absolute;
-      left: 80px;
-     }
+      .end{
+        position: absolute;
+        top: 50px!important;
+        left: 40px;
+      }
+      .heart-rate{
+        .heart{
+          position: absolute;
+          left: 280px!important;
+        }
+       .rate{
+        position: absolute;
+        left: 80px;
+       }
+      }
     }
 
     .light-app{
