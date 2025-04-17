@@ -33,7 +33,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-center align-items-center">
-              <div className="d-flex gap-4">
+              <div className="d-flex flex-lg-row  flex-md-row flex-sm-row flex-column gap-4">
                 <div>
                   <h5 className="text-center pb-2">{t("email")}</h5>
                   <p className="cc text-center">gameverse@gmail.com</p>
@@ -46,6 +46,8 @@ const Contact = () => {
             </div>
           </div>
         </div>
+        <div className="d-flex justify-content-center">
+
         <div
           className="second-conc d-flex justify-content-center align-items-center mt-5 py-4 pt-5 mx-4"
           data-aos="fade-down"
@@ -95,6 +97,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
         <div className="row py-5 pb-5">
           <div className="col-12 p-0">

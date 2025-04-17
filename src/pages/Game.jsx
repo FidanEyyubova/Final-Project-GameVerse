@@ -325,7 +325,7 @@ const Game = () => {
                       <div className="image text-center py-2 pt-5">
                         <img src={el.imgProduct} />
                       </div>
-                      <div>
+                      <div className="heart-map">
                         <Link
                           className={`heart ${
                             wishlist.some((item) => item.id === el.id)
@@ -346,14 +346,14 @@ const Game = () => {
                           <div>
                             <p className="name">
                               <Link
-                                className="mx-lg-3 mx-md-3 mx-sm-4 px-lg-3 px-md-3 px-sm-2 mx-4 px-3 mo"
+                                className="mx-lg-3 mx-md-3 mx-sm-4 px-lg-3 px-md-3 px-sm-2  mo"
                                 to={`/game/${el.id}`}
                               >
                                 {el.name.slice(0, 17)}
                               </Link>
                             </p>
                           </div>
-                          <div className="end d-flex justify-content-around align-items-start mt-4">
+                          <div className="end d-flex justify-content-around align-items-start mt-4 gap-lg-0 gap-md-0 gap-sm-0 gap-5">
                             <div className="d-flex gap-1">
                               {el.prevprice && (
                                 <div>

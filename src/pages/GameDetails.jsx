@@ -209,7 +209,7 @@ const GameDetails = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-3 col-md-12 col-12 d-flex justify-content-center align-items-center">
+          <div className="col-lg-3 col-md-12 col-12 d-flex justify-content-center align-items-center pt-5">
             <div>
               <div className="d-flex">
                 {gameDetail.prevprice && (

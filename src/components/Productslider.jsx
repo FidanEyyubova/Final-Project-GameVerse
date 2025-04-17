@@ -120,7 +120,7 @@ const Productslider = () => {
               <div className="product-slide d-flex justify-content-center">
                 <img src={el.imgProduct} alt={el.name} />
               </div>
-              <div>
+              <div className="heart-rate">
                 <button
                   className={`heart ${
                     wishlist.some((item) => item.id === el.id)
@@ -137,16 +137,16 @@ const Productslider = () => {
                 </p>
               </div>
 
-              <div className="body-wrap px-4 body-pop">
+              <div className="body-wrap px-lg-4 px-md-4 px-sm-4  body-pop">
                 <p className="name">
                   <Link
-                    className="mo mx-lg-3 mx-md-2 mx-sm-2 mx-3"
+                    className="mo mx-lg-3 mx-md-2 mx-sm-2"
                     to={`/game/${el.id}`}
                   >
                     {el.name}
                   </Link>
                 </p>
-                <div className="end d-flex justify-content-around gap-5 mt-4">
+                <div className="end d-flex justify-content-around gap-5 mt-lg-4 mt-md-4 mt-sm-4">
                   <p className="mt-2 price">${el.price}</p>
                   <button
                     className="add"
