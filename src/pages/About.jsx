@@ -68,7 +68,7 @@ const About = () => {
             <div className="d-flex flex-column  justify-content-center align-items-center">
               <h2 className="mx-5 text-center">{t("abouthead")}</h2>
               <img
-                src="https://4kwallpapers.com/images/walls/thumbs_2t/21839.jpg"
+                src="./images/about1.png"
                 alt=""
                 className="image pt-4"
               />
@@ -80,7 +80,7 @@ const About = () => {
                 {t("aboutspan")}
               </span>
               <img
-                src="https://e0.pxfuel.com/wallpapers/700/914/desktop-wallpaper-popular-gaming-steam-games.jpg"
+                src="./images/about2.png"
                 alt=""
                 className="image-2 down-img pt-4"
               />
@@ -100,7 +100,7 @@ const About = () => {
         <div className="row seventh g-0">
           <div className="col-12">
             <div className="d-flex justify-content-center align-items-center">
-              <img src="https://wallpapers.com/images/hd/pc-gaming-setup-rgb-4k-ft1ym37yjyb7lp19.jpg" alt="" />
+              <img src="./images/ai.png" alt="" />
             </div>
           </div>
         </div>

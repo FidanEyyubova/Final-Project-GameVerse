@@ -114,7 +114,7 @@ const Productslider = () => {
           <HashLoader color="#ff4701" loading={true} size={50} />
         </div>
       ) : (
-        game.slice(3, 15).map((el) => (
+        game.slice(1, 9).map((el) => (
           <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
             <div className="popularity main-slide" data-aos="fade-down" id="popularity">
               <div className="product-slide d-flex justify-content-center">

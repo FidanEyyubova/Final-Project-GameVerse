@@ -349,11 +349,11 @@ const Game = () => {
                                 className="mx-lg-3 mx-md-3 mx-sm-4 px-lg-3 px-md-3 px-sm-2  mo"
                                 to={`/game/${el.id}`}
                               >
-                                {el.name.slice(0, 17)}
+                                {el.name}
                               </Link>
                             </p>
                           </div>
-                          <div className="end d-flex justify-content-around align-items-start mt-4 gap-lg-0 gap-md-4 gap-sm-0 gap-4 mx-lg-0 mx-md-0 mx-sm-0 mx-5 px-lg-0 px-md-0 px-sm-0 px-4">
+                          <div className="end d-flex justify-content-around align-items-start mt-4 gap-lg-4 gap-md-4 gap-sm-0 gap-4 mx-lg-0 mx-md-0 mx-sm-0 mx-5 px-lg-0 px-md-0 px-sm-0 px-4">
                             <div className="d-flex gap-1">
                               {el.prevprice && (
                                 <div>

@@ -158,7 +158,79 @@
     color: yellow;
   }
 
+ 
 
+  @media(min-width:1440px ){
+    .slick-prev {
+      top: -50px;
+      left: 1300px;
+    }
+    .slick-next {
+      top: -50px;
+      right: 5px;
+    }
+    .product-slide::before {
+      content: "";
+      position: absolute;
+      top: 170px;
+      width: 250px;
+      height: 130px;
+      background-color: rgba(0, 0, 0, 0.503);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: 0px 0px 10px 10px;
+    }
+    
+    .name {
+      font-weight: 600;
+      position: absolute;
+      top: 7px;
+      left: 45px;
+    }
+  
+    .main-slide{
+  
+      .end{
+        position: absolute;
+        top: 30px;
+        left: 60px;
+      }
+    }
+    .heart-rate{
+      .heart{
+        position: absolute;
+        left: 260px!important;
+      }
+     .rate{
+      position: absolute;
+      left: 55px;
+     }
+    }
+  
+    .light-app{
+      .name {
+        font-weight: 600;
+        position: absolute;
+        top: 0px;
+      }
+      .end{
+        position: absolute;
+        top: 30px;
+      }
+      .heart-rate{
+        .heart{
+          position: absolute;
+          left: 250px!important;
+        }
+       .rate{
+        position: absolute;
+        left: 70px;
+       }
+      }
+    }
+  }
+
+ 
 @media(max-width:770px){
   .slick-prev {
     top: -50px;

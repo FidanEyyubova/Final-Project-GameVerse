@@ -108,7 +108,7 @@ const Productslider_Three = () => {
           <HashLoader color="#ff4701" loading={true} size={50} />
         </div>
       ) : (
-        game.slice(19, 27).map((el) => (
+        game.slice(17, 25).map((el) => (
           <div
             key={el.id}
             className="popularity py-2 discount"
@@ -141,7 +141,7 @@ const Productslider_Three = () => {
                   {el.name}
                 </Link>
               </p>
-              <div className="end d-flex justify-content-around gap-lg-0 gap-md-2 gap-sm-2 gap-2 text-center">
+              <div className="end d-flex justify-content-around gap-xxl-2 gap-lg-2 gap-md-2 gap-sm-2 gap-2 text-center">
                 <div>
                   <p className="mt-2 price discount">-{el.discount}%</p>
                 </div>

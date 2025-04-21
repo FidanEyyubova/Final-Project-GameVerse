@@ -10,6 +10,7 @@ import CountPage from "../components/CountPage";
 import Productslider_Three from "../components/Productslider_Three";
 import { Trans, useTranslation } from "react-i18next";
 import { ThemeContext } from "../context/ThemeProvider";
+import Productslider_Two from "../components/Productslider_Two";
 
 const baseURL = "hhttps://qsnhkufqjyikekheefuo.supabase.co/rest/v1/games";
 const apikey =
@@ -71,7 +72,7 @@ const Discover = () => {
                 {t("NowOn")} <MdKeyboardArrowRight />
               </h2>
               <div className="mx-4 py-2 hed-pop">
-                <Productslider />
+                <Productslider_Two />
               </div>
             </div>
           </div>
@@ -115,7 +116,10 @@ const Discover = () => {
           <div className="row seventh g-0">
             <div className="col-12">
               <div className="d-flex justify-content-center align-items-center mx-4">
-                <img src="https://images2.alphacoders.com/947/947385.jpg" alt="" />
+                <img
+                  src="https://images2.alphacoders.com/947/947385.jpg"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -125,15 +129,13 @@ const Discover = () => {
           <div className="row mobile g-0 d-flex justify-content-center align-items-center">
             <div className="col-12 d-flex justify-content-center align-items-center">
               {isLight ? (
-              <div className="d-flex justify-content-center align-items-center">
-                 <img src="../src/images/app-light.png" alt="" />
-              </div>
-
+                <div className="d-flex justify-content-center align-items-center">
+                  <img src="./images/app-light.png" alt="" />
+                </div>
               ) : (
                 <div className="d-flex justify-content-center align-items-center">
-                  <img src="../src/images/mobile.png" alt="" />
-               
-              </div>
+                  <img src="./images/mobile.png " alt="" />
+                </div>
               )}
             </div>
           </div>
