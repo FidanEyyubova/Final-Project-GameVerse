@@ -50,7 +50,7 @@ const AdminPanel = ({ setUserRole }) => {
 
   return (
     <div className={isLight ? "light-app" : "dark-app"}>
-    <div className="login-user admin pt-5">
+    <div className="login-user admin pt-5 d-flex justify-content-center align-items-center">
       <div className="container-fluid d-flex justify-content-center align-items-center">
         <div
           className="row middle g-0 pt-4 d-flex justify-content-center align-items-center"

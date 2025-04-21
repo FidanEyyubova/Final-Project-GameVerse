@@ -119,17 +119,18 @@ const GameDetails = () => {
 
           {/* Top Image Grid */}
           <div className="row g-0" data-aos="zoom-in">
-            {[...Array(4)].map((_, index) => (
-              <div
-                key={index}
-                className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center"
-              >
-                <div className="square-img">
-                  <img src={gameDetail.imgDetail} alt="game detail" />
-                </div>
-              </div>
-            ))}
-          </div>
+  {gameDetail.detailPic?.map((pic, index) => (
+    <div
+      key={index}
+      className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center"
+    >
+      <div className="square-img">
+        <img src={pic} alt={`game detail ${index}`} />
+      </div>
+    </div>
+  ))}
+</div>
+
 
           {/* Game Detail Section */}
           <div
@@ -147,9 +148,7 @@ const GameDetails = () => {
                 </div>
 
                 <div>
-                  <p className="des mx-3">{gameDetail.desc?.[1]}</p>
-                  <h2 className="mt-5">{gameDetail.desc?.[2]}</h2>
-                  <p className="des">{gameDetail.desc?.[3]}</p>
+                  <p className="des mx-3">{gameDetail.desc}</p>
                 </div>
 
                 <div className="gap-md-4 d-lg-block d-md-flex mx-4">
@@ -182,7 +181,7 @@ const GameDetails = () => {
             </div>
 
             {/* Sidebar Info */}
-            <div className="col-lg-3 col-md-12 col-12 d-flex justify-content-center align-items-center pt-5">
+            <div className="col-lg-3 col-md-12 col-12 d-flex justify-content-center align-items-center pt-5 detail-right">
               <div>
                 <div className="d-flex">
                   {gameDetail.prevprice && (
@@ -235,6 +234,7 @@ const GameDetails = () => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div> 

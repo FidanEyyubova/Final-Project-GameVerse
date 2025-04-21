@@ -1,6 +1,7 @@
 .wishlist {
     background-color: black;
     color: white;
+    height: 70vh;
   
     .row-wish {
       min-height: 70vh;
@@ -157,7 +158,7 @@
         font-size: 25px !important;
       }
       input {
-        width: 200px;
+        width: 220px;
         border: none;
         outline: none;
         border-radius: 0px 10px 10px 0px;
@@ -454,7 +455,14 @@
     }
   }
 
-
+  @media(min-width:1440px){
+   .order-summary{
+    input{
+      width: 280px!important;
+    }
+   }
+  
+  }
 
 
   @media(max-width:430px){

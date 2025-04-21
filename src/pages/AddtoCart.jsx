@@ -93,7 +93,7 @@ const AddtoCart = () => {
   return (
     <div className={isLight ? "light-app" : "dark-app"}>
 
-    <div className="wishlist py-5">
+    <div className="wishlist py-5 d-flex justify-content-center align-items-center">
       <div className="container-fluid"> 
         
         <div className="wishlist-header">
@@ -160,7 +160,7 @@ const AddtoCart = () => {
                           <MdDelete className="mb-lg-2" />
                         </button>
                       </div>
-                      <p className="desc py-2">{el.desc[1].slice(0, 120)}...</p>
+                      <p className="desc py-2">{el.desc[0].slice(0, 120)}...</p>
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex gap-2 align-items-center">
                           {el.prevprice && (

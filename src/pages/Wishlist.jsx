@@ -27,9 +27,9 @@ const Wishlist = () => {
   const navigate = useNavigate();
   return (
     <div className={isLight ? "light-app" : "dark-app"}>
-    <div className="wishlist wishlist-first py-4">
+    <div className="wishlist wishlist-first py-4 d-flex justify-content-center align-items-center">
       <div className="container-fluid">
-        <div className="wishlist-header">
+        <div className="wishlist-header pt-5 mt-5">
           <div className="d-flex justify-content-between align-items-center px-5 pt-5">
             <h1 className={wishlist.length === 0 ? "mx-auto text-center" : ""}>
              {t("wihslist")}
@@ -80,7 +80,7 @@ const Wishlist = () => {
                       </button>
                     </div>
                     <div>
-                      <p className="desc py-2">{el.desc[1].slice(0, 120)}...</p>
+                      <p className="desc py-2">{el.desc[0].slice(0, 120)}...</p>
                     </div>
                    
                     <div className="d-flex justify-content-between align-items-center">

@@ -173,7 +173,7 @@ const AdminDashboard = ({ setUserRole }) => {
                 <h5 className="mt-2">$12,450 </h5>
               </div>
               <div>
-                <img src="../src/images/static1.png" alt="" />
+                <img src="./images/static1.png" alt="" />
               </div>
             </div>
           </div>
@@ -181,7 +181,7 @@ const AdminDashboard = ({ setUserRole }) => {
             <div className="d-flex justify-content-start gap-2 align-items-center mb-2 admin-first px-3 py-2">
               <div>
                 <img
-                  src="../src/images/static2.png"
+                  src="./images/static2.png"
                   alt=""
                   className="static"
                 />
@@ -196,7 +196,7 @@ const AdminDashboard = ({ setUserRole }) => {
             <div className="d-flex justify-content-start gap-2 align-items-center mb-2 admin-first px-3 py-2">
               <div>
                 <img
-                  src="../src/images/static3.png"
+                  src="./images/static3.png"
                   alt=""
                   className="static"
                 />
@@ -216,7 +216,7 @@ const AdminDashboard = ({ setUserRole }) => {
                 <h5 className="mt-2 percent">75%</h5>
               </div>
               <div>
-                <img src="../src/images/static4.png" alt="" />
+                <img src="./images/static4.png" alt="" />
               </div>
             </div>
           </div>
@@ -403,7 +403,7 @@ const AdminDashboard = ({ setUserRole }) => {
               )}
             </div>
             <div className="d-flex justify-content-between gap-2 align-items-center mb-2  px-3 py-3 admin-blog">
-              <div className="blog-map w-100 d-flex flex-wrap gap-2 d-flex justify-content-lg-start justify-content-md-start justify-content-sm-start justify-content-center">
+              <div className="blog-map w-100 d-flex flex-wrap gap-xxl-5 gap-lg-2 justify-content-xxl-center d-flex justify-content-lg-start justify-content-md-start justify-content-sm-start justify-content-center">
                 {blog && blog.length > 0 ? (
                   blog.map((el) => (
                     <div key={el.id} className="blog-container">
