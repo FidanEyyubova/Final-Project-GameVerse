@@ -27,7 +27,7 @@ const Wishlist = () => {
   const navigate = useNavigate();
   return (
     <div className={isLight ? "light-app" : "dark-app"}>
-    <div className="wishlist wishlist-first py-4 d-flex justify-content-center align-items-center">
+    <div className="wishlist wishlist-first d-flex justify-content-center align-items-center">
       <div className="container-fluid">
         <div className="wishlist-header pt-5 mt-5">
           <div className="d-flex justify-content-between align-items-center px-5 pt-5">
@@ -54,7 +54,7 @@ const Wishlist = () => {
             </button>
           </div>
         ) : (
-          <div className="row row-wish d-flex flex-wrap justify-content-center align-items-center py-4 pb-5" >
+          <div className="row row-wish d-flex flex-wrap justify-content-center align-items-center pb-5 mb-5 pt-3" >
             {wishlist.map((el, index) => (
               <div
                 key={index}

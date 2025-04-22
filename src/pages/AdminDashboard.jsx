@@ -403,7 +403,7 @@ const AdminDashboard = ({ setUserRole }) => {
               )}
             </div>
             <div className="d-flex justify-content-between gap-2 align-items-center mb-2  px-3 py-3 admin-blog">
-              <div className="blog-map w-100 d-flex flex-wrap gap-xxl-5 gap-lg-2 justify-content-xxl-center d-flex justify-content-lg-start justify-content-md-start justify-content-sm-start justify-content-center">
+              <div className="blog-map w-100 d-flex flex-wrap gap-2 justify-content-xxl-start justify-content-lg-center justify-content-md-center justify-content-sm-start justify-content-center">
                 {blog && blog.length > 0 ? (
                   blog.map((el) => (
                     <div key={el.id} className="blog-container">

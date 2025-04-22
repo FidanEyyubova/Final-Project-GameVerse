@@ -14,14 +14,13 @@ import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../context/ThemeProvider";
 import { FaStar } from "react-icons/fa6";
 import { HashLoader } from "react-spinners";
-import "../pagestyle/Popularity.scss"
-
+import "../pagestyle/Popularity.scss";
 
 const Productslider = () => {
   const { game, addToWishlist, wishlist, removeFromWishlist } =
     useContext(MyContext);
 
-  const { isLight} = useContext(ThemeContext);
+  const { isLight } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const { t } = useTranslation();
@@ -29,7 +28,6 @@ const Productslider = () => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
-
 
   const handleClick = (el) => {
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -89,8 +87,12 @@ const Productslider = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: true,
-    prevArrow: <button className="slick-prev"></button>,
-    nextArrow: <button className="slick-next"></button>,
+    prevArrow: 
+      <button className="slick-prev"></button>
+      ,
+    nextArrow:
+    <button className="slick-next"></button>
+    ,
     responsive: [
       {
         breakpoint: 1024,
@@ -108,59 +110,71 @@ const Productslider = () => {
   };
 
   return (
-    <Slider {...settings} arrows>
-      {game.length === 0 ? (
-        <div className="d-flex justify-content-center align-items-center load w-100 my-5">
-          <HashLoader color="#ff4701" loading={true} size={50} />
-        </div>
-      ) : (
-        game.slice(1, 9).map((el) => (
-          <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
-            <div className="popularity main-slide" data-aos="fade-down" id="popularity">
-              <div className="product-slide d-flex justify-content-center">
-                <img src={el.imgProduct} alt={el.name} />
-              </div>
-              <div className="heart-rate">
-                <button
-                  className={`heart ${
-                    wishlist.some((item) => item.id === el.id)
-                      ? "act-heart mb-2"
-                      : "heart mb-3"
-                  }`}
-                  onClick={() => handleClick(el)}
-                >
-                  <FaHeart />
-                </button>
-                <p className="rate px-2 py-1">
-                  <FaStar className="rate-star pb-1" />
-                  {el.rate}
-                </p>
-              </div>
+    <div className="mx-4">
+      <Slider {...settings} arrows>
+        {game.length === 0 ? (
+          <div className="d-flex justify-content-center align-items-center load w-100 my-5">
+            <HashLoader color="#ff4701" loading={true} size={50} />
+          </div>
+        ) : (
+          game.slice(1, 9).map((el) => (
+            <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
+              <div
+                className="popularity main-slide"
+                data-aos="fade-down"
+                id="popularity"
+              >
+                <div className="product-slide d-flex justify-content-center">
+                  <div className="image-container">
+                    <img src={el.imgProduct} alt={el.name} />
+                  </div>
+                  <div className="heart-rate">
+                    <div>
+                      <button
+                        className={`heart-slide-pop ${
+                          wishlist.some((item) => item.id === el.id)
+                            ? "act-heart-slide"
+                            : "heart-slide"
+                        }`}
+                        onClick={() => handleClick(el)}
+                      >
+                        <FaHeart />
+                      </button>
 
-              <div className="body-wrap px-lg-4 px-md-4 px-sm-4  body-pop">
-                <p className="name name-pro">
-                  <Link
-                    className="mo mx-lg-3 mx-md-2 mx-sm-2"
-                    to={`/game/${el.id}`}
-                  >
-                    {el.name}
-                  </Link>
-                </p>
-                <div className="end d-flex justify-content-around gap-5 mt-lg-4 mt-md-4 mt-sm-4">
-                  <p className="mt-2 price">${el.price}</p>
-                  <button
-                    className="add"
-                    onClick={() => navigate(`/game/${el.id}`)}
-                  >
-                    {t("buynow")}
-                  </button>
+                    </div>
+                    <div>
+
+                      <p className="rate-slide d-flex px-2 mt-1">
+                        <FaStar className="rate-star pt-1" />
+                        {el.rate}
+                      </p>
+                    </div>
+                    </div>
+                </div>
+                <div className="slide-text text-center">
+                  <div className="d-flex flex-column justify-content-center gap-2">
+                    <p className="name name-pro">
+                      <Link className="name-text" to={`/game/${el.id}`}>
+                        {el.name}
+                      </Link>
+                    </p>
+                    <div className="end d-flex justify-content-center gap-5">
+                      <p className="mt-2 price">${el.price}</p>
+                      <button
+                        className="add"
+                        onClick={() => navigate(`/game/${el.id}`)}
+                      >
+                        {t("buynow")}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))
-      )}
-    </Slider>
+          ))
+        )}
+      </Slider>
+    </div>
   );
 };
 

@@ -25,7 +25,7 @@ const Game = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const {isLight} = useContext(ThemeContext)
+  const { isLight } = useContext(ThemeContext);
   const {
     game,
     // setGame,
@@ -321,49 +321,39 @@ const Game = () => {
               ) : (
                 filteredGames.map((el) => (
                   <div key={el.id} className="col-md-4 col-sm-6">
-                    <div className="cont my-2 d-flex flex-column justify-content-center align-items-center">
+                    <div className="cont d-flex flex-column justify-content-center align-items-center gap-0">
                       <div className="image text-center py-2 pt-5">
                         <img src={el.imgProduct} />
                       </div>
-                      <div className="heart-map">
-                        <Link
-                          className={`heart ${
-                            wishlist.some((item) => item.id === el.id)
-                              ? "act-heart-game"
-                              : "heart-game"
-                          }`}
-                          onClick={() => handleClick(el)}
-                        >
-                          <FaHeart />
-                        </Link>
-                        <p className="rate px-2 py-1">
-                          <FaStar className="rate-star pb-1" />
-                          {el.rate}
-                        </p>
-                      </div>
-                      <div className="body body-pop">
+                      <div className="heart-rate">
                         <div>
-                          <div>
-                            <p className="name">
-                              <Link
-                                className="mx-lg-3 mx-md-3 mx-sm-4 px-lg-3 px-md-3 px-sm-2  mo"
-                                to={`/game/${el.id}`}
-                              >
-                                {el.name}
-                              </Link>
-                            </p>
-                          </div>
-                          <div className="end d-flex justify-content-around align-items-start mt-4 gap-lg-4 gap-md-4 gap-sm-0 gap-4 mx-lg-0 mx-md-0 mx-sm-0 mx-5 px-lg-0 px-md-0 px-sm-0 px-4">
-                            <div className="d-flex gap-1">
-                              {el.prevprice && (
-                                <div>
-                                  <p className="prevprice">
-                                    <del>${el.prevprice}</del>
-                                  </p>
-                                </div>
-                              )}
-                              <p className="price mt-1">${el.price}</p>
-                            </div>
+                          <button
+                            className={`heart-slide-pop ${
+                              wishlist.some((item) => item.id === el.id)
+                                ? "act-heart-slide"
+                                : "heart-slide"
+                            }`}
+                            onClick={() => handleClick(el)}
+                          >
+                            <FaHeart />
+                          </button>
+                        </div>
+                        <div>
+                          <p className="rate-slide d-flex px-2 mt-1">
+                            <FaStar className="rate-star pt-1" />
+                            {el.rate}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="slide-text text-center">
+                        <div className="d-flex flex-column justify-content-center gap-2">
+                          <p className="name name-pro">
+                            <Link className="name-text" to={`/game/${el.id}`}>
+                              {el.name}
+                            </Link>
+                          </p>
+                          <div className="end d-flex justify-content-center gap-5">
+                            <p className="mt-2 price">${el.price}</p>
                             <button
                               className="add"
                               onClick={() => navigate(`/game/${el.id}`)}

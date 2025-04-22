@@ -296,14 +296,14 @@ select option:hover {
 }
 
 
-.rate {
-  position: absolute;
-  top: 15% !important;
-  left: 10%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
-}
+// .rate {
+//   position: absolute;
+//   top: 15% !important;
+//   left: 10%;
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+// }
 .cont:hover .rate {
   opacity: 1;
   visibility: visible;
@@ -505,177 +505,57 @@ select option:hover {
 }
 
 
-@media (min-width: 1440px) {
-  .games{
+// .heart-slide {
+//   font-size: 18px;
+//   color: white;
+//   opacity: 0;
+//   visibility: visible!important;
+//   transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+//   background-color: transparent;
+//   border: none;
+// }
+// .heart-slide:hover {
+//   color: #ff4701 !important;
+// }
+// .rate-slide {
 
-    .name {
-      top: 1px;
-      left: 20px;
-    }
-    .end {
-      position: absolute;
-      top: 25px;
-      left: 50px;
-    }
-    .heart{
-      position: absolute;
-      left: 235px!important;
-    }
-    .rate{
-      position: absolute;
-      left: 40px!important;
-    }
-    .search-input {
-      outline: none;
-      border: none;
-      width: 87%;
-      height: 45px;
-      border-radius: 0px 20px 20px 0px;
-      background-color: rgba(255, 255, 255, 0.089) !important;
-      backdrop-filter: blur(2px) !important;
-      -webkit-backdrop-filter: blur(5px) !important;
-      line-height: 50px;
-      caret-color: #ff4701;
-      text-indent: 10px;
-      color: white;
-    }
-  }
-
-  .light-app{
-    .games{
-      .end{
-        left: 50px;
-      }
-      .search-input {
-        outline: none;
-        border: none;
-        width: 94%;
-        height: 45px;
-        border-radius: 0px 20px 20px 0px;
-        background-color: rgba(96, 95, 95, 0.212)!important;
-        line-height: 50px;
-        caret-color: #ff4701;
-        text-indent: 10px;
-        color: white;
-      }
-    }
-  }
-  
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+// }
+.cont:hover .heart-slide {
+  opacity: 1;
+  visibility: visible;
 }
-
-
-
-@media (max-width: 770px) {
-  .games{
-
-    .name {
-      top: 1px;
-      left: -20px;
-    }
-    .end {
-      top: 30px;
-      left: 0px;
-    }
-    .heart{
-      position: absolute;
-      left: 200px!important;
-    }
-    .rate{
-      position: absolute;
-      left: 10px!important;
-    }
-    .search-input {
-      outline: none;
-      border: none;
-      width: 94%;
-      height: 45px;
-      border-radius: 0px 20px 20px 0px;
-      background-color: rgba(255, 255, 255, 0.089) !important;
-      backdrop-filter: blur(2px) !important;
-      -webkit-backdrop-filter: blur(5px) !important;
-      line-height: 50px;
-      caret-color: #ff4701;
-      text-indent: 10px;
-      color: white;
-    }
-  }
-
-  .light-app{
-    .games{
-      .end{
-        left: 10px;
-      }
-      .search-input {
-        outline: none;
-        border: none;
-        width: 94%;
-        height: 45px;
-        border-radius: 0px 20px 20px 0px;
-        background-color: rgba(96, 95, 95, 0.212)!important;
-        line-height: 50px;
-        caret-color: #ff4701;
-        text-indent: 10px;
-        color: white;
-      }
-    }
-  }
-  
+.cont:hover .rate-slide {
+  opacity: 1;
+  visibility: visible;
 }
+// .rate-slide {
+//   font-size: 15px;
+//   background-color: rgba(0, 0, 0, 0.503);
+//   backdrop-filter: blur(2px);
+//   -webkit-backdrop-filter: blur(5px);
+//   border-radius: 15px;
+//   width: 50px;
+// }
+// .rate-star {
+//   font-size: 16px;
+//   color: yellow;
+// }
+.games{
 
-
-@media (max-width: 430px) {
-  .games{
-
-    .name {
-      top: 1px;
-      left: 100px;
-    }
-    .end {
-      top: 30px;
-      left: -3px;
-    }
-    .heart{
+  .heart-rate{
+    position: relative;
+    top: -300px;
+    left:125px;
+    .heart-slide-pop{
       position: absolute;
-      left: 280px!important;
+      right: 210px;
     }
-    .rate{
+    .rate-slide{
       position: absolute;
-      left: 100px!important;
-    }
-    .search-input {
-      outline: none;
-      border: none;
-      width: 89%;
-      height: 45px;
-      border-radius: 0px 20px 20px 0px;
-      background-color: rgba(255, 255, 255, 0.089) !important;
-      backdrop-filter: blur(2px) !important;
-      -webkit-backdrop-filter: blur(5px) !important;
-      line-height: 50px;
-      caret-color: #ff4701;
-      text-indent: 10px;
-      color: white;
+      left: -70px;
     }
   }
-
-  .light-app{
-    .games{
-      .end{
-        left: 25px;
-      }
-      .search-input {
-        outline: none;
-        border: none;
-        width: 89%;
-        height: 45px;
-        border-radius: 0px 20px 20px 0px;
-        background-color: rgba(96, 95, 95, 0.212)!important;
-        line-height: 50px;
-        caret-color: #ff4701;
-        text-indent: 10px;
-        color: white;
-      }
-    }
-  }
-  
 }
