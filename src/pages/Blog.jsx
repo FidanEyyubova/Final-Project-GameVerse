@@ -74,13 +74,13 @@ const Blog = () => {
               >
                 <div className="card d-flex justify-content-center align-items-center">
                   <img src={el.img} className="card-img-top" alt={el.title} />
-                  <div className="card-body">
+                  <div className="card-body text-xxl-center">
                     <h5 className="card-title">{el.title}</h5>
                     <p className="card-text">{el.desc.slice(0, 80)}...</p>
                     <span className="date-blog">{el.date}</span>
                   </div>
                 </div>
-                <div className="d-flex mx-lg-3 mb-4">
+                <div className="d-flex mx-lg-3 mb-4 d-flex justify-content-xxl-center">
                   <button className="buy">
                     <Link className="link-add" to={`/blogs/${el.id}`}>
                       Read more
