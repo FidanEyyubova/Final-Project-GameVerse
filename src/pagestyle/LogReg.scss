@@ -759,15 +759,10 @@
  
 // }
 
-@media(max-width:376px){
-  .login-user{
-    .pass {
-      width: 270px!important;
-    }
-  }
+@media(max-width:425px){
   .register{
     .pass {
-      width: 270px!important;
+      width: 340px!important;
     }
   }
 }
