@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { BsSearch } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MyContext } from "../context/MyProvider";
 import { useTranslation } from "react-i18next";
@@ -36,7 +37,7 @@ const NavbarTwo = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <RxHamburgerMenu className="icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarsExample03">
             <ul className="navbar-nav me-auto mb-2 mb-sm-0 gap-5">
