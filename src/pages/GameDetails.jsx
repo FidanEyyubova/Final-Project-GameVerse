@@ -118,11 +118,13 @@ const GameDetails = () => {
           </div>
 
           {/* Top Image Grid */}
-          <div className="row g-0" data-aos="zoom-in">
+          <div className="row g-0 flex-row" data-aos="zoom-in">
   {gameDetail.detailPic?.map((pic, index) => (
     <div
       key={index}
-      className="col-lg-3 col-md-6 col-12 d-flex justify-content-center align-items-center"
+      className={`col-xxl-3 col-lg-4 col-md-6 col-12 d-flex justify-content-center align-items-center ${
+        index > 2 ? 'd-none d-xxl-flex' : index > 1 ? 'd-none d-lg-flex' : index >0 ?'d-none d-md-flex' : ""
+      }`}
     >
       <div className="square-img">
         <img src={pic} alt={`game detail ${index}`} />
@@ -130,6 +132,8 @@ const GameDetails = () => {
     </div>
   ))}
 </div>
+
+
 
 
           {/* Game Detail Section */}
