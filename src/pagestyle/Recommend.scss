@@ -1,5 +1,6 @@
 .recommend {
     background-color: rgb(0, 0, 0);
+    overflow-x: hidden;
     .recommend-text {
       width: 400px;
       font-size: 18px;
@@ -369,5 +370,18 @@
         height: 38px;
         width: 20%;
       }
+    }
+  }
+
+  @media(max-width:426px){
+    .end{
+      position: relative;
+        top: -45px!important;
+        left: -128px!important;
+    }
+    .name{
+      position: relative;
+      top: -45px!important;
+      left: -128px!important;
     }
   }
