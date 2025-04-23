@@ -455,14 +455,7 @@
     }
   }
 
-  @media(min-width:1440px){
-   .order-summary{
-    input{
-      width: 280px!important;
-    }
-   }
-  
-  }
+ 
 
 
   @media(max-width:430px){
@@ -475,7 +468,7 @@
       }
       h4 {
         cursor: pointer;
-        font-size: 20px;
+        font-size: 17px;
       }
       h1 {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
@@ -486,6 +479,9 @@
         width: 100px!important;
         border-radius: 10px;
         height: 150px;
+      }
+      .price{
+        font-size: 15px!important;
       }
       .wishlist-detail {
         background-color: rgba(255, 255, 255, 0.089);
@@ -542,7 +538,7 @@
           background-color: rgba(0, 0, 0, 0.503);
           backdrop-filter: blur(2px);
           -webkit-backdrop-filter: blur(5px);
-          font-size: 18px;
+          font-size: 14px!important;
           border-radius: 20px;
           .star {
             font-size: 15px;
@@ -573,6 +569,7 @@
         .desc {
           color: #979696;
           font-weight: 500;
+          font-size: 13px;
         }
         .remove:hover {
           background-color: white;
@@ -627,7 +624,7 @@
           font-size: 25px !important;
         }
         input {
-          width: 200px;
+          width: 180px;
           border: none;
           outline: none;
           border-radius: 0px 10px 10px 0px;
@@ -694,3 +691,4 @@
     }
   
   }
+

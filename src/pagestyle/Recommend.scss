@@ -371,3 +371,16 @@
       }
     }
   }
+
+  @media(max-width:426px){
+    .end{
+      position: relative;
+        top: -45px!important;
+        left: -128px!important;
+    }
+    .name{
+      position: relative;
+      top: -45px!important;
+      left: -128px!important;
+    }
+  }

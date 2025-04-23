@@ -17,7 +17,6 @@ const Recommend = () => {
 
   useEffect(() => {
     Aos.init({ duration: 1000, once: true });
-    // window.scroll(0, 100);
   }, []);
 
   const handleClick = (el) => {
