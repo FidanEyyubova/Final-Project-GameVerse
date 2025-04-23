@@ -58,6 +58,7 @@
         font-weight: 500;
         transition: background-color 0.4s ease;
       }
+   
       .add:hover {
         background-color: white;
         color: #ff4701;
@@ -165,6 +166,9 @@
         height: 40px;
         line-height: 50px;
         caret-color: #f13d45;
+      }
+      input::placeholder{
+        font-size: 13px;
       }
       .input-group {
         border-radius: 10px !important;
@@ -624,7 +628,7 @@
           font-size: 25px !important;
         }
         input {
-          width: 180px;
+          width: 150px;
           border: none;
           outline: none;
           border-radius: 0px 10px 10px 0px;
