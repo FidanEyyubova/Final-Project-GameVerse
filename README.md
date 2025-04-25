@@ -1,8 +1,15 @@
-# React + Vite
+🕹️ GameVerse
+GameVerse is a sleek and modern e-commerce website built for gamers. It allows users to explore, purchase, and download their favorite video games all in one place. With a user-friendly interface, GameVerse makes online game shopping easy, fast, and enjoyable.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+💡 Key Features
+🛍️ Browse and buy the latest PC and console games
+🔍 Advanced search and filter for game genres and features
+❤️ Wishlist and user favorites
+📱 Fully responsive design for all devices
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠️ Built With
+React.js
+Redux Toolkit
+SCSS
+Supabase for backend
+i18next for language support
