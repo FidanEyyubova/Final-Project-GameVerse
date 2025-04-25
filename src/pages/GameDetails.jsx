@@ -119,24 +119,26 @@ const GameDetails = () => {
 
           {/* Top Image Grid */}
           <div className="row g-0 flex-row" data-aos="zoom-in">
-  {gameDetail.detailPic?.map((pic, index) => (
-    <div
-      key={index}
-      className={`col-xxl-3 col-lg-4 col-md-6 col-12 d-flex justify-content-center align-items-center ${
-        index > 2 ? 'd-none d-xxl-flex' : index > 1 ? 'd-none d-lg-flex' : index >0 ?'d-none d-md-flex' : ""
-      }`}
-    >
-      <div className="square-img">
-        <img src={pic} alt={`game detail ${index}`} />
-      </div>
-    </div>
-  ))}
-</div>
+            {gameDetail.detailPic?.map((pic, index) => (
+              <div
+                key={index}
+                className={`col-xxl-3 col-lg-4 col-md-6 col-12 d-flex justify-content-center align-items-center ${
+                  index > 2
+                    ? "d-none d-xxl-flex"
+                    : index > 1
+                    ? "d-none d-lg-flex"
+                    : index > 0
+                    ? "d-none d-md-flex"
+                    : ""
+                }`}
+              >
+                <div className="square-img">
+                  <img src={pic} alt={`game detail ${index}`} />
+                </div>
+              </div>
+            ))}
+          </div>
 
-
-
-
-          {/* Game Detail Section */}
           <div
             className="row g-0 d-flex justify-content-center align-items-center mx-3 pb-5"
             data-aos="fade-down"
@@ -157,7 +159,7 @@ const GameDetails = () => {
 
                 <div className="gap-md-4 d-lg-block d-md-flex mx-4">
                   <div>
-                    <h5 className="pb-2">
+                    <h5 className="pb-2 pt-4">
                       <b>{t("genre")}</b>
                     </h5>
                     <div className="d-flex gap-3 flex-wrap">
@@ -169,7 +171,7 @@ const GameDetails = () => {
                     </div>
                   </div>
                   <div>
-                    <h5 className="pb-2">
+                    <h5 className="pb-2 pt-4">
                       <b>{t("feature")}</b>
                     </h5>
                     <div className="d-flex gap-3 flex-wrap">
@@ -238,10 +240,9 @@ const GameDetails = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   );
 };

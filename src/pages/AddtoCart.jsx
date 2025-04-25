@@ -98,7 +98,7 @@ const AddtoCart = () => {
         
         <div className="wishlist-header">
           <div className="d-flex justify-content-between align-items-center px-5 py-4 gap-lg-0 gap-md-0 gap-sm-0 gap-3">
-            <h1 className={cart.length === 0 ? "mx-auto text-center" : ""}>
+            <h1 className={cart.length === 0 ? "mx-auto text-center" : "zero-h1"}>
               {t("cart")}
             </h1>
             {cart.length > 0 && (
@@ -147,11 +147,7 @@ const AddtoCart = () => {
                           <h4 onClick={() => navigate(`/game/${el.id}`)}>
                             {el.name}
                           </h4>
-                          <div>
-                            <p className="star-b px-2">
-                              <GoStarFill className="star mb-lg-1" /> {el.rate}
-                            </p>
-                          </div>
+                         
                         </div>
                         <button
                           className="remove"
