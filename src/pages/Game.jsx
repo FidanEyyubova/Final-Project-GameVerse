@@ -18,17 +18,15 @@ import { ThemeContext } from "../context/ThemeProvider";
 
 const Game = () => {
   useEffect(() => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     Aos.init({ duration: 1000, once: true });
   }, []);
   const { t } = useTranslation();
 
-  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { isLight } = useContext(ThemeContext);
   const {
     game,
-    // setGame,
     filteredFeature,
     setFilteredFeature,
     filteredGenre,

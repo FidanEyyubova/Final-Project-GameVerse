@@ -1,11 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { MyContext } from "../context/MyProvider";
-import { Link, useNavigate } from "react-router-dom";
-import { GoStarFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { Trans, useTranslation } from "react-i18next";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "../pagestyle/WishAdd.scss"

@@ -37,7 +37,7 @@ const NavbarTwo = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <RxHamburgerMenu className="icon" />
+            <RxHamburgerMenu className="button-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarsExample03">
             <ul className="navbar-nav me-auto mb-2 mb-sm-0 gap-5">

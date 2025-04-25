@@ -8,8 +8,6 @@ import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
 import "../pagestyle/HomePic.scss"
 import { HashLoader } from "react-spinners";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 
 const HomePic = () => {
   const { game, addToWishlist } = useContext(MyContext);

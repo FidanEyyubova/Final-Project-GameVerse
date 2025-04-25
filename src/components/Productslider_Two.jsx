@@ -107,70 +107,67 @@ const Productslider_Two = () => {
 
   return (
     <div className="mx-4">
-
-    <Slider {...settings} arrows>
-      {game.length === 0 ? (
-        <div className="d-flex justify-content-center align-items-center load w-100 my-5">
-          <HashLoader color="#ff4701" loading={true} size={50} />
-        </div>
-      ) : (
-        game.slice(9, 17).map((el) => (
-          <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
-                        <div
-                          className="popularity main-slide"
-                          data-aos="fade-down"
-                          id="popularity"
-                        >
-                          <div className="product-slide d-flex justify-content-center">
-                            <div className="image-container">
-                              <img src={el.imgProduct} alt={el.name} />
-                            </div>
-                            <div className="heart-rate">
-                              <div>
-                                <button
-                                  className={`heart-slide-pop ${
-                                    wishlist.some((item) => item.id === el.id)
-                                      ? "act-heart-slide"
-                                      : "heart-slide"
-                                  }`}
-                                  onClick={() => handleClick(el)}
-                                >
-                                  <FaHeart />
-                                </button>
-          
-                              </div>
-                              <div>
-          
-                                <p className="rate-slide d-flex px-2 mt-1">
-                                  <FaStar className="rate-star pt-1" />
-                                  {el.rate}
-                                </p>
-                              </div>
-                              </div>
-                          </div>
-                          <div className="slide-text text-center">
-                            <div className="d-flex flex-column justify-content-center gap-2">
-                              <p className="name name-pro">
-                                <Link className="name-text" to={`/game/${el.id}`}>
-                                  {el.name}
-                                </Link>
-                              </p>
-                              <div className="end d-flex justify-content-center gap-5">
-                                <p className="mt-2 price">${el.price}</p>
-                                <button
-                                  className="add"
-                                  onClick={() => navigate(`/game/${el.id}`)}
-                                >
-                                  {t("buynow")}
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-        ))
-      )}
-    </Slider>
+      <Slider {...settings} arrows>
+        {game.length === 0 ? (
+          <div className="d-flex justify-content-center align-items-center load w-100 my-5">
+            <HashLoader color="#ff4701" loading={true} size={50} />
+          </div>
+        ) : (
+          game.slice(9, 17).map((el) => (
+            <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
+              <div
+                className="popularity main-slide"
+                data-aos="fade-down"
+                id="popularity"
+              >
+                <div className="product-slide d-flex justify-content-center">
+                  <div className="image-container">
+                    <img src={el.imgProduct} alt={el.name} />
+                  </div>
+                  <div className="heart-rate">
+                    <div>
+                      <button
+                        className={`heart-slide-pop ${
+                          wishlist.some((item) => item.id === el.id)
+                            ? "act-heart-slide"
+                            : "heart-slide"
+                        }`}
+                        onClick={() => handleClick(el)}
+                      >
+                        <FaHeart />
+                      </button>
+                    </div>
+                    <div>
+                      <p className="rate-slide d-flex px-2 mt-1">
+                        <FaStar className="rate-star pt-1" />
+                        {el.rate}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="slide-text text-center">
+                  <div className="d-flex flex-column justify-content-center gap-2">
+                    <p className="name name-pro">
+                      <Link className="name-text" to={`/game/${el.id}`}>
+                        {el.name}
+                      </Link>
+                    </p>
+                    <div className="end d-flex justify-content-center gap-5">
+                      <p className="mt-2 price">${el.price}</p>
+                      <button
+                        className="add"
+                        onClick={() => navigate(`/game/${el.id}`)}
+                      >
+                        {t("buynow")}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </Slider>
     </div>
   );
 };

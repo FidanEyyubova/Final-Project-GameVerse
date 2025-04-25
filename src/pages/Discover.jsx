@@ -3,9 +3,7 @@ import { MyContext } from "../context/MyProvider";
 import axios from "axios";
 import { MdArrowOutward, MdKeyboardArrowRight } from "react-icons/md";
 import Productslider from "../components/Productslider";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { GoStarFill } from "react-icons/go";
+import { Link, useNavigate } from "react-router-dom";
 import CountPage from "../components/CountPage";
 import Productslider_Three from "../components/Productslider_Three";
 import { Trans, useTranslation } from "react-i18next";
@@ -17,8 +15,8 @@ const apikey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
 const Discover = () => {
-  const { game, setGame, addtoWishlist, addToCart } = useContext(MyContext);
-  const { isLight, setIsLight } = useContext(ThemeContext);
+  const { setGame } = useContext(MyContext);
+  const { isLight } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,7 +30,7 @@ const Discover = () => {
       .then((res) => setGame(res.data))
       .catch((err) => console.log(err));
 
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
 
   const { t } = useTranslation();

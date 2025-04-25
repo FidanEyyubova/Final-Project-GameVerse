@@ -16,15 +16,6 @@ const About = () => {
   const { t } = useTranslation();
   const {isLight} = useContext(ThemeContext)
 
-  const handleclick = () => {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Something went wrong!",
-      footer: '<a href="#">Why do I have this issue?</a>',
-    });
-  };
-
   return (
     <div className={isLight ? "light-app" : "dark-app"}>
 

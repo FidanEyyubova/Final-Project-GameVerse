@@ -5,7 +5,6 @@ const baseUrl = "https://qsnhkufqjyikekheefuo.supabase.co/rest/v1/blog";
 const apikey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzbmhrdWZxanlpa2VraGVlZnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MDM3ODUsImV4cCI6MjA1Mzk3OTc4NX0.GQfp52qKvFfupCS-NSeCJs2GipfRoAwRCEEmxHZSpU0";
 
-// CREATE BLOG
 export const createBlog = createAsyncThunk(
   "blog/createBlog",
   async ({ inputImg, inputTitle, inputDesc }, { rejectWithValue }) => {
@@ -31,7 +30,6 @@ export const createBlog = createAsyncThunk(
   }
 );
 
-// FETCH BLOGS
 export const fetchBlog = createAsyncThunk(
   "blog/fetchBlog",
   async (_, { rejectWithValue }) => {
@@ -49,7 +47,6 @@ export const fetchBlog = createAsyncThunk(
   }
 );
 
-// DELETE BLOG
 export const deleteBlog = createAsyncThunk(
   "blog/deleteBlog",
   async (id, { rejectWithValue }) => {
@@ -68,7 +65,6 @@ export const deleteBlog = createAsyncThunk(
   }
 );
 
-// UPDATE BLOG
 export const updateBlog = createAsyncThunk(
   "blog/updateBlog",
   async (updatedBlog, { rejectWithValue }) => {
@@ -104,7 +100,6 @@ const blogSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // CREATE
       .addCase(createBlog.pending, (state) => {
         state.status = "loading";
       })
@@ -117,7 +112,6 @@ const blogSlice = createSlice({
         state.error = action.payload;
       })
 
-      // FETCH
       .addCase(fetchBlog.pending, (state) => {
         state.status = "loading";
       })
@@ -130,7 +124,6 @@ const blogSlice = createSlice({
         state.error = action.payload;
       })
 
-      // DELETE
       .addCase(deleteBlog.pending, (state) => {
         state.status = "loading";
       })
@@ -143,7 +136,6 @@ const blogSlice = createSlice({
         state.error = action.payload;
       })
 
-      // UPDATE
       .addCase(updateBlog.pending, (state) => {
         state.status = "loading";
       })
