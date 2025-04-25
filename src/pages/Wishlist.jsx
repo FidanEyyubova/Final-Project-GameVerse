@@ -30,8 +30,8 @@ const Wishlist = () => {
     <div className="wishlist wishlist-first d-flex justify-content-center align-items-center">
       <div className="container-fluid">
         <div className="wishlist-header pt-5 mt-5">
-          <div className="d-flex justify-content-between align-items-center px-5 pt-5">
-            <h1 className={wishlist.length === 0 ? "mx-auto text-center" : ""}>
+          <div className="d-flex justify-content-between align-items-center px-5 pt-5 gap-4">
+            <h1 className={wishlist.length === 0 ? "mx-auto text-center " : "zero-h1"}>
              {t("wihslist")}
             </h1>
             {wishlist.length > 0 && (
@@ -68,9 +68,7 @@ const Wishlist = () => {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex gap-3">
                         <h4 onClick={() => navigate(`/game/${el.id}`)}>{el.name}</h4>
-                        <p className=" star-p px-2">
-                          <GoStarFill className="star mb-lg-1" /> {el.rate}
-                        </p>
+                        
                       </div>
                       <button
                         className="remove "

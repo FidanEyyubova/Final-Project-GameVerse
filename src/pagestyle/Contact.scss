@@ -6,6 +6,7 @@
       width: 80%;
       border-radius: 10px;
     }
+    
     h5 {
       border-bottom: 1px solid rgba(128, 128, 128, 0.473);
       width: 86%;
@@ -28,12 +29,7 @@
     width: 80%;
     border-radius: 10px;
    
-    .conc-header {
-      width: 73%;
-      h2 {
-        color: #ff4701;
-      }
-    }
+    
     input {
       width: 350px;
       height: 50px;
@@ -91,6 +87,11 @@
       color: #ff4701 !important;
     }
   }
+  .conc-header{
+    h2{
+      color: #ff4701;
+    }
+  }
 
 
 
@@ -125,12 +126,7 @@
       border-radius: 14px;
       color: black;
    
-      .conc-header {
-        width: 73%;
-        h2 {
-          color: #ff4701;
-        }
-      }
+      
       input {
         width: 350px;
         height: 50px;
@@ -190,18 +186,18 @@
     }
   }
 
+  @media(min-width:1800px){
+    input{
+      width: 600px!important;
+    }
+  }
+
   @media(max-width:770px){
     .second-conc {
       background-color: rgba(255, 255, 255, 0.089);
       width: 80%;
       border-radius: 10px;
      
-      .conc-header {
-        width: 80%;
-        h2 {
-          color: #ff4701;
-        }
-      }
       input {
         width: 220px;
         height: 50px;
@@ -265,12 +261,7 @@
         width: 80%;
         border-radius: 10px;
        
-        .conc-header {
-          width: 73%;
-          h2 {
-            color: #ff4701;
-          }
-        }
+        
         input {
           width: 120px;
           height: 50px;
@@ -338,14 +329,8 @@
       width: 80%;
       border-radius: 10px;
      
-      .conc-header {
-        width: 73%;
-        h2 {
-          color: #ff4701;
-        }
-      }
       input {
-        width: 120px;
+        width: 200px;
         height: 50px;
         border: none;
         background-color: transparent;
@@ -407,12 +392,7 @@
         width: 80%;
         border-radius: 10px;
        
-        .conc-header {
-          width: 73%;
-          h2 {
-            color: #ff4701;
-          }
-        }
+        
         input {
           width: 120px;
           height: 50px;

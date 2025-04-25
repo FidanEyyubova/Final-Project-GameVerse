@@ -53,16 +53,16 @@ const Contact = () => {
           data-aos="fade-down"
         >
           <div className="row d-flex justify-content-center align-items-center">
-            <div className="conc-header d-flex justify-content-start align-items-center">
-              <div className="d-flex flex-column justify-content-center align-items-start">
-                <h2>{t("Contact")}</h2>
-                <p>{t("concques")}</p>
+            <div className="conc-header d-flex justify-content-center align-items-center">
+              <div className="d-flex flex-column justify-content-center align-items-center">
+                <h2 className="text-center">{t("Contact")}</h2>
+                <p className="text-center">{t("concques")}</p>
               </div>
             </div>
             <div className="col-12 d-flex justify-content-center align-items-center">
               <div>
                 <form action="" className="py-3">
-                  <div className="d-flex gap-4 mb-5 mt-3">
+                  <div className="d-flex flex-lg-row flex-md-row flex-sm-row flex-column gap-4 mb-5 mt-3">
                     <div className="d-flex flex-column input-wrapper">
                       <label htmlFor="">{t("first")}</label>
                       <input type="text" />
@@ -72,7 +72,7 @@ const Contact = () => {
                       <input type="text" />
                     </div>
                   </div>
-                  <div className="d-flex gap-4 mb-5">
+                  <div className="d-flex gap-4 mb-5 flex-lg-row flex-md-row flex-sm-row flex-column">
                     <div className="d-flex flex-column input-wrapper">
                       <label htmlFor="">{t("email")}</label>
                       <input type="email" />
@@ -90,7 +90,7 @@ const Contact = () => {
                       placeholder="Write your message..."
                     ></textarea>
                   </div>
-                  <div className="d-flex justify-content-end align-items-center my-4">
+                  <div className="d-flex justify-content-lg-end justify-content-md-end justify-content-sm-end justify-content-center  align-items-center my-4">
                     <button className="send py-2">{t("sendmessage")}</button>
                   </div>
                 </form>
@@ -103,7 +103,7 @@ const Contact = () => {
           <div className="col-12 p-0">
             <div
               className="map-container"
-              style={{ width: "100%", maxWidth: "1700px" }}
+              style={{ width: "100%", }}
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12880.636965452359!2d-115.07830475045652!3d36.18700888383667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8dc928cfe64e7%3A0xa7db8399b4bb0217!2sN%20Ringe%20Ln%2C%20Sunrise%20Manor%2C%20NV%2C%20USA!5e0!3m2!1sen!2saz!4v1740653097852!5m2!1sen!2saz"
