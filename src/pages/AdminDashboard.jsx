@@ -10,14 +10,14 @@ import {
   fetchBlog,
   updateBlog,
 } from "../store/blogSlice";
-import { FaEdit, FaPen, FaPenFancy } from "react-icons/fa";
+import { FaPenFancy } from "react-icons/fa";
 import "../pagestyle/Blog.scss";
 import Swal from "sweetalert2";
 
 const AdminDashboard = ({ setUserRole }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { blog, status } = useSelector((state) => state.blog.blog);
+  const { blog } = useSelector((state) => state.blog.blog);
 
   const [edit, setEdit] = useState(null);
   const [inputImg, setInputImg] = useState("");

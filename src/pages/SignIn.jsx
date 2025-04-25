@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { LuCircleUserRound } from "react-icons/lu";
 import { IoIosLock } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 import Swal from "sweetalert2";
@@ -14,7 +13,6 @@ import { ThemeContext } from "../context/ThemeProvider";
 const SignIn = ({ setUserRole }) => {
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
-  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: "",

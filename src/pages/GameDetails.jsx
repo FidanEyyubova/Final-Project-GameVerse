@@ -26,6 +26,7 @@ const GameDetails = () => {
 
   useEffect(() => {
     Aos.init({ duration: 1000, once: true });
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {

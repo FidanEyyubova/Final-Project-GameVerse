@@ -111,68 +111,6 @@ const Productslider_Three = () => {
           </div>
         ) : (
           game.slice(17, 25).map((el) => (
-            // <div
-            //   key={el.id}
-            //   className="popularity py-2 discount"
-            //   data-aos="fade-down"
-            //   id="discount"
-            // >
-            //   <div className="product-slide d-flex justify-content-center">
-            //     <img src={el.imgProduct} alt={el.name} />
-            //   </div>
-            //   <div className="heart-rate">
-            //     <div>
-            //       <button
-            //         className={`heart-slide-pop ${
-            //           wishlist.some((item) => item.id === el.id)
-            //             ? "act-heart-slide"
-            //             : "heart-slide"
-            //         }`}
-            //         onClick={() => handleClick(el)}
-            //       >
-            //         <FaHeart />
-            //       </button>
-            //     </div>
-            //     <div>
-            //       <p className="rate-slide d-flex px-2 mt-1">
-            //         <FaStar className="rate-star pt-1" />
-            //         {el.rate}
-            //       </p>
-            //     </div>
-            //   </div>
-
-            //   <div className="body-wrap-dis px-lg-4 px-md-4 px-sm-4  body-pop">
-            // <p className="name ">
-            //   <Link
-            //     className="mo mx-lg-3 mx-md-3 mx-sm-3"
-            //     to={`/game/${el.id}`}
-            //   >
-            //     {el.name}
-            //   </Link>
-            // </p>
-            // <div className="end d-flex justify-content-around gap-xxl-2 gap-lg-2 gap-md-2 gap-sm-2 gap-2 text-center">
-            //   <div>
-            //     <p className="mt-2 price discount">-{el.discount}%</p>
-            //   </div>
-            //   <div>
-            //     <p className="mt-2 price">${el.price}</p>
-            //   </div>
-            //   <div>
-            //     <button
-            //       className="add"
-            //       onClick={() => navigate(`/game/${el.id}`)}
-            //     >
-            //       {t("buynow")}
-            //     </button>
-            //   </div>
-            // </div>
-                // <div className="mx-lg-3 mx-md-3 mx-sm-3 pb-3">
-                //   <p className="prevprice">
-                //     <del>${el.prevprice}</del>
-                //   </p>
-                // </div>
-            //   </div>
-            // </div>
             <div className={isLight ? "light-app" : "dark-app"} key={el.id}>
               <div
                 className="popularity main-slide"
