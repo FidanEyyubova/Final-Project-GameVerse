@@ -4,24 +4,24 @@ GameVerse is a sleek and modern e-commerce website built for gamers. It allows u
 
 💡 Key Features:
 
-🛍️ Browse and buy the latest PC and console games
+1.Browse and buy the latest PC and console games
 
-🔍 Advanced search and filter for game genres and features
+2.Advanced search and filter for game genres and features
 
-❤️ Wishlist and user favorites
+3.Wishlist and user favorites
 
-📱 Fully responsive design for all devices
+4.Fully responsive design for all devices
 
 
 
 🛠️ Built With:
 
-React.js
+1.React.js
 
-Redux Toolkit
+2.Redux Toolkit
 
-SCSS
+3.SCSS
 
-Supabase for backend
+4.Supabase for backend
 
-i18next for language support
+5.i18next for language support
